@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"pnpm --filter @repo/api-client exec tsc --noEmit 2>&1\",\"timeout\":60000,\"description\":\"Type-check api-client package\"}",
+  "error": "Exit code 1\nsrc/dust.ts(19,18): error TS2580: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.\nsrc/dust.ts(34,5): error TS2353: Object literal may only specify known properties, and 'next' does not exist in type 'RequestInit'.\nsrc/pollen.ts(40,18): error TS2580: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.\nsrc/pollen.ts(48,5): error TS2353: Object literal may only...",
+  "timestamp": "2026-03-26T10:42:56.062Z",
+  "retry_count": 2
+}

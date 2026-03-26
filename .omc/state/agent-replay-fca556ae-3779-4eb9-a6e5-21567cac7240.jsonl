@@ -1,0 +1,12 @@
+{"t":0,"agent":"system","event":"skill_invoked","skill_name":"office-hours"}
+{"t":0,"agent":"ad38a43","agent_type":"critic","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"ad38a43","agent_type":"critic","event":"agent_stop","success":true,"duration_ms":109428}
+{"t":0,"agent":"a11e908","agent_type":"critic","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"a11e908","agent_type":"critic","event":"agent_stop","success":true,"duration_ms":86886}
+{"t":0,"agent":"a1998a4","agent_type":"analyst","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"a1998a4","agent_type":"analyst","event":"agent_stop","success":true,"duration_ms":78595}
+{"t":0,"agent":"a1dbbd7","agent_type":"designer","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"a1dbbd7","agent_type":"designer","event":"agent_stop","success":true,"duration_ms":76906}
+{"t":0,"agent":"a551632","agent_type":"architect","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"a551632","agent_type":"architect","event":"agent_stop","success":true,"duration_ms":111245}
+{"t":0,"agent":"ae107c1","agent_type":"unknown","event":"agent_stop","success":true}
