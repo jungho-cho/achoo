@@ -1,9 +1,38 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+
+export const viewport: Viewport = {
+  themeColor: '#22c55e',
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
-  title: "Achoo — 꽃가루 · 미세먼지 예보",
-  description: "오늘 외출 전, 꽃가루와 미세먼지를 확인하세요.",
+  title: {
+    default: "Achoo — 꽃가루 · 미세먼지 예보",
+    template: "%s — Achoo",
+  },
+  description: "오늘 외출 전, 꽃가루와 미세먼지를 확인하세요. 위치 기반 실시간 예보.",
+  keywords: ["꽃가루", "미세먼지", "알레르기", "예보", "꽃가루지수", "pollen", "air quality"],
+  authors: [{ name: "Achoo" }],
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Achoo",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Achoo",
+    title: "Achoo — 꽃가루 · 미세먼지 예보",
+    description: "오늘 외출 전, 꽃가루와 미세먼지를 확인하세요.",
+    locale: "ko_KR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Achoo — 꽃가루 · 미세먼지 예보",
+    description: "오늘 외출 전, 꽃가루와 미세먼지를 확인하세요.",
+  },
 };
 
 export default function RootLayout({
@@ -20,7 +49,7 @@ export default function RootLayout({
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
         />
       </head>
-      <body style={{ fontFamily: "'Pretendard', sans-serif" }}>{children}</body>
+      <body style={{ fontFamily: "'Pretendard', sans-serif", margin: 0 }}>{children}</body>
     </html>
   );
 }
