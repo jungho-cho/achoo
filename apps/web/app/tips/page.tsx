@@ -73,30 +73,32 @@ const TIPS = [
 export default function TipsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-md mx-auto px-4 py-6 space-y-4">
+      <div className="max-w-md md:max-w-4xl mx-auto px-4 py-6 space-y-6">
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
           <a href="/" className="text-gray-400 hover:text-gray-600 text-sm">← 홈</a>
+          <h1 className="text-xl font-bold text-gray-900">알레르기 대처법</h1>
         </div>
 
-        <h1 className="text-xl font-bold text-gray-900">알레르기 대처법</h1>
-
-        {TIPS.map((section) => (
-          <div
-            key={section.level}
-            className={`rounded-2xl border p-4 ${section.bg} ${section.border}`}
-          >
-            <div className="flex items-center gap-2 mb-3">
-              <span className={`w-2.5 h-2.5 rounded-full ${section.dot}`} />
-              <span className="text-sm font-semibold text-gray-700">{section.level}</span>
+        {/* Tip sections — 1 col mobile / 3 col desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {TIPS.map((section) => (
+            <div
+              key={section.level}
+              className={`rounded-2xl border p-4 ${section.bg} ${section.border}`}
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <span className={`w-2.5 h-2.5 rounded-full ${section.dot}`} />
+                <span className="text-sm font-semibold text-gray-700">{section.level}</span>
+              </div>
+              <ul className="space-y-2">
+                {section.items.map((item) => (
+                  <li key={item} className="text-sm text-gray-600">{item}</li>
+                ))}
+              </ul>
             </div>
-            <ul className="space-y-2">
-              {section.items.map((item) => (
-                <li key={item} className="text-sm text-gray-600">{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+          ))}
+        </div>
 
         {/* Affiliate links — Coupang Partners */}
         <AffiliateLinks />

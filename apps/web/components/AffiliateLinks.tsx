@@ -44,7 +44,7 @@ export function AffiliateLinks() {
       <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
         알레르기 관련 제품
       </p>
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
         {PRODUCTS.map((p) => (
           <a
             key={p.name}
