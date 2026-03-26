@@ -7,10 +7,6 @@
   - 서비스: "에어코리아 대기오염정보 조회 서비스"
   - 발급 후 `.env.local`의 `AIRKOREA_API_KEY=` 에 입력
 
-- [ ] **구글 Maps Geocoding** (선택) — 좌표 → 도시명 변환
-  - https://console.cloud.google.com
-  - "Geocoding API" 활성화, `.env.local`의 `GOOGLE_MAPS_API_KEY=` 에 입력
-
 ## 배포
 
 - [ ] **Vercel 배포**
@@ -22,11 +18,29 @@
   - Free tier: 10,000 req/day
   - `.env.local`에 URL + TOKEN 입력
 
+## 분석
+
+- [ ] **Google Analytics 4 연결**
+  - GA4 속성 생성 → 측정 ID (`G-XXXXXXXXXX`) 발급
+  - `apps/web/app/layout.tsx`에 `<Script>` 태그로 추가
+  - 또는 `@next/third-parties/google` 패키지 사용 (`pnpm add @next/third-parties`)
+
 ## 광고
 
 - [ ] **Google AdSense 신청** — 웹 배너 광고
-  - 최소 콘텐츠 + 실제 트래픽 확보 후 신청
-  - 승인까지 3~6개월 예상
+  - 실제 트래픽 확보 후 신청 (승인까지 3~6개월)
+  - 승인 후 `apps/web/components/AdBanner.tsx`의 placeholder를 실제 AdSense 코드로 교체
 
-- [ ] **Google AdMob 앱 등록** — 모바일 앱 광고
-  - 앱스토어 등록 후 진행
+- [ ] **Google AdMob 등록** — Flutter 앱 광고
+  - 앱스토어 등록 후 AdMob 앱 ID 발급
+  - Flutter 앱에 `google_mobile_ads` 패키지 연동
+
+## Flutter 앱
+
+- [ ] **Flutter 프로젝트 생성** (`apps/flutter/`)
+  - Flutter 앱은 웹 API를 그대로 소비: `GET /api/pollen`, `GET /api/dust`
+  - Vercel 배포 URL을 base URL로 설정
+  - `http` 또는 `dio` 패키지로 API 호출
+  - 웹과 동일한 색상 코드 시스템 구현 (🟢🟡🟠🔴)
+
+- [ ] **앱스토어 / 플레이스토어 등록**

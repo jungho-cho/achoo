@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { AffiliateLinks } from '../../components/AffiliateLinks';
 
 export const metadata: Metadata = {
   title: '알레르기 대처법 — Achoo',
@@ -96,6 +97,9 @@ export default function TipsPage() {
             </ul>
           </div>
         ))}
+
+        {/* Affiliate links — Coupang Partners */}
+        <AffiliateLinks />
 
         {/* Interstitial ad placeholder */}
         <div className="h-20 rounded-xl bg-gray-100 flex items-center justify-center">

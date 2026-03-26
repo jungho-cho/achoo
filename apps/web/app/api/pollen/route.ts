@@ -2,11 +2,26 @@ import { fetchPollenOpenMeteo } from '@repo/api-client';
 import { NextRequest, NextResponse } from 'next/server';
 import { cacheGet, cacheSet } from '../../../lib/cache';
 import { withCircuitBreaker } from '../../../lib/circuit-breaker';
+import { checkRateLimit, getClientIp } from '../../../lib/rate-limit';
 
 export const runtime = 'nodejs';
 
 // GET /api/pollen?lat=37.5665&lng=126.9780
 export async function GET(req: NextRequest) {
+  const { allowed, remaining, resetAt } = await checkRateLimit(getClientIp(req));
+  if (!allowed) {
+    return NextResponse.json(
+      { error: '요청이 너무 많습니다. 잠시 후 다시 시도하세요.' },
+      {
+        status: 429,
+        headers: {
+          'Retry-After': String(Math.ceil((resetAt - Date.now()) / 1000)),
+          'X-RateLimit-Remaining': '0',
+        },
+      },
+    );
+  }
+
   const { searchParams } = req.nextUrl;
   const lat = parseFloat(searchParams.get('lat') ?? '37.5665');
   const lng = parseFloat(searchParams.get('lng') ?? '126.9780');
