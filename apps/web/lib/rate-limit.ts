@@ -9,21 +9,21 @@ export interface RateLimitResult {
   resetAt: number; // unix ms
 }
 
+import { getRedis } from './redis';
+
 export async function checkRateLimit(ip: string): Promise<RateLimitResult> {
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  const redis = getRedis();
 
   // No Redis configured → allow all (dev / local)
-  if (!url || !token) {
+  if (!redis) {
     return { allowed: true, remaining: 10, resetAt: Date.now() + 60000 };
   }
 
   try {
     const { Ratelimit } = await import('@upstash/ratelimit');
-    const { Redis } = await import('@upstash/redis');
 
     const ratelimit = new Ratelimit({
-      redis: new Redis({ url, token }),
+      redis,
       limiter: Ratelimit.slidingWindow(10, '1 m'),
       analytics: false,
     });

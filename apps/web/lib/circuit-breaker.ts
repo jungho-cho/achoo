@@ -6,26 +6,16 @@
 const FAILURE_THRESHOLD = 3;
 const OPEN_TTL_SEC = 5 * 60; // 5 minutes
 
-const inMemoryCircuits: Map<string, { failures: number; openUntil: number }> = new Map();
+import { getRedis } from './redis';
 
-async function getRedis() {
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
-  if (!url || !token) return null;
-  try {
-    const { Redis } = await import('@upstash/redis');
-    return new Redis({ url, token });
-  } catch {
-    return null;
-  }
-}
+const inMemoryCircuits: Map<string, { failures: number; openUntil: number }> = new Map();
 
 export async function withCircuitBreaker<T>(
   key: string,
   fn: () => Promise<T>,
   fallback: () => T | null,
 ): Promise<T | null> {
-  const redis = await getRedis();
+  const redis = getRedis();
 
   if (redis) {
     const status = await redis.get<string>(`circuit:${key}:status`);

@@ -72,6 +72,10 @@ export async function fetchPollenOpenMeteo(lat: number, lng: number): Promise<Po
 
   const json = (await res.json()) as OpenMeteoResponse;
 
+  if (!json.hourly?.time?.length) {
+    throw new Error('Open-Meteo API returned empty hourly data');
+  }
+
   const totalDays = Math.floor(json.hourly.time.length / 24);
   const current = aggregateDay(json.hourly, 0);
   const forecast = Array.from({ length: Math.min(totalDays - 1, 6) }, (_, i) =>

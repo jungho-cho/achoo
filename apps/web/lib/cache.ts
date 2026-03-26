@@ -33,19 +33,12 @@ function l1Set<T>(key: string, value: T, ttlMs: number): void {
 
 // ─── L2: Upstash Redis ────────────────────────────────────────────────────
 
-function getRedis() {
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
-  if (!url || !token) return null;
-  return { url, token };
-}
+import { getRedis } from './redis';
 
 async function redisGet<T>(key: string): Promise<T | null> {
-  const config = getRedis();
-  if (!config) return null;
+  const redis = getRedis();
+  if (!redis) return null;
   try {
-    const { Redis } = await import('@upstash/redis');
-    const redis = new Redis(config);
     return await redis.get<T>(key);
   } catch {
     return null;
@@ -53,11 +46,9 @@ async function redisGet<T>(key: string): Promise<T | null> {
 }
 
 async function redisSet<T>(key: string, value: T, ttlSec: number): Promise<void> {
-  const config = getRedis();
-  if (!config) return;
+  const redis = getRedis();
+  if (!redis) return;
   try {
-    const { Redis } = await import('@upstash/redis');
-    const redis = new Redis(config);
     await redis.set(key, value, { ex: ttlSec });
   } catch {
     // Non-fatal — L1 still serves
