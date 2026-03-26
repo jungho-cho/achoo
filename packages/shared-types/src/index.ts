@@ -26,7 +26,7 @@ export interface PollenResponse {
   sido: string;
   lat: number;
   lng: number;
-  source: 'kma' | 'ambee';
+  source: 'kma' | 'ambee' | 'open-meteo';
   current: PollenForecastDay;
   forecast: PollenForecastDay[]; // up to 7 days
   cachedAt: string; // ISO timestamp

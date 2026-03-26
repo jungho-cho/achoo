@@ -1,2 +1,2 @@
-export * from './pollen.js';
-export * from './dust.js';
+export * from './pollen';
+export * from './dust';

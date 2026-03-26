@@ -1,4 +1,4 @@
-import { fetchPollenAmbee } from '@repo/api-client';
+import { fetchPollenOpenMeteo } from '@repo/api-client';
 import { NextRequest, NextResponse } from 'next/server';
 import { cacheGet, cacheSet } from '../../../lib/cache';
 import { withCircuitBreaker } from '../../../lib/circuit-breaker';
@@ -17,7 +17,6 @@ export async function GET(req: NextRequest) {
 
   const cacheKey = `pollen:${lat.toFixed(2)}:${lng.toFixed(2)}`;
 
-  // L1+L2 cache check
   const cached = await cacheGet(cacheKey);
   if (cached) {
     return NextResponse.json(cached, {
@@ -27,8 +26,8 @@ export async function GET(req: NextRequest) {
 
   try {
     const data = await withCircuitBreaker(
-      'ambee',
-      () => fetchPollenAmbee(lat, lng),
+      'open-meteo',
+      () => fetchPollenOpenMeteo(lat, lng),
       () => null,
     );
 
