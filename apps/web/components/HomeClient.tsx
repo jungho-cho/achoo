@@ -37,7 +37,7 @@ export function HomeClient() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-md mx-auto px-4 py-6 space-y-4">
+      <div className="max-w-md md:max-w-4xl mx-auto px-4 py-6 space-y-4">
 
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -47,34 +47,40 @@ export function HomeClient() {
           </span>
         </div>
 
-        {/* Hero card */}
-        <HeroCard pollen={pollen} dust={dust} />
+        {/* 2-column grid on desktop, single column on mobile */}
+        <div className="md:grid md:grid-cols-2 md:gap-6 space-y-4 md:space-y-0">
 
-        {/* Overall badge + dust */}
-        <div className="flex items-center gap-2 flex-wrap">
-          <LevelBadge level={current.overallLevel} />
-          {dust && (
-            <LevelBadge level={dust.current.level} label={`미세먼지 ${dust.current.displayValue}`} />
-          )}
-          {!dust && (
-            <span className="text-xs text-gray-400">미세먼지 데이터 준비 중</span>
-          )}
+          {/* Left column: hero + badges */}
+          <div className="space-y-4">
+            <HeroCard pollen={pollen} dust={dust} />
+
+            <div className="flex items-center gap-2 flex-wrap">
+              <LevelBadge level={current.overallLevel} />
+              {dust && (
+                <LevelBadge level={dust.current.level} label={`미세먼지 ${dust.current.displayValue}`} />
+              )}
+              {!dust && (
+                <span className="text-xs text-gray-400">미세먼지 데이터 준비 중</span>
+              )}
+            </div>
+          </div>
+
+          {/* Right column: species + forecast */}
+          <div className="space-y-4">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 px-4 py-1">
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide pt-3 pb-1">
+                꽃가루 종류별
+              </p>
+              {current.readings.map((r) => (
+                <SpeciesRow key={r.species} reading={r} />
+              ))}
+            </div>
+
+            <ForecastBar current={current} forecast={forecast} />
+          </div>
         </div>
 
-        {/* Species breakdown */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 px-4 py-1">
-          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide pt-3 pb-1">
-            꽃가루 종류별
-          </p>
-          {current.readings.map((r) => (
-            <SpeciesRow key={r.species} reading={r} />
-          ))}
-        </div>
-
-        {/* 7-day forecast */}
-        <ForecastBar current={current} forecast={forecast} />
-
-        {/* Tips link */}
+        {/* Full-width: tips link */}
         <a
           href="/tips"
           className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
