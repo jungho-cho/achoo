@@ -74,6 +74,15 @@ export function HomeClient() {
         {/* 7-day forecast */}
         <ForecastBar current={current} forecast={forecast} />
 
+        {/* Tips link */}
+        <a
+          href="/tips"
+          className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
+        >
+          <span className="text-sm font-medium text-gray-700">💡 알레르기 대처법 보기</span>
+          <span className="text-gray-400 text-sm">→</span>
+        </a>
+
         {/* Ad banner placeholder */}
         <div className="h-14 rounded-xl bg-gray-100 flex items-center justify-center">
           <span className="text-xs text-gray-300">광고 영역</span>
