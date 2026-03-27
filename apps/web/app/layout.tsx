@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
     title: "Achoo",
   },
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     type: "website",
     siteName: "Achoo",

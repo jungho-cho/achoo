@@ -1,5 +1,6 @@
 'use client';
 
+import type { PollenResponse } from '@repo/shared-types';
 import { usePollenData } from '../hooks/usePollenData';
 import { ForecastBar } from './ForecastBar';
 import { HeroCard } from './HeroCard';
@@ -7,10 +8,18 @@ import { LevelBadge } from './LevelBadge';
 import { SpeciesRow } from './SpeciesRow';
 import { SymptomDiary } from './SymptomDiary';
 
-export function HomeClient() {
-  const { pollen, dust, loading, loadingPhase, error, locationDenied } = usePollenData();
+interface Props {
+  ssrPollen?: PollenResponse | null;
+}
 
-  if (loading) {
+export function HomeClient({ ssrPollen }: Props) {
+  const { pollen: clientPollen, dust, loading, loadingPhase, error, locationDenied } = usePollenData();
+
+  // Use client data when available, fall back to SSR data
+  const pollen = clientPollen ?? ssrPollen ?? null;
+  const isHydrating = loading && !ssrPollen;
+
+  if (isHydrating) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen gap-3">
         <div className="w-8 h-8 rounded-full border-2 border-gray-200 border-t-green-500 animate-spin" />
@@ -21,7 +30,7 @@ export function HomeClient() {
     );
   }
 
-  if (error || !pollen) {
+  if (error && !pollen) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen gap-2 px-6 text-center">
         <p className="text-2xl">😵</p>
@@ -35,6 +44,8 @@ export function HomeClient() {
       </div>
     );
   }
+
+  if (!pollen) return null;
 
   const { current, forecast } = pollen;
   const sido = pollen.sido || dust?.sido || '서울';
@@ -62,6 +73,11 @@ export function HomeClient() {
             </p>
           </div>
         )}
+
+        {/* SEO intro text — visible to crawlers and users */}
+        <p className="text-sm text-gray-500">
+          오늘의 꽃가루 예보입니다. 나무, 잔디, 잡초 꽃가루 지수와 미세먼지 정보를 확인하세요.
+        </p>
 
         {/* 2-column grid on desktop, single column on mobile */}
         <div className="md:grid md:grid-cols-2 md:gap-6 space-y-4 md:space-y-0">
@@ -91,9 +107,9 @@ export function HomeClient() {
           {/* Right column: species + forecast */}
           <div className="space-y-4">
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 px-4 py-1">
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide pt-3 pb-1">
+              <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wide pt-3 pb-1">
                 꽃가루 종류별
-              </p>
+              </h2>
               {current.readings.map((r) => (
                 <SpeciesRow key={r.species} reading={r} />
               ))}
@@ -128,8 +144,6 @@ export function HomeClient() {
             </div>
           );
         })()}
-
-        {/* Ad banner — hidden until AdSense approved */}
 
         <p className="text-center text-xs text-gray-300 pb-4">
           데이터: Open-Meteo (CAMS, 유럽 모델 기반 추정치) · 에어코리아
