@@ -123,14 +123,30 @@ export function HomeClient({ ssrPollen }: Props) {
         {/* Symptom diary */}
         <SymptomDiary />
 
-        {/* Full-width: tips link */}
-        <a
-          href="/tips"
-          className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
-        >
-          <span className="text-sm font-medium text-gray-700">💡 알레르기 대처법 보기</span>
-          <span className="text-gray-400 text-sm">→</span>
-        </a>
+        {/* Navigation links */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+          <a
+            href="/tips"
+            className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
+          >
+            <span className="text-sm font-medium text-gray-700">💡 맞춤 대처법</span>
+            <span className="text-gray-400 text-sm">→</span>
+          </a>
+          <a
+            href="/pollen-info"
+            className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
+          >
+            <span className="text-sm font-medium text-gray-700">🌳 꽃가루 알레르기란?</span>
+            <span className="text-gray-400 text-sm">→</span>
+          </a>
+          <a
+            href="/regions"
+            className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
+          >
+            <span className="text-sm font-medium text-gray-700">📍 지역별 예보</span>
+            <span className="text-gray-400 text-sm">→</span>
+          </a>
+        </div>
 
         {/* Tomorrow teaser — return hook */}
         {forecast.length > 0 && (() => {
