@@ -18,6 +18,7 @@ interface UsePollenDataResult {
   error: string | null;
   locationDenied: boolean;
   inKorea: boolean;
+  cityName: string | null;
 }
 
 const DEFAULT_LOCATION: Location = { lat: 37.5665, lng: 126.978 }; // 서울
@@ -31,6 +32,7 @@ export function usePollenData(): UsePollenDataResult {
   const [error, setError] = useState<string | null>(null);
   const [locationDenied, setLocationDenied] = useState(false);
   const [inKorea, setInKorea] = useState(true);
+  const [cityName, setCityName] = useState<string | null>(null);
 
   // Step 1: get geolocation
   useEffect(() => {
@@ -43,7 +45,21 @@ export function usePollenData(): UsePollenDataResult {
       (pos) => {
         const loc = { lat: pos.coords.latitude, lng: pos.coords.longitude };
         setLocation(loc);
-        setInKorea(isInKorea(loc.lat, loc.lng));
+        const korea = isInKorea(loc.lat, loc.lng);
+        setInKorea(korea);
+        // Reverse geocode for non-Korean locations
+        if (!korea) {
+          fetch(`https://nominatim.openstreetmap.org/reverse?lat=${loc.lat}&lon=${loc.lng}&format=json&accept-language=ko&zoom=10`, {
+            headers: { 'User-Agent': 'Achoo/1.0 (achoo.day)' },
+          })
+            .then((r) => r.json())
+            .then((data) => {
+              const addr = data?.address;
+              const city = addr?.city || addr?.town || addr?.village || addr?.state || '';
+              setCityName(city || null);
+            })
+            .catch(() => {});
+        }
       },
       () => {
         setLocation(DEFAULT_LOCATION);
@@ -94,5 +110,5 @@ export function usePollenData(): UsePollenDataResult {
     return () => controller.abort();
   }, [location]);
 
-  return { pollen, dust, location, loading, loadingPhase, error, locationDenied, inKorea };
+  return { pollen, dust, location, loading, loadingPhase, error, locationDenied, inKorea, cityName };
 }
