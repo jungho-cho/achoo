@@ -92,7 +92,7 @@ export function HomeClient({ ssrPollen }: Props) {
               {dust && (
                 <LevelBadge level={dust.current.level} label={`미세먼지 ${dust.current.displayValue}`} />
               )}
-              {!dust && (
+              {!dust && inKorea && (
                 <span className="text-xs text-gray-400">미세먼지 데이터 준비 중</span>
               )}
             </div>
