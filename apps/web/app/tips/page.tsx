@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 import { AffiliateLinks } from '../../components/AffiliateLinks';
+import { SymptomChecker } from '../../components/SymptomChecker';
 
 export const metadata: Metadata = {
-  title: '알레르기 대처법 — Achoo',
-  description: '꽃가루와 미세먼지가 높은 날 건강을 지키는 방법을 알아보세요.',
+  title: '알레르기 대처법 — 증상별 맞춤 조언',
+  description: '꽃가루와 미세먼지가 높은 날 건강을 지키는 방법. 내 증상을 선택하면 맞춤 대처법을 알려드립니다.',
+  alternates: { canonical: '/tips' },
 };
 
-const TIPS = [
+const REFERENCE_TIPS = [
   {
     level: '높음 · 매우높음',
     dot: 'bg-orange-500',
@@ -73,37 +75,43 @@ const TIPS = [
 export default function TipsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-md md:max-w-4xl mx-auto px-4 py-6 space-y-6">
+      <div className="max-w-md md:max-w-2xl mx-auto px-4 py-6 space-y-6">
 
         <div className="flex items-center gap-4">
           <a href="/" className="text-gray-400 hover:text-gray-600 text-sm">← 홈</a>
           <h1 className="text-xl font-bold text-gray-900">알레르기 대처법</h1>
         </div>
 
-        {/* Tip sections — 1 col mobile / 3 col desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {TIPS.map((section) => (
-            <div
-              key={section.level}
-              className={`rounded-2xl border p-4 ${section.bg} ${section.border}`}
-            >
-              <div className="flex items-center gap-2 mb-3">
-                <span className={`w-2.5 h-2.5 rounded-full ${section.dot}`} />
-                <span className="text-sm font-semibold text-gray-700">{section.level}</span>
-              </div>
-              <ul className="space-y-2">
-                {section.items.map((item) => (
-                  <li key={item} className="text-sm text-gray-600">{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        {/* Interactive symptom checker */}
+        <SymptomChecker />
 
-        {/* Affiliate links — Coupang Partners */}
+        {/* Affiliate links */}
         <AffiliateLinks />
 
-        {/* Ad placeholder — hidden until AdSense approved */}
+        {/* Reference tips by level */}
+        <div>
+          <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-3">
+            꽃가루 수준별 가이드
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {REFERENCE_TIPS.map((section) => (
+              <div
+                key={section.level}
+                className={`rounded-2xl border p-4 ${section.bg} ${section.border}`}
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <span className={`w-2.5 h-2.5 rounded-full ${section.dot}`} />
+                  <span className="text-sm font-semibold text-gray-700">{section.level}</span>
+                </div>
+                <ul className="space-y-2">
+                  {section.items.map((item) => (
+                    <li key={item} className="text-sm text-gray-600">{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
 
         <p className="text-center text-xs text-gray-300 pb-4">
           Achoo — 꽃가루 · 미세먼지 예보

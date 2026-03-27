@@ -1,43 +1,8 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-
-type Severity = 0 | 1 | 2 | 3 | 4;
-
-interface DiaryEntry {
-  date: string; // YYYY-MM-DD
-  severity: Severity;
-  note: string;
-  timestamp: string;
-}
-
-const SEVERITY_OPTIONS: { value: Severity; emoji: string; label: string }[] = [
-  { value: 0, emoji: '😊', label: '괜찮아요' },
-  { value: 1, emoji: '🤏', label: '조금' },
-  { value: 2, emoji: '😷', label: '보통' },
-  { value: 3, emoji: '🤧', label: '심해요' },
-  { value: 4, emoji: '😵', label: '매우 심해요' },
-];
-
-const STORAGE_KEY = 'achoo_diary';
-
-function today(): string {
-  return new Date().toISOString().slice(0, 10);
-}
-
-function loadEntries(): DiaryEntry[] {
-  if (typeof window === 'undefined') return [];
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : [];
-  } catch {
-    return [];
-  }
-}
-
-function saveEntries(entries: DiaryEntry[]): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
-}
+import type { DiaryEntry, Severity } from '../lib/diary';
+import { SEVERITY_OPTIONS, loadEntries, saveTodayEntry, today } from '../lib/diary';
 
 export function SymptomDiary() {
   const [entries, setEntries] = useState<DiaryEntry[]>([]);
@@ -51,21 +16,12 @@ export function SymptomDiary() {
   const todayEntry = entries.find((e) => e.date === today());
 
   const handleSelect = useCallback((severity: Severity) => {
-    const updated = entries.filter((e) => e.date !== today());
-    const entry: DiaryEntry = {
-      date: today(),
-      severity,
-      note: '',
-      timestamp: new Date().toISOString(),
-    };
-    updated.push(entry);
+    const updated = saveTodayEntry(entries, severity, todayEntry?.symptoms ?? []);
     setEntries(updated);
-    saveEntries(updated);
-  }, [entries]);
+  }, [entries, todayEntry]);
 
   if (!mounted) return null;
 
-  // Recent 7 days for mini history
   const recent = entries
     .filter((e) => {
       const diff = (Date.now() - new Date(e.date).getTime()) / (1000 * 60 * 60 * 24);
@@ -85,7 +41,6 @@ export function SymptomDiary() {
       )}
       {recent.length > 0 && <div className="mb-3" />}
 
-      {/* Severity selector */}
       <div className="flex justify-between gap-1">
         {SEVERITY_OPTIONS.map((opt) => {
           const isSelected = todayEntry?.severity === opt.value;
@@ -106,7 +61,16 @@ export function SymptomDiary() {
         })}
       </div>
 
-      {/* Mini history */}
+      {/* Link to detailed symptom checker */}
+      {todayEntry && todayEntry.severity > 0 && (
+        <a
+          href="/tips"
+          className="mt-3 flex items-center justify-center gap-1 text-xs text-green-600 hover:text-green-700"
+        >
+          증상 자세히 기록하고 맞춤 조언 받기 →
+        </a>
+      )}
+
       {recent.length > 0 && (
         <div className="mt-3 flex gap-1.5">
           {recent.slice(0, 7).map((entry) => {
