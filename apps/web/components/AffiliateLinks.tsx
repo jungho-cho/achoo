@@ -16,25 +16,25 @@ const PRODUCTS: AffiliateProduct[] = [
     name: 'KF94 마스크',
     emoji: '😷',
     desc: '꽃가루 차단율 94%',
-    url: `https://www.coupang.com/np/search?q=KF94+마스크&listSize=10&affiliate=${TRACKING_CODE}`,
+    url: 'https://link.coupang.com/a/ecRkTU',
   },
   {
     name: '공기청정기',
     emoji: '💨',
     desc: '실내 꽃가루 제거',
-    url: `https://www.coupang.com/np/search?q=공기청정기+헤파필터&listSize=10&affiliate=${TRACKING_CODE}`,
+    url: 'https://link.coupang.com/a/ecRmeQ',
   },
   {
     name: '알레르기 안약',
     emoji: '👁️',
     desc: '눈 가려움 완화',
-    url: `https://www.coupang.com/np/search?q=알레르기+안약&listSize=10&affiliate=${TRACKING_CODE}`,
+    url: 'https://link.coupang.com/a/ecRmzD',
   },
   {
     name: '항히스타민제',
     emoji: '💊',
     desc: '알레르기 증상 완화',
-    url: `https://www.coupang.com/np/search?q=항히스타민제+알레르기&listSize=10&affiliate=${TRACKING_CODE}`,
+    url: 'https://link.coupang.com/a/ecRmPO',
   },
 ];
 
