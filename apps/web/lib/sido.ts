@@ -40,13 +40,17 @@ const BOUNDS: SidoBounds[] = [
   { sido: '경남', latMin: 34.60, latMax: 35.90, lngMin: 127.50, lngMax: 129.05 },
 ];
 
-export function latLngToSido(lat: number, lng: number): Sido {
+export function latLngToSido(lat: number, lng: number): Sido | null {
   for (const b of BOUNDS) {
     if (lat >= b.latMin && lat <= b.latMax && lng >= b.lngMin && lng <= b.lngMax) {
       return b.sido;
     }
   }
-  return '서울'; // fallback
+  return null; // outside Korea
+}
+
+export function isInKorea(lat: number, lng: number): boolean {
+  return lat >= 33.0 && lat <= 38.7 && lng >= 124.5 && lng <= 131.0;
 }
 
 export function isValidSido(value: string): value is Sido {

@@ -2,6 +2,7 @@
 
 import type { DustResponse, PollenResponse } from '@repo/shared-types';
 import { useEffect, useState } from 'react';
+import { isInKorea } from '../lib/sido';
 
 interface Location {
   lat: number;
@@ -16,6 +17,7 @@ interface UsePollenDataResult {
   loadingPhase: 'location' | 'data' | null;
   error: string | null;
   locationDenied: boolean;
+  inKorea: boolean;
 }
 
 const DEFAULT_LOCATION: Location = { lat: 37.5665, lng: 126.978 }; // 서울
@@ -28,6 +30,7 @@ export function usePollenData(): UsePollenDataResult {
   const [loadingPhase, setLoadingPhase] = useState<'location' | 'data' | null>('location');
   const [error, setError] = useState<string | null>(null);
   const [locationDenied, setLocationDenied] = useState(false);
+  const [inKorea, setInKorea] = useState(true);
 
   // Step 1: get geolocation
   useEffect(() => {
@@ -37,7 +40,11 @@ export function usePollenData(): UsePollenDataResult {
       return;
     }
     navigator.geolocation.getCurrentPosition(
-      (pos) => setLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
+      (pos) => {
+        const loc = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        setLocation(loc);
+        setInKorea(isInKorea(loc.lat, loc.lng));
+      },
       () => {
         setLocation(DEFAULT_LOCATION);
         setLocationDenied(true);
@@ -55,14 +62,21 @@ export function usePollenData(): UsePollenDataResult {
     setLoadingPhase('data');
     setError(null);
 
-    Promise.all([
-      fetch(`/api/pollen?lat=${location.lat}&lng=${location.lng}`, {
-        signal: controller.signal,
-      }).then((r) => (r.ok ? r.json() : null)),
-      fetch(`/api/dust?lat=${location.lat}&lng=${location.lng}`, {
-        signal: controller.signal,
-      }).then((r) => (r.ok ? r.json() : null)),
-    ])
+    const korea = isInKorea(location.lat, location.lng);
+
+    // Always fetch pollen (Open-Meteo is global)
+    const pollenFetch = fetch(`/api/pollen?lat=${location.lat}&lng=${location.lng}`, {
+      signal: controller.signal,
+    }).then((r) => (r.ok ? r.json() : null));
+
+    // Only fetch dust if in Korea (AirKorea is Korea-only)
+    const dustFetch = korea
+      ? fetch(`/api/dust?lat=${location.lat}&lng=${location.lng}`, {
+          signal: controller.signal,
+        }).then((r) => (r.ok ? r.json() : null))
+      : Promise.resolve(null);
+
+    Promise.all([pollenFetch, dustFetch])
       .then(([pollenData, dustData]) => {
         setPollen(pollenData as PollenResponse | null);
         setDust(dustData as DustResponse | null);
@@ -80,5 +94,5 @@ export function usePollenData(): UsePollenDataResult {
     return () => controller.abort();
   }, [location]);
 
-  return { pollen, dust, location, loading, loadingPhase, error, locationDenied };
+  return { pollen, dust, location, loading, loadingPhase, error, locationDenied, inKorea };
 }

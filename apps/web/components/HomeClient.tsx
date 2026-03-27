@@ -13,7 +13,7 @@ interface Props {
 }
 
 export function HomeClient({ ssrPollen }: Props) {
-  const { pollen: clientPollen, dust, loading, loadingPhase, error, locationDenied } = usePollenData();
+  const { pollen: clientPollen, dust, loading, loadingPhase, error, locationDenied, inKorea } = usePollenData();
 
   // Use client data when available, fall back to SSR data
   const pollen = clientPollen ?? ssrPollen ?? null;
@@ -48,7 +48,7 @@ export function HomeClient({ ssrPollen }: Props) {
   if (!pollen) return null;
 
   const { current, forecast } = pollen;
-  const sido = pollen.sido || dust?.sido || '서울';
+  const sido = inKorea ? (pollen.sido || dust?.sido || '서울') : null;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -58,7 +58,8 @@ export function HomeClient({ ssrPollen }: Props) {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <h1 className="text-xl font-bold text-gray-900">🤧 Achoo</h1>
-            <span className="text-sm text-gray-500">📍 {sido}</span>
+            {sido && <span className="text-sm text-gray-500">📍 {sido}</span>}
+            {!sido && !inKorea && <span className="text-sm text-gray-500">🌍 해외</span>}
           </div>
           <span className="text-xs text-gray-400">
             {new Date().toLocaleDateString('ko-KR', { month: 'long', day: 'numeric' })}
