@@ -45,6 +45,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        <meta name="naver-site-verification" content="1490fae47df158cf159608e169f7cace61cb2dcc" />
         {/* Pretendard — Korean UX standard */}
         <link
           rel="stylesheet"
