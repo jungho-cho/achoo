@@ -1,46 +1,52 @@
-# Achoo — 직접 해야 할 일
+# Achoo — TODO
 
-## API 키 발급
+## 완료
 
-- [ ] **에어코리아 (AirKorea)** — PM2.5/PM10 데이터
-  - 공공데이터포털 가입: https://www.data.go.kr
-  - 서비스: "에어코리아 대기오염정보 조회 서비스"
-  - 발급 후 `.env.local`의 `AIRKOREA_API_KEY=` 에 입력
+- [x] 에어코리아 API 키 발급
+- [x] Vercel 배포 (achoo.day)
+- [x] Google Analytics 4 연결 (G-G8LST05LHK)
+- [x] 쿠팡 파트너스 연동 (AF7101194)
+- [x] 네이버 서치어드바이저 등록
+- [x] Google Search Console 등록
+- [x] SEO: SSR 홈페이지, 사이트맵, canonical, 콘텐츠 페이지
 
-## 배포
+## 다음 작업
 
-- [ ] **Vercel 배포**
-  - `vercel` CLI 또는 GitHub 연동
-  - 환경변수: `AIRKOREA_API_KEY`, `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`
+### 다국어 지원 (i18n)
+- [ ] 영어 지원 추가 — 글로벌 유저 유입 (독일 등 해외에서도 사용 중)
+- [ ] next-intl 또는 next-i18next 도입
+- [ ] URL 구조: `/ko/`, `/en/` 또는 브라우저 언어 감지
+- [ ] 번역 대상: UI 텍스트, 팁 페이지, 꽃가루 정보 페이지, 지역 페이지
 
-- [ ] **Upstash Redis 생성** (선택, 캐시 성능 향상)
-  - https://console.upstash.com
-  - Free tier: 10,000 req/day
-  - `.env.local`에 URL + TOKEN 입력
+### 인터렉티브 알레르기 대처법
+- [ ] 현재: 정적 팁 목록 (모든 유저에게 동일)
+- [ ] 개선: 유저가 현재 증상을 선택 → 맞춤 대처법 제공
+  - Step 1: "어떤 증상이 있나요?" (재채기, 코막힘, 눈 가려움, 기침 등 체크박스)
+  - Step 2: "얼마나 심한가요?" (가벼움/보통/심함)
+  - Step 3: 오늘 꽃가루/미세먼지 데이터와 결합 → 맞춤 조언 출력
+  - 예: "오늘 나무 꽃가루 높음 + 눈 가려움 → 안약 사용 권장, 외출 시 선글라스"
+- [ ] 증상 일기와 연동 — 선택한 증상을 자동 기록
 
-## 분석
+### Upstash Redis
+- [ ] console.upstash.com에서 Free tier 생성
+- [ ] Vercel 환경변수에 URL + TOKEN 추가
 
-- [ ] **Google Analytics 4 연결**
-  - GA4 속성 생성 → 측정 ID (`G-XXXXXXXXXX`) 발급
-  - `apps/web/app/layout.tsx`에 `<Script>` 태그로 추가
-  - 또는 `@next/third-parties/google` 패키지 사용 (`pnpm add @next/third-parties`)
+### 광고
+- [ ] Google AdSense 신청 (트래픽 확보 후)
+- [ ] 승인 후 광고 컴포넌트 활성화
 
-## 광고
+### Flutter 앱 (가을 시즌 목표)
+- [ ] Flutter 프로젝트 생성 (`apps/flutter/`)
+- [ ] 웹 API 소비: `GET /api/pollen`, `GET /api/dust`
+- [ ] 푸시 알림 (FCM)
+- [ ] AdMob 연동
+- [ ] 앱스토어 / 플레이스토어 등록
 
-- [ ] **Google AdSense 신청** — 웹 배너 광고
-  - 실제 트래픽 확보 후 신청 (승인까지 3~6개월)
-  - 승인 후 `apps/web/components/AdBanner.tsx`의 placeholder를 실제 AdSense 코드로 교체
+### KMA 전환
+- [ ] 한국 기상청 생활기상지수 API로 꽃가루 데이터 소스 전환
+- [ ] Open-Meteo 대비 정확도 비교
 
-- [ ] **Google AdMob 등록** — Flutter 앱 광고
-  - 앱스토어 등록 후 AdMob 앱 ID 발급
-  - Flutter 앱에 `google_mobile_ads` 패키지 연동
-
-## Flutter 앱
-
-- [ ] **Flutter 프로젝트 생성** (`apps/flutter/`)
-  - Flutter 앱은 웹 API를 그대로 소비: `GET /api/pollen`, `GET /api/dust`
-  - Vercel 배포 URL을 base URL로 설정
-  - `http` 또는 `dio` 패키지로 API 호출
-  - 웹과 동일한 색상 코드 시스템 구현 (🟢🟡🟠🔴)
-
-- [ ] **앱스토어 / 플레이스토어 등록**
+### 접근성
+- [ ] 색맹 접근성 (색상 외 아이콘 추가)
+- [ ] 키보드 네비게이션
+- [ ] ARIA 라벨
