@@ -1,4 +1,5 @@
 import "./globals.css";
+import Script from "next/script";
 import type { Metadata, Viewport } from "next";
 
 export const viewport: Viewport = {
@@ -49,7 +50,16 @@ export default function RootLayout({
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
         />
       </head>
-      <body style={{ fontFamily: "'Pretendard', sans-serif", margin: 0 }}>{children}</body>
+      <body style={{ fontFamily: "'Pretendard', sans-serif", margin: 0 }}>
+        {children}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-G8LST05LHK" strategy="afterInteractive" />
+        <Script id="ga4" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-G8LST05LHK');
+        `}</Script>
+      </body>
     </html>
   );
 }
