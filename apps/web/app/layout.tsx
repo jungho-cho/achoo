@@ -9,6 +9,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://achoo.day'),
   title: {
     default: "Achoo — 꽃가루 · 미세먼지 예보",
     template: "%s — Achoo",

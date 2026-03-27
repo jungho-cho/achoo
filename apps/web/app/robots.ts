@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/api/',
     },
-    sitemap: 'https://achoo.app/sitemap.xml',
+    sitemap: 'https://achoo.day/sitemap.xml',
   };
 }

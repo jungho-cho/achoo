@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const BASE = 'https://achoo.app';
+const BASE = 'https://achoo.day';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
