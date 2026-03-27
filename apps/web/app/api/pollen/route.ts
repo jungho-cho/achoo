@@ -23,8 +23,15 @@ export async function GET(req: NextRequest) {
   }
 
   const { searchParams } = req.nextUrl;
-  const lat = parseFloat(searchParams.get('lat') ?? '37.5665');
-  const lng = parseFloat(searchParams.get('lng') ?? '126.9780');
+  const latStr = searchParams.get('lat');
+  const lngStr = searchParams.get('lng');
+
+  if (!latStr || !lngStr) {
+    return NextResponse.json({ error: 'lat and lng are required' }, { status: 400 });
+  }
+
+  const lat = parseFloat(latStr);
+  const lng = parseFloat(lngStr);
 
   if (isNaN(lat) || isNaN(lng) || lat < -90 || lat > 90 || lng < -180 || lng > 180) {
     return NextResponse.json({ error: 'Invalid lat/lng' }, { status: 400 });
@@ -47,6 +54,13 @@ export async function GET(req: NextRequest) {
     );
 
     if (!data) {
+      // Circuit open — serve stale cache if available
+      const stale = await cacheGet(cacheKey);
+      if (stale) {
+        return NextResponse.json({ ...stale, stale: true }, {
+          headers: { 'X-Cache': 'STALE', 'Cache-Control': 'public, s-maxage=600' },
+        });
+      }
       return NextResponse.json(
         { error: 'Pollen service temporarily unavailable' },
         { status: 503 },
@@ -60,6 +74,13 @@ export async function GET(req: NextRequest) {
     });
   } catch (err) {
     console.error('[/api/pollen]', err);
+    // Serve stale cache on upstream failure
+    const stale = await cacheGet(cacheKey);
+    if (stale) {
+      return NextResponse.json({ ...stale, stale: true }, {
+        headers: { 'X-Cache': 'STALE', 'Cache-Control': 'public, s-maxage=600' },
+      });
+    }
     return NextResponse.json({ error: 'Failed to fetch pollen data' }, { status: 502 });
   }
 }

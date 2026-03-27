@@ -103,10 +103,7 @@ export default function TipsPage() {
         {/* Affiliate links — Coupang Partners */}
         <AffiliateLinks />
 
-        {/* Interstitial ad placeholder */}
-        <div className="h-20 rounded-xl bg-gray-100 flex items-center justify-center">
-          <span className="text-xs text-gray-300">광고 영역</span>
-        </div>
+        {/* Ad placeholder — hidden until AdSense approved */}
 
         <p className="text-center text-xs text-gray-300 pb-4">
           Achoo — 꽃가루 · 미세먼지 예보

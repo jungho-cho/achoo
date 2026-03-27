@@ -5,15 +5,18 @@ import { ForecastBar } from './ForecastBar';
 import { HeroCard } from './HeroCard';
 import { LevelBadge } from './LevelBadge';
 import { SpeciesRow } from './SpeciesRow';
+import { SymptomDiary } from './SymptomDiary';
 
 export function HomeClient() {
-  const { pollen, dust, loading, error } = usePollenData();
+  const { pollen, dust, loading, loadingPhase, error, locationDenied } = usePollenData();
 
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen gap-3">
         <div className="w-8 h-8 rounded-full border-2 border-gray-200 border-t-green-500 animate-spin" />
-        <p className="text-sm text-gray-400">위치 확인 중...</p>
+        <p className="text-sm text-gray-400">
+          {loadingPhase === 'location' ? '위치 확인 중...' : '데이터 불러오는 중...'}
+        </p>
       </div>
     );
   }
@@ -34,18 +37,31 @@ export function HomeClient() {
   }
 
   const { current, forecast } = pollen;
+  const sido = pollen.sido || dust?.sido || '서울';
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-md md:max-w-4xl mx-auto px-4 py-6 space-y-4">
 
-        {/* Header */}
+        {/* Header with location */}
         <div className="flex items-center justify-between">
-          <h1 className="text-xl font-bold text-gray-900">🤧 Achoo</h1>
+          <div className="flex items-center gap-2">
+            <h1 className="text-xl font-bold text-gray-900">🤧 Achoo</h1>
+            <span className="text-sm text-gray-500">📍 {sido}</span>
+          </div>
           <span className="text-xs text-gray-400">
             {new Date().toLocaleDateString('ko-KR', { month: 'long', day: 'numeric' })}
           </span>
         </div>
+
+        {/* Geolocation denied banner */}
+        {locationDenied && (
+          <div className="px-3 py-2 rounded-xl bg-yellow-50 border border-yellow-100">
+            <p className="text-xs text-yellow-700">
+              📍 위치 권한이 없어 서울 기준으로 표시합니다
+            </p>
+          </div>
+        )}
 
         {/* 2-column grid on desktop, single column on mobile */}
         <div className="md:grid md:grid-cols-2 md:gap-6 space-y-4 md:space-y-0">
@@ -63,6 +79,13 @@ export function HomeClient() {
                 <span className="text-xs text-gray-400">미세먼지 데이터 준비 중</span>
               )}
             </div>
+
+            {/* Cached data timestamp */}
+            {pollen.cachedAt && (
+              <p className="text-[10px] text-gray-300">
+                업데이트: {new Date(pollen.cachedAt).toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' })}
+              </p>
+            )}
           </div>
 
           {/* Right column: species + forecast */}
@@ -80,6 +103,9 @@ export function HomeClient() {
           </div>
         </div>
 
+        {/* Symptom diary */}
+        <SymptomDiary />
+
         {/* Full-width: tips link */}
         <a
           href="/tips"
@@ -89,13 +115,24 @@ export function HomeClient() {
           <span className="text-gray-400 text-sm">→</span>
         </a>
 
-        {/* Ad banner placeholder */}
-        <div className="h-14 rounded-xl bg-gray-100 flex items-center justify-center">
-          <span className="text-xs text-gray-300">광고 영역</span>
-        </div>
+        {/* Tomorrow teaser — return hook */}
+        {forecast.length > 0 && (() => {
+          const tmrw = forecast[0];
+          const LEVEL_KO: Record<string, string> = { low: '낮음', moderate: '보통', high: '높음', 'very-high': '매우높음' };
+          const DOT_COLOR: Record<string, string> = { low: 'bg-green-500', moderate: 'bg-yellow-400', high: 'bg-orange-500', 'very-high': 'bg-red-500' };
+          return (
+            <div className="flex items-center justify-center gap-2 py-2">
+              <span className="text-xs text-gray-400">내일 예보</span>
+              <span className={`w-2 h-2 rounded-full ${DOT_COLOR[tmrw.overallLevel] ?? 'bg-gray-300'}`} />
+              <span className="text-xs font-medium text-gray-500">{LEVEL_KO[tmrw.overallLevel]}</span>
+            </div>
+          );
+        })()}
+
+        {/* Ad banner — hidden until AdSense approved */}
 
         <p className="text-center text-xs text-gray-300 pb-4">
-          데이터: Open-Meteo (CAMS) · 에어코리아
+          데이터: Open-Meteo (CAMS, 유럽 모델 기반 추정치) · 에어코리아
         </p>
       </div>
     </div>

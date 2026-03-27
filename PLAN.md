@@ -1,3 +1,6 @@
+> **이 문서는 초기 계획입니다.** 최신 설계는 /office-hours 디자인 문서를 참조하세요.
+> (`~/.gstack/projects/jungho-cho-achoo/junghocho-master-design-20260327-010922.md`)
+
 # Achoo — 글로벌 꽃가루/알레르기 예보 앱
 
 > 앱 이름: **Achoo**

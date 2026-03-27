@@ -3,10 +3,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import { cacheGet, cacheSet } from '../../../lib/cache';
 import { withCircuitBreaker } from '../../../lib/circuit-breaker';
 import { checkRateLimit, getClientIp } from '../../../lib/rate-limit';
+import { isValidSido, latLngToSido } from '../../../lib/sido';
 
 export const runtime = 'nodejs';
 
-// GET /api/dust?sido=서울
+// GET /api/dust?sido=서울  OR  /api/dust?lat=37.5&lng=127.0
 export async function GET(req: NextRequest) {
   const { allowed, remaining, resetAt } = await checkRateLimit(getClientIp(req));
   if (!allowed) {
@@ -23,10 +24,23 @@ export async function GET(req: NextRequest) {
   }
 
   const { searchParams } = req.nextUrl;
-  const sido = searchParams.get('sido') ?? '서울';
 
-  if (!sido.trim()) {
-    return NextResponse.json({ error: 'sido is required' }, { status: 400 });
+  // Resolve sido: prefer explicit sido param, else derive from lat/lng
+  let sido = searchParams.get('sido');
+  if (!sido) {
+    const lat = parseFloat(searchParams.get('lat') ?? '');
+    const lng = parseFloat(searchParams.get('lng') ?? '');
+    if (!isNaN(lat) && !isNaN(lng)) {
+      sido = latLngToSido(lat, lng);
+    }
+  }
+
+  if (!sido || !sido.trim()) {
+    return NextResponse.json({ error: 'sido or lat/lng is required' }, { status: 400 });
+  }
+
+  if (!isValidSido(sido)) {
+    return NextResponse.json({ error: `Invalid sido: ${sido}` }, { status: 400 });
   }
 
   const cacheKey = `dust:${sido}`;
@@ -41,11 +55,18 @@ export async function GET(req: NextRequest) {
   try {
     const data = await withCircuitBreaker(
       'airkorea',
-      () => fetchDustAirkorea(sido),
+      () => fetchDustAirkorea(sido!),
       () => null,
     );
 
     if (!data) {
+      // Circuit open — serve stale cache if available
+      const stale = await cacheGet(cacheKey);
+      if (stale) {
+        return NextResponse.json({ ...stale, stale: true }, {
+          headers: { 'X-Cache': 'STALE', 'Cache-Control': 'public, s-maxage=600' },
+        });
+      }
       return NextResponse.json(
         { error: 'Dust service temporarily unavailable' },
         { status: 503 },
@@ -59,6 +80,13 @@ export async function GET(req: NextRequest) {
     });
   } catch (err) {
     console.error('[/api/dust]', err);
+    // Serve stale cache on upstream failure
+    const stale = await cacheGet(cacheKey);
+    if (stale) {
+      return NextResponse.json({ ...stale, stale: true }, {
+        headers: { 'X-Cache': 'STALE', 'Cache-Control': 'public, s-maxage=600' },
+      });
+    }
     return NextResponse.json({ error: 'Failed to fetch dust data' }, { status: 502 });
   }
 }

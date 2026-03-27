@@ -1,6 +1,6 @@
 /**
  * Rate limiting: 10 req/min per IP
- * Uses Upstash Redis when configured; no-ops in dev (Redis not set).
+ * Uses Upstash Redis when configured; in-memory fallback when Redis is down.
  */
 
 export interface RateLimitResult {
@@ -11,28 +11,64 @@ export interface RateLimitResult {
 
 import { getRedis } from './redis';
 
-export async function checkRateLimit(ip: string): Promise<RateLimitResult> {
-  const redis = getRedis();
+// ─── In-memory fallback rate limiter ──────────────────────────────────────────
 
-  // No Redis configured → allow all (dev / local)
-  if (!redis) {
-    return { allowed: true, remaining: 10, resetAt: Date.now() + 60000 };
+const MEM_WINDOW_MS = 60_000;
+const MEM_MAX = 10;
+const memBuckets = new Map<string, { count: number; resetAt: number }>();
+
+function memRateLimit(ip: string): RateLimitResult {
+  const now = Date.now();
+  const bucket = memBuckets.get(ip);
+
+  if (!bucket || now >= bucket.resetAt) {
+    memBuckets.set(ip, { count: 1, resetAt: now + MEM_WINDOW_MS });
+    return { allowed: true, remaining: MEM_MAX - 1, resetAt: now + MEM_WINDOW_MS };
   }
 
+  bucket.count++;
+  const allowed = bucket.count <= MEM_MAX;
+  return { allowed, remaining: Math.max(0, MEM_MAX - bucket.count), resetAt: bucket.resetAt };
+}
+
+// ─── Upstash Ratelimit singleton ─────────────────────────────────────────────
+
+let _ratelimit: import('@upstash/ratelimit').Ratelimit | null | undefined;
+
+async function getRatelimit() {
+  if (_ratelimit !== undefined) return _ratelimit;
+
+  const redis = getRedis();
+  if (!redis) {
+    _ratelimit = null;
+    return null;
+  }
+
+  const { Ratelimit } = await import('@upstash/ratelimit');
+  _ratelimit = new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(10, '1 m'),
+    analytics: false,
+  });
+  return _ratelimit;
+}
+
+// ─── Public API ──────────────────────────────────────────────────────────────
+
+export async function checkRateLimit(ip: string): Promise<RateLimitResult> {
   try {
-    const { Ratelimit } = await import('@upstash/ratelimit');
+    const rl = await getRatelimit();
 
-    const ratelimit = new Ratelimit({
-      redis,
-      limiter: Ratelimit.slidingWindow(10, '1 m'),
-      analytics: false,
-    });
+    if (!rl) {
+      // No Redis → use in-memory fallback
+      return memRateLimit(ip);
+    }
 
-    const { success, remaining, reset } = await ratelimit.limit(`ratelimit:${ip}`);
+    const { success, remaining, reset } = await rl.limit(`ratelimit:${ip}`);
     return { allowed: success, remaining, resetAt: reset };
   } catch {
-    // Non-fatal — allow request if rate limiter errors
-    return { allowed: true, remaining: 10, resetAt: Date.now() + 60000 };
+    // Redis error → fall back to in-memory rate limiting
+    return memRateLimit(ip);
   }
 }
 

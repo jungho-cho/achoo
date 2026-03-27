@@ -43,19 +43,21 @@ export async function fetchDustAirkorea(sido: string): Promise<DustResponse> {
     throw new Error('AirKorea returned empty data');
   }
 
-  // Average across stations, skip '-' values
-  const validItems = items.filter(
-    (item) => item.pm10Value !== '-' && item.pm25Value !== '-',
-  );
+  // Average across stations, skip '-' and non-numeric values
+  const validItems = items.filter((item) => {
+    const pm10 = parseFloat(item.pm10Value);
+    const pm25 = parseFloat(item.pm25Value);
+    return isFinite(pm10) && isFinite(pm25) && pm10 >= 0 && pm25 >= 0;
+  });
 
   if (!validItems.length) {
-    throw new Error('AirKorea: all station values are "-"');
+    throw new Error('AirKorea: no valid station values');
   }
 
   const avgPm10 =
-    validItems.reduce((sum, item) => sum + Number(item.pm10Value), 0) / validItems.length;
+    validItems.reduce((sum, item) => sum + parseFloat(item.pm10Value), 0) / validItems.length;
   const avgPm25 =
-    validItems.reduce((sum, item) => sum + Number(item.pm25Value), 0) / validItems.length;
+    validItems.reduce((sum, item) => sum + parseFloat(item.pm25Value), 0) / validItems.length;
 
   return {
     sido,

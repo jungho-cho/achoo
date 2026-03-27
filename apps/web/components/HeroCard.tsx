@@ -35,7 +35,7 @@ export function HeroCard({ pollen, dust }: Props) {
         metric: 'pollen' as const,
         level: pollen.current.overallLevel,
         displayValue: pollen.current.readings[0]?.displayValue ?? '',
-        numericValue: 0,
+        numericValue: pollen.current.readings.reduce((max, r) => Math.max(max, r.numericValue), 0),
       };
 
   const bg = BG[hero.level] ?? BG.low;
@@ -45,7 +45,10 @@ export function HeroCard({ pollen, dust }: Props) {
   return (
     <div className={`rounded-3xl bg-gradient-to-br ${bg} p-8 text-white shadow-lg`}>
       <p className="text-sm font-medium opacity-80">{metricLabel} 지수</p>
-      <p className="mt-1 text-7xl font-bold tracking-tight">{hero.displayValue}</p>
+      <div className="mt-1 flex items-baseline gap-3">
+        <p className="text-7xl font-bold tracking-tight">{hero.numericValue}</p>
+        <p className="text-lg font-medium opacity-80">{hero.displayValue}</p>
+      </div>
       <p className="mt-4 text-sm opacity-90">{advice}</p>
     </div>
   );

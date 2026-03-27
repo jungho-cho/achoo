@@ -2,7 +2,7 @@
 // Replace TRACKING_CODE with your actual Coupang Partners tracking code after signup:
 // https://partners.coupang.com
 
-const TRACKING_CODE = 'achoo2024'; // TODO: replace with real tracking code after signup
+const TRACKING_CODE = 'AF7101194'; // TODO: replace with real tracking code after signup
 
 interface AffiliateProduct {
   name: string;
