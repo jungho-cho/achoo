@@ -23,6 +23,9 @@ importers:
       '@repo/api-client':
         specifier: workspace:*
         version: link:../../packages/api-client
+      '@repo/geo':
+        specifier: workspace:*
+        version: link:../../packages/geo
       '@repo/normalizer':
         specifier: workspace:*
         version: link:../../packages/normalizer
@@ -143,7 +146,35 @@ importers:
         specifier: ^8.39.0
         version: 8.46.2(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.2)
 
+  packages/geo:
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      typescript:
+        specifier: 5.9.2
+        version: 5.9.2
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.4(@types/node@22.18.12)(jiti@2.6.1)(lightningcss@1.30.2)
+
   packages/normalizer:
+    dependencies:
+      '@repo/shared-types':
+        specifier: workspace:*
+        version: link:../shared-types
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      typescript:
+        specifier: 5.9.2
+        version: 5.9.2
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.4(@types/node@22.18.12)(jiti@2.6.1)(lightningcss@1.30.2)
+
+  packages/outing-score:
     dependencies:
       '@repo/shared-types':
         specifier: workspace:*

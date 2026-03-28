@@ -7,11 +7,28 @@ import { isValidSido, latLngToSido } from '../../../lib/sido';
 
 export const runtime = 'nodejs';
 
+const CORS_HEADERS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+};
+
+export async function OPTIONS() {
+  return new NextResponse(null, { status: 204, headers: CORS_HEADERS });
+}
+
+function jsonWithCors(data: unknown, init?: { status?: number; headers?: Record<string, string> }) {
+  return NextResponse.json(data, {
+    ...init,
+    headers: { ...CORS_HEADERS, ...init?.headers },
+  });
+}
+
 // GET /api/dust?sido=서울  OR  /api/dust?lat=37.5&lng=127.0
 export async function GET(req: NextRequest) {
   const { allowed, remaining, resetAt } = await checkRateLimit(getClientIp(req));
   if (!allowed) {
-    return NextResponse.json(
+    return jsonWithCors(
       { error: '요청이 너무 많습니다. 잠시 후 다시 시도하세요.' },
       {
         status: 429,
@@ -36,18 +53,18 @@ export async function GET(req: NextRequest) {
   }
 
   if (!sido || !sido.trim()) {
-    return NextResponse.json({ error: 'sido or lat/lng is required' }, { status: 400 });
+    return jsonWithCors({ error: 'sido or lat/lng is required' }, { status: 400 });
   }
 
   if (!isValidSido(sido)) {
-    return NextResponse.json({ error: `Invalid sido: ${sido}` }, { status: 400 });
+    return jsonWithCors({ error: `Invalid sido: ${sido}` }, { status: 400 });
   }
 
   const cacheKey = `dust:${sido}`;
 
   const cached = await cacheGet(cacheKey);
   if (cached) {
-    return NextResponse.json(cached, {
+    return jsonWithCors(cached, {
       headers: { 'X-Cache': 'HIT', 'Cache-Control': 'public, s-maxage=3600' },
     });
   }
@@ -63,11 +80,11 @@ export async function GET(req: NextRequest) {
       // Circuit open — serve stale cache if available
       const stale = await cacheGet(cacheKey);
       if (stale) {
-        return NextResponse.json({ ...stale, stale: true }, {
+        return jsonWithCors({ ...stale, stale: true }, {
           headers: { 'X-Cache': 'STALE', 'Cache-Control': 'public, s-maxage=600' },
         });
       }
-      return NextResponse.json(
+      return jsonWithCors(
         { error: 'Dust service temporarily unavailable' },
         { status: 503 },
       );
@@ -75,7 +92,7 @@ export async function GET(req: NextRequest) {
 
     await cacheSet(cacheKey, data);
 
-    return NextResponse.json(data, {
+    return jsonWithCors(data, {
       headers: { 'X-Cache': 'MISS', 'Cache-Control': 'public, s-maxage=3600' },
     });
   } catch (err) {
@@ -83,10 +100,10 @@ export async function GET(req: NextRequest) {
     // Serve stale cache on upstream failure
     const stale = await cacheGet(cacheKey);
     if (stale) {
-      return NextResponse.json({ ...stale, stale: true }, {
+      return jsonWithCors({ ...stale, stale: true }, {
         headers: { 'X-Cache': 'STALE', 'Cache-Control': 'public, s-maxage=600' },
       });
     }
-    return NextResponse.json({ error: 'Failed to fetch dust data' }, { status: 502 });
+    return jsonWithCors({ error: 'Failed to fetch dust data' }, { status: 502 });
   }
 }

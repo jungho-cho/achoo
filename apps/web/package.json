@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@repo/api-client": "workspace:*",
+    "@repo/geo": "workspace:*",
     "@repo/normalizer": "workspace:*",
     "@repo/shared-types": "workspace:*",
     "@repo/ui": "workspace:*",
