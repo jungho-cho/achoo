@@ -162,6 +162,15 @@ export function HomeClient({ ssrPollen }: Props) {
           );
         })()}
 
+        <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-xs text-gray-400 pt-2">
+          <a href="/allergy-types" className="hover:text-gray-600">꽃가루 종류</a>
+          <a href="/seasonal-calendar" className="hover:text-gray-600">시즌 캘린더</a>
+          <a href="/prevention-guide" className="hover:text-gray-600">예방법</a>
+          <a href="/dust-guide" className="hover:text-gray-600">미세먼지 가이드</a>
+          <a href="/faq" className="hover:text-gray-600">FAQ</a>
+          <a href="/privacy" className="hover:text-gray-600">개인정보처리방침</a>
+        </div>
+
         <p className="text-center text-xs text-gray-300 pb-4">
           데이터: Open-Meteo (CAMS, 유럽 모델 기반 추정치) · 에어코리아
         </p>
