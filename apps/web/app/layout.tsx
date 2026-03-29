@@ -57,6 +57,11 @@ export default function RootLayout({
       </head>
       <body style={{ fontFamily: "'Pretendard', sans-serif", margin: 0 }}>
         {children}
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9077995492417834"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-G8LST05LHK" strategy="afterInteractive" />
         <Script id="ga4" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
