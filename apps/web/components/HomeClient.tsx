@@ -111,6 +111,13 @@ export function HomeClient({ ssrPollen }: Props) {
               <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wide pt-3 pb-1">
                 꽃가루 종류별
               </h2>
+              {pollen.offSeason && (
+                <div className="px-3 py-2 my-2 rounded-xl bg-blue-50 border border-blue-100">
+                  <p className="text-xs text-blue-600">
+                    현재 꽃가루 관측 비시즌입니다. 나무류는 3~6월, 잡초류는 8~10월에 예보가 제공됩니다.
+                  </p>
+                </div>
+              )}
               {current.readings.map((r) => (
                 <SpeciesRow key={r.species} reading={r} />
               ))}
@@ -174,7 +181,7 @@ export function HomeClient({ ssrPollen }: Props) {
         </div>
 
         <p className="text-center text-xs text-gray-300 pb-4">
-          데이터: Open-Meteo (CAMS, 유럽 모델 기반 추정치) · 에어코리아
+          데이터: 기상청 · 에어코리아 · Open-Meteo
         </p>
       </div>
     </div>

@@ -56,3 +56,29 @@ export function isInKorea(lat: number, lng: number): boolean {
 export function isValidSido(value: string): value is Sido {
   return (VALID_SIDO as readonly string[]).includes(value);
 }
+
+// KMA HealthWthrIdxServiceV3 행정구역코드 (10자리)
+// 강원→강원특별자치도(5100000000), 전북→전북특별자치도(5200000000), 대구(2700000000)
+const KMA_AREA_NO: Record<Sido, string> = {
+  '서울': '1100000000',
+  '부산': '2600000000',
+  '대구': '2700000000',
+  '인천': '2800000000',
+  '광주': '2900000000',
+  '대전': '3000000000',
+  '울산': '3100000000',
+  '세종': '3600000000',
+  '경기': '4100000000',
+  '강원': '5100000000',
+  '충북': '4300000000',
+  '충남': '4400000000',
+  '전북': '5200000000',
+  '전남': '4600000000',
+  '경북': '4700000000',
+  '경남': '4800000000',
+  '제주': '5000000000',
+};
+
+export function sidoToKmaAreaNo(sido: Sido): string {
+  return KMA_AREA_NO[sido];
+}

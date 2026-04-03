@@ -2,7 +2,7 @@
 
 export type PollenLevel = 'low' | 'moderate' | 'high' | 'very-high';
 
-export type PollenSpecies = 'tree' | 'grass' | 'weed';
+export type PollenSpecies = 'tree' | 'grass' | 'weed' | 'pine' | 'oak';
 
 export interface PollenReading {
   species: PollenSpecies;
@@ -30,6 +30,8 @@ export interface PollenResponse {
   current: PollenForecastDay;
   forecast: PollenForecastDay[]; // up to 7 days
   cachedAt: string; // ISO timestamp
+  /** true when KMA has no pollen data (July, Nov-Feb) */
+  offSeason?: boolean;
 }
 
 // ─── Dust (미세먼지) ──────────────────────────────────────────────────────────

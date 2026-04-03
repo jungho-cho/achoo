@@ -7,6 +7,8 @@ const SPECIES_LABEL: Record<string, string> = {
   tree:  '나무',
   grass: '잔디',
   weed:  '잡초',
+  pine:  '소나무',
+  oak:   '참나무',
 };
 
 export function SpeciesRow({ reading }: { reading: PollenReading }) {

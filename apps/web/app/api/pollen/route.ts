@@ -1,4 +1,5 @@
-import { fetchPollenOpenMeteo } from '@repo/api-client';
+import { fetchPollenKma, fetchPollenOpenMeteo } from '@repo/api-client';
+import { isInKorea, latLngToSido, sidoToKmaAreaNo } from '@repo/geo';
 import { NextRequest, NextResponse } from 'next/server';
 import { cacheGet, cacheSet } from '../../../lib/cache';
 import { withCircuitBreaker } from '../../../lib/circuit-breaker';
@@ -37,7 +38,11 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid lat/lng' }, { status: 400 });
   }
 
-  const cacheKey = `pollen:${lat.toFixed(2)}:${lng.toFixed(2)}`;
+  const korea = isInKorea(lat, lng);
+  const sido = korea ? latLngToSido(lat, lng) : null;
+  const cacheKey = korea && sido
+    ? `pollen:kma:${sido}`
+    : `pollen:${lat.toFixed(2)}:${lng.toFixed(2)}`;
 
   const cached = await cacheGet(cacheKey);
   if (cached) {
@@ -47,14 +52,31 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const data = await withCircuitBreaker(
-      'open-meteo',
-      () => fetchPollenOpenMeteo(lat, lng),
-      () => null,
-    );
+    let data;
+
+    if (korea && sido) {
+      // 한국: 기상청 꽃가루농도위험지수
+      const areaNo = sidoToKmaAreaNo(sido);
+      data = await withCircuitBreaker(
+        'kma-pollen',
+        () => fetchPollenKma(areaNo, sido),
+        () => null,
+      );
+
+      // KMA 실패 시 Open-Meteo fallback (데이터는 부정확하지만 없는 것보단 나음)
+      if (!data) {
+        data = await fetchPollenOpenMeteo(lat, lng).catch(() => null);
+      }
+    } else {
+      // 해외: Open-Meteo
+      data = await withCircuitBreaker(
+        'open-meteo',
+        () => fetchPollenOpenMeteo(lat, lng),
+        () => null,
+      );
+    }
 
     if (!data) {
-      // Circuit open — serve stale cache if available
       const stale = await cacheGet(cacheKey);
       if (stale) {
         return NextResponse.json({ ...stale, stale: true }, {
@@ -74,7 +96,6 @@ export async function GET(req: NextRequest) {
     });
   } catch (err) {
     console.error('[/api/pollen]', err);
-    // Serve stale cache on upstream failure
     const stale = await cacheGet(cacheKey);
     if (stale) {
       return NextResponse.json({ ...stale, stale: true }, {
