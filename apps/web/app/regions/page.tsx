@@ -1,3 +1,5 @@
+/* 지역별 예보 페이지 — 비활성화 (필요시 주석 해제)
+
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -97,4 +99,12 @@ export default function RegionsPage() {
       </div>
     </div>
   );
+}
+*/
+
+// 지역별 예보 페이지 비활성화 — 홈으로 리다이렉트
+import { redirect } from 'next/navigation';
+
+export default function RegionsPage() {
+  redirect('/');
 }

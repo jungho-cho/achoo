@@ -139,6 +139,7 @@ export function HomeClient({ ssrPollen }: Props) {
             <span className="text-sm font-medium text-gray-700">🌳 꽃가루 알레르기란?</span>
             <span className="text-gray-400 text-sm">→</span>
           </a>
+          {/* 지역별 예보 링크 — 비활성화
           <a
             href="/regions"
             className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
@@ -146,6 +147,7 @@ export function HomeClient({ ssrPollen }: Props) {
             <span className="text-sm font-medium text-gray-700">📍 지역별 예보</span>
             <span className="text-gray-400 text-sm">→</span>
           </a>
+          */}
         </div>
 
         {/* Tomorrow teaser — return hook */}
