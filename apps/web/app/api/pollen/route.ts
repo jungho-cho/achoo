@@ -1,4 +1,5 @@
 import { fetchPollenKma, fetchPollenOpenMeteo } from '@repo/api-client';
+import type { PollenLevel, PollenResponse } from '@repo/shared-types';
 import { isInKorea, latLngToSido, sidoToKmaAreaNo } from '@repo/geo';
 import { NextRequest, NextResponse } from 'next/server';
 import { cacheGet, cacheSet } from '../../../lib/cache';
@@ -6,6 +7,34 @@ import { withCircuitBreaker } from '../../../lib/circuit-breaker';
 import { checkRateLimit, getClientIp } from '../../../lib/rate-limit';
 
 export const runtime = 'nodejs';
+
+// Restore displayValue for API consumers (urikiri Flutter app depends on this)
+const POLLEN_DISPLAY_KO: Record<PollenLevel, string> = {
+  low: '낮음',
+  moderate: '보통',
+  high: '높음',
+  'very-high': '매우높음',
+};
+
+function addDisplayValues(data: PollenResponse): PollenResponse {
+  return {
+    ...data,
+    current: {
+      ...data.current,
+      readings: data.current.readings.map((r) => ({
+        ...r,
+        displayValue: r.displayValue ?? POLLEN_DISPLAY_KO[r.level],
+      })),
+    },
+    forecast: data.forecast.map((day) => ({
+      ...day,
+      readings: day.readings.map((r) => ({
+        ...r,
+        displayValue: r.displayValue ?? POLLEN_DISPLAY_KO[r.level],
+      })),
+    })),
+  };
+}
 
 // GET /api/pollen?lat=37.5665&lng=126.9780
 export async function GET(req: NextRequest) {
@@ -44,18 +73,17 @@ export async function GET(req: NextRequest) {
     ? `pollen:kma:${sido}`
     : `pollen:${lat.toFixed(2)}:${lng.toFixed(2)}`;
 
-  const cached = await cacheGet(cacheKey);
+  const cached = await cacheGet<PollenResponse>(cacheKey);
   if (cached) {
-    return NextResponse.json(cached, {
+    return NextResponse.json(addDisplayValues(cached), {
       headers: { 'X-Cache': 'HIT', 'Cache-Control': 'public, s-maxage=10800' },
     });
   }
 
   try {
-    let data;
+    let data: PollenResponse | null = null;
 
     if (korea && sido) {
-      // 한국: 기상청 꽃가루농도위험지수
       const areaNo = sidoToKmaAreaNo(sido);
       data = await withCircuitBreaker(
         'kma-pollen',
@@ -63,12 +91,10 @@ export async function GET(req: NextRequest) {
         () => null,
       );
 
-      // KMA 실패 시 Open-Meteo fallback (데이터는 부정확하지만 없는 것보단 나음)
       if (!data) {
         data = await fetchPollenOpenMeteo(lat, lng).catch(() => null);
       }
     } else {
-      // 해외: Open-Meteo
       data = await withCircuitBreaker(
         'open-meteo',
         () => fetchPollenOpenMeteo(lat, lng),
@@ -77,9 +103,9 @@ export async function GET(req: NextRequest) {
     }
 
     if (!data) {
-      const stale = await cacheGet(cacheKey);
+      const stale = await cacheGet<PollenResponse>(cacheKey);
       if (stale) {
-        return NextResponse.json({ ...stale, stale: true }, {
+        return NextResponse.json({ ...addDisplayValues(stale), stale: true }, {
           headers: { 'X-Cache': 'STALE', 'Cache-Control': 'public, s-maxage=600' },
         });
       }
@@ -91,14 +117,14 @@ export async function GET(req: NextRequest) {
 
     await cacheSet(cacheKey, data);
 
-    return NextResponse.json(data, {
+    return NextResponse.json(addDisplayValues(data), {
       headers: { 'X-Cache': 'MISS', 'Cache-Control': 'public, s-maxage=10800' },
     });
   } catch (err) {
     console.error('[/api/pollen]', err);
-    const stale = await cacheGet(cacheKey);
+    const stale = await cacheGet<PollenResponse>(cacheKey);
     if (stale) {
-      return NextResponse.json({ ...stale, stale: true }, {
+      return NextResponse.json({ ...addDisplayValues(stale), stale: true }, {
         headers: { 'X-Cache': 'STALE', 'Cache-Control': 'public, s-maxage=600' },
       });
     }

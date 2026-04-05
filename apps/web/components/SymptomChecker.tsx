@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import type { DiaryEntry, Severity, SymptomId } from '../lib/diary';
 import { SEVERITY_OPTIONS, SYMPTOMS, loadEntries, saveTodayEntry, today } from '../lib/diary';
 
@@ -114,6 +115,7 @@ function generateAdvice(symptoms: SymptomId[], severity: Severity): Advice[] {
 }
 
 export function SymptomChecker() {
+  const t = useTranslations('ui');
   const [step, setStep] = useState<'symptoms' | 'severity' | 'result'>('symptoms');
   const [selectedSymptoms, setSelectedSymptoms] = useState<SymptomId[]>([]);
   const [severity, setSeverity] = useState<Severity>(2);

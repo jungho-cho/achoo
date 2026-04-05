@@ -1,0 +1,86 @@
+{
+  "loading": {
+    "location": "Standort wird ermittelt...",
+    "data": "Daten werden geladen..."
+  },
+  "error": {
+    "fetchFailed": "Daten konnten nicht geladen werden.",
+    "retry": "Erneut versuchen"
+  },
+  "location": {
+    "denied": "Standortzugriff verweigert. Daten für Berlin werden angezeigt.",
+    "deniedShort": "Standort verweigert"
+  },
+  "pollen": {
+    "title": "Pollenflug heute",
+    "forecast": "7-Tage-Vorhersage",
+    "offSeason": "Derzeit keine Pollensaison",
+    "source": "KMA · AirKorea · Open-Meteo"
+  },
+  "dust": {
+    "title": "Feinstaub"
+  },
+  "species": {
+    "tree": "Baum",
+    "grass": "Gras",
+    "weed": "Unkraut",
+    "pine": "Kiefer",
+    "oak": "Eiche"
+  },
+  "pollenLevel": {
+    "low": "Niedrig",
+    "moderate": "Mäßig",
+    "high": "Hoch",
+    "very-high": "Sehr hoch"
+  },
+  "dustLevel": {
+    "good": "Gut",
+    "moderate": "Mäßig",
+    "bad": "Schlecht",
+    "very-bad": "Sehr schlecht"
+  },
+  "outingGrade": {
+    "good": { "label": "Gut", "advice": "Ein guter Tag für Aktivitäten im Freien 🌿" },
+    "moderate": { "label": "Mäßig", "advice": "Empfindliche Personen sollten eine Maske tragen 😷" },
+    "bad": { "label": "Schlecht", "advice": "Beim Ausgehen eine Maske tragen ⚠️" },
+    "very-bad": { "label": "Sehr schlecht", "advice": "Möglichst nicht nach draußen gehen 🚫" }
+  },
+  "hero": {
+    "low": "Ein guter Tag für Aktivitäten im Freien 🌿",
+    "moderate": "Empfindliche Personen sollten eine Maske tragen 😷",
+    "high": "Beim Ausgehen eine Maske tragen ⚠️",
+    "very-high": "Möglichst nicht nach draußen gehen 🚫"
+  },
+  "days": {
+    "today": "Heute",
+    "tomorrow": "Morgen",
+    "mon": "Mo", "tue": "Di", "wed": "Mi", "thu": "Do", "fri": "Fr", "sat": "Sa", "sun": "So"
+  },
+  "nav": {
+    "tips": "Allergie-Tipps",
+    "pollenInfo": "Polleninformation",
+    "home": "Startseite",
+    "allergyTypes": "Allergiearten",
+    "seasonalCalendar": "Pollenkalender",
+    "preventionGuide": "Vorbeugung",
+    "dustGuide": "Feinstaub-Ratgeber",
+    "faq": "FAQ",
+    "privacy": "Datenschutz"
+  },
+  "affiliate": {
+    "mask": "😷 Allergiemaske",
+    "purifier": "💨 Luftreiniger",
+    "eyeDrops": "👁️ Allergie-Augentropfen",
+    "antihistamine": "💊 Antihistaminikum",
+    "disclaimer": "Dies sind Affiliate-Links"
+  },
+  "diary": {
+    "title": "Wie geht es Ihnen heute?",
+    "description": "Tägliche Aufzeichnungen helfen, Ihre Allergiemuster zu erkennen",
+    "expandCta": "Symptome aufzeichnen und persönliche Tipps erhalten"
+  },
+  "metadata": {
+    "title": "Achoo — Pollenflug & Feinstaub-Vorhersage",
+    "description": "Prüfen Sie Pollenflug und Feinstaub vor dem Ausgehen. Standortbasierte Echtzeit-Vorhersagen."
+  }
+}

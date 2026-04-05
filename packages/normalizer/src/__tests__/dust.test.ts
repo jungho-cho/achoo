@@ -49,21 +49,21 @@ describe('normalizeDustReading — picks worse of pm25 / pm10', () => {
     // pm25=76 (very-bad), pm10=30 (good)
     const r = normalizeDustReading(30, 76);
     expect(r.level).toBe('very-bad');
-    expect(r.displayValue).toBe('매우나쁨');
     expect(r.pm25).toBe(76);
     expect(r.pm10).toBe(30);
+    expect(r.displayValue).toBeUndefined();
   });
 
   it('pm10 worse → uses pm10 level', () => {
     // pm25=10 (good), pm10=90 (bad)
     const r = normalizeDustReading(90, 10);
     expect(r.level).toBe('bad');
-    expect(r.displayValue).toBe('나쁨');
+    expect(r.displayValue).toBeUndefined();
   });
 
   it('both good → good', () => {
     const r = normalizeDustReading(20, 10);
     expect(r.level).toBe('good');
-    expect(r.displayValue).toBe('좋음');
+    expect(r.displayValue).toBeUndefined();
   });
 });

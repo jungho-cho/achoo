@@ -3,13 +3,6 @@ import type { PollenLevel, PollenReading, PollenSpecies } from '@repo/shared-typ
 // Open-Meteo returns pollen concentration in grains/m³ (CAMS model)
 // Thresholds based on ECAC (European Aeroallergen Network) standards
 
-const LEVEL_DISPLAY_KO: Record<PollenLevel, string> = {
-  low: '낮음',
-  moderate: '보통',
-  high: '높음',
-  'very-high': '매우높음',
-};
-
 const LEVEL_RANGE: Record<PollenLevel, string> = {
   low: '0~30',
   moderate: '31~60',
@@ -48,7 +41,6 @@ export function normalizeOpenMeteoReading(
     species,
     level,
     numericValue: grainsToNumeric(grainsPerM3, species),
-    displayValue: LEVEL_DISPLAY_KO[level],
     range: LEVEL_RANGE[level],
   };
 }

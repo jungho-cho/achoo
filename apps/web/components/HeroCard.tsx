@@ -2,6 +2,7 @@
 
 import type { DustResponse, PollenResponse } from '@repo/shared-types';
 import { selectHero } from '@repo/normalizer';
+import { useTranslations } from 'next-intl';
 
 const BG: Record<string, string> = {
   low:        'from-green-400 to-green-600',
@@ -13,15 +14,7 @@ const BG: Record<string, string> = {
   'very-bad': 'from-red-500 to-red-700',
 };
 
-const ADVICE: Record<string, string> = {
-  low:        '야외 활동하기 좋은 날이에요 🌿',
-  moderate:   '민감한 분은 마스크를 챙기세요 😷',
-  high:       '외출 시 KF94 마스크 착용 권장 ⚠️',
-  'very-high':'가능하면 외출을 삼가세요 🚫',
-  good:       '공기 맑은 날이에요 🌿',
-  bad:        '미세먼지 마스크를 착용하세요 😷',
-  'very-bad': '외출 자제, 환기 금지 🚫',
-};
+const POLLEN_LEVELS = ['low', 'moderate', 'high', 'very-high'];
 
 interface Props {
   pollen: PollenResponse;
@@ -29,6 +22,7 @@ interface Props {
 }
 
 export function HeroCard({ pollen, dust }: Props) {
+  const t = useTranslations('ui');
   const hero = dust
     ? selectHero(pollen.current.readings, dust.current)
     : {
@@ -39,15 +33,21 @@ export function HeroCard({ pollen, dust }: Props) {
       };
 
   const bg = BG[hero.level] ?? BG.low;
-  const advice = ADVICE[hero.level] ?? '';
-  const metricLabel = hero.metric === 'pollen' ? '꽃가루' : '미세먼지';
+  const isPollen = POLLEN_LEVELS.includes(hero.level);
+  const advice = isPollen
+    ? t(`hero.${hero.level}` as 'hero.low')
+    : t(`outingGrade.${hero.level}.advice` as 'outingGrade.good.advice');
+  const displayLabel = isPollen
+    ? t(`pollenLevel.${hero.level}` as 'pollenLevel.low')
+    : t(`dustLevel.${hero.level}` as 'dustLevel.good');
+  const metricLabel = hero.metric === 'pollen' ? t('pollen.title').replace('오늘의 ', '') : t('dust.title');
 
   return (
     <div className={`rounded-3xl bg-gradient-to-br ${bg} p-8 text-white shadow-lg`}>
       <p className="text-sm font-medium opacity-80">{metricLabel} 지수</p>
       <div className="mt-1 flex items-baseline gap-3">
         <p className="text-7xl font-bold tracking-tight">{hero.numericValue}</p>
-        <p className="text-lg font-medium opacity-80">{hero.displayValue}</p>
+        <p className="text-lg font-medium opacity-80">{displayLabel}</p>
       </div>
       <p className="mt-4 text-sm opacity-90">{advice}</p>
     </div>

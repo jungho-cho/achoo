@@ -1,5 +1,5 @@
-import { dominantLevel, normalizeOpenMeteoReading } from '@repo/normalizer';
-import type { PollenForecastDay, PollenResponse } from '@repo/shared-types';
+import { dominantLevel, normalizeDustReading, normalizeOpenMeteoReading } from '@repo/normalizer';
+import type { DustResponse, PollenForecastDay, PollenResponse } from '@repo/shared-types';
 
 // Open-Meteo Air Quality API — no API key required, CAMS model, global coverage
 // https://open-meteo.com/en/docs/air-quality-api
@@ -17,6 +17,8 @@ interface OpenMeteoResponse {
     grass_pollen: (number | null)[];
     mugwort_pollen: (number | null)[];
     ragweed_pollen: (number | null)[];
+    pm2_5?: (number | null)[];
+    pm10?: (number | null)[];
   };
 }
 
@@ -91,4 +93,76 @@ export async function fetchPollenOpenMeteo(lat: number, lng: number): Promise<Po
     forecast,
     cachedAt: new Date().toISOString(),
   };
+}
+
+/**
+ * Fetch both pollen AND dust (PM2.5/PM10) from Open-Meteo in a single API call.
+ * Returns pollen always; dust is null if PM data is unavailable.
+ */
+export async function fetchOpenMeteoAirQuality(
+  lat: number,
+  lng: number,
+): Promise<{ pollen: PollenResponse; dust: DustResponse | null }> {
+  const params = new URLSearchParams({
+    latitude: lat.toFixed(4),
+    longitude: lng.toFixed(4),
+    hourly:
+      'alder_pollen,birch_pollen,grass_pollen,mugwort_pollen,ragweed_pollen,pm2_5,pm10',
+    forecast_days: '7',
+    timezone: 'auto',
+  });
+
+  const res = await fetch(`${BASE_URL}?${params}`);
+  if (!res.ok) {
+    throw new Error(`Open-Meteo API error: ${res.status} ${res.statusText}`);
+  }
+
+  const json = (await res.json()) as OpenMeteoResponse;
+
+  if (!json.hourly?.time?.length) {
+    throw new Error('Open-Meteo API returned empty hourly data');
+  }
+
+  // ── Pollen (same logic as fetchPollenOpenMeteo) ──
+  const totalDays = Math.floor(json.hourly.time.length / 24);
+  const current = aggregateDay(json.hourly, 0);
+  const forecast = Array.from({ length: Math.min(totalDays - 1, 6) }, (_, i) =>
+    aggregateDay(json.hourly, i + 1),
+  );
+
+  const pollen: PollenResponse = {
+    sido: '',
+    lat: json.latitude,
+    lng: json.longitude,
+    source: 'open-meteo',
+    current,
+    forecast,
+    cachedAt: new Date().toISOString(),
+  };
+
+  // ── Dust (PM2.5 / PM10 for current hour) ──
+  let dust: DustResponse | null = null;
+
+  if (json.hourly.pm2_5 && json.hourly.pm10) {
+    // Find the current hour index
+    const now = new Date();
+    const currentHour = now.getUTCHours();
+    // Use hour index directly (data starts at midnight local time via timezone=auto)
+    // Fallback to index 0 if we can't determine
+    const hourIndex = Math.min(currentHour, json.hourly.pm2_5.length - 1);
+
+    const pm25Val = Math.max(0, json.hourly.pm2_5[hourIndex] ?? 0);
+    const pm10Val = Math.max(0, json.hourly.pm10[hourIndex] ?? 0);
+
+    dust = {
+      sido: '',
+      lat: json.latitude,
+      lng: json.longitude,
+      source: 'open-meteo',
+      current: normalizeDustReading(pm10Val, pm25Val),
+      cachedAt: new Date().toISOString(),
+    };
+  }
+
+  return { pollen, dust };
 }

@@ -4,10 +4,11 @@
 // Amazon links can be added later for other regions (e.g. Germany)
 
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { isInKorea } from '../lib/sido';
 
 interface AffiliateProduct {
-  name: string;
+  key: string;
   url: string;
   emoji: string;
   desc: string;
@@ -15,25 +16,25 @@ interface AffiliateProduct {
 
 const COUPANG_PRODUCTS: AffiliateProduct[] = [
   {
-    name: 'KF94 마스크',
+    key: 'mask',
     emoji: '😷',
     desc: '꽃가루 차단율 94%',
     url: 'https://link.coupang.com/a/ecRkTU',
   },
   {
-    name: '공기청정기',
+    key: 'purifier',
     emoji: '💨',
     desc: '실내 꽃가루 제거',
     url: 'https://link.coupang.com/a/ecRmeQ',
   },
   {
-    name: '알레르기 안약',
+    key: 'eyeDrops',
     emoji: '👁️',
     desc: '눈 가려움 완화',
     url: 'https://link.coupang.com/a/ecRmzD',
   },
   {
-    name: '항히스타민제',
+    key: 'antihistamine',
     emoji: '💊',
     desc: '알레르기 증상 완화',
     url: 'https://link.coupang.com/a/ecRmPO',
@@ -66,6 +67,7 @@ function useUserRegion(): Region {
 }
 
 export function AffiliateLinks() {
+  const t = useTranslations('ui');
   const region = useUserRegion();
 
   // Still detecting location or not in a supported region
@@ -81,20 +83,20 @@ export function AffiliateLinks() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
           {COUPANG_PRODUCTS.map((p) => (
             <a
-              key={p.name}
+              key={p.key}
               href={p.url}
               target="_blank"
               rel="noopener noreferrer sponsored"
               className="flex flex-col gap-1 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors"
             >
               <span className="text-xl">{p.emoji}</span>
-              <span className="text-sm font-medium text-gray-700">{p.name}</span>
+              <span className="text-sm font-medium text-gray-700">{t(`affiliate.${p.key}` as 'affiliate.mask')}</span>
               <span className="text-xs text-gray-400">{p.desc}</span>
             </a>
           ))}
         </div>
         <p className="text-[10px] text-gray-300 mt-2 text-center">
-          이 링크는 제휴 링크입니다 (쿠팡 파트너스)
+          {t('affiliate.disclaimer')}
         </p>
       </div>
     );

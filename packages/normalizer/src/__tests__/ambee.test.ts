@@ -19,11 +19,12 @@ describe('ambeeScoreToLevel', () => {
 });
 
 describe('normalizeAmbeeReading', () => {
-  it('returns Korean displayValue', () => {
+  it('returns correct level and numericValue without displayValue', () => {
     const r = normalizeAmbeeReading(7, 'tree');
-    expect(r.displayValue).toBe('높음');
+    expect(r.level).toBe('high');
     expect(r.species).toBe('tree');
     expect(r.numericValue).toBe(70);
+    expect(r.displayValue).toBeUndefined();
   });
 });
 

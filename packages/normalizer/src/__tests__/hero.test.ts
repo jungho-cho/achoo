@@ -3,23 +3,11 @@ import type { DustReading, PollenReading } from '@repo/shared-types';
 import { selectHero } from '../hero.js';
 
 function pollenReading(level: PollenReading['level'], numeric: number): PollenReading {
-  return { species: 'tree', level, numericValue: numeric, displayValue: '', range: '' };
+  return { species: 'tree', level, numericValue: numeric, range: '' };
 }
 
 function dustReading(level: DustReading['level']): DustReading {
-  const numeric: Record<DustReading['level'], number> = {
-    good: 10,
-    moderate: 40,
-    bad: 65,
-    'very-bad': 90,
-  };
-  const display: Record<DustReading['level'], string> = {
-    good: '좋음',
-    moderate: '보통',
-    bad: '나쁨',
-    'very-bad': '매우나쁨',
-  };
-  return { pm10: 0, pm25: 0, level, displayValue: display[level] };
+  return { pm10: 0, pm25: 0, level };
 }
 
 describe('selectHero — seasonal swap rule', () => {
@@ -29,8 +17,8 @@ describe('selectHero — seasonal swap rule', () => {
     const hero = selectHero(pollen, dust);
     expect(hero.metric).toBe('dust');
     expect(hero.level).toBe('bad');
-    expect(hero.displayValue).toBe('나쁨');
     expect(hero.numericValue).toBe(65);
+    expect(hero.displayValue).toBeUndefined();
   });
 
   it('pollen > dust → hero is pollen', () => {

@@ -24,7 +24,7 @@ function makeDust(level: 'good' | 'moderate' | 'bad' | 'very-bad'): DustResponse
     lat: 37.5665,
     lng: 126.978,
     source: 'airkorea',
-    current: { pm10: 30, pm25: 15, level, displayValue: '' },
+    current: { pm10: 30, pm25: 15, level },
     cachedAt: new Date().toISOString(),
   };
 }
@@ -66,9 +66,9 @@ describe('calculateOutingScore', () => {
     expect(result.grade).toBe('bad');
   });
 
-  it('includes Korean label and advice', () => {
+  it('does not include label or advice (i18n: set by UI layer)', () => {
     const result = calculateOutingScore(makePollen('low'), makeDust('good'));
-    expect(result.label).toBe('좋음');
-    expect(result.advice).toContain('야외');
+    expect(result.label).toBeUndefined();
+    expect(result.advice).toBeUndefined();
   });
 });

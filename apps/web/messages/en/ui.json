@@ -1,0 +1,86 @@
+{
+  "loading": {
+    "location": "Detecting location...",
+    "data": "Loading data..."
+  },
+  "error": {
+    "fetchFailed": "Unable to load data.",
+    "retry": "Retry"
+  },
+  "location": {
+    "denied": "Location permission denied. Showing London data.",
+    "deniedShort": "Location denied"
+  },
+  "pollen": {
+    "title": "Today's Pollen",
+    "forecast": "7-Day Forecast",
+    "offSeason": "Currently off-season for pollen",
+    "source": "KMA · AirKorea · Open-Meteo"
+  },
+  "dust": {
+    "title": "Air Quality"
+  },
+  "species": {
+    "tree": "Tree",
+    "grass": "Grass",
+    "weed": "Weed",
+    "pine": "Pine",
+    "oak": "Oak"
+  },
+  "pollenLevel": {
+    "low": "Low",
+    "moderate": "Moderate",
+    "high": "High",
+    "very-high": "Very High"
+  },
+  "dustLevel": {
+    "good": "Good",
+    "moderate": "Moderate",
+    "bad": "Poor",
+    "very-bad": "Very Poor"
+  },
+  "outingGrade": {
+    "good": { "label": "Good", "advice": "Great day for outdoor activities 🌿" },
+    "moderate": { "label": "Moderate", "advice": "Sensitive individuals should wear a mask 😷" },
+    "bad": { "label": "Poor", "advice": "Wear a mask when going outside ⚠️" },
+    "very-bad": { "label": "Very Poor", "advice": "Avoid going outside if possible 🚫" }
+  },
+  "hero": {
+    "low": "Great day for outdoor activities 🌿",
+    "moderate": "Sensitive individuals should wear a mask 😷",
+    "high": "Wear a mask when going outside ⚠️",
+    "very-high": "Avoid going outside if possible 🚫"
+  },
+  "days": {
+    "today": "Today",
+    "tomorrow": "Tmrw",
+    "mon": "Mon", "tue": "Tue", "wed": "Wed", "thu": "Thu", "fri": "Fri", "sat": "Sat", "sun": "Sun"
+  },
+  "nav": {
+    "tips": "Allergy Tips",
+    "pollenInfo": "Pollen Info",
+    "home": "Home",
+    "allergyTypes": "Allergy Types",
+    "seasonalCalendar": "Seasonal Calendar",
+    "preventionGuide": "Prevention Guide",
+    "dustGuide": "Air Quality Guide",
+    "faq": "FAQ",
+    "privacy": "Privacy Policy"
+  },
+  "affiliate": {
+    "mask": "😷 Allergy Mask",
+    "purifier": "💨 Air Purifier",
+    "eyeDrops": "👁️ Allergy Eye Drops",
+    "antihistamine": "💊 Antihistamine",
+    "disclaimer": "These are affiliate links"
+  },
+  "diary": {
+    "title": "How are you feeling today?",
+    "description": "Track daily to discover your allergy patterns",
+    "expandCta": "Record symptoms and get personalized advice"
+  },
+  "metadata": {
+    "title": "Achoo — Pollen & Air Quality Forecast",
+    "description": "Check pollen and air quality before heading out. Real-time location-based forecasts."
+  }
+}

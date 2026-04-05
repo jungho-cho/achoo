@@ -1,10 +1,12 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import type { DiaryEntry, Severity } from '../lib/diary';
 import { SEVERITY_OPTIONS, loadEntries, saveTodayEntry, today } from '../lib/diary';
 
 export function SymptomDiary() {
+  const t = useTranslations('ui');
   const [entries, setEntries] = useState<DiaryEntry[]>([]);
   const [mounted, setMounted] = useState(false);
 
@@ -32,11 +34,11 @@ export function SymptomDiary() {
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
       <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">
-        오늘 어떠세요?
+        {t('diary.title')}
       </p>
       {recent.length === 0 && (
         <p className="text-[11px] text-gray-400 mb-3">
-          매일 기록하면 나만의 알레르기 패턴을 알 수 있어요
+          {t('diary.description')}
         </p>
       )}
       {recent.length > 0 && <div className="mb-3" />}
@@ -67,7 +69,7 @@ export function SymptomDiary() {
           href="/tips"
           className="mt-3 flex items-center justify-center gap-1 text-xs text-green-600 hover:text-green-700"
         >
-          증상 자세히 기록하고 맞춤 조언 받기 →
+          {t('diary.expandCta')} →
         </a>
       )}
 

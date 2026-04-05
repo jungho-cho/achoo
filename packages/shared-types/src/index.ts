@@ -9,8 +9,8 @@ export interface PollenReading {
   level: PollenLevel;
   /** Internal numeric value — do NOT display directly to users */
   numericValue: number;
-  /** Korean label shown to users */
-  displayValue: string;
+  /** Localized label — set by the UI layer, not the normalizer */
+  displayValue?: string;
   /** Range label e.g. "0~30" */
   range: string;
 }
@@ -42,14 +42,14 @@ export interface DustReading {
   pm10: number;
   pm25: number;
   level: DustLevel;
-  displayValue: string;
+  displayValue?: string;
 }
 
 export interface DustResponse {
   sido: string;
   lat: number;
   lng: number;
-  source: 'airkorea';
+  source: 'airkorea' | 'open-meteo';
   current: DustReading;
   cachedAt: string; // ISO timestamp
 }
@@ -61,6 +61,6 @@ export type HeroMetric = 'pollen' | 'dust';
 export interface HeroData {
   metric: HeroMetric;
   level: PollenLevel | DustLevel;
-  displayValue: string;
+  displayValue?: string;
   numericValue: number;
 }

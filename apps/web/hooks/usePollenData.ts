@@ -49,7 +49,8 @@ export function usePollenData(): UsePollenDataResult {
         setInKorea(korea);
         // Reverse geocode for non-Korean locations
         if (!korea) {
-          fetch(`https://nominatim.openstreetmap.org/reverse?lat=${loc.lat}&lon=${loc.lng}&format=json&accept-language=ko&zoom=10`, {
+          const lang = typeof document !== 'undefined' ? document.documentElement.lang || 'en' : 'en';
+          fetch(`https://nominatim.openstreetmap.org/reverse?lat=${loc.lat}&lon=${loc.lng}&format=json&accept-language=${lang}&zoom=10`, {
             headers: { 'User-Agent': 'Achoo/1.0 (achoo.day)' },
           })
             .then((r) => r.json())
@@ -85,12 +86,10 @@ export function usePollenData(): UsePollenDataResult {
       signal: controller.signal,
     }).then((r) => (r.ok ? r.json() : null));
 
-    // Only fetch dust if in Korea (AirKorea is Korea-only)
-    const dustFetch = korea
-      ? fetch(`/api/dust?lat=${location.lat}&lng=${location.lng}`, {
-          signal: controller.signal,
-        }).then((r) => (r.ok ? r.json() : null))
-      : Promise.resolve(null);
+    // Fetch dust globally (Korea: AirKorea, overseas: Open-Meteo)
+    const dustFetch = fetch(`/api/dust?lat=${location.lat}&lng=${location.lng}`, {
+      signal: controller.signal,
+    }).then((r) => (r.ok ? r.json() : null));
 
     Promise.all([pollenFetch, dustFetch])
       .then(([pollenData, dustData]) => {

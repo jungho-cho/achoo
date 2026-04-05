@@ -20,12 +20,13 @@ describe('normalizeKmaLevel', () => {
 });
 
 describe('normalizeKmaReading', () => {
-  it('returns correct displayValue — never raw number', () => {
+  it('returns correct level, numericValue, and range', () => {
     const reading = normalizeKmaReading('높음', 'tree');
-    expect(reading.displayValue).toBe('높음');
+    expect(reading.level).toBe('high');
     expect(reading.numericValue).toBe(70);
     expect(reading.range).toBe('61~80');
     expect(reading.species).toBe('tree');
+    expect(reading.displayValue).toBeUndefined();
   });
 
   it('midpoints: low=15, moderate=45, high=70, very-high=90', () => {

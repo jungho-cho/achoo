@@ -30,7 +30,6 @@ export function selectHero(
     return {
       metric: 'dust',
       level: dust.level,
-      displayValue: dust.displayValue,
       numericValue: dustNumeric,
     };
   }
@@ -40,7 +39,6 @@ export function selectHero(
   return {
     metric: 'pollen',
     level: dominant.level,
-    displayValue: dominant.displayValue,
     numericValue: dominant.numericValue,
   };
 }

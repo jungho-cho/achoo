@@ -1,0 +1,86 @@
+{
+  "loading": {
+    "location": "Détection de la position...",
+    "data": "Chargement des données..."
+  },
+  "error": {
+    "fetchFailed": "Impossible de charger les données.",
+    "retry": "Réessayer"
+  },
+  "location": {
+    "denied": "Accès à la position refusé. Données de Paris affichées.",
+    "deniedShort": "Position refusée"
+  },
+  "pollen": {
+    "title": "Pollens aujourd'hui",
+    "forecast": "Prévisions sur 7 jours",
+    "offSeason": "Hors saison pollinique",
+    "source": "KMA · AirKorea · Open-Meteo"
+  },
+  "dust": {
+    "title": "Qualité de l'air"
+  },
+  "species": {
+    "tree": "Arbre",
+    "grass": "Graminées",
+    "weed": "Herbacées",
+    "pine": "Pin",
+    "oak": "Chêne"
+  },
+  "pollenLevel": {
+    "low": "Faible",
+    "moderate": "Modéré",
+    "high": "Élevé",
+    "very-high": "Très élevé"
+  },
+  "dustLevel": {
+    "good": "Bon",
+    "moderate": "Modéré",
+    "bad": "Mauvais",
+    "very-bad": "Très mauvais"
+  },
+  "outingGrade": {
+    "good": { "label": "Bon", "advice": "Bonne journée pour les activités en plein air 🌿" },
+    "moderate": { "label": "Modéré", "advice": "Les personnes sensibles devraient porter un masque 😷" },
+    "bad": { "label": "Mauvais", "advice": "Portez un masque en sortant ⚠️" },
+    "very-bad": { "label": "Très mauvais", "advice": "Évitez de sortir si possible 🚫" }
+  },
+  "hero": {
+    "low": "Bonne journée pour les activités en plein air 🌿",
+    "moderate": "Les personnes sensibles devraient porter un masque 😷",
+    "high": "Portez un masque en sortant ⚠️",
+    "very-high": "Évitez de sortir si possible 🚫"
+  },
+  "days": {
+    "today": "Auj.",
+    "tomorrow": "Dem.",
+    "mon": "Lun", "tue": "Mar", "wed": "Mer", "thu": "Jeu", "fri": "Ven", "sat": "Sam", "sun": "Dim"
+  },
+  "nav": {
+    "tips": "Conseils allergie",
+    "pollenInfo": "Info pollens",
+    "home": "Accueil",
+    "allergyTypes": "Types d'allergies",
+    "seasonalCalendar": "Calendrier pollinique",
+    "preventionGuide": "Guide de prévention",
+    "dustGuide": "Guide qualité de l'air",
+    "faq": "FAQ",
+    "privacy": "Politique de confidentialité"
+  },
+  "affiliate": {
+    "mask": "😷 Masque anti-allergie",
+    "purifier": "💨 Purificateur d'air",
+    "eyeDrops": "👁️ Collyre anti-allergie",
+    "antihistamine": "💊 Antihistaminique",
+    "disclaimer": "Ces liens sont des liens d'affiliation"
+  },
+  "diary": {
+    "title": "Comment vous sentez-vous aujourd'hui ?",
+    "description": "Un suivi quotidien révèle vos schémas allergiques",
+    "expandCta": "Enregistrer vos symptômes et obtenir des conseils personnalisés"
+  },
+  "metadata": {
+    "title": "Achoo — Prévisions pollens et qualité de l'air",
+    "description": "Consultez les niveaux de pollens et la qualité de l'air avant de sortir. Prévisions en temps réel."
+  }
+}

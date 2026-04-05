@@ -25,13 +25,6 @@ const LEVEL_NUMERIC: Record<PollenLevel, number> = {
   'very-high': 90,
 };
 
-const LEVEL_DISPLAY_KO: Record<PollenLevel, string> = {
-  low: '낮음',
-  moderate: '보통',
-  high: '높음',
-  'very-high': '매우높음',
-};
-
 const LEVEL_RANGE: Record<PollenLevel, string> = {
   low: '0~30',
   moderate: '31~60',
@@ -51,7 +44,6 @@ export function normalizeKmaReading(raw: string, species: PollenSpecies): Pollen
     species,
     level,
     numericValue: LEVEL_NUMERIC[level],
-    displayValue: LEVEL_DISPLAY_KO[level],
     range: LEVEL_RANGE[level],
   };
 }

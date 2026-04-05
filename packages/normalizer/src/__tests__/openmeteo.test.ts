@@ -54,18 +54,18 @@ describe('grainsToNumeric', () => {
 });
 
 describe('normalizeOpenMeteoReading', () => {
-  it('returns Korean displayValue', () => {
+  it('returns correct level and species', () => {
     const r = normalizeOpenMeteoReading(0, 'tree');
-    expect(r.displayValue).toBe('낮음');
     expect(r.species).toBe('tree');
     expect(r.level).toBe('low');
+    expect(r.displayValue).toBeUndefined();
   });
 
-  it('very-high returns 매우높음', () => {
+  it('very-high level', () => {
     const r = normalizeOpenMeteoReading(100, 'tree');
-    expect(r.displayValue).toBe('매우높음');
     expect(r.level).toBe('very-high');
     expect(r.numericValue).toBe(100);
+    expect(r.displayValue).toBeUndefined();
   });
 
   it('includes range string', () => {

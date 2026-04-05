@@ -1,6 +1,7 @@
 'use client';
 
 import type { PollenResponse } from '@repo/shared-types';
+import { useTranslations } from 'next-intl';
 import { usePollenData } from '../hooks/usePollenData';
 import { ForecastBar } from './ForecastBar';
 import { HeroCard } from './HeroCard';
@@ -13,6 +14,7 @@ interface Props {
 }
 
 export function HomeClient({ ssrPollen }: Props) {
+  const t = useTranslations('ui');
   const { pollen: clientPollen, dust, loading, loadingPhase, error, locationDenied, inKorea, cityName } = usePollenData();
 
   // Use client data when available, fall back to SSR data
@@ -24,7 +26,7 @@ export function HomeClient({ ssrPollen }: Props) {
       <div className="flex flex-col items-center justify-center min-h-screen gap-3">
         <div className="w-8 h-8 rounded-full border-2 border-gray-200 border-t-green-500 animate-spin" />
         <p className="text-sm text-gray-400">
-          {loadingPhase === 'location' ? '위치 확인 중...' : '데이터 불러오는 중...'}
+          {loadingPhase === 'location' ? t('loading.location') : t('loading.data')}
         </p>
       </div>
     );
@@ -34,12 +36,12 @@ export function HomeClient({ ssrPollen }: Props) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen gap-2 px-6 text-center">
         <p className="text-2xl">😵</p>
-        <p className="text-gray-600">{error ?? '데이터를 불러올 수 없습니다.'}</p>
+        <p className="text-gray-600">{error ?? t('error.fetchFailed')}</p>
         <button
           className="mt-2 px-4 py-2 text-sm rounded-xl bg-gray-100 text-gray-600"
           onClick={() => window.location.reload()}
         >
-          다시 시도
+          {t('error.retry')}
         </button>
       </div>
     );
@@ -70,7 +72,7 @@ export function HomeClient({ ssrPollen }: Props) {
         {locationDenied && (
           <div className="px-3 py-2 rounded-xl bg-yellow-50 border border-yellow-100">
             <p className="text-xs text-yellow-700">
-              📍 위치 권한이 없어 서울 기준으로 표시합니다
+              📍 {t('location.denied')}
             </p>
           </div>
         )}
@@ -90,10 +92,10 @@ export function HomeClient({ ssrPollen }: Props) {
             <div className="flex items-center gap-2 flex-wrap">
               <LevelBadge level={current.overallLevel} />
               {dust && (
-                <LevelBadge level={dust.current.level} label={`미세먼지 ${dust.current.displayValue}`} />
+                <LevelBadge level={dust.current.level} label={`${t('dust.title')} ${t(`dustLevel.${dust.current.level}` as 'dustLevel.good')}`} />
               )}
               {!dust && inKorea && (
-                <span className="text-xs text-gray-400">미세먼지 데이터 준비 중</span>
+                <span className="text-xs text-gray-400">{t('dust.title')} 데이터 준비 중</span>
               )}
             </div>
 
@@ -109,12 +111,12 @@ export function HomeClient({ ssrPollen }: Props) {
           <div className="space-y-4">
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 px-4 py-1">
               <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wide pt-3 pb-1">
-                꽃가루 종류별
+                {t('pollen.title')}
               </h2>
               {pollen.offSeason && (
                 <div className="px-3 py-2 my-2 rounded-xl bg-blue-50 border border-blue-100">
                   <p className="text-xs text-blue-600">
-                    현재 꽃가루 관측 비시즌입니다. 나무류는 3~6월, 잡초류는 8~10월에 예보가 제공됩니다.
+                    {t('pollen.offSeason')}
                   </p>
                 </div>
               )}
@@ -136,14 +138,14 @@ export function HomeClient({ ssrPollen }: Props) {
             href="/tips"
             className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
           >
-            <span className="text-sm font-medium text-gray-700">💡 맞춤 대처법</span>
+            <span className="text-sm font-medium text-gray-700">💡 {t('nav.tips')}</span>
             <span className="text-gray-400 text-sm">→</span>
           </a>
           <a
             href="/pollen-info"
             className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
           >
-            <span className="text-sm font-medium text-gray-700">🌳 꽃가루 알레르기란?</span>
+            <span className="text-sm font-medium text-gray-700">🌳 {t('nav.pollenInfo')}</span>
             <span className="text-gray-400 text-sm">→</span>
           </a>
           {/* 지역별 예보 링크 — 비활성화
@@ -160,28 +162,28 @@ export function HomeClient({ ssrPollen }: Props) {
         {/* Tomorrow teaser — return hook */}
         {forecast.length > 0 && (() => {
           const tmrw = forecast[0];
-          const LEVEL_KO: Record<string, string> = { low: '낮음', moderate: '보통', high: '높음', 'very-high': '매우높음' };
+          const LEVEL_KO: Record<string, string> = {};
           const DOT_COLOR: Record<string, string> = { low: 'bg-green-500', moderate: 'bg-yellow-400', high: 'bg-orange-500', 'very-high': 'bg-red-500' };
           return (
             <div className="flex items-center justify-center gap-2 py-2">
-              <span className="text-xs text-gray-400">내일 예보</span>
+              <span className="text-xs text-gray-400">{t('days.tomorrow')} 예보</span>
               <span className={`w-2 h-2 rounded-full ${DOT_COLOR[tmrw.overallLevel] ?? 'bg-gray-300'}`} />
-              <span className="text-xs font-medium text-gray-500">{LEVEL_KO[tmrw.overallLevel]}</span>
+              <span className="text-xs font-medium text-gray-500">{t(`pollenLevel.${tmrw.overallLevel}` as 'pollenLevel.low')}</span>
             </div>
           );
         })()}
 
         <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-xs text-gray-400 pt-2">
-          <a href="/allergy-types" className="hover:text-gray-600">꽃가루 종류</a>
-          <a href="/seasonal-calendar" className="hover:text-gray-600">시즌 캘린더</a>
-          <a href="/prevention-guide" className="hover:text-gray-600">예방법</a>
-          <a href="/dust-guide" className="hover:text-gray-600">미세먼지 가이드</a>
-          <a href="/faq" className="hover:text-gray-600">FAQ</a>
-          <a href="/privacy" className="hover:text-gray-600">개인정보처리방침</a>
+          <a href="/allergy-types" className="hover:text-gray-600">{t('nav.allergyTypes')}</a>
+          <a href="/seasonal-calendar" className="hover:text-gray-600">{t('nav.seasonalCalendar')}</a>
+          <a href="/prevention-guide" className="hover:text-gray-600">{t('nav.preventionGuide')}</a>
+          <a href="/dust-guide" className="hover:text-gray-600">{t('nav.dustGuide')}</a>
+          <a href="/faq" className="hover:text-gray-600">{t('nav.faq')}</a>
+          <a href="/privacy" className="hover:text-gray-600">{t('nav.privacy')}</a>
         </div>
 
         <p className="text-center text-xs text-gray-300 pb-4">
-          데이터: 기상청 · 에어코리아 · Open-Meteo
+          {t('pollen.source')}
         </p>
       </div>
     </div>

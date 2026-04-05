@@ -1,12 +1,5 @@
 import type { DustLevel, DustReading } from '@repo/shared-types';
 
-const LEVEL_DISPLAY_KO: Record<DustLevel, string> = {
-  good: '좋음',
-  moderate: '보통',
-  bad: '나쁨',
-  'very-bad': '매우나쁨',
-};
-
 // WHO / 에어코리아 기준 (PM2.5 μg/m³)
 export function pm25ToLevel(pm25: number): DustLevel {
   if (pm25 <= 15) return 'good';
@@ -33,6 +26,5 @@ export function normalizeDustReading(pm10: number, pm25: number): DustReading {
     pm10,
     pm25,
     level,
-    displayValue: LEVEL_DISPLAY_KO[level],
   };
 }

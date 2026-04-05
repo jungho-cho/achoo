@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { AffiliateLinks } from '../../components/AffiliateLinks';
-import { SymptomChecker } from '../../components/SymptomChecker';
+import { AffiliateLinks } from '../../../components/AffiliateLinks';
+import { SymptomChecker } from '../../../components/SymptomChecker';
 
 export const metadata: Metadata = {
   title: '알레르기 대처법 — 증상별 맞춤 조언',

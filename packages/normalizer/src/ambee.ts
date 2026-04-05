@@ -3,13 +3,6 @@ import type { PollenLevel, PollenReading, PollenSpecies } from '@repo/shared-typ
 // Ambee returns 0-10 scale; multiply × 10 → 0–100, then bucket
 // Cap at 100 (Ambee occasionally returns values > 10)
 
-const LEVEL_DISPLAY_KO: Record<PollenLevel, string> = {
-  low: '낮음',
-  moderate: '보통',
-  high: '높음',
-  'very-high': '매우높음',
-};
-
 const LEVEL_RANGE: Record<PollenLevel, string> = {
   low: '0~30',
   moderate: '31~60',
@@ -35,7 +28,6 @@ export function normalizeAmbeeReading(score: number, species: PollenSpecies): Po
     species,
     level,
     numericValue: ambeeScoreToNumeric(score),
-    displayValue: LEVEL_DISPLAY_KO[level],
     range: LEVEL_RANGE[level],
   };
 }

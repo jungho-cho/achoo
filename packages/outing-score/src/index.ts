@@ -32,8 +32,8 @@ export type OutingGrade = 'good' | 'moderate' | 'bad' | 'very-bad';
 export interface OutingResult {
   score: number;
   grade: OutingGrade;
-  label: string;
-  advice: string;
+  label?: string;
+  advice?: string;
 }
 
 function scoreToGrade(score: number): OutingGrade {
@@ -42,13 +42,6 @@ function scoreToGrade(score: number): OutingGrade {
   if (score >= 40) return 'bad';
   return 'very-bad';
 }
-
-const GRADE_INFO: Record<OutingGrade, { label: string; advice: string }> = {
-  'good': { label: '좋음', advice: '야외 활동하기 좋은 날이에요 🌿' },
-  'moderate': { label: '보통', advice: '민감한 분은 마스크를 챙기세요 😷' },
-  'bad': { label: '나쁨', advice: '외출 시 KF94 마스크 착용 권장 ⚠️' },
-  'very-bad': { label: '매우나쁨', advice: '가능하면 외출을 삼가세요 🚫' },
-};
 
 export function calculateOutingScore(
   pollen: PollenResponse | null,
@@ -64,7 +57,6 @@ export function calculateOutingScore(
 
   const score = pollenScore + dustScore;
   const grade = scoreToGrade(score);
-  const { label, advice } = GRADE_INFO[grade];
 
-  return { score, grade, label, advice };
+  return { score, grade };
 }
