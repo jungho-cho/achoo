@@ -1,7 +1,7 @@
 'use client';
 
 import type { PollenResponse } from '@repo/shared-types';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { usePollenData } from '../hooks/usePollenData';
 import { ForecastBar } from './ForecastBar';
 import { HeroCard } from './HeroCard';
@@ -15,6 +15,7 @@ interface Props {
 
 export function HomeClient({ ssrPollen }: Props) {
   const t = useTranslations('ui');
+  const locale = useLocale();
   const { pollen: clientPollen, dust, loading, loadingPhase, error, locationDenied, inKorea, cityName } = usePollenData();
 
   // Use client data when available, fall back to SSR data
@@ -138,14 +139,14 @@ export function HomeClient({ ssrPollen }: Props) {
         {/* Navigation links */}
         <nav className="grid grid-cols-1 md:grid-cols-3 gap-2" role="navigation" aria-label="Main navigation">
           <a
-            href="/tips"
+            href={`/${locale}/tips`}
             className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
           >
             <span className="text-sm font-medium text-gray-700">💡 {t('nav.tips')}</span>
             <span className="text-gray-400 text-sm">→</span>
           </a>
           <a
-            href="/pollen-info"
+            href={`/${locale}/pollen-info`}
             className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
           >
             <span className="text-sm font-medium text-gray-700">🌳 {t('nav.pollenInfo')}</span>
@@ -153,7 +154,7 @@ export function HomeClient({ ssrPollen }: Props) {
           </a>
           {/* 지역별 예보 링크 — 비활성화
           <a
-            href="/regions"
+            href={`/${locale}/regions`}
             className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
           >
             <span className="text-sm font-medium text-gray-700">📍 지역별 예보</span>
@@ -177,12 +178,12 @@ export function HomeClient({ ssrPollen }: Props) {
         })()}
 
         <nav className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-xs text-gray-400 pt-2" aria-label="Footer navigation">
-          <a href="/allergy-types" className="hover:text-gray-600">{t('nav.allergyTypes')}</a>
-          <a href="/seasonal-calendar" className="hover:text-gray-600">{t('nav.seasonalCalendar')}</a>
-          <a href="/prevention-guide" className="hover:text-gray-600">{t('nav.preventionGuide')}</a>
-          <a href="/dust-guide" className="hover:text-gray-600">{t('nav.dustGuide')}</a>
-          <a href="/faq" className="hover:text-gray-600">{t('nav.faq')}</a>
-          <a href="/privacy" className="hover:text-gray-600">{t('nav.privacy')}</a>
+          <a href={`/${locale}/allergy-types`} className="hover:text-gray-600">{t('nav.allergyTypes')}</a>
+          <a href={`/${locale}/seasonal-calendar`} className="hover:text-gray-600">{t('nav.seasonalCalendar')}</a>
+          <a href={`/${locale}/prevention-guide`} className="hover:text-gray-600">{t('nav.preventionGuide')}</a>
+          <a href={`/${locale}/dust-guide`} className="hover:text-gray-600">{t('nav.dustGuide')}</a>
+          <a href={`/${locale}/faq`} className="hover:text-gray-600">{t('nav.faq')}</a>
+          <a href={`/${locale}/privacy`} className="hover:text-gray-600">{t('nav.privacy')}</a>
         </nav>
 
         <p className="text-center text-xs text-gray-300 pb-4">

@@ -1,12 +1,13 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import type { DiaryEntry, Severity } from '../lib/diary';
 import { SEVERITY_OPTIONS, loadEntries, saveTodayEntry, today } from '../lib/diary';
 
 export function SymptomDiary() {
   const t = useTranslations('ui');
+  const locale = useLocale();
   const [entries, setEntries] = useState<DiaryEntry[]>([]);
   const [mounted, setMounted] = useState(false);
 
@@ -68,7 +69,7 @@ export function SymptomDiary() {
       {/* Link to detailed symptom checker */}
       {todayEntry && todayEntry.severity > 0 && (
         <a
-          href="/tips"
+          href={`/${locale}/tips`}
           className="mt-3 flex items-center justify-center gap-1 text-xs text-green-600 hover:text-green-700"
         >
           {t('diary.expandCta')} →
