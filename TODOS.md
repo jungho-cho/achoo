@@ -23,9 +23,10 @@
 - [x] 증상별 + 심각도별 14개 조언 카드 (i18n 4개 언어)
 - [x] 증상 일기 자동 기록 연동
 
-### Upstash Redis
-- [ ] console.upstash.com에서 Free tier 생성
-- [ ] Vercel 환경변수에 URL + TOKEN 추가
+### ~~Upstash Redis~~ ✅
+- [x] console.upstash.com Free tier 생성 (evolving-seahorse-75331)
+- [x] .env.local에 URL + TOKEN 추가, 연결 테스트 통과
+- [x] Vercel 환경변수에 URL + TOKEN 추가
 
 ### 광고
 - [ ] Google AdSense 신청 (트래픽 확보 후)
