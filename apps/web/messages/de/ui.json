@@ -80,6 +80,53 @@
     "description": "Tägliche Aufzeichnungen helfen, Ihre Allergiemuster zu erkennen",
     "expandCta": "Symptome aufzeichnen und persönliche Tipps erhalten"
   },
+  "symptoms": {
+    "sneeze": "Niesen",
+    "runnyNose": "Laufende Nase",
+    "stuffyNose": "Verstopfte Nase",
+    "itchyEyes": "Juckende Augen",
+    "wateryEyes": "Tränende Augen",
+    "cough": "Husten",
+    "itchyThroat": "Halsjucken",
+    "skinItch": "Hautjucken",
+    "fatigue": "Müdigkeit",
+    "headache": "Kopfschmerzen"
+  },
+  "severity": {
+    "fine": "Gut",
+    "mild": "Leicht",
+    "moderate": "Mäßig",
+    "severe": "Stark",
+    "verySevere": "Sehr stark"
+  },
+  "checker": {
+    "symptomQuestion": "Welche Symptome haben Sie?",
+    "symptomHint": "Alle zutreffenden auswählen",
+    "todayCondition": "Heutige Bedingungen",
+    "severityQuestion": "Wie stark sind die Symptome?",
+    "next": "Weiter →",
+    "prev": "← Zurück",
+    "getAdvice": "Persönliche Tipps erhalten",
+    "resultTitle": "Ihr Allergie-Aktionsplan",
+    "savedToDiary": "Im Tagebuch gespeichert",
+    "reset": "Erneut prüfen",
+    "advice": {
+      "pollenAlert": { "title": "Pollenwarnung", "desc": "Der Pollenflug ist heute stark. In Kombination mit Ihren Symptomen ist besondere Vorsicht geboten." },
+      "dustAlert": { "title": "Feinstaubwarnung", "desc": "Die Luftqualität ist heute schlecht. Begrenzen Sie Aufenthalte im Freien und tragen Sie eine Schutzmaske." },
+      "mask": { "title": "FFP2-Maske tragen", "desc": "Tragen Sie draußen eine FFP2-Maske. Normale Masken filtern Pollen nicht ausreichend." },
+      "stayIndoor": { "title": "Drinnen bleiben", "desc": "Bei starken Symptomen möglichst drinnen bleiben. Abends ist die Pollenbelastung geringer." },
+      "medicine": { "title": "Antihistaminikum erwägen", "desc": "Rezeptfreie Antihistaminika können helfen. 30 Minuten vor dem Ausgehen einnehmen." },
+      "eyeDrops": { "title": "Augentropfen verwenden", "desc": "Konservierungsmittelfreie Augentropfen spülen Pollen aus. Nicht die Augen reiben." },
+      "sunglasses": { "title": "Sonnenbrille tragen", "desc": "Eine Sonnenbrille reduziert den direkten Pollenkontakt mit den Augen." },
+      "nasalRinse": { "title": "Nasenspülung", "desc": "Mit Kochsalzlösung spülen, um Pollen physisch zu entfernen. 1-2 mal täglich." },
+      "humidifier": { "title": "Luftbefeuchter nutzen", "desc": "Halten Sie die Luftfeuchtigkeit bei 40-50%, um Verstopfung zu lindern." },
+      "warmDrink": { "title": "Warme Getränke", "desc": "Warmes Wasser oder Honig-Tee lindert Halsreizungen." },
+      "shower": { "title": "Nach dem Ausgehen duschen", "desc": "Sofort duschen und Kleidung wechseln. Pollen haften an Haut und Stoff." },
+      "sleep": { "title": "Ausreichend schlafen", "desc": "Allergien beeinträchtigen die Schlafqualität. Ein Antihistaminikum vor dem Schlafengehen kann helfen." },
+      "ventilation": { "title": "Lüftungszeiten beachten", "desc": "Abends lüften. Die Pollenbelastung ist morgens zwischen 6-10 Uhr am höchsten." },
+      "clothes": { "title": "Kleidung managen", "desc": "Straßenkleidung sofort waschen oder im Eingangsbereich aufbewahren." }
+    }
+  },
   "metadata": {
     "title": "Achoo — Pollenflug & Feinstaub-Vorhersage",
     "description": "Prüfen Sie Pollenflug und Feinstaub vor dem Ausgehen. Standortbasierte Echtzeit-Vorhersagen."

@@ -80,6 +80,53 @@
     "description": "Track daily to discover your allergy patterns",
     "expandCta": "Record symptoms and get personalized advice"
   },
+  "symptoms": {
+    "sneeze": "Sneezing",
+    "runnyNose": "Runny nose",
+    "stuffyNose": "Stuffy nose",
+    "itchyEyes": "Itchy eyes",
+    "wateryEyes": "Watery eyes",
+    "cough": "Cough",
+    "itchyThroat": "Itchy throat",
+    "skinItch": "Skin itch",
+    "fatigue": "Fatigue",
+    "headache": "Headache"
+  },
+  "severity": {
+    "fine": "Fine",
+    "mild": "Mild",
+    "moderate": "Moderate",
+    "severe": "Severe",
+    "verySevere": "Very severe"
+  },
+  "checker": {
+    "symptomQuestion": "What symptoms do you have?",
+    "symptomHint": "Select all that apply",
+    "todayCondition": "Today's conditions",
+    "severityQuestion": "How severe are they?",
+    "next": "Next →",
+    "prev": "← Back",
+    "getAdvice": "Get personalized advice",
+    "resultTitle": "Your Allergy Action Plan",
+    "savedToDiary": "Saved to diary",
+    "reset": "Check again",
+    "advice": {
+      "pollenAlert": { "title": "Pollen Alert", "desc": "Pollen levels are high today. Combined with your symptoms, take extra precautions." },
+      "dustAlert": { "title": "Air Quality Alert", "desc": "Air quality is poor today. Minimize outdoor time and wear a protective mask." },
+      "mask": { "title": "Wear a mask", "desc": "Use an FFP2/N95 mask outdoors. Regular masks don't filter pollen effectively." },
+      "stayIndoor": { "title": "Stay indoors", "desc": "When symptoms are severe, stay inside. Go out in the evening when pollen counts drop." },
+      "medicine": { "title": "Consider antihistamines", "desc": "Over-the-counter antihistamines can help. Take them 30 minutes before going out." },
+      "eyeDrops": { "title": "Use eye drops", "desc": "Preservative-free artificial tears help flush pollen. Avoid rubbing your eyes." },
+      "sunglasses": { "title": "Wear sunglasses", "desc": "Sunglasses reduce direct pollen contact with your eyes." },
+      "nasalRinse": { "title": "Nasal rinse", "desc": "Rinse with saline solution to physically remove pollen. 1-2 times daily." },
+      "humidifier": { "title": "Use a humidifier", "desc": "Keep indoor humidity at 40-50% to ease congestion." },
+      "warmDrink": { "title": "Warm drinks", "desc": "Warm water or honey tea soothes throat irritation." },
+      "shower": { "title": "Shower after going out", "desc": "Shower and change clothes immediately after coming home. Pollen clings to skin and fabric." },
+      "sleep": { "title": "Get enough sleep", "desc": "Allergies disrupt sleep quality. An antihistamine before bed may help." },
+      "ventilation": { "title": "Time your ventilation", "desc": "Ventilate during evening hours. Pollen counts peak between 6-10 AM." },
+      "clothes": { "title": "Manage outdoor clothes", "desc": "Wash outdoor clothes right away or keep them by the entrance." }
+    }
+  },
   "metadata": {
     "title": "Achoo — Pollen & Air Quality Forecast",
     "description": "Check pollen and air quality before heading out. Real-time location-based forecasts."

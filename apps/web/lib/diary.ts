@@ -25,26 +25,40 @@ export interface DiaryEntry {
   timestamp: string;
 }
 
-export const SYMPTOMS: { id: SymptomId; emoji: string; label: string }[] = [
-  { id: 'sneeze', emoji: '🤧', label: '재채기' },
-  { id: 'runny_nose', emoji: '💧', label: '콧물' },
-  { id: 'stuffy_nose', emoji: '👃', label: '코막힘' },
-  { id: 'itchy_eyes', emoji: '👁️', label: '눈 가려움' },
-  { id: 'watery_eyes', emoji: '😢', label: '눈물' },
-  { id: 'cough', emoji: '😮‍💨', label: '기침' },
-  { id: 'itchy_throat', emoji: '🫁', label: '목 가려움' },
-  { id: 'skin_itch', emoji: '🤚', label: '피부 가려움' },
-  { id: 'fatigue', emoji: '😴', label: '피로감' },
-  { id: 'headache', emoji: '🤕', label: '두통' },
+// Symptom definitions — labels resolved via i18n at render time
+export const SYMPTOM_IDS: { id: SymptomId; emoji: string; i18nKey: string }[] = [
+  { id: 'sneeze', emoji: '🤧', i18nKey: 'symptoms.sneeze' },
+  { id: 'runny_nose', emoji: '💧', i18nKey: 'symptoms.runnyNose' },
+  { id: 'stuffy_nose', emoji: '👃', i18nKey: 'symptoms.stuffyNose' },
+  { id: 'itchy_eyes', emoji: '👁️', i18nKey: 'symptoms.itchyEyes' },
+  { id: 'watery_eyes', emoji: '😢', i18nKey: 'symptoms.wateryEyes' },
+  { id: 'cough', emoji: '😮‍💨', i18nKey: 'symptoms.cough' },
+  { id: 'itchy_throat', emoji: '🫁', i18nKey: 'symptoms.itchyThroat' },
+  { id: 'skin_itch', emoji: '🤚', i18nKey: 'symptoms.skinItch' },
+  { id: 'fatigue', emoji: '😴', i18nKey: 'symptoms.fatigue' },
+  { id: 'headache', emoji: '🤕', i18nKey: 'symptoms.headache' },
 ];
 
-export const SEVERITY_OPTIONS: { value: Severity; emoji: string; label: string }[] = [
-  { value: 0, emoji: '😊', label: '괜찮아요' },
-  { value: 1, emoji: '🤏', label: '조금' },
-  { value: 2, emoji: '😷', label: '보통' },
-  { value: 3, emoji: '🤧', label: '심해요' },
-  { value: 4, emoji: '😵', label: '매우 심해요' },
+// Keep old SYMPTOMS export for backward compat (used in SymptomDiary)
+export const SYMPTOMS = SYMPTOM_IDS.map((s) => ({
+  id: s.id,
+  emoji: s.emoji,
+  label: s.i18nKey, // Will be replaced by t() at render time
+}));
+
+export const SEVERITY_IDS: { value: Severity; emoji: string; i18nKey: string }[] = [
+  { value: 0, emoji: '😊', i18nKey: 'severity.fine' },
+  { value: 1, emoji: '🤏', i18nKey: 'severity.mild' },
+  { value: 2, emoji: '😷', i18nKey: 'severity.moderate' },
+  { value: 3, emoji: '🤧', i18nKey: 'severity.severe' },
+  { value: 4, emoji: '😵', i18nKey: 'severity.verySevere' },
 ];
+
+export const SEVERITY_OPTIONS = SEVERITY_IDS.map((s) => ({
+  value: s.value,
+  emoji: s.emoji,
+  label: s.i18nKey,
+}));
 
 const STORAGE_KEY = 'achoo_diary';
 
@@ -57,7 +71,6 @@ export function loadEntries(): DiaryEntry[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     const entries = raw ? JSON.parse(raw) : [];
-    // Migrate old entries without symptoms field
     return entries.map((e: DiaryEntry & { symptoms?: SymptomId[] }) => ({
       ...e,
       symptoms: e.symptoms ?? [],

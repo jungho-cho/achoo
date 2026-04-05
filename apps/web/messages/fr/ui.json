@@ -80,6 +80,53 @@
     "description": "Un suivi quotidien révèle vos schémas allergiques",
     "expandCta": "Enregistrer vos symptômes et obtenir des conseils personnalisés"
   },
+  "symptoms": {
+    "sneeze": "Éternuements",
+    "runnyNose": "Nez qui coule",
+    "stuffyNose": "Nez bouché",
+    "itchyEyes": "Yeux qui démangent",
+    "wateryEyes": "Larmoiement",
+    "cough": "Toux",
+    "itchyThroat": "Gorge qui gratte",
+    "skinItch": "Démangeaisons cutanées",
+    "fatigue": "Fatigue",
+    "headache": "Maux de tête"
+  },
+  "severity": {
+    "fine": "Ça va",
+    "mild": "Léger",
+    "moderate": "Modéré",
+    "severe": "Fort",
+    "verySevere": "Très fort"
+  },
+  "checker": {
+    "symptomQuestion": "Quels symptômes avez-vous ?",
+    "symptomHint": "Sélectionnez tous ceux qui s'appliquent",
+    "todayCondition": "Conditions du jour",
+    "severityQuestion": "Quelle est leur intensité ?",
+    "next": "Suivant →",
+    "prev": "← Retour",
+    "getAdvice": "Obtenir des conseils personnalisés",
+    "resultTitle": "Votre plan anti-allergie",
+    "savedToDiary": "Enregistré dans le journal",
+    "reset": "Vérifier à nouveau",
+    "advice": {
+      "pollenAlert": { "title": "Alerte pollens", "desc": "Les niveaux de pollens sont élevés aujourd'hui. Combinés à vos symptômes, prenez des précautions supplémentaires." },
+      "dustAlert": { "title": "Alerte qualité de l'air", "desc": "La qualité de l'air est mauvaise aujourd'hui. Limitez les sorties et portez un masque de protection." },
+      "mask": { "title": "Porter un masque FFP2", "desc": "Utilisez un masque FFP2 en extérieur. Les masques classiques ne filtrent pas efficacement les pollens." },
+      "stayIndoor": { "title": "Rester à l'intérieur", "desc": "En cas de symptômes sévères, restez à l'intérieur. Sortez le soir quand les pollens diminuent." },
+      "medicine": { "title": "Envisager un antihistaminique", "desc": "Les antihistaminiques en vente libre peuvent aider. À prendre 30 minutes avant de sortir." },
+      "eyeDrops": { "title": "Utiliser des collyres", "desc": "Les larmes artificielles sans conservateur aident à rincer les pollens. Évitez de vous frotter les yeux." },
+      "sunglasses": { "title": "Porter des lunettes de soleil", "desc": "Les lunettes de soleil réduisent le contact direct des pollens avec vos yeux." },
+      "nasalRinse": { "title": "Lavage nasal", "desc": "Rincez avec du sérum physiologique pour éliminer les pollens. 1 à 2 fois par jour." },
+      "humidifier": { "title": "Utiliser un humidificateur", "desc": "Maintenez l'humidité intérieure à 40-50% pour soulager la congestion." },
+      "warmDrink": { "title": "Boissons chaudes", "desc": "L'eau chaude ou le thé au miel apaise les irritations de la gorge." },
+      "shower": { "title": "Se doucher en rentrant", "desc": "Douchez-vous et changez de vêtements dès votre retour. Les pollens adhèrent à la peau et aux tissus." },
+      "sleep": { "title": "Dormir suffisamment", "desc": "Les allergies perturbent la qualité du sommeil. Un antihistaminique avant le coucher peut aider." },
+      "ventilation": { "title": "Aérer au bon moment", "desc": "Aérez le soir. La concentration de pollens est maximale entre 6h et 10h du matin." },
+      "clothes": { "title": "Gérer les vêtements d'extérieur", "desc": "Lavez les vêtements d'extérieur immédiatement ou laissez-les dans l'entrée." }
+    }
+  },
   "metadata": {
     "title": "Achoo — Prévisions pollens et qualité de l'air",
     "description": "Consultez les niveaux de pollens et la qualité de l'air avant de sortir. Prévisions en temps réel."

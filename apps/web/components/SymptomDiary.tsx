@@ -57,7 +57,7 @@ export function SymptomDiary() {
               }`}
             >
               <span className="text-xl">{opt.emoji}</span>
-              <span className="text-[10px] text-gray-500">{opt.label}</span>
+              <span className="text-[10px] text-gray-500">{t(opt.label as any)}</span>
             </button>
           );
         })}

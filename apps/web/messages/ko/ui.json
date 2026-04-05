@@ -80,6 +80,53 @@
     "description": "매일 기록하면 나만의 알레르기 패턴을 알 수 있어요",
     "expandCta": "증상 자세히 기록하고 맞춤 조언 받기"
   },
+  "symptoms": {
+    "sneeze": "재채기",
+    "runnyNose": "콧물",
+    "stuffyNose": "코막힘",
+    "itchyEyes": "눈 가려움",
+    "wateryEyes": "눈물",
+    "cough": "기침",
+    "itchyThroat": "목 가려움",
+    "skinItch": "피부 가려움",
+    "fatigue": "피로감",
+    "headache": "두통"
+  },
+  "severity": {
+    "fine": "괜찮아요",
+    "mild": "조금",
+    "moderate": "보통",
+    "severe": "심해요",
+    "verySevere": "매우 심해요"
+  },
+  "checker": {
+    "symptomQuestion": "어떤 증상이 있나요?",
+    "symptomHint": "해당하는 증상을 모두 선택하세요",
+    "todayCondition": "오늘 상태",
+    "severityQuestion": "얼마나 심한가요?",
+    "next": "다음 →",
+    "prev": "← 이전",
+    "getAdvice": "맞춤 조언 보기",
+    "resultTitle": "맞춤 알레르기 대처법",
+    "savedToDiary": "일기에 기록됨",
+    "reset": "다시 체크하기",
+    "advice": {
+      "pollenAlert": { "title": "꽃가루 주의보", "desc": "오늘 꽃가루 농도가 높습니다. 증상과 결합하면 악화될 수 있으니 특별히 주의하세요." },
+      "dustAlert": { "title": "미세먼지 주의보", "desc": "오늘 미세먼지가 나쁨 수준입니다. 외출을 최소화하고 보건용 마스크를 착용하세요." },
+      "mask": { "title": "KF94 마스크 착용", "desc": "외출 시 반드시 보건용 마스크를 착용하세요. 일반 마스크는 꽃가루를 차단하지 못합니다." },
+      "stayIndoor": { "title": "실내 활동 권장", "desc": "증상이 심할 때는 가능하면 실내에 머무세요. 꽃가루 농도가 낮은 저녁에 외출하세요." },
+      "medicine": { "title": "항히스타민제 복용 고려", "desc": "약국에서 구할 수 있는 항히스타민제가 도움이 됩니다. 외출 30분 전에 복용하면 효과적입니다." },
+      "eyeDrops": { "title": "인공눈물 사용", "desc": "방부제 없는 인공눈물로 눈을 자주 씻어주세요. 눈을 비비면 증상이 악화됩니다." },
+      "sunglasses": { "title": "선글라스 착용", "desc": "외출 시 선글라스를 쓰면 꽃가루가 직접 눈에 닿는 것을 줄일 수 있습니다." },
+      "nasalRinse": { "title": "코 세척 (비강 세척)", "desc": "생리식염수로 코를 세척하면 꽃가루를 물리적으로 제거할 수 있습니다. 하루 1-2회 권장." },
+      "humidifier": { "title": "가습기 사용", "desc": "실내 습도를 40-50%로 유지하면 코막힘이 완화됩니다." },
+      "warmDrink": { "title": "따뜻한 음료 섭취", "desc": "따뜻한 물이나 꿀물이 목 자극을 완화합니다." },
+      "shower": { "title": "귀가 후 즉시 샤워", "desc": "외출 후 바로 샤워하고 옷을 갈아입으세요. 꽃가루가 피부와 옷에 남아있습니다." },
+      "sleep": { "title": "충분한 수면", "desc": "알레르기는 수면의 질을 떨어뜨립니다. 취침 전 항히스타민제가 도움이 될 수 있습니다." },
+      "ventilation": { "title": "환기 시간 조절", "desc": "꽃가루가 적은 시간(저녁~새벽)에 환기하세요. 오전 6~10시는 꽃가루 농도가 가장 높습니다." },
+      "clothes": { "title": "외출복 관리", "desc": "귀가 후 외출복은 바로 세탁하거나 현관에 보관하세요." }
+    }
+  },
   "metadata": {
     "title": "Achoo — 꽃가루 · 미세먼지 예보",
     "description": "오늘 외출 전, 꽃가루와 미세먼지를 확인하세요. 위치 기반 실시간 예보."

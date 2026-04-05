@@ -2,17 +2,47 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import type { PollenResponse, DustResponse, PollenLevel, DustLevel } from '@repo/shared-types';
 import type { DiaryEntry, Severity, SymptomId } from '../lib/diary';
-import { SEVERITY_OPTIONS, SYMPTOMS, loadEntries, saveTodayEntry, today } from '../lib/diary';
+import { SYMPTOM_IDS, SEVERITY_IDS, loadEntries, saveTodayEntry, today } from '../lib/diary';
+
+interface SymptomCheckerProps {
+  pollen?: PollenResponse | null;
+  dust?: DustResponse | null;
+}
 
 interface Advice {
   emoji: string;
-  title: string;
-  desc: string;
-  priority: number; // lower = higher priority
+  titleKey: string;
+  descKey: string;
+  priority: number;
+  context?: string; // dynamic context like "오늘 나무 꽃가루 높음"
 }
 
-function generateAdvice(symptoms: SymptomId[], severity: Severity): Advice[] {
+function getPollenContext(pollen: PollenResponse | null | undefined, t: (key: string) => string): string | null {
+  if (!pollen) return null;
+  const dominated = pollen.current.readings.reduce((a, b) =>
+    a.numericValue >= b.numericValue ? a : b,
+  );
+  if (dominated.level === 'low') return null;
+  const species = t(`species.${dominated.species}`);
+  const level = t(`pollenLevel.${dominated.level}`);
+  return `${species} ${level}`;
+}
+
+function getDustContext(dust: DustResponse | null | undefined, t: (key: string) => string): string | null {
+  if (!dust) return null;
+  if (dust.current.level === 'good') return null;
+  const level = t(`dustLevel.${dust.current.level}`);
+  return `${t('dust.title')} ${level}`;
+}
+
+function generateAdvice(
+  symptoms: SymptomId[],
+  severity: Severity,
+  pollen: PollenResponse | null | undefined,
+  dust: DustResponse | null | undefined,
+): Advice[] {
   const advices: Advice[] = [];
 
   const hasEye = symptoms.some((s) => s === 'itchy_eyes' || s === 'watery_eyes');
@@ -21,100 +51,60 @@ function generateAdvice(symptoms: SymptomId[], severity: Severity): Advice[] {
   const hasSkin = symptoms.includes('skin_itch');
   const hasFatigue = symptoms.includes('fatigue') || symptoms.includes('headache');
 
-  // Universal advice based on severity
-  if (severity >= 2) {
+  // Check real-time data
+  const pollenHigh = pollen?.current.overallLevel === 'high' || pollen?.current.overallLevel === 'very-high';
+  const dustBad = dust?.current.level === 'bad' || dust?.current.level === 'very-bad';
+
+  // Data-driven urgent advice
+  if (pollenHigh && severity >= 2) {
     advices.push({
-      emoji: '😷', title: 'KF94 마스크 착용',
-      desc: '외출 시 반드시 보건용 마스크를 착용하세요. 일반 마스크는 꽃가루를 차단하지 못합니다.',
-      priority: 1,
+      emoji: '🚨', titleKey: 'checker.advice.pollenAlert.title',
+      descKey: 'checker.advice.pollenAlert.desc', priority: -1,
     });
+  }
+  if (dustBad) {
+    advices.push({
+      emoji: '🏭', titleKey: 'checker.advice.dustAlert.title',
+      descKey: 'checker.advice.dustAlert.desc', priority: -1,
+    });
+  }
+
+  // Severity-based
+  if (severity >= 2) {
+    advices.push({ emoji: '😷', titleKey: 'checker.advice.mask.title', descKey: 'checker.advice.mask.desc', priority: 1 });
   }
   if (severity >= 3) {
-    advices.push({
-      emoji: '🏠', title: '실내 활동 권장',
-      desc: '증상이 심할 때는 가능하면 실내에 머무세요. 꽃가루 농도가 낮은 저녁에 외출하세요.',
-      priority: 0,
-    });
-    advices.push({
-      emoji: '💊', title: '항히스타민제 복용 고려',
-      desc: '약국에서 구할 수 있는 항히스타민제가 도움이 됩니다. 외출 30분 전에 복용하면 효과적입니다.',
-      priority: 2,
-    });
+    advices.push({ emoji: '🏠', titleKey: 'checker.advice.stayIndoor.title', descKey: 'checker.advice.stayIndoor.desc', priority: 0 });
+    advices.push({ emoji: '💊', titleKey: 'checker.advice.medicine.title', descKey: 'checker.advice.medicine.desc', priority: 2 });
   }
 
-  // Eye-specific
   if (hasEye) {
-    advices.push({
-      emoji: '👁️', title: '인공눈물 사용',
-      desc: '방부제 없는 인공눈물로 눈을 자주 씻어주세요. 눈을 비비면 증상이 악화됩니다.',
-      priority: 3,
-    });
-    advices.push({
-      emoji: '🕶️', title: '선글라스 착용',
-      desc: '외출 시 선글라스를 쓰면 꽃가루가 직접 눈에 닿는 것을 줄일 수 있습니다.',
-      priority: 5,
-    });
+    advices.push({ emoji: '👁️', titleKey: 'checker.advice.eyeDrops.title', descKey: 'checker.advice.eyeDrops.desc', priority: 3 });
+    advices.push({ emoji: '🕶️', titleKey: 'checker.advice.sunglasses.title', descKey: 'checker.advice.sunglasses.desc', priority: 5 });
   }
-
-  // Nose-specific
   if (hasNose) {
-    advices.push({
-      emoji: '💧', title: '코 세척 (비강 세척)',
-      desc: '생리식염수로 코를 세척하면 꽃가루를 물리적으로 제거할 수 있습니다. 하루 1-2회 권장.',
-      priority: 3,
-    });
+    advices.push({ emoji: '💧', titleKey: 'checker.advice.nasalRinse.title', descKey: 'checker.advice.nasalRinse.desc', priority: 3 });
     if (symptoms.includes('stuffy_nose')) {
-      advices.push({
-        emoji: '💨', title: '가습기 사용',
-        desc: '실내 습도를 40-50%로 유지하면 코막힘이 완화됩니다. 너무 높으면 곰팡이 위험.',
-        priority: 6,
-      });
+      advices.push({ emoji: '💨', titleKey: 'checker.advice.humidifier.title', descKey: 'checker.advice.humidifier.desc', priority: 6 });
     }
   }
-
-  // Throat-specific
   if (hasThroat) {
-    advices.push({
-      emoji: '🍯', title: '따뜻한 음료 섭취',
-      desc: '따뜻한 물이나 꿀물이 목 자극을 완화합니다. 카페인은 탈수를 유발할 수 있으니 주의.',
-      priority: 4,
-    });
+    advices.push({ emoji: '🍯', titleKey: 'checker.advice.warmDrink.title', descKey: 'checker.advice.warmDrink.desc', priority: 4 });
   }
-
-  // Skin-specific
   if (hasSkin) {
-    advices.push({
-      emoji: '🚿', title: '귀가 후 즉시 샤워',
-      desc: '외출 후 바로 샤워하고 옷을 갈아입으세요. 꽃가루가 피부와 옷에 남아있습니다.',
-      priority: 3,
-    });
+    advices.push({ emoji: '🚿', titleKey: 'checker.advice.shower.title', descKey: 'checker.advice.shower.desc', priority: 3 });
   }
-
-  // Fatigue
   if (hasFatigue) {
-    advices.push({
-      emoji: '😴', title: '충분한 수면',
-      desc: '알레르기는 수면의 질을 떨어뜨립니다. 취침 전 항히스타민제가 도움이 될 수 있습니다.',
-      priority: 5,
-    });
+    advices.push({ emoji: '😴', titleKey: 'checker.advice.sleep.title', descKey: 'checker.advice.sleep.desc', priority: 5 });
   }
 
-  // General always-applicable
-  advices.push({
-    emoji: '🪟', title: '환기 시간 조절',
-    desc: '꽃가루가 적은 시간(저녁~새벽)에 환기하세요. 오전 6~10시는 꽃가루 농도가 가장 높습니다.',
-    priority: 7,
-  });
-  advices.push({
-    emoji: '👕', title: '외출복 관리',
-    desc: '귀가 후 외출복은 바로 세탁하거나 현관에 보관하세요. 침실에 가져가지 마세요.',
-    priority: 8,
-  });
+  advices.push({ emoji: '🪟', titleKey: 'checker.advice.ventilation.title', descKey: 'checker.advice.ventilation.desc', priority: 7 });
+  advices.push({ emoji: '👕', titleKey: 'checker.advice.clothes.title', descKey: 'checker.advice.clothes.desc', priority: 8 });
 
   return advices.sort((a, b) => a.priority - b.priority);
 }
 
-export function SymptomChecker() {
+export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
   const t = useTranslations('ui');
   const [step, setStep] = useState<'symptoms' | 'severity' | 'result'>('symptoms');
   const [selectedSymptoms, setSelectedSymptoms] = useState<SymptomId[]>([]);
@@ -124,7 +114,6 @@ export function SymptomChecker() {
 
   useEffect(() => {
     setEntries(loadEntries());
-    // Restore today's entry if exists
     const todayEntry = loadEntries().find((e) => e.date === today());
     if (todayEntry && todayEntry.symptoms.length > 0) {
       setSelectedSymptoms(todayEntry.symptoms);
@@ -143,7 +132,6 @@ export function SymptomChecker() {
     if (step === 'symptoms' && selectedSymptoms.length > 0) {
       setStep('severity');
     } else if (step === 'severity') {
-      // Save to diary
       const updated = saveTodayEntry(entries, severity, selectedSymptoms);
       setEntries(updated);
       setSaved(true);
@@ -158,18 +146,24 @@ export function SymptomChecker() {
     setSaved(false);
   }, []);
 
-  const advices = generateAdvice(selectedSymptoms, severity);
+  const advices = generateAdvice(selectedSymptoms, severity, pollen, dust);
+  const pollenContext = getPollenContext(pollen, (key: string) => t(key as any));
+  const dustContext = getDustContext(dust, (key: string) => t(key as any));
+  const contextLabel = [pollenContext, dustContext].filter(Boolean).join(' · ');
 
   if (step === 'symptoms') {
     return (
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-4">
         <div>
-          <h2 className="text-base font-semibold text-gray-900">어떤 증상이 있나요?</h2>
-          <p className="text-xs text-gray-400 mt-1">해당하는 증상을 모두 선택하세요</p>
+          <h2 className="text-base font-semibold text-gray-900">{t('checker.symptomQuestion')}</h2>
+          <p className="text-xs text-gray-400 mt-1">{t('checker.symptomHint')}</p>
+          {contextLabel && (
+            <p className="text-xs text-orange-500 mt-1 font-medium">{t('checker.todayCondition')}: {contextLabel}</p>
+          )}
         </div>
 
         <div className="grid grid-cols-2 gap-2">
-          {SYMPTOMS.map((s) => {
+          {SYMPTOM_IDS.map((s) => {
             const selected = selectedSymptoms.includes(s.id);
             return (
               <button
@@ -182,7 +176,7 @@ export function SymptomChecker() {
                 }`}
               >
                 <span>{s.emoji}</span>
-                <span>{s.label}</span>
+                <span>{t(s.i18nKey as any)}</span>
               </button>
             );
           })}
@@ -197,7 +191,7 @@ export function SymptomChecker() {
               : 'bg-gray-100 text-gray-300 cursor-not-allowed'
           }`}
         >
-          다음 →
+          {t('checker.next')}
         </button>
       </div>
     );
@@ -207,14 +201,17 @@ export function SymptomChecker() {
     return (
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-4">
         <div>
-          <h2 className="text-base font-semibold text-gray-900">얼마나 심한가요?</h2>
+          <h2 className="text-base font-semibold text-gray-900">{t('checker.severityQuestion')}</h2>
           <p className="text-xs text-gray-400 mt-1">
-            선택한 증상: {selectedSymptoms.map((id) => SYMPTOMS.find((s) => s.id === id)?.label).join(', ')}
+            {selectedSymptoms.map((id) => {
+              const sym = SYMPTOM_IDS.find((s) => s.id === id);
+              return sym ? t(sym.i18nKey as any) : id;
+            }).join(', ')}
           </p>
         </div>
 
         <div className="flex justify-between gap-1">
-          {SEVERITY_OPTIONS.filter((o) => o.value > 0).map((opt) => {
+          {SEVERITY_IDS.filter((o) => o.value > 0).map((opt) => {
             const isSelected = severity === opt.value;
             return (
               <button
@@ -227,7 +224,7 @@ export function SymptomChecker() {
                 }`}
               >
                 <span className="text-2xl">{opt.emoji}</span>
-                <span className="text-[11px] text-gray-500">{opt.label}</span>
+                <span className="text-[11px] text-gray-500">{t(opt.i18nKey as any)}</span>
               </button>
             );
           })}
@@ -238,13 +235,13 @@ export function SymptomChecker() {
             onClick={() => setStep('symptoms')}
             className="px-4 py-3 rounded-xl text-sm text-gray-500 bg-gray-50 hover:bg-gray-100 transition-colors"
           >
-            ← 이전
+            {t('checker.prev')}
           </button>
           <button
             onClick={handleNext}
             className="flex-1 py-3 rounded-xl text-sm font-medium bg-green-500 text-white hover:bg-green-600 transition-colors"
           >
-            맞춤 조언 보기
+            {t('checker.getAdvice')}
           </button>
         </div>
       </div>
@@ -257,16 +254,17 @@ export function SymptomChecker() {
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="text-base font-semibold text-gray-900">맞춤 알레르기 대처법</h2>
+            <h2 className="text-base font-semibold text-gray-900">{t('checker.resultTitle')}</h2>
             <p className="text-xs text-gray-400 mt-1">
-              {selectedSymptoms.map((id) => SYMPTOMS.find((s) => s.id === id)?.emoji).join(' ')}
+              {selectedSymptoms.map((id) => SYMPTOM_IDS.find((s) => s.id === id)?.emoji).join(' ')}
               {' · '}
-              {SEVERITY_OPTIONS.find((o) => o.value === severity)?.label}
+              {t(SEVERITY_IDS.find((o) => o.value === severity)?.i18nKey as any ?? 'severity.moderate')}
+              {contextLabel && <span className="text-orange-500"> · {contextLabel}</span>}
             </p>
           </div>
           {saved && (
             <span className="text-[10px] text-green-500 bg-green-50 px-2 py-1 rounded-full">
-              일기에 기록됨
+              {t('checker.savedToDiary')}
             </span>
           )}
         </div>
@@ -280,8 +278,8 @@ export function SymptomChecker() {
               <div className="flex items-start gap-2">
                 <span className="text-lg mt-0.5">{advice.emoji}</span>
                 <div>
-                  <p className="text-sm font-medium text-gray-800">{advice.title}</p>
-                  <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{advice.desc}</p>
+                  <p className="text-sm font-medium text-gray-800">{t(advice.titleKey as any)}</p>
+                  <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{t(advice.descKey as any)}</p>
                 </div>
               </div>
             </div>
@@ -293,7 +291,7 @@ export function SymptomChecker() {
         onClick={handleReset}
         className="w-full py-2.5 rounded-xl text-sm text-gray-500 bg-white border border-gray-200 hover:bg-gray-50 transition-colors"
       >
-        다시 체크하기
+        {t('checker.reset')}
       </button>
     </div>
   );
