@@ -1,0 +1,46 @@
+{
+  "title": "Haeufig gestellte Fragen",
+  "description": "Antworten auf haeufige Fragen zur Achoo Pollenflug-App: Datenquellen, Nutzung, Genauigkeit und mehr.",
+  "items": [
+    {
+      "question": "Woher stammen die Pollendaten?",
+      "answer": "Wir verwenden die Open-Meteo Air Quality API, die auf dem europaeischen CAMS-Modell (Copernicus Atmosphere Monitoring Service) basiert. Da CAMS ein europaeisches System ist, sind die Daten fuer Deutschland und Europa besonders zuverlaessig."
+    },
+    {
+      "question": "Woher stammen die Luftqualitaetsdaten?",
+      "answer": "Die Luftqualitaetsdaten stammen ebenfalls vom Open-Meteo CAMS-Modell. Fuer Deutschland bieten auch das Umweltbundesamt und die Landesumweltaemter offizielle Messdaten an, die wir als Referenz empfehlen."
+    },
+    {
+      "question": "Wie wird mein Standort verwendet?",
+      "answer": "Ueber die Geolocation-API Ihres Browsers wird Ihr aktueller Standort ermittelt, um lokale Pollen- und Luftqualitaetsdaten abzurufen. Ihr Standort wird nicht auf unseren Servern gespeichert und nur fuer Echtzeitabfragen genutzt."
+    },
+    {
+      "question": "Was passiert, wenn ich die Standortfreigabe ablehne?",
+      "answer": "Es wird ein Standardstandort verwendet und ein Hinweis angezeigt, dass die Daten nicht fuer Ihren tatsaechlichen Standort gelten."
+    },
+    {
+      "question": "Wo werden meine Symptomtagebuch-Daten gespeichert?",
+      "answer": "Alle Daten des Symptomtagebuchs werden im localStorage Ihres Browsers gespeichert. Sie werden nie an unsere Server gesendet. Beim Loeschen Ihrer Browserdaten werden sie ebenfalls geloescht und sind von anderen Geraeten nicht abrufbar."
+    },
+    {
+      "question": "Kann ich Achoo auch ausserhalb Deutschlands nutzen?",
+      "answer": "Ja, Pollendaten sind weltweit verfuegbar. Die Genauigkeit ist in Europa am hoechsten, da das CAMS-Modell europaeisch ist. Ausserhalb Europas koennen die Schaetzungen weniger praezise sein."
+    },
+    {
+      "question": "Wie genau sind die Daten?",
+      "answer": "Die Pollendaten basieren auf dem CAMS-Modell und sind Schaetzwerte. Die tatsaechliche Pollenbelastung an Ihrem Standort kann abweichen. Nutzen Sie die Daten als Orientierung und vergleichen Sie bei Bedarf mit dem Pollenflug-Gefahrenindex des Deutschen Wetterdienstes (DWD)."
+    },
+    {
+      "question": "Gibt es eine App?",
+      "answer": "Derzeit ist Achoo ein reiner Webdienst. Er funktioniert gut auf mobilen Browsern. Sie koennen ihn zum Startbildschirm hinzufuegen, um ihn wie eine App zu nutzen."
+    },
+    {
+      "question": "Gibt es Werbung?",
+      "answer": "Achoo kann Affiliate-Links fuer allergiebezogene Produkte wie Masken und Luftreiniger anzeigen. Bei einem Kauf ueber diese Links erhalten wir moeglicherweise eine kleine Provision."
+    },
+    {
+      "question": "Ich habe einen Fehler gefunden / Ich habe einen Vorschlag",
+      "answer": "Achoo ist ein Ein-Personen-Nebenprojekt. Fehlerberichte und Verbesserungsvorschlaege sind sehr willkommen. Ihr Feedback hilft, den Dienst fuer alle zu verbessern."
+    }
+  ]
+}

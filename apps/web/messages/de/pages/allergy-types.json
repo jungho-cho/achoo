@@ -1,0 +1,24 @@
+{
+  "title": "Pollenallergie-Typen",
+  "description": "Vergleich von Baum-, Graeser- und Kraeuterpollenallergien: wichtige Arten, Saisons und Symptome. Finden Sie heraus, auf welche Pollen Sie reagieren.",
+  "types": [
+    {
+      "name": "Baumpollen",
+      "species": "Birke (Betula), Erle (Alnus), Hasel (Corylus), Esche (Fraxinus), Eiche (Quercus)",
+      "season": "Februar bis Mai (Fruehling)",
+      "symptoms": "Birke ist der staerkste Allergieausloser in Deutschland. Birkenpollen koennen Kreuzreaktionen mit Lebensmitteln ausloesen: Apfel, Pfirsich, Kirsche, Karotte, Sellerie (Orales Allergiesyndrom). Symptome: Niesen, Fliessschnupfen, verstopfte Nase, juckende Augen. In schweren Faellen Husten und Asthmaanfaelle. Spitzenzeit: fruehmorgens (5-10 Uhr), besonders an trockenen, windigen Tagen."
+    },
+    {
+      "name": "Graeserpollen",
+      "species": "Wiesenlieschgras (Phleum pratense), Knaeuelgras (Dactylis glomerata), Weidelgras (Lolium perenne), Roggen (Secale cereale)",
+      "season": "Mai bis August (Spaetfruehling bis Sommer)",
+      "symptoms": "Graeserpollen sind die haeufigste Ursache fuer Heuschnupfen in Deutschland. Besonders hoch in der Naehe von Wiesen, Parks und Sportplaetzen. Nach dem Rasenmaehen steigt die Konzentration fuer bis zu 24 Stunden stark an. Neben den ueblichen Symptomen kann direkter Hautkontakt mit Gras Kontakturtikaria ausloesen. Spitzenzeit: nachmittags (14-17 Uhr)."
+    },
+    {
+      "name": "Kraeuterpollen",
+      "species": "Beifuss (Artemisia), Ambrosia (Ambrosia artemisiifolia), Brennnessel (Urtica), Wegerich (Plantago)",
+      "season": "Juli bis Oktober (Spaetsommer bis Herbst)",
+      "symptoms": "Ambrosia breitet sich in Deutschland zunehmend aus und ist hochallergen. Eine einzige Pflanze kann bis zu einer Milliarde Pollenkoerner pro Tag freisetzen. Beifuss ist der klassische Spaetsommerallergieausloser. Kreuzreaktionen mit Sellerie, Karotte, Kuemmel und Gewuerzen sind moeglich (Sellerie-Beifuss-Gewuerz-Syndrom). Symptome sind oft staerker als bei Baum- oder Graeserpollen. Spitzenzeit: fruehmorgens."
+    }
+  ]
+}

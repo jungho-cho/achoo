@@ -1,0 +1,52 @@
+{
+  "title": "Allergie-Tipps",
+  "description": "So schuetzen Sie Ihre Gesundheit an Tagen mit hohem Pollenflug und Feinstaub. Waehlen Sie Ihre Symptome fuer individuelle Ratschlaege.",
+  "sections": [
+    {
+      "heading": "Hoher / Sehr hoher Pollenflug",
+      "tips": [
+        "Moeglichst drinnen bleiben",
+        "Beim Rausgehen FFP2-Maske tragen",
+        "Fenster geschlossen halten, besonders fruehmorgens (5-10 Uhr)",
+        "Nach dem Nachhausekommen sofort duschen und Gesicht waschen",
+        "Outdoor-Kleidung im Eingangsbereich ablegen und zeitnah waschen",
+        "Allergiemedikamente 30 Minuten vor dem Ausgehen einnehmen"
+      ]
+    },
+    {
+      "heading": "Maessiger Pollenflug",
+      "tips": [
+        "Empfindliche Personen sollten eine Maske in Betracht ziehen",
+        "Laengere Outdoor-Aktivitaeten einschraenken",
+        "Nach dem Nachhausekommen gruendlich Haende waschen",
+        "Morgens weniger lueften, wenn die Pollenkonzentration hoeher ist"
+      ]
+    },
+    {
+      "heading": "Niedriger Pollenflug",
+      "tips": [
+        "Ein guter Tag fuer Aktivitaeten im Freien",
+        "Kurzes Lueften am Morgen ist unproblematisch"
+      ]
+    },
+    {
+      "heading": "Schlechte Luftqualitaet",
+      "tips": [
+        "FFP2-Maske im Freien tragen",
+        "Luftreiniger drinnen einschalten",
+        "Anstrengende Outdoor-Sportarten vermeiden",
+        "Antioxidantienreiche Lebensmittel essen (Obst und Gemuese)"
+      ]
+    },
+    {
+      "heading": "Raumklima",
+      "tips": [
+        "Zimmerpflanzen waehlen, die keine Pollen produzieren",
+        "Bettwaesche mindestens einmal pro Woche bei 60°C waschen",
+        "Feucht wischen statt saugen, um Staub nicht aufzuwirbeln",
+        "Luftfeuchtigkeit bei 40-50% halten (zu trocken verschlimmert Symptome)",
+        "Auf Tierhaarallergien achten"
+      ]
+    }
+  ]
+}

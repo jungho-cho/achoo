@@ -1,0 +1,38 @@
+{
+  "title": "Datenschutzerklaerung",
+  "description": "Datenschutzerklaerung fuer den Achoo Pollenflug- und Luftqualitaetsdienst.",
+  "sections": [
+    {
+      "heading": "Erhobene Daten",
+      "content": "Der Dienst verarbeitet folgende Informationen: Standortdaten — Ihre aktuelle Position (Breiten- und Laengengrad) wird ueber die Geolocation-API des Browsers ermittelt. Standortdaten werden nicht auf unseren Servern gespeichert und ausschliesslich fuer Echtzeit-Datenanfragen verwendet. Symptomtagebuch — Von Ihnen eingegebene Symptomdaten werden im localStorage Ihres Browsers gespeichert. Sie werden nie an unsere Server uebertragen. Besuchsstatistiken — Ueber Google Analytics 4 werden anonyme Besuchsstatistiken (Seitenaufrufe, Sitzungen) erhoben."
+    },
+    {
+      "heading": "Zweck der Datenverarbeitung",
+      "content": "Bereitstellung standortbasierter Pollenflug- und Luftqualitaetsinformationen. Analyse der Nutzungsstatistiken zur Verbesserung des Dienstes."
+    },
+    {
+      "heading": "Dauer der Datenspeicherung",
+      "content": "Standortdaten: Sofort nach Verwendung verworfen. Werden nie auf Servern gespeichert. Symptomtagebuch: Nur in Ihrem Browser gespeichert. Wird beim Loeschen der Browserdaten geloescht. Besuchsstatistiken: Gemaess den Aufbewahrungsrichtlinien von Google Analytics (26 Monate)."
+    },
+    {
+      "heading": "Weitergabe an Dritte",
+      "content": "Wir geben Ihre persoenlichen Daten nicht an Dritte weiter."
+    },
+    {
+      "heading": "Cookies und Tracking-Technologien",
+      "content": "Google Analytics 4: Erhebt anonyme Besuchsstatistiken. Sie koennen die Erfassung durch Deaktivierung von Cookies in Ihren Browsereinstellungen unterbinden. Affiliate-Links: Cookies von Affiliate-Partnern koennen verwendet werden, um Kaeufe ueber Produktempfehlungslinks zu verfolgen."
+    },
+    {
+      "heading": "Ihre Rechte (gemaess DSGVO)",
+      "content": "Sie koennen die Standortfreigabe jederzeit in den Browsereinstellungen widerrufen. Symptomtagebuch-Daten koennen durch Loeschen der Website-Daten im Browser entfernt werden. Die Google Analytics-Erfassung kann ueber Browser-Cookie-Einstellungen oder das Google Analytics Opt-out Browser-Add-on deaktiviert werden. Gemaess der DSGVO haben Sie das Recht auf Auskunft, Berichtigung und Loeschung Ihrer Daten."
+    },
+    {
+      "heading": "Datenquellen",
+      "content": "Pollendaten: Open-Meteo Air Quality API (basierend auf CAMS-Schaetzungen). Luftqualitaetsdaten: Open-Meteo CAMS-Modell."
+    },
+    {
+      "heading": "Aenderungen dieser Erklaerung",
+      "content": "Diese Datenschutzerklaerung gilt ab dem 29. Maerz 2026. Aenderungen werden auf dieser Seite veroeffentlicht."
+    }
+  ]
+}

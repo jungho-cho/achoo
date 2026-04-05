@@ -1,0 +1,32 @@
+{
+  "title": "Guide des particules fines",
+  "description": "Comprendre les particules fines et ultrafines : PM10, PM2.5, effets sur la sante, seuils europeens et mesures de protection.",
+  "sections": [
+    {
+      "heading": "Qu'est-ce que les particules fines ?",
+      "content": "Les particules fines sont de minuscules particules en suspension dans l'air. Elles sont classees par taille : PM10 (particules de 10 micrometres ou moins de diametre) et PM2.5 (particules de 2,5 micrometres ou moins, aussi appelees particules ultrafines). Ces particules font 1/20e a 1/30e de l'epaisseur d'un cheveu humain et sont invisibles a l'oeil nu."
+    },
+    {
+      "heading": "Effets sur la sante",
+      "content": "Exposition a court terme : toux, eternuements, irritation oculaire, mal de gorge. Aggravation des symptomes chez les asthmatiques et allergiques. Exposition a long terme : diminution de la fonction pulmonaire, risque accru de maladies cardiovasculaires, risque accru de cancer du poumon. L'OMS classe les particules fines comme cancerogene de groupe 1. Groupes sensibles : personnes agees, enfants, femmes enceintes, personnes souffrant de maladies respiratoires ou cardiovasculaires — prudence des le niveau moyen."
+    },
+    {
+      "heading": "Particules fines vs. pollen",
+      "content": "Le pollen et les particules fines sont des substances differentes, mais lorsque les deux sont eleves simultanement, les symptomes peuvent etre considerablement aggraves. Les grains de pollen peuvent se fixer sur les particules fines, leur permettant de penetrer plus profondement dans les voies respiratoires. C'est pourquoi Achoo affiche les donnees de pollen et de qualite de l'air ensemble."
+    },
+    {
+      "heading": "Mesures de protection",
+      "content": "Porter un masque FFP2 (filtre au moins 94% des particules). Faire fonctionner un purificateur d'air HEPA a l'interieur. Ne pas aerer quand la qualite de l'air est mauvaise. Se laver le visage et rincer les voies nasales apres etre sorti. Boire suffisamment d'eau pour maintenir les voies respiratoires humides. Eviter le sport intense en exterieur (un rythme respiratoire plus eleve signifie plus de particules inhalees)."
+    },
+    {
+      "heading": "Sources de donnees",
+      "content": "Achoo utilise les donnees de qualite de l'air d'Open-Meteo, basees sur le modele europeen CAMS (Copernicus Atmosphere Monitoring Service). Les donnees sont mises a jour toutes les heures et couvrent le monde entier. Pour la France, vous pouvez aussi consulter Atmo France et les AASQA (Associations agreees de surveillance de la qualite de l'air) pour des mesures locales officielles."
+    }
+  ],
+  "grades": [
+    { "grade": "Bon", "pm25": "0-10", "pm10": "0-20", "health": "Activite normale" },
+    { "grade": "Moyen", "pm25": "10-20", "pm10": "20-50", "health": "Les personnes sensibles doivent etre prudentes" },
+    { "grade": "Mauvais", "pm25": "20-25", "pm10": "50-100", "health": "Limiter les activites en exterieur, porter un masque" },
+    { "grade": "Tres mauvais", "pm25": "25+", "pm10": "100+", "health": "Eviter les activites en exterieur" }
+  ]
+}

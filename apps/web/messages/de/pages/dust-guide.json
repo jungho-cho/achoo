@@ -1,0 +1,32 @@
+{
+  "title": "Feinstaub-Ratgeber",
+  "description": "Feinstaub und Ultrafeinstaub verstehen: PM10, PM2.5, Gesundheitsauswirkungen, EU-Grenzwerte und Schutzmassnahmen.",
+  "sections": [
+    {
+      "heading": "Was ist Feinstaub?",
+      "content": "Feinstaub sind winzige Partikel in der Luft. Je nach Groesse unterscheidet man PM10 (Partikel mit einem Durchmesser von 10 Mikrometern oder kleiner) und PM2.5 (Partikel mit 2,5 Mikrometern oder kleiner, auch Ultrafeinstaub genannt). Diese Partikel sind 1/20 bis 1/30 des Durchmessers eines menschlichen Haares und mit blossem Auge nicht sichtbar."
+    },
+    {
+      "heading": "Gesundheitliche Auswirkungen",
+      "content": "Kurzzeitige Belastung: Husten, Niesen, Augenreizung, Halsschmerzen. Bei Asthma- und Allergikern Verschlimmerung der Symptome. Langfristige Belastung: Verminderte Lungenfunktion, erhoehtes Risiko fuer Herz-Kreislauf-Erkrankungen, erhoehtes Lungenkrebsrisiko. Die WHO stuft Feinstaub als Karzinogen der Gruppe 1 ein. Risikogruppen: Aeltere Menschen, Kinder, Schwangere und Personen mit Atemwegs- oder Herz-Kreislauf-Erkrankungen sollten bereits bei maessiger Belastung vorsichtig sein."
+    },
+    {
+      "heading": "Feinstaub vs. Pollen",
+      "content": "Pollen und Feinstaub sind unterschiedliche Stoffe, aber bei gleichzeitig hoher Belastung koennen die Symptome erheblich staerker sein. Pollenkoerner koennen an Feinstaubpartikeln haften und so tiefer in die Atemwege eindringen. Deshalb zeigt Achoo Pollen- und Luftqualitaetsdaten gemeinsam an."
+    },
+    {
+      "heading": "Schutzmassnahmen",
+      "content": "FFP2-Maske tragen (filtert mindestens 94% der Partikel). HEPA-Luftreiniger drinnen betreiben. Bei schlechter Luftqualitaet nicht lueften. Nach dem Aufenthalt im Freien Gesicht waschen und Nase spuelen. Viel Wasser trinken (haelt die Atemwege feucht). Intensiven Outdoor-Sport vermeiden (hoehere Atemfrequenz = mehr Partikelaufnahme)."
+    },
+    {
+      "heading": "Datenquellen",
+      "content": "Achoo verwendet Luftqualitaetsdaten von Open-Meteo, basierend auf dem europaeischen CAMS-Modell (Copernicus Atmosphere Monitoring Service). Die Daten werden stuendlich aktualisiert und decken Standorte weltweit ab. Fuer Deutschland werden die EU-Grenzwerte als Referenz verwendet."
+    }
+  ],
+  "grades": [
+    { "grade": "Gut", "pm25": "0-10", "pm10": "0-20", "health": "Normale Aktivitaet" },
+    { "grade": "Maessig", "pm25": "10-20", "pm10": "20-50", "health": "Empfindliche Personen sollten vorsichtig sein" },
+    { "grade": "Schlecht", "pm25": "20-25", "pm10": "50-100", "health": "Outdoor-Aktivitaeten einschraenken, Maske tragen" },
+    { "grade": "Sehr schlecht", "pm25": "25+", "pm10": "100+", "health": "Aufenthalt im Freien vermeiden" }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "title": "Questions frequentes",
+  "description": "Reponses aux questions courantes sur l'application Achoo de prevision du pollen : sources de donnees, utilisation, precision et plus encore.",
+  "items": [
+    {
+      "question": "D'ou proviennent les donnees de pollen ?",
+      "answer": "Nous utilisons l'API Open-Meteo Air Quality, basee sur le modele europeen CAMS (Copernicus Atmosphere Monitoring Service). Comme CAMS est un systeme europeen, les donnees sont particulierement fiables pour la France et l'Europe. Vous pouvez aussi consulter les bulletins du RNSA (Reseau National de Surveillance Aerobiologique) pour des donnees locales."
+    },
+    {
+      "question": "D'ou proviennent les donnees de qualite de l'air ?",
+      "answer": "Les donnees de qualite de l'air proviennent du modele Open-Meteo CAMS. Pour la France, Atmo France et les AASQA (associations de surveillance de la qualite de l'air) fournissent egalement des mesures officielles que nous recommandons de consulter en complement."
+    },
+    {
+      "question": "Comment ma localisation est-elle utilisee ?",
+      "answer": "L'API Geolocation de votre navigateur fournit vos coordonnees actuelles pour recuperer les donnees locales de pollen et de qualite de l'air. Votre position n'est pas stockee sur nos serveurs et sert uniquement aux requetes en temps reel."
+    },
+    {
+      "question": "Que se passe-t-il si je refuse la geolocalisation ?",
+      "answer": "Un emplacement par defaut sera utilise et un avis vous informera que les donnees ne correspondent pas a votre position reelle."
+    },
+    {
+      "question": "Ou sont stockees les donnees de mon journal de symptomes ?",
+      "answer": "Toutes les donnees du journal de symptomes sont stockees dans le localStorage de votre navigateur. Elles ne sont jamais envoyees a nos serveurs. La suppression de vos donnees de navigation les efface egalement, et elles ne sont pas accessibles depuis d'autres appareils."
+    },
+    {
+      "question": "Puis-je utiliser Achoo en dehors de la France ?",
+      "answer": "Oui, les donnees de pollen sont disponibles dans le monde entier. La precision est optimale en Europe car le modele CAMS est europeen. En dehors de l'Europe, les estimations peuvent etre moins precises."
+    },
+    {
+      "question": "Les donnees sont-elles precises ?",
+      "answer": "Les donnees de pollen sont basees sur des estimations du modele CAMS. Les niveaux reels de pollen dans votre zone specifique peuvent differer. Utilisez-les comme guide general et croisez avec les bulletins du RNSA pour les decisions importantes."
+    },
+    {
+      "question": "Y a-t-il une application mobile ?",
+      "answer": "Actuellement, Achoo est un service web uniquement. Il est concu pour bien fonctionner sur les navigateurs mobiles. Vous pouvez l'ajouter a votre ecran d'accueil pour une experience similaire a une application."
+    },
+    {
+      "question": "Y a-t-il de la publicite ?",
+      "answer": "Achoo peut afficher des liens affilies pour des produits lies aux allergies tels que des masques et des purificateurs d'air. Si vous achetez via ces liens, nous pouvons recevoir une petite commission."
+    },
+    {
+      "question": "J'ai trouve un bug / J'ai une suggestion",
+      "answer": "Achoo est un projet personnel developpe par une seule personne. Les rapports de bugs et les suggestions sont les bienvenus. Vos retours aident a ameliorer le service pour tous."
+    }
+  ]
+}

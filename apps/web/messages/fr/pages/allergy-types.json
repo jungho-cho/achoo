@@ -1,0 +1,24 @@
+{
+  "title": "Types d'allergies au pollen",
+  "description": "Comparaison des allergies aux pollens d'arbres, de graminees et d'herbacees : especes cles, saisons et symptomes. Identifiez le pollen auquel vous etes sensible.",
+  "types": [
+    {
+      "name": "Pollens d'arbres",
+      "species": "Bouleau (Betula), Aulne (Alnus), Noisetier (Corylus), Frene (Fraxinus), Chene (Quercus), Cypres (Cupressus)",
+      "season": "Fevrier a mai (printemps)",
+      "symptoms": "Le bouleau est l'allergene majeur dans le nord de la France. Le cypres domine dans le sud et la region mediterraneenne, avec des pics des janvier-fevrier. Les pollens de bouleau provoquent des reactions croisees avec certains aliments : pomme, peche, cerise, carotte, celeri (syndrome d'allergie orale). Symptomes : eternuements, ecoulement nasal, congestion, demangeaisons oculaires. Cas severes : toux et crises d'asthme. Heures de pointe : tot le matin (5h-10h), surtout par temps sec et venteux."
+    },
+    {
+      "name": "Pollens de graminees",
+      "species": "Dactyle (Dactylis glomerata), Ray-grass (Lolium perenne), Fleole (Phleum pratense), Paturin (Poa pratensis)",
+      "season": "Mai a juillet (fin du printemps a l'ete)",
+      "symptoms": "Les graminees sont la premiere cause de rhume des foins en France. Les niveaux sont particulierement eleves pres des prairies, parcs et terrains de sport. Apres la tonte, la concentration augmente fortement pendant 24 heures. En plus des symptomes habituels, le contact direct avec l'herbe peut provoquer une urticaire de contact. Heures de pointe : apres-midi (14h-17h)."
+    },
+    {
+      "name": "Pollens d'herbacees",
+      "species": "Ambroisie (Ambrosia artemisiifolia), Armoise (Artemisia), Plantain (Plantago), Ortie (Urtica)",
+      "season": "Aout a octobre (fin d'ete a automne)",
+      "symptoms": "L'ambroisie est un probleme majeur dans la vallee du Rhone et la region Auvergne-Rhone-Alpes. Une seule plante peut liberer jusqu'a un milliard de grains de pollen par jour. L'armoise est l'allergene classique de fin d'ete, avec des reactions croisees possibles avec le celeri, la carotte et les epices (syndrome celeri-armoise-epices). Les symptomes sont souvent plus intenses que pour les arbres ou les graminees. Heures de pointe : tot le matin."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "title": "Was ist Pollenallergie?",
+  "description": "Erfahren Sie alles ueber Ursachen, Symptome und Vorbeugung von Pollenallergien. Unterschiede zwischen Baum-, Graeser- und Kraeuterpollen sowie saisonale Hinweise.",
+  "intro": "Pollenallergie (Heuschnupfen, allergische Rhinitis) ist eine Erkrankung, bei der Pollen von Baeumen, Graesern und Kraeutern eine Immunreaktion ausloesen, wenn sie die Schleimhaeute von Nase, Augen und Atemwegen erreichen. In Deutschland sind etwa 15-20% der Bevoelkerung betroffen. Die Hauptsaison erstreckt sich von Februar bis September, mit Spitzen im Fruehling (Baumpollen) und Sommer (Graeserpollen). Der Deutsche Wetterdienst (DWD) veroeffentlicht taeglich den Pollenflug-Gefahrenindex.",
+  "sections": [
+    {
+      "heading": "Pollenarten und Saison",
+      "content": "Baumpollen (Birke, Erle, Hasel, Esche, Eiche) fliegt von Februar bis Mai. Graeserpollen (Wiesenlieschgras, Knaeuelgras, Roggen, Weidelgras) von Mai bis August. Kraeuterpollen (Beifuss, Ambrosia, Brennnessel, Wegerich) von Juli bis Oktober."
+    },
+    {
+      "heading": "Typische Symptome",
+      "content": "Nase: Niesen, Fliessschnupfen, verstopfte Nase, Nasenjucken. Augen: Juckreiz, Roetung, Traenenfluss, geschwollene Augenlider. Atemwege: Husten, Atemnot, Verschlimmerung von Asthma. Haut: Nesselsucht, Juckreiz (seltener). Allgemein: Muedigkeit, Konzentrationsstoerungen, Schlafstoerungen."
+    },
+    {
+      "heading": "Vorbeugung",
+      "content": "Bei hohem Pollenflug moeglichst drinnen bleiben. Beim Ausgehen eine FFP2-Maske tragen. Nach dem Nachhausekommen sofort Gesicht waschen und duschen. Morgens (6-10 Uhr) nicht lueften, da die Pollenkonzentration am hoechsten ist (in der Stadt; auf dem Land abends). Waesche drinnen trocknen. Einen Luftreiniger mit HEPA-Filter verwenden. Bei starken Symptomen Antihistaminika einnehmen (aerztliche Beratung empfohlen)."
+    },
+    {
+      "heading": "Pollen vs. Feinstaub",
+      "content": "Pollen und Feinstaub sind unterschiedlich. Pollen sind biologische Partikel von Pflanzen, die allergische Reaktionen ausloesen. Feinstaub (PM2.5/PM10) besteht aus chemischen Partikeln aus Verbrennungsprozessen und verursacht Atemwegserkrankungen. An Tagen mit hoher Belastung durch beides sollten Sie draussen bleiben und eine Maske tragen. Achoo zeigt Ihnen Pollen- und Luftqualitaetsdaten gleichzeitig an."
+    }
+  ]
+}

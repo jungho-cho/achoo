@@ -1,0 +1,23 @@
+{
+  "title": "Qu'est-ce que l'allergie au pollen ?",
+  "description": "Decouvrez les causes, symptomes et methodes de prevention de l'allergie au pollen. Differences entre pollens d'arbres, de graminees et d'herbacees.",
+  "intro": "L'allergie au pollen (rhinite allergique ou rhume des foins) est une maladie dans laquelle les pollens d'arbres, de graminees et d'herbacees declenchent une reaction immunitaire au contact des muqueuses du nez, des yeux et des voies respiratoires. En France, environ 20 a 25% de la population est touchee, et ce chiffre est en constante augmentation. Le RNSA (Reseau National de Surveillance Aerobiologique) surveille les niveaux de pollen sur tout le territoire francais.",
+  "sections": [
+    {
+      "heading": "Types de pollen et saisons",
+      "content": "Pollens d'arbres (bouleau, aulne, noisetier, frene, chene, cypres) : de fevrier a mai. Pollens de graminees (dactyle, ray-grass, fleole, paturin) : de mai a juillet. Pollens d'herbacees (ambroisie, armoise, plantain, ortie) : d'aout a octobre. En region mediterraneenne, le cypres peut provoquer des allergies des janvier."
+    },
+    {
+      "heading": "Symptomes principaux",
+      "content": "Nez : eternuements, ecoulement nasal clair, congestion nasale, demangeaisons nasales. Yeux : demangeaisons, rougeurs, larmoiement, gonflements des paupieres. Voies respiratoires : toux, essoufflement, aggravation de l'asthme. Peau : urticaire, demangeaisons (plus rare). General : fatigue, troubles de la concentration, troubles du sommeil."
+    },
+    {
+      "heading": "Prevention",
+      "content": "Rester a l'interieur quand les niveaux de pollen sont eleves (consulter les alertes du RNSA). Porter un masque FFP2 lors des sorties. Se laver le visage et se doucher des le retour a la maison. Eviter d'aerer aux heures de pointe du pollen (tot le matin, 5h-10h). Faire secher le linge a l'interieur. Utiliser un purificateur d'air avec filtre HEPA. Prendre des antihistaminiques en cas de symptomes severes (consultation medicale recommandee)."
+    },
+    {
+      "heading": "Pollen vs. particules fines",
+      "content": "Le pollen et les particules fines sont differents. Le pollen est une particule biologique d'origine vegetale qui declenche des reactions allergiques. Les particules fines (PM2.5/PM10) sont des particules chimiques issues de la combustion qui causent des maladies respiratoires. Les jours ou les deux sont eleves, limitez vos activites en exterieur et portez un masque. Achoo vous permet de verifier les niveaux de pollen et de qualite de l'air simultanement."
+    }
+  ]
+}

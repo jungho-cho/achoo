@@ -1,0 +1,52 @@
+{
+  "title": "Conseils anti-allergies",
+  "description": "Comment proteger votre sante les jours de fort pollen et de particules fines. Selectionnez vos symptomes pour des conseils personnalises.",
+  "sections": [
+    {
+      "heading": "Pollen eleve / Tres eleve",
+      "tips": [
+        "Restez a l'interieur autant que possible",
+        "Portez un masque FFP2 en sortant",
+        "Gardez les fenetres fermees, surtout tot le matin (5h-10h)",
+        "Douchez-vous et lavez-vous le visage immediatement en rentrant",
+        "Retirez les vetements d'exterieur a l'entree et lavez-les rapidement",
+        "Prenez vos medicaments anti-allergiques 30 minutes avant de sortir"
+      ]
+    },
+    {
+      "heading": "Pollen moyen",
+      "tips": [
+        "Les personnes sensibles devraient envisager de porter un masque",
+        "Evitez les activites prolongees en exterieur",
+        "Lavez-vous bien les mains en rentrant",
+        "Limitez l'aeration le matin quand les niveaux de pollen sont plus eleves"
+      ]
+    },
+    {
+      "heading": "Pollen faible",
+      "tips": [
+        "Une bonne journee pour les activites en exterieur",
+        "Une courte aeration le matin est possible"
+      ]
+    },
+    {
+      "heading": "Mauvaise qualite de l'air",
+      "tips": [
+        "Portez un masque FFP2 en exterieur",
+        "Faites fonctionner un purificateur d'air a l'interieur",
+        "Evitez les efforts physiques intenses en exterieur",
+        "Consommez des aliments riches en antioxydants (fruits et legumes)"
+      ]
+    },
+    {
+      "heading": "Gestion de l'interieur",
+      "tips": [
+        "Choisissez des plantes d'interieur qui ne produisent pas de pollen",
+        "Lavez la literie au moins une fois par semaine a 60°C minimum",
+        "Preferez le nettoyage humide a l'aspirateur pour eviter de soulever la poussiere",
+        "Maintenez l'humidite interieure a 40-50% (trop sec aggrave les symptomes)",
+        "Attention aux allergies aux poils d'animaux"
+      ]
+    }
+  ]
+}

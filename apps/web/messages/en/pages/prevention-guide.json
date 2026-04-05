@@ -1,0 +1,52 @@
+{
+  "title": "Pollen Allergy Prevention Guide",
+  "description": "A practical guide to preventing and managing pollen allergies. Mask selection, indoor environment tips, medications, and more.",
+  "sections": [
+    {
+      "heading": "Mask Selection Guide",
+      "tips": [
+        "N95/FFP2 masks: Filter at least 94-95% of airborne particles including pollen. Best choice for high pollen days.",
+        "Surgical masks: Provide some barrier but are less effective against fine pollen. Better than nothing.",
+        "Cloth masks: Minimal pollen filtration. Not recommended for allergy protection.",
+        "Ensure a tight seal around the nose and mouth. Gaps reduce effectiveness by more than 50%."
+      ]
+    },
+    {
+      "heading": "Indoor Environment Management",
+      "tips": [
+        "Ventilation: Open windows briefly in the afternoon (2-4 PM) when pollen counts are lower. Avoid morning ventilation.",
+        "Air purifier: Use a HEPA-filter model. Place it in your bedroom and run it while sleeping. Replace the filter every 6 months.",
+        "Laundry: Dry clothes indoors during pollen season. Outdoor drying collects pollen on fabric.",
+        "Bedding: Wash weekly at 60°C or higher. Consider anti-allergen mattress and pillow covers.",
+        "Humidity: Maintain 40-60%. Too dry irritates mucous membranes; too humid encourages mold growth."
+      ]
+    },
+    {
+      "heading": "After Coming Home Routine",
+      "tips": [
+        "Remove outerwear at the door to prevent pollen from spreading indoors.",
+        "Wash hands and face thoroughly, especially around the eyes.",
+        "Rinse nasal passages with saline solution — studies show this can reduce symptoms by up to 50%.",
+        "Shower and wash hair (hair traps the most pollen).",
+        "Launder outdoor clothes or store them separately from indoor clothing."
+      ]
+    },
+    {
+      "heading": "Medication Options",
+      "tips": [
+        "Antihistamines: Cetirizine (Zyrtec), Loratadine (Claritin), Fexofenadine (Allegra). Most effective when taken before symptoms start.",
+        "Nasal corticosteroid sprays: Fluticasone (Flonase), Mometasone (Nasonex). Most effective for congestion. Takes 2-3 days to reach full effect.",
+        "Eye drops: Olopatadine (Patanol), Ketotifen (Zaditor). Effective for itchy, red eyes.",
+        "Starting medication 2 weeks before the pollen season begins is significantly more effective than reactive use. Consult your doctor for a personalized plan."
+      ]
+    },
+    {
+      "heading": "Immunotherapy (Long-term Treatment)",
+      "tips": [
+        "Allergen immunotherapy gradually desensitizes your immune system over 3-5 years.",
+        "Available as subcutaneous injections (allergy shots) or sublingual tablets/drops (under the tongue).",
+        "Success rate of approximately 70-80%. It is the only treatment that addresses the root cause of allergies."
+      ]
+    }
+  ]
+}

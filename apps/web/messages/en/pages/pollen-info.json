@@ -1,0 +1,23 @@
+{
+  "title": "What Is Pollen Allergy?",
+  "description": "Learn about pollen allergy causes, symptoms, and prevention. Understand the differences between tree, grass, and weed pollen and seasonal precautions.",
+  "intro": "Pollen allergy (hay fever or allergic rhinitis) is a condition where pollen from trees, grasses, and weeds triggers an immune response when it contacts the mucous membranes of the nose, eyes, and airways. Worldwide, an estimated 10-30% of the population suffers from pollen allergies, with symptoms peaking during spring (tree pollen) and late summer to autumn (weed pollen).",
+  "sections": [
+    {
+      "heading": "Pollen Types and Seasons",
+      "content": "Tree pollen (oak, birch, alder, ash, pine) is most prevalent from March to May. Grass pollen (timothy, ryegrass, bermuda grass, Kentucky bluegrass) peaks from May to July. Weed pollen (ragweed, mugwort, plantain, nettle) dominates from August to October."
+    },
+    {
+      "heading": "Common Symptoms",
+      "content": "Nose: sneezing, runny nose, nasal congestion, itchy nose. Eyes: itching, redness, tearing, swollen eyelids. Airways: coughing, shortness of breath, asthma flare-ups. Skin: hives, itching (less common but possible). General: fatigue, difficulty concentrating, sleep disturbance."
+    },
+    {
+      "heading": "Prevention Tips",
+      "content": "Stay indoors when pollen counts are high. Wear a well-fitted mask (N95 or FFP2) when going outside. Shower and wash your face immediately after returning home. Avoid ventilating your home during peak pollen hours (early morning, 5-10 AM). Dry laundry indoors during pollen season. Use an air purifier with a HEPA filter to reduce indoor pollen. Take antihistamines as directed by your doctor if symptoms are severe."
+    },
+    {
+      "heading": "Pollen vs. Fine Dust",
+      "content": "Pollen and fine dust (particulate matter) are different. Pollen is a biological particle from plants that triggers allergic reactions, while fine dust (PM2.5/PM10) consists of chemical particles from combustion that cause respiratory disease. On days when both are elevated, limit outdoor activity and wear a mask. Achoo lets you check both pollen and air quality levels at once."
+    }
+  ]
+}

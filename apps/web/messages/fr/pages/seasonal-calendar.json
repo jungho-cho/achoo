@@ -1,0 +1,18 @@
+{
+  "title": "Calendrier mensuel du pollen",
+  "description": "Calendrier pollinique pour la France. Decouvrez mois par mois quels pollens sont presents et comment vous proteger.",
+  "months": [
+    { "month": "Janvier", "level": "Faible", "species": "Cypres, noisetier", "tip": "Dans le sud de la France, le cypres peut deja provoquer des allergies. Le noisetier commence a polliniser lors des journees douces." },
+    { "month": "Fevrier", "level": "Moyen", "species": "Cypres, aulne, noisetier", "tip": "Debut de la saison pollinique. Le cypres atteint son pic en Mediterranee. L'aulne et le noisetier sont actifs dans le nord." },
+    { "month": "Mars", "level": "Eleve", "species": "Bouleau, frene, platane", "tip": "Debut de la saison principale. Le bouleau demarre fin mars. Consultez les bulletins du RNSA regulierement." },
+    { "month": "Avril", "level": "Tres eleve", "species": "Bouleau, chene, frene, platane", "tip": "Pic de pollens d'arbres. Le bouleau est au maximum. Mois le plus difficile pour les allergiques au printemps." },
+    { "month": "Mai", "level": "Eleve", "species": "Graminees, chene", "tip": "Les pollens d'arbres diminuent, les graminees commencent. Mois de transition avec double exposition possible." },
+    { "month": "Juin", "level": "Tres eleve", "species": "Graminees", "tip": "Pic de la saison des graminees. Periode la plus difficile pour le rhume des foins classique." },
+    { "month": "Juillet", "level": "Moyen", "species": "Graminees (en baisse)", "tip": "Les graminees diminuent progressivement. Mois relativement calme entre les deux pics." },
+    { "month": "Aout", "level": "Eleve", "species": "Ambroisie, armoise", "tip": "Debut de la saison d'ambroisie, surtout dans la vallee du Rhone et en Auvergne-Rhone-Alpes." },
+    { "month": "Septembre", "level": "Moyen", "species": "Ambroisie, ortie", "tip": "Pic d'ambroisie. Les herbacees diminuent progressivement. Premieres gelees en altitude mettent fin a la saison." },
+    { "month": "Octobre", "level": "Faible", "species": "Herbacees (en baisse)", "tip": "Fin de la saison pollinique. Les premieres gelees arretent la pollinisation dans la plupart des regions." },
+    { "month": "Novembre", "level": "Aucun", "species": "Pas de pollen significatif", "tip": "Fin de la saison. Debut du chauffage — attention aux allergenes interieurs (acariens, moisissures)." },
+    { "month": "Decembre", "level": "Aucun", "species": "Pas de pollen significatif", "tip": "Hiver. Vigilance pour les allergenes d'interieur : acariens, poils d'animaux, moisissures dues a une mauvaise ventilation." }
+  ]
+}

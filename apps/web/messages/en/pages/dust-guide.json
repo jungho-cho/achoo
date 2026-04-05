@@ -1,0 +1,32 @@
+{
+  "title": "Fine Dust Guide",
+  "description": "Understand fine dust and ultrafine particulate matter: PM10 and PM2.5 differences, health effects, air quality standards, and protection tips.",
+  "sections": [
+    {
+      "heading": "What Is Fine Dust?",
+      "content": "Fine dust refers to tiny airborne particulate matter. It is categorized by size: PM10 (particles 10 micrometers or smaller in diameter) and PM2.5 (particles 2.5 micrometers or smaller, also called ultrafine dust). These particles are 1/20 to 1/30 the width of a human hair and invisible to the naked eye."
+    },
+    {
+      "heading": "Health Effects",
+      "content": "Short-term exposure: Coughing, sneezing, eye irritation, sore throat. Asthma and rhinitis patients may experience worsened symptoms. Long-term exposure: Reduced lung function, increased cardiovascular disease risk, increased lung cancer risk. The WHO classifies particulate matter as a Group 1 carcinogen. Sensitive groups: The elderly, children, pregnant women, and those with respiratory or cardiovascular conditions should take precautions even at moderate levels."
+    },
+    {
+      "heading": "Fine Dust vs. Pollen",
+      "content": "Pollen and fine dust are different substances, but when both are elevated simultaneously, symptoms can be significantly worse. Pollen grains can bind to fine dust particles, allowing them to penetrate deeper into the airways. This is why Achoo shows both pollen and air quality data together, helping you make informed decisions about outdoor activity."
+    },
+    {
+      "heading": "Prevention Tips",
+      "content": "Wear an N95 or FFP2 mask (filters at least 94% of particles). Run a HEPA air purifier indoors. Avoid ventilating when air quality is poor. Wash face and rinse nasal passages after being outside. Drink plenty of water to keep airways moist. Avoid intense outdoor exercise (higher breathing rate means more particle inhalation)."
+    },
+    {
+      "heading": "Data Sources",
+      "content": "Achoo uses air quality data from Open-Meteo, which draws on the European CAMS (Copernicus Atmosphere Monitoring Service) model. Data is updated hourly and covers locations worldwide. For users in Korea, PM data from AirKorea (Korean Ministry of Environment) is also used."
+    }
+  ],
+  "grades": [
+    { "grade": "Good", "pm25": "0-12", "pm10": "0-54", "health": "Normal activity" },
+    { "grade": "Moderate", "pm25": "12.1-35.4", "pm10": "55-154", "health": "Sensitive groups should take caution" },
+    { "grade": "Unhealthy", "pm25": "35.5-55.4", "pm10": "155-254", "health": "Limit outdoor activity, wear a mask" },
+    { "grade": "Very Unhealthy", "pm25": "55.5+", "pm10": "255+", "health": "Avoid outdoor activity" }
+  ]
+}

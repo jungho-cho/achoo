@@ -1,0 +1,52 @@
+{
+  "title": "Allergy Management Tips",
+  "description": "How to protect your health on days with high pollen and fine dust. Select your symptoms for personalized advice.",
+  "sections": [
+    {
+      "heading": "High / Very High Pollen",
+      "tips": [
+        "Stay indoors as much as possible",
+        "Wear an N95 or FFP2 mask when going outside",
+        "Keep windows closed, especially in the early morning (5-10 AM)",
+        "Shower and wash your face immediately after returning home",
+        "Remove outdoor clothes at the door and wash them promptly",
+        "Take allergy medication 30 minutes before going outside"
+      ]
+    },
+    {
+      "heading": "Moderate Pollen",
+      "tips": [
+        "Sensitive individuals should consider wearing a mask",
+        "Avoid prolonged outdoor activity",
+        "Wash hands thoroughly when returning home",
+        "Limit morning ventilation when pollen counts tend to be higher"
+      ]
+    },
+    {
+      "heading": "Low Pollen",
+      "tips": [
+        "A great day for outdoor activities",
+        "Brief morning ventilation is fine"
+      ]
+    },
+    {
+      "heading": "Poor Air Quality",
+      "tips": [
+        "Wear an N95 or FFP2 mask outdoors",
+        "Run an air purifier indoors",
+        "Avoid strenuous outdoor exercise",
+        "Eat antioxidant-rich foods (fruits and vegetables)"
+      ]
+    },
+    {
+      "heading": "Indoor Management",
+      "tips": [
+        "Choose houseplants that do not produce pollen",
+        "Wash bedding at least once a week at 60°C or higher",
+        "Prefer damp mopping over vacuuming to avoid stirring up dust",
+        "Maintain indoor humidity at 40-50% (too dry worsens symptoms)",
+        "Be aware of pet dander allergies"
+      ]
+    }
+  ]
+}

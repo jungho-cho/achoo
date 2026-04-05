@@ -1,0 +1,52 @@
+{
+  "title": "Guide de prevention des allergies au pollen",
+  "description": "Guide pratique pour prevenir et gerer les allergies au pollen. Choix du masque, gestion de l'environnement interieur, medicaments et immunotherapie.",
+  "sections": [
+    {
+      "heading": "Choix du masque",
+      "tips": [
+        "Masque FFP2 : filtre au moins 94% des particules aeriennes, y compris le pollen. Meilleur choix en cas de pic pollinique.",
+        "Masque chirurgical : offre une certaine protection mais moins efficace contre les pollens fins.",
+        "Masque en tissu : filtration minimale du pollen. Non recommande.",
+        "Assurez un ajustement serre autour du nez et de la bouche. Les fuites reduisent l'efficacite de plus de 50%."
+      ]
+    },
+    {
+      "heading": "Gestion de l'environnement interieur",
+      "tips": [
+        "Aeration : aerer brievement en fin d'apres-midi (16h-18h) quand les niveaux de pollen sont plus bas. Eviter d'aerer le matin.",
+        "Purificateur d'air : utiliser un modele avec filtre HEPA. Le placer dans la chambre et le faire fonctionner la nuit. Changer le filtre tous les 6 mois.",
+        "Linge : secher a l'interieur pendant la saison pollinique. Le sechage en exterieur collecte le pollen sur les tissus.",
+        "Literie : laver chaque semaine a 60°C minimum. Envisager des housses anti-allergenes pour matelas et oreillers.",
+        "Humidite : maintenir entre 40 et 60%. Trop sec irrite les muqueuses ; trop humide favorise les moisissures."
+      ]
+    },
+    {
+      "heading": "Routine au retour a la maison",
+      "tips": [
+        "Retirer les vetements d'exterieur a l'entree pour empecher le pollen de se repandre a l'interieur.",
+        "Se laver les mains et le visage soigneusement, surtout autour des yeux.",
+        "Rincer les voies nasales avec une solution saline — les etudes montrent une reduction des symptomes jusqu'a 50%.",
+        "Se doucher et se laver les cheveux (les cheveux retiennent le plus de pollen).",
+        "Laver les vetements d'exterieur ou les ranger separement des vetements d'interieur."
+      ]
+    },
+    {
+      "heading": "Medicaments",
+      "tips": [
+        "Antihistaminiques : cetirizine (Zyrtec), loratadine (Clarityne), fexofenadine (Telfast). Plus efficaces pris avant l'apparition des symptomes. Disponibles sans ordonnance en pharmacie.",
+        "Sprays nasaux corticoides : mometasone (Nasonex), fluticasone (Avamys). Les plus efficaces contre la congestion nasale. Plein effet apres 2-3 jours.",
+        "Collyres : olopatadine (Opatanol), ketotifene. Efficaces contre les yeux qui demangent et les rougeurs.",
+        "Commencer le traitement 2 semaines avant le debut de la saison est nettement plus efficace. En France, les antihistaminiques prescrits par un medecin sont rembourses par la Securite sociale."
+      ]
+    },
+    {
+      "heading": "Immunotherapie (desensibilisation)",
+      "tips": [
+        "L'immunotherapie allergique desensibilise progressivement le systeme immunitaire sur 3 a 5 ans.",
+        "Disponible en injections sous-cutanees ou en comprimes/gouttes sublinguaux (sous la langue).",
+        "Taux de succes d'environ 70-80%. C'est le seul traitement qui s'attaque a la cause de l'allergie. Rembourse par l'Assurance maladie en France."
+      ]
+    }
+  ]
+}

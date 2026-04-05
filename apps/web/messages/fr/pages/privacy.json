@@ -1,0 +1,38 @@
+{
+  "title": "Politique de confidentialite",
+  "description": "Politique de confidentialite du service de prevision du pollen et de qualite de l'air Achoo.",
+  "sections": [
+    {
+      "heading": "Donnees collectees",
+      "content": "Le service traite les informations suivantes : Donnees de localisation — Votre position actuelle (latitude, longitude) est obtenue via l'API Geolocation du navigateur. Les donnees de localisation ne sont pas stockees sur nos serveurs et servent uniquement aux requetes de donnees en temps reel. Journal de symptomes — Les donnees de symptomes que vous saisissez sont stockees dans le localStorage de votre navigateur. Elles ne sont jamais transmises a nos serveurs. Statistiques de visite — Nous collectons des statistiques de visite anonymes (pages vues, sessions) via Google Analytics 4."
+    },
+    {
+      "heading": "Finalite du traitement",
+      "content": "Fournir des informations de prevision du pollen et de qualite de l'air basees sur la localisation. Analyser les statistiques d'utilisation pour ameliorer le service."
+    },
+    {
+      "heading": "Duree de conservation",
+      "content": "Donnees de localisation : utilisees immediatement puis supprimees. Jamais enregistrees sur nos serveurs. Journal de symptomes : stocke uniquement dans votre navigateur. Supprime lorsque vous effacez vos donnees de navigation. Statistiques de visite : selon la politique de conservation de Google Analytics (26 mois)."
+    },
+    {
+      "heading": "Communication a des tiers",
+      "content": "Nous ne partageons pas vos informations personnelles avec des tiers."
+    },
+    {
+      "heading": "Cookies et technologies de suivi",
+      "content": "Google Analytics 4 : collecte des statistiques de visite anonymes. Vous pouvez bloquer la collecte en desactivant les cookies dans les parametres de votre navigateur. Liens affilies : des cookies de partenaires affilies peuvent etre utilises pour suivre les achats effectues via les liens de recommandation de produits."
+    },
+    {
+      "heading": "Vos droits (conformement au RGPD)",
+      "content": "Vous pouvez revoquer l'autorisation de localisation a tout moment dans les parametres de votre navigateur. Les donnees du journal de symptomes peuvent etre supprimees en effacant les donnees du site dans votre navigateur. Vous pouvez refuser le suivi Google Analytics via les parametres de cookies ou le module complementaire de navigateur Google Analytics Opt-out. Conformement au RGPD, vous disposez d'un droit d'acces, de rectification et de suppression de vos donnees."
+    },
+    {
+      "heading": "Sources de donnees",
+      "content": "Donnees de pollen : API Open-Meteo Air Quality (basee sur les estimations CAMS europeennes). Donnees de qualite de l'air : modele CAMS Open-Meteo."
+    },
+    {
+      "heading": "Modifications de cette politique",
+      "content": "Cette politique de confidentialite est en vigueur depuis le 29 mars 2026. Toute modification sera publiee sur cette page."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "title": "Frequently Asked Questions",
+  "description": "Answers to common questions about the Achoo pollen forecast app: data sources, usage, accuracy, and more.",
+  "items": [
+    {
+      "question": "Where does the pollen data come from?",
+      "answer": "We use the Open-Meteo Air Quality API, which is based on the European CAMS (Copernicus Atmosphere Monitoring Service) model. It provides free worldwide pollen estimates. Accuracy may vary by region as the model is optimized for Europe."
+    },
+    {
+      "question": "Where does the air quality data come from?",
+      "answer": "For users in Korea, we use the official AirKorea API from the Korean Ministry of Environment, with real-time data from over 500 monitoring stations. Outside Korea, air quality data comes from the Open-Meteo CAMS model."
+    },
+    {
+      "question": "How is my location used?",
+      "answer": "Your browser's Geolocation API provides your current coordinates to fetch local pollen and air quality data. Your location is not stored on our servers and is only used for real-time data requests."
+    },
+    {
+      "question": "What happens if I deny location permission?",
+      "answer": "A default location will be used, and a notice will appear indicating that data is being shown for the default location rather than your actual position."
+    },
+    {
+      "question": "Where is my symptom diary data stored?",
+      "answer": "All symptom diary data is stored in your browser's localStorage. It is never sent to our servers. Clearing your browser data will delete it, and it cannot be accessed from other devices."
+    },
+    {
+      "question": "Can I use Achoo outside of Korea?",
+      "answer": "Yes, pollen data is available worldwide. However, the Korean-specific fine dust data from AirKorea is only available within Korea. Outside Korea, only pollen information is displayed."
+    },
+    {
+      "question": "How accurate is the data?",
+      "answer": "Open-Meteo pollen data is based on the European CAMS model estimates. Actual pollen concentrations in your specific area may differ. Use it as a general guide and cross-reference with local pollen monitoring services for critical decisions."
+    },
+    {
+      "question": "Is there a mobile app?",
+      "answer": "Currently, Achoo is a web-only service. It is designed to work well on mobile browsers. You can add it to your home screen for an app-like experience."
+    },
+    {
+      "question": "Are there ads?",
+      "answer": "Achoo may display affiliate links for allergy-related products such as masks and air purifiers. If you purchase through these links, we may earn a small commission."
+    },
+    {
+      "question": "I found a bug / I have a feature suggestion",
+      "answer": "Achoo is a solo side project. Bug reports and feature suggestions are very welcome. Your feedback helps improve the service for everyone."
+    }
+  ]
+}

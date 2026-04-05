@@ -1,0 +1,52 @@
+{
+  "title": "Pollenallergie-Vorbeugung",
+  "description": "Praktischer Leitfaden zur Vorbeugung und Behandlung von Pollenallergien. Maskenwahl, Raumklima, Medikamente und Immuntherapie.",
+  "sections": [
+    {
+      "heading": "Maskenwahl",
+      "tips": [
+        "FFP2-Maske: Filtert mindestens 94% der Partikel einschliesslich Pollen. Beste Wahl bei hohem Pollenflug.",
+        "Medizinische Maske (OP-Maske): Bietet einen gewissen Schutz, ist aber weniger wirksam gegen feine Pollen.",
+        "Stoffmaske: Minimaler Pollenschutz. Nicht empfohlen.",
+        "Achten Sie auf dichten Sitz an Nase und Mund. Luecken reduzieren die Wirksamkeit um mehr als 50%."
+      ]
+    },
+    {
+      "heading": "Raumklima-Management",
+      "tips": [
+        "Lueften: In der Stadt morgens kurz lueften (Pollenkonzentration niedriger); auf dem Land abends. Am besten nach Regen.",
+        "Luftreiniger: Geraet mit HEPA-Filter verwenden. Im Schlafzimmer aufstellen und nachts laufen lassen. Filter alle 6 Monate wechseln.",
+        "Waesche: Waehrend der Pollensaison drinnen trocknen. Draussen getrocknete Waesche sammelt Pollen.",
+        "Bettwaesche: Woechentlich bei 60°C waschen. Allergiker-Encasings fuer Matratze und Kissen empfohlen.",
+        "Luftfeuchtigkeit: 40-60% halten. Zu trocken reizt die Schleimhaeute, zu feucht foerdert Schimmel."
+      ]
+    },
+    {
+      "heading": "Routine nach dem Nachhausekommen",
+      "tips": [
+        "Schuhe und Jacke im Eingangsbereich ablegen (Pollen nicht in die Wohnung tragen).",
+        "Haende und Gesicht gruendlich waschen, besonders um die Augen.",
+        "Nasendusche mit Kochsalzloesung — reduziert Symptome um bis zu 50%.",
+        "Duschen und Haare waschen (Haare fangen die meisten Pollen ein).",
+        "Outdoor-Kleidung waschen oder getrennt von Innenkleidung aufbewahren."
+      ]
+    },
+    {
+      "heading": "Medikamente",
+      "tips": [
+        "Antihistaminika: Cetirizin, Loratadin, Fexofenadin. Am wirksamsten bei Einnahme vor Symptombeginn. Rezeptfrei in der Apotheke erhaeltlich.",
+        "Kortisonhaltige Nasensprays: Mometason (Nasonex), Fluticason. Am wirksamsten gegen Nasenverstopfung. Volle Wirkung nach 2-3 Tagen.",
+        "Augentropfen: Olopatadin, Ketotifen, Azelastin. Wirksam gegen juckende, getoetete Augen.",
+        "Tipp: Medikamente 2 Wochen vor Saisonbeginn starten ist deutlich wirksamer. Die gesetzliche Krankenversicherung uebernimmt einen Teil der Kosten bei aerztlicher Verordnung."
+      ]
+    },
+    {
+      "heading": "Hyposensibilisierung (Spezifische Immuntherapie)",
+      "tips": [
+        "Die Hyposensibilisierung gewoehnt das Immunsystem ueber 3-5 Jahre schrittweise an das Allergen.",
+        "Verfuegbar als subkutane Injektionen (SCIT) oder als Sublingualtabletten/-tropfen (SLIT).",
+        "Erfolgsrate von ca. 70-80%. Die einzige ursaechliche Behandlung. Die Kosten werden von den gesetzlichen Krankenkassen uebernommen."
+      ]
+    }
+  ]
+}

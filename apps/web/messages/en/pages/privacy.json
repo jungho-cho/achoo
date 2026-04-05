@@ -1,0 +1,38 @@
+{
+  "title": "Privacy Policy",
+  "description": "Privacy policy for the Achoo pollen and air quality forecast service.",
+  "sections": [
+    {
+      "heading": "Information We Collect",
+      "content": "The service processes the following information: Location data — Your current position (latitude, longitude) is obtained via the browser Geolocation API. Location data is not stored on our servers and is used only for real-time data requests. Symptom diary — Symptom data you enter is stored in your browser's localStorage. It is never transmitted to our servers. Analytics — We collect anonymous visit statistics (page views, sessions) through Google Analytics 4."
+    },
+    {
+      "heading": "Purpose of Data Use",
+      "content": "To provide location-based pollen and air quality forecast information. To analyze service usage statistics and improve the service."
+    },
+    {
+      "heading": "Data Retention",
+      "content": "Location data: Used immediately and not stored. Never saved to our servers. Symptom diary: Stored only in your browser. Deleted when you clear your browser data. Analytics: Subject to Google Analytics data retention policies (26 months)."
+    },
+    {
+      "heading": "Third-Party Disclosure",
+      "content": "We do not share your personal information with third parties."
+    },
+    {
+      "heading": "Cookies and Tracking Technologies",
+      "content": "Google Analytics 4: Collects anonymous visit statistics. You can block collection by disabling cookies in your browser settings. Affiliate links: Cookies from affiliate partners may be used to track purchases made through product recommendation links."
+    },
+    {
+      "heading": "Your Rights",
+      "content": "You can revoke location permission at any time through your browser settings. Symptom diary data can be deleted by clearing your browser's site data. You can opt out of Google Analytics tracking through browser cookie settings or the Google Analytics Opt-out Browser Add-on."
+    },
+    {
+      "heading": "Data Sources",
+      "content": "Pollen data: Open-Meteo Air Quality API (based on CAMS European model estimates). Air quality data: Open-Meteo CAMS model; AirKorea (Korean Ministry of Environment) for users in Korea."
+    },
+    {
+      "heading": "Changes to This Policy",
+      "content": "This privacy policy is effective as of March 29, 2026. Any changes will be posted on this page."
+    }
+  ]
+}

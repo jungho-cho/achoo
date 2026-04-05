@@ -1,0 +1,24 @@
+{
+  "title": "Pollen Allergy Types",
+  "description": "Compare tree, grass, and weed pollen allergies: key species, seasons, and symptoms. Find out which pollen you may be sensitive to.",
+  "types": [
+    {
+      "name": "Tree Pollen",
+      "species": "Oak, birch, alder, ash, hazel, pine, cedar",
+      "season": "March to May (spring)",
+      "symptoms": "Tree pollen is one of the most common causes of spring allergies. Birch and oak pollen can cross-react with certain foods like apples, peaches, and cherries (Oral Allergy Syndrome). Symptoms include sneezing, clear runny nose, nasal congestion, and itchy eyes. Severe cases may involve coughing and asthma flare-ups. Peak hours: early morning (5-10 AM), especially on dry, windy days."
+    },
+    {
+      "name": "Grass Pollen",
+      "species": "Timothy, ryegrass, orchard grass, Kentucky bluegrass, bermuda grass",
+      "season": "May to August (late spring to summer)",
+      "symptoms": "Grass pollen is particularly high near lawns, parks, and golf courses. Pollen counts surge for up to 24 hours after lawn mowing. Symptoms are similar to tree pollen allergies but may also include contact dermatitis (hives) from direct skin contact with grass. Peak hours: afternoon (2-5 PM) when temperatures are highest."
+    },
+    {
+      "name": "Weed Pollen",
+      "species": "Ragweed, mugwort, plantain, nettle, lamb's quarters",
+      "season": "August to October (autumn)",
+      "symptoms": "A single ragweed plant can release up to one billion pollen grains per day. Wind can carry them hundreds of kilometers, so even cities are affected. Weed pollen tends to cause more intense symptoms than tree or grass pollen, including red eyes, severe sneezing fits, and postnasal drip. Peak hours: early morning, just after sunrise."
+    }
+  ]
+}

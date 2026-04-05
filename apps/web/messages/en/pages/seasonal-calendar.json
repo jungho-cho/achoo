@@ -1,0 +1,18 @@
+{
+  "title": "Monthly Pollen Calendar",
+  "description": "A month-by-month guide to pollen seasons. Know when tree, grass, and weed pollen levels peak so you can plan ahead.",
+  "months": [
+    { "month": "January", "level": "None", "species": "No significant pollen", "tip": "Winter. No pollen but indoor allergens (dust mites, mold) can be an issue. Keep indoor humidity at 40-60%." },
+    { "month": "February", "level": "Low", "species": "Alder, hazel", "tip": "Early tree pollen begins in mild climates. Alder and hazel can start releasing pollen on warmer days." },
+    { "month": "March", "level": "High", "species": "Birch, oak, ash", "tip": "Spring pollen season begins in earnest. Birch is a major allergen in many temperate regions." },
+    { "month": "April", "level": "Very High", "species": "Oak, birch, pine", "tip": "Peak tree pollen month. Oak and birch dominate. This is typically the worst month for spring allergy sufferers." },
+    { "month": "May", "level": "High", "species": "Pine, grass species", "tip": "Tree pollen declines as grass pollen starts. Pine pollen creates visible yellow dust but is less allergenic." },
+    { "month": "June", "level": "Moderate", "species": "Grass species", "tip": "Grass pollen peaks. Rain temporarily washes pollen from the air, providing brief relief." },
+    { "month": "July", "level": "Low", "species": "Grass (declining)", "tip": "Grass pollen subsides. Often the most comfortable month for allergy sufferers in many regions." },
+    { "month": "August", "level": "High", "species": "Ragweed, mugwort", "tip": "Autumn weed pollen season begins. Ragweed is a major trigger in North America and parts of Europe." },
+    { "month": "September", "level": "Very High", "species": "Ragweed, mugwort, nettle", "tip": "Peak weed pollen month. Ragweed and mugwort are at their worst. The most challenging month for autumn allergies." },
+    { "month": "October", "level": "Moderate", "species": "Weeds (declining)", "tip": "Weed pollen decreases. First frost ends the pollen season in most areas." },
+    { "month": "November", "level": "None", "species": "No significant pollen", "tip": "Pollen season is over. Focus on indoor allergen management as heating season begins." },
+    { "month": "December", "level": "None", "species": "No significant pollen", "tip": "Winter. Watch out for indoor allergens: dust mites, pet dander, and mold from poor ventilation." }
+  ]
+}
