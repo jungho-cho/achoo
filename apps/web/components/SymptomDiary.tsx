@@ -50,6 +50,8 @@ export function SymptomDiary() {
             <button
               key={opt.value}
               onClick={() => handleSelect(opt.value)}
+              aria-label={t(opt.label as any)}
+              aria-pressed={isSelected}
               className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-xl transition-colors ${
                 isSelected
                   ? 'bg-green-50 border-2 border-green-400'

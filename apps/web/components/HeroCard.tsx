@@ -43,7 +43,7 @@ export function HeroCard({ pollen, dust }: Props) {
   const metricLabel = hero.metric === 'pollen' ? t('pollen.title').replace('오늘의 ', '') : t('dust.title');
 
   return (
-    <div className={`rounded-3xl bg-gradient-to-br ${bg} p-8 text-white shadow-lg`}>
+    <div className={`rounded-3xl bg-gradient-to-br ${bg} p-8 text-white shadow-lg`} role="status" aria-live="polite" aria-label={`${metricLabel}: ${hero.numericValue}, ${displayLabel}. ${advice}`}>
       <p className="text-sm font-medium opacity-80">{metricLabel} 지수</p>
       <div className="mt-1 flex items-baseline gap-3">
         <p className="text-7xl font-bold tracking-tight">{hero.numericValue}</p>

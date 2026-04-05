@@ -162,13 +162,14 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
           )}
         </div>
 
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-2 gap-2" role="group" aria-label={t('checker.symptomQuestion')}>
           {SYMPTOM_IDS.map((s) => {
             const selected = selectedSymptoms.includes(s.id);
             return (
               <button
                 key={s.id}
                 onClick={() => toggleSymptom(s.id)}
+                aria-pressed={selected}
                 className={`flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm transition-colors ${
                   selected
                     ? 'bg-green-50 border-2 border-green-400 text-green-700'
@@ -210,13 +211,14 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
           </p>
         </div>
 
-        <div className="flex justify-between gap-1">
+        <div className="flex justify-between gap-1" role="group" aria-label={t('checker.severityQuestion')}>
           {SEVERITY_IDS.filter((o) => o.value > 0).map((opt) => {
             const isSelected = severity === opt.value;
             return (
               <button
                 key={opt.value}
                 onClick={() => setSeverity(opt.value)}
+                aria-pressed={isSelected}
                 className={`flex-1 flex flex-col items-center gap-1 py-3 rounded-xl transition-colors ${
                   isSelected
                     ? 'bg-green-50 border-2 border-green-400'
@@ -250,7 +252,7 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
 
   // Result
   return (
-    <div className="space-y-4">
+    <div className="space-y-4" aria-live="polite">
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
         <div className="flex items-center justify-between mb-4">
           <div>

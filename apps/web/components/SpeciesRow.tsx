@@ -8,7 +8,7 @@ export function SpeciesRow({ reading }: { reading: PollenReading }) {
   const t = useTranslations('ui');
   const dot = levelColor(reading.level);
   return (
-    <div className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0">
+    <div className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0" aria-label={`${t(`species.${reading.species}` as 'species.tree')}: ${t(`pollenLevel.${reading.level}` as 'pollenLevel.low')}`}>
       <div className="flex items-center gap-2">
         <span className={`w-2.5 h-2.5 rounded-full ${dot}`} />
         <span className="text-sm text-gray-700">{t(`species.${reading.species}` as 'species.tree')}</span>

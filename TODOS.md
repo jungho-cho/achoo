@@ -38,7 +38,7 @@
 - [ ] AdMob 연동
 - [ ] 앱스토어 / 플레이스토어 등록
 
-### 접근성
-- [ ] 색맹 접근성 (색상 외 아이콘 추가)
-- [ ] 키보드 네비게이션
-- [ ] ARIA 라벨
+### ~~접근성~~ ✅
+- [x] 색맹 접근성 — LevelBadge에 ✓/▲/⚠/‼ 아이콘 추가
+- [x] 키보드 네비게이션 — skip to content, aria-pressed 토글
+- [x] ARIA 라벨 — role/aria-live/aria-label 전체 컴포넌트 적용

@@ -67,6 +67,7 @@ export function AffiliateLinks() {
             href={p.url}
             target="_blank"
             rel="noopener noreferrer sponsored"
+            aria-label={`${t(`affiliate.${p.key}` as any)} - ${p.desc}`}
             className="flex flex-col gap-1 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors"
           >
             <span className="text-sm font-medium text-gray-700">{t(`affiliate.${p.key}` as any)}</span>

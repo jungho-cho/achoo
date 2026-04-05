@@ -23,8 +23,8 @@ export function HomeClient({ ssrPollen }: Props) {
 
   if (isHydrating) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen gap-3">
-        <div className="w-8 h-8 rounded-full border-2 border-gray-200 border-t-green-500 animate-spin" />
+      <div className="flex flex-col items-center justify-center min-h-screen gap-3" role="status" aria-busy="true">
+        <div className="w-8 h-8 rounded-full border-2 border-gray-200 border-t-green-500 animate-spin" aria-hidden="true" />
         <p className="text-sm text-gray-400">
           {loadingPhase === 'location' ? t('loading.location') : t('loading.data')}
         </p>
@@ -54,7 +54,10 @@ export function HomeClient({ ssrPollen }: Props) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-md md:max-w-4xl mx-auto px-4 py-6 space-y-4">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-gray-900 focus:rounded-lg focus:shadow-lg">
+        Skip to main content
+      </a>
+      <main id="main-content" className="max-w-md md:max-w-4xl mx-auto px-4 py-6 space-y-4">
 
         {/* Header with location */}
         <div className="flex items-center justify-between">
@@ -133,7 +136,7 @@ export function HomeClient({ ssrPollen }: Props) {
         <SymptomDiary />
 
         {/* Navigation links */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+        <nav className="grid grid-cols-1 md:grid-cols-3 gap-2" role="navigation" aria-label="Main navigation">
           <a
             href="/tips"
             className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
@@ -157,7 +160,7 @@ export function HomeClient({ ssrPollen }: Props) {
             <span className="text-gray-400 text-sm">→</span>
           </a>
           */}
-        </div>
+        </nav>
 
         {/* Tomorrow teaser — return hook */}
         {forecast.length > 0 && (() => {
@@ -173,19 +176,19 @@ export function HomeClient({ ssrPollen }: Props) {
           );
         })()}
 
-        <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-xs text-gray-400 pt-2">
+        <nav className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-xs text-gray-400 pt-2" aria-label="Footer navigation">
           <a href="/allergy-types" className="hover:text-gray-600">{t('nav.allergyTypes')}</a>
           <a href="/seasonal-calendar" className="hover:text-gray-600">{t('nav.seasonalCalendar')}</a>
           <a href="/prevention-guide" className="hover:text-gray-600">{t('nav.preventionGuide')}</a>
           <a href="/dust-guide" className="hover:text-gray-600">{t('nav.dustGuide')}</a>
           <a href="/faq" className="hover:text-gray-600">{t('nav.faq')}</a>
           <a href="/privacy" className="hover:text-gray-600">{t('nav.privacy')}</a>
-        </div>
+        </nav>
 
         <p className="text-center text-xs text-gray-300 pb-4">
           {t('pollen.source')}
         </p>
-      </div>
+      </main>
     </div>
   );
 }
