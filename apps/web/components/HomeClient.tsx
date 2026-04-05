@@ -8,6 +8,7 @@ import { HeroCard } from './HeroCard';
 import { LevelBadge } from './LevelBadge';
 import { SpeciesRow } from './SpeciesRow';
 import { SymptomDiary } from './SymptomDiary';
+import { LocaleSwitcher } from './LocaleSwitcher';
 
 interface Props {
   ssrPollen?: PollenResponse | null;
@@ -65,11 +66,14 @@ export function HomeClient({ ssrPollen }: Props) {
           <div className="flex items-center gap-2">
             <h1 className="text-xl font-bold text-gray-900">🤧 Achoo</h1>
             {sido && <span className="text-sm text-gray-500">📍 {sido}</span>}
-            {!sido && !inKorea && <span className="text-sm text-gray-500">🌍 {cityName || '해외'}</span>}
+            {!sido && !inKorea && <span className="text-sm text-gray-500">🌍 {cityName || ''}</span>}
           </div>
-          <span className="text-xs text-gray-400">
-            {new Date().toLocaleDateString('ko-KR', { month: 'long', day: 'numeric' })}
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-gray-400">
+              {new Date().toLocaleDateString(locale, { month: 'long', day: 'numeric' })}
+            </span>
+            <LocaleSwitcher />
+          </div>
         </div>
 
         {/* Geolocation denied banner */}
