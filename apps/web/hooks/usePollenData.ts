@@ -1,7 +1,7 @@
 'use client';
 
 import type { DustResponse, PollenResponse } from '@repo/shared-types';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { isInKorea } from '../lib/sido';
 
 interface Location {
@@ -19,6 +19,7 @@ interface UsePollenDataResult {
   locationDenied: boolean;
   inKorea: boolean;
   cityName: string | null;
+  refreshLocation: () => void;
 }
 
 const DEFAULT_LOCATION: Location = { lat: 37.5665, lng: 126.978 }; // 서울
@@ -35,16 +36,27 @@ export function usePollenData(): UsePollenDataResult {
   const [cityName, setCityName] = useState<string | null>(null);
 
   // Step 1: get geolocation
-  useEffect(() => {
+  const lastFetchTime = useRef<number>(0);
+
+  const fetchLocation = useCallback((forceRefresh = false) => {
+    if (forceRefresh) {
+      setLoading(true);
+      setLoadingPhase('location');
+    }
+
     if (!navigator.geolocation) {
       setLocation(DEFAULT_LOCATION);
       setLocationDenied(true);
+      if (forceRefresh) setLoading(false);
       return;
     }
+
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         const loc = { lat: pos.coords.latitude, lng: pos.coords.longitude };
         setLocation(loc);
+        setLocationDenied(false); // Success -> reset denied flag
+        lastFetchTime.current = Date.now();
         const korea = isInKorea(loc.lat, loc.lng);
         setInKorea(korea);
         // Reverse geocode for non-Korean locations
@@ -62,13 +74,35 @@ export function usePollenData(): UsePollenDataResult {
             .catch(() => {});
         }
       },
-      () => {
+      (err) => {
+        console.warn('Geolocation error:', err.code, err.message);
         setLocation(DEFAULT_LOCATION);
         setLocationDenied(true);
+        if (forceRefresh) setLoading(false);
       },
-      { timeout: 5000, maximumAge: 60000 },
+      { timeout: 15000, maximumAge: forceRefresh ? 0 : 300000, enableHighAccuracy: false },
     );
   }, []);
+
+  // Step 1: initial fetch
+  useEffect(() => {
+    fetchLocation();
+  }, [fetchLocation]);
+
+  // Periodic background check when app comes to foreground
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        const now = Date.now();
+        // If it's been more than 5 minutes since last fetch
+        if (now - lastFetchTime.current > 300000) {
+          fetchLocation(false);
+        }
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, [fetchLocation]);
 
   // Step 2: fetch data once location is known
   useEffect(() => {
@@ -109,5 +143,5 @@ export function usePollenData(): UsePollenDataResult {
     return () => controller.abort();
   }, [location]);
 
-  return { pollen, dust, location, loading, loadingPhase, error, locationDenied, inKorea, cityName };
+  return { pollen, dust, location, loading, loadingPhase, error, locationDenied, inKorea, cityName, refreshLocation: () => fetchLocation(true) };
 }

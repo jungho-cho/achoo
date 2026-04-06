@@ -17,7 +17,7 @@ interface Props {
 export function HomeClient({ ssrPollen }: Props) {
   const t = useTranslations('ui');
   const locale = useLocale();
-  const { pollen: clientPollen, dust, loading, loadingPhase, error, locationDenied, inKorea, cityName } = usePollenData();
+  const { pollen: clientPollen, dust, loading, loadingPhase, error, locationDenied, inKorea, cityName, refreshLocation } = usePollenData();
 
   // Use client data when available, fall back to SSR data
   const pollen = clientPollen ?? ssrPollen ?? null;
@@ -67,6 +67,16 @@ export function HomeClient({ ssrPollen }: Props) {
             <h1 className="text-xl font-bold text-gray-900">🤧 Achoo</h1>
             {sido && <span className="text-sm text-gray-500">📍 {sido}</span>}
             {!sido && !inKorea && <span className="text-sm text-gray-500">🌍 {cityName || ''}</span>}
+            <button 
+              onClick={refreshLocation}
+              aria-label="현재 위치 새로고침"
+              title="새로고침"
+              className="p-1 -ml-1 text-gray-400 hover:text-gray-700 hover:bg-gray-200 rounded-full transition-colors active:rotate-180 duration-300"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </button>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-xs text-gray-400">
@@ -170,6 +180,7 @@ export function HomeClient({ ssrPollen }: Props) {
         {/* Tomorrow teaser — return hook */}
         {forecast.length > 0 && (() => {
           const tmrw = forecast[0];
+          if (!tmrw) return null;
           const LEVEL_KO: Record<string, string> = {};
           const DOT_COLOR: Record<string, string> = { low: 'bg-green-500', moderate: 'bg-yellow-400', high: 'bg-orange-500', 'very-high': 'bg-red-500' };
           return (

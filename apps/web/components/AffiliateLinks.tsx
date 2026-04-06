@@ -40,7 +40,7 @@ function useUserRegion(): Region {
         const lang = document.documentElement.lang;
         setRegion(lang === 'ko' ? 'kr' : 'eu');
       },
-      { timeout: 5000 },
+      { timeout: 15000, maximumAge: 300000, enableHighAccuracy: false },
     );
   }, []);
 
