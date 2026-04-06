@@ -78,9 +78,12 @@ export function usePollenData(): UsePollenDataResult {
         console.warn('Geolocation error:', err.code, err.message);
         setLocation(DEFAULT_LOCATION);
         setLocationDenied(true);
-        if (forceRefresh) setLoading(false);
+        if (forceRefresh) {
+          setLoading(false);
+          setLoadingPhase(null);
+        }
       },
-      { timeout: 15000, maximumAge: forceRefresh ? 0 : 300000, enableHighAccuracy: false },
+      { timeout: 15000, maximumAge: 300000, enableHighAccuracy: false },
     );
   }, []);
 
