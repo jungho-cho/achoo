@@ -87,9 +87,20 @@ export function usePollenData(): UsePollenDataResult {
     );
   }, []);
 
-  // Step 1: initial fetch
+  // Step 1: initial fetch & permission observer
   useEffect(() => {
     fetchLocation();
+
+    // Listen for late permission grants (e.g., user takes > 15s to click 'Allow' on the popup)
+    if (navigator.permissions && navigator.permissions.query) {
+      navigator.permissions.query({ name: 'geolocation' }).then((status) => {
+        status.onchange = () => {
+          if (status.state === 'granted') {
+            fetchLocation(true);
+          }
+        };
+      }).catch(() => {});
+    }
   }, [fetchLocation]);
 
   // Periodic background check when app comes to foreground
