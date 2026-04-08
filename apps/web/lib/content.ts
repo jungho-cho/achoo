@@ -19,6 +19,11 @@ export function splitSentences(text: string): string[] {
     .filter(Boolean);
 }
 
+export function excerpt(text: string, maxLength = 120): string {
+  if (text.length <= maxLength) return text;
+  return `${text.slice(0, maxLength).trimEnd()}...`;
+}
+
 export function takeSentences(text: string, count = 3): string[] {
   return splitSentences(text).slice(0, count);
 }

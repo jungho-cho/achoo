@@ -1,7 +1,12 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { ArticleLayout } from "../../../components/content/ArticleLayout";
-import { slugify, type SummaryItem } from "../../../lib/content";
+import {
+  excerpt,
+  slugify,
+  takeSentences,
+  type SummaryItem,
+} from "../../../lib/content";
 
 export async function generateMetadata({
   params,
@@ -34,7 +39,10 @@ export default async function PrivacyPage({
     .slice(0, 3)
     .map((section, index) => ({
       label: section.heading,
-      value: section.content,
+      value: excerpt(
+        takeSentences(section.content, 1)[0] ?? section.content,
+        110,
+      ),
       tone: (["blue", "green", "amber"] as const)[index] ?? "gray",
     }));
 

@@ -1,7 +1,12 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { ArticleLayout } from "../../../components/content/ArticleLayout";
-import { slugify, type SummaryItem } from "../../../lib/content";
+import {
+  excerpt,
+  slugify,
+  takeSentences,
+  type SummaryItem,
+} from "../../../lib/content";
 
 export async function generateMetadata({
   params,
@@ -29,7 +34,7 @@ export default async function FAQPage({
   const items = t.raw("items") as Array<{ question: string; answer: string }>;
   const summaryItems: SummaryItem[] = items.slice(0, 3).map((item, index) => ({
     label: item.question,
-    value: item.answer,
+    value: excerpt(takeSentences(item.answer, 1)[0] ?? item.answer, 110),
     tone: (["green", "amber", "blue"] as const)[index] ?? "gray",
   }));
 
