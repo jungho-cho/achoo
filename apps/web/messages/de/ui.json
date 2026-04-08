@@ -40,10 +40,22 @@
     "very-bad": "Sehr schlecht"
   },
   "outingGrade": {
-    "good": { "label": "Gut", "advice": "Ein guter Tag für Aktivitäten im Freien 🌿" },
-    "moderate": { "label": "Mäßig", "advice": "Empfindliche Personen sollten eine Maske tragen 😷" },
-    "bad": { "label": "Schlecht", "advice": "Beim Ausgehen eine Maske tragen ⚠️" },
-    "very-bad": { "label": "Sehr schlecht", "advice": "Möglichst nicht nach draußen gehen 🚫" }
+    "good": {
+      "label": "Gut",
+      "advice": "Ein guter Tag für Aktivitäten im Freien 🌿"
+    },
+    "moderate": {
+      "label": "Mäßig",
+      "advice": "Empfindliche Personen sollten eine Maske tragen 😷"
+    },
+    "bad": {
+      "label": "Schlecht",
+      "advice": "Beim Ausgehen eine Maske tragen ⚠️"
+    },
+    "very-bad": {
+      "label": "Sehr schlecht",
+      "advice": "Möglichst nicht nach draußen gehen 🚫"
+    }
   },
   "hero": {
     "low": "Ein guter Tag für Aktivitäten im Freien 🌿",
@@ -51,10 +63,76 @@
     "high": "Beim Ausgehen eine Maske tragen ⚠️",
     "very-high": "Möglichst nicht nach draußen gehen 🚫"
   },
+  "decision": {
+    "intro": "Prüfen Sie vor dem Losgehen zuerst die eine Aktion, die heute den größten Unterschied macht.",
+    "title": "Wichtigste Aktion heute",
+    "pendingTitle": "Wir schlagen Ihre heutige Aktion vor, sobald Ihr Standort bestätigt ist",
+    "pendingDesc": "Während der Standort geladen wird, bereiten wir die lokale Vorhersage vor.",
+    "trust": {
+      "confirmedLocation": "Aktueller Standort",
+      "fallbackLocation": "Standardstadt",
+      "defaultCity": "Standardstadt aktiv",
+      "live": "Live-Daten",
+      "cached": "Letzter Cache"
+    },
+    "tier": {
+      "act-now": "Jetzt handeln",
+      "reduce-exposure": "Belastung senken",
+      "okay-today": "Heute okay"
+    },
+    "confidence": {
+      "high": "Hohe Sicherheit",
+      "medium": "Mittlere Sicherheit",
+      "low": "Geringe Sicherheit"
+    },
+    "headline": {
+      "take-medicine-early": "Nehmen Sie Ihr Allergiemedikament heute früh",
+      "wear-mask": "Heute besser direkt mit Maske starten",
+      "avoid-lunch-walk": "Den Mittagsspaziergang heute besser auslassen",
+      "okay-today": "Heute können Sie Ihren normalen Ablauf wahrscheinlich beibehalten"
+    },
+    "summary": {
+      "take-medicine-early": "Die Pollenlage wirkt stark genug, dass frühe Vorbereitung sinnvoller ist als spätes Reagieren.",
+      "wear-mask": "Luftqualität oder gemischte Reize sprechen dafür, die Exposition gleich am Anfang zu reduzieren.",
+      "avoid-lunch-walk": "Weniger Zeit draußen könnte Ihre Symptome am Nachmittag deutlich stabiler halten.",
+      "okay-today": "Heute wirkt die Belastung nicht besonders aggressiv. Ein normaler Tag sollte mit Vorsicht gut machbar sein."
+    },
+    "state": {
+      "locationPending": "Standort wird geprüft",
+      "locationDenied": "Der Standortzugriff wurde verweigert. Diese Empfehlung basiert auf einer Standardstadt.",
+      "stale": "Live-Daten waren verspätet. Diese Empfehlung basiert auf einem kürzlich zwischengespeicherten Forecast.",
+      "pollenOnly": "Diese Empfehlung basiert vor allem auf Pollendaten.",
+      "dustOnly": "Diese Empfehlung basiert vor allem auf Feinstaubdaten."
+    },
+    "actionTitle": "So sollten Sie sich heute verhalten",
+    "actionList": {
+      "take-medicine-early": "Medikament vor dem Losgehen bereitlegen",
+      "wear-mask": "Schon auf dem Arbeitsweg Maske tragen",
+      "avoid-lunch-walk": "Mittagsspaziergang verkürzen oder auslassen",
+      "okay-today": "Normale Routine beibehalten"
+    },
+    "why": "Warum diese Empfehlung?",
+    "evidence": {
+      "pollen": "{species} Pollen {level}",
+      "dust": "Feinstaub {level}"
+    },
+    "updatedAt": "Aktualisiert {time}",
+    "detailCtaOpen": "Details anzeigen",
+    "detailCtaClose": "Details ausblenden",
+    "detailHint": "Die Rohwerte sind nur Zusatzkontext. Die Entscheidung oben ist wichtiger.",
+    "feedbackTitle": "Notieren Sie auch, wie es Ihnen heute geht",
+    "feedbackDesc": "Der schnellste Weg zu besseren Empfehlungen morgen ist ein kurzer Eintrag zu den heutigen Symptomen."
+  },
   "days": {
     "today": "Heute",
     "tomorrow": "Morgen",
-    "mon": "Mo", "tue": "Di", "wed": "Mi", "thu": "Do", "fri": "Fr", "sat": "Sa", "sun": "So"
+    "mon": "Mo",
+    "tue": "Di",
+    "wed": "Mi",
+    "thu": "Do",
+    "fri": "Fr",
+    "sat": "Sa",
+    "sun": "So"
   },
   "nav": {
     "tips": "Allergie-Tipps",
@@ -111,20 +189,62 @@
     "savedToDiary": "Im Tagebuch gespeichert",
     "reset": "Erneut prüfen",
     "advice": {
-      "pollenAlert": { "title": "Pollenwarnung", "desc": "Der Pollenflug ist heute stark. In Kombination mit Ihren Symptomen ist besondere Vorsicht geboten." },
-      "dustAlert": { "title": "Feinstaubwarnung", "desc": "Die Luftqualität ist heute schlecht. Begrenzen Sie Aufenthalte im Freien und tragen Sie eine Schutzmaske." },
-      "mask": { "title": "FFP2-Maske tragen", "desc": "Tragen Sie draußen eine FFP2-Maske. Normale Masken filtern Pollen nicht ausreichend." },
-      "stayIndoor": { "title": "Drinnen bleiben", "desc": "Bei starken Symptomen möglichst drinnen bleiben. Abends ist die Pollenbelastung geringer." },
-      "medicine": { "title": "Antihistaminikum erwägen", "desc": "Rezeptfreie Antihistaminika können helfen. 30 Minuten vor dem Ausgehen einnehmen." },
-      "eyeDrops": { "title": "Augentropfen verwenden", "desc": "Konservierungsmittelfreie Augentropfen spülen Pollen aus. Nicht die Augen reiben." },
-      "sunglasses": { "title": "Sonnenbrille tragen", "desc": "Eine Sonnenbrille reduziert den direkten Pollenkontakt mit den Augen." },
-      "nasalRinse": { "title": "Nasenspülung", "desc": "Mit Kochsalzlösung spülen, um Pollen physisch zu entfernen. 1-2 mal täglich." },
-      "humidifier": { "title": "Luftbefeuchter nutzen", "desc": "Halten Sie die Luftfeuchtigkeit bei 40-50%, um Verstopfung zu lindern." },
-      "warmDrink": { "title": "Warme Getränke", "desc": "Warmes Wasser oder Honig-Tee lindert Halsreizungen." },
-      "shower": { "title": "Nach dem Ausgehen duschen", "desc": "Sofort duschen und Kleidung wechseln. Pollen haften an Haut und Stoff." },
-      "sleep": { "title": "Ausreichend schlafen", "desc": "Allergien beeinträchtigen die Schlafqualität. Ein Antihistaminikum vor dem Schlafengehen kann helfen." },
-      "ventilation": { "title": "Lüftungszeiten beachten", "desc": "Abends lüften. Die Pollenbelastung ist morgens zwischen 6-10 Uhr am höchsten." },
-      "clothes": { "title": "Kleidung managen", "desc": "Straßenkleidung sofort waschen oder im Eingangsbereich aufbewahren." }
+      "pollenAlert": {
+        "title": "Pollenwarnung",
+        "desc": "Der Pollenflug ist heute stark. In Kombination mit Ihren Symptomen ist besondere Vorsicht geboten."
+      },
+      "dustAlert": {
+        "title": "Feinstaubwarnung",
+        "desc": "Die Luftqualität ist heute schlecht. Begrenzen Sie Aufenthalte im Freien und tragen Sie eine Schutzmaske."
+      },
+      "mask": {
+        "title": "FFP2-Maske tragen",
+        "desc": "Tragen Sie draußen eine FFP2-Maske. Normale Masken filtern Pollen nicht ausreichend."
+      },
+      "stayIndoor": {
+        "title": "Drinnen bleiben",
+        "desc": "Bei starken Symptomen möglichst drinnen bleiben. Abends ist die Pollenbelastung geringer."
+      },
+      "medicine": {
+        "title": "Antihistaminikum erwägen",
+        "desc": "Rezeptfreie Antihistaminika können helfen. 30 Minuten vor dem Ausgehen einnehmen."
+      },
+      "eyeDrops": {
+        "title": "Augentropfen verwenden",
+        "desc": "Konservierungsmittelfreie Augentropfen spülen Pollen aus. Nicht die Augen reiben."
+      },
+      "sunglasses": {
+        "title": "Sonnenbrille tragen",
+        "desc": "Eine Sonnenbrille reduziert den direkten Pollenkontakt mit den Augen."
+      },
+      "nasalRinse": {
+        "title": "Nasenspülung",
+        "desc": "Mit Kochsalzlösung spülen, um Pollen physisch zu entfernen. 1-2 mal täglich."
+      },
+      "humidifier": {
+        "title": "Luftbefeuchter nutzen",
+        "desc": "Halten Sie die Luftfeuchtigkeit bei 40-50%, um Verstopfung zu lindern."
+      },
+      "warmDrink": {
+        "title": "Warme Getränke",
+        "desc": "Warmes Wasser oder Honig-Tee lindert Halsreizungen."
+      },
+      "shower": {
+        "title": "Nach dem Ausgehen duschen",
+        "desc": "Sofort duschen und Kleidung wechseln. Pollen haften an Haut und Stoff."
+      },
+      "sleep": {
+        "title": "Ausreichend schlafen",
+        "desc": "Allergien beeinträchtigen die Schlafqualität. Ein Antihistaminikum vor dem Schlafengehen kann helfen."
+      },
+      "ventilation": {
+        "title": "Lüftungszeiten beachten",
+        "desc": "Abends lüften. Die Pollenbelastung ist morgens zwischen 6-10 Uhr am höchsten."
+      },
+      "clothes": {
+        "title": "Kleidung managen",
+        "desc": "Straßenkleidung sofort waschen oder im Eingangsbereich aufbewahren."
+      }
     }
   },
   "metadata": {

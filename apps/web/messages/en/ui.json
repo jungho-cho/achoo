@@ -40,10 +40,19 @@
     "very-bad": "Very Poor"
   },
   "outingGrade": {
-    "good": { "label": "Good", "advice": "Great day for outdoor activities 🌿" },
-    "moderate": { "label": "Moderate", "advice": "Sensitive individuals should wear a mask 😷" },
+    "good": {
+      "label": "Good",
+      "advice": "Great day for outdoor activities 🌿"
+    },
+    "moderate": {
+      "label": "Moderate",
+      "advice": "Sensitive individuals should wear a mask 😷"
+    },
     "bad": { "label": "Poor", "advice": "Wear a mask when going outside ⚠️" },
-    "very-bad": { "label": "Very Poor", "advice": "Avoid going outside if possible 🚫" }
+    "very-bad": {
+      "label": "Very Poor",
+      "advice": "Avoid going outside if possible 🚫"
+    }
   },
   "hero": {
     "low": "Great day for outdoor activities 🌿",
@@ -51,10 +60,76 @@
     "high": "Wear a mask when going outside ⚠️",
     "very-high": "Avoid going outside if possible 🚫"
   },
+  "decision": {
+    "intro": "Before you head out, check the one action that matters most today based on pollen and air quality.",
+    "title": "Most important action today",
+    "pendingTitle": "We’ll suggest today’s action after we confirm your location",
+    "pendingDesc": "We’re preparing a local forecast while your location is loading.",
+    "trust": {
+      "confirmedLocation": "Current location",
+      "fallbackLocation": "Default city",
+      "defaultCity": "Using default city",
+      "live": "Live data",
+      "cached": "Recent cache"
+    },
+    "tier": {
+      "act-now": "Act now",
+      "reduce-exposure": "Reduce exposure",
+      "okay-today": "Okay today"
+    },
+    "confidence": {
+      "high": "High confidence",
+      "medium": "Medium confidence",
+      "low": "Low confidence"
+    },
+    "headline": {
+      "take-medicine-early": "Take your allergy medicine early today",
+      "wear-mask": "Start with a mask today",
+      "avoid-lunch-walk": "Skip the lunch walk today if you can",
+      "okay-today": "You can probably follow your normal routine today"
+    },
+    "summary": {
+      "take-medicine-early": "Pollen pressure looks strong enough that it is better to prepare before symptoms ramp up.",
+      "wear-mask": "Air quality or mixed triggers look rough enough that reducing exposure early is the safer move.",
+      "avoid-lunch-walk": "Cutting outdoor time today could keep your afternoon symptoms more stable.",
+      "okay-today": "Today does not look especially aggressive. A normal routine should be fine if symptoms stay mild."
+    },
+    "state": {
+      "locationPending": "Checking location",
+      "locationDenied": "Location access was denied, so this recommendation uses a default city.",
+      "stale": "Live data was delayed, so this recommendation is based on a recent cached forecast.",
+      "pollenOnly": "This recommendation is based mainly on pollen data.",
+      "dustOnly": "This recommendation is based mainly on air quality data."
+    },
+    "actionTitle": "Suggested moves for today",
+    "actionList": {
+      "take-medicine-early": "Prepare your medicine before you head out",
+      "wear-mask": "Start the commute with a mask",
+      "avoid-lunch-walk": "Keep the lunch walk short or skip it",
+      "okay-today": "Stick with your normal routine"
+    },
+    "why": "Why this recommendation?",
+    "evidence": {
+      "pollen": "{species} pollen {level}",
+      "dust": "Air quality {level}"
+    },
+    "updatedAt": "Updated {time}",
+    "detailCtaOpen": "Show details",
+    "detailCtaClose": "Hide details",
+    "detailHint": "Raw numbers are supporting context. The decision above should come first.",
+    "feedbackTitle": "Log how you feel today",
+    "feedbackDesc": "The fastest way to improve tomorrow’s recommendation is to record today’s symptoms."
+  },
   "days": {
     "today": "Today",
     "tomorrow": "Tmrw",
-    "mon": "Mon", "tue": "Tue", "wed": "Wed", "thu": "Thu", "fri": "Fri", "sat": "Sat", "sun": "Sun"
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat",
+    "sun": "Sun"
   },
   "nav": {
     "tips": "Allergy Tips",
@@ -111,20 +186,62 @@
     "savedToDiary": "Saved to diary",
     "reset": "Check again",
     "advice": {
-      "pollenAlert": { "title": "Pollen Alert", "desc": "Pollen levels are high today. Combined with your symptoms, take extra precautions." },
-      "dustAlert": { "title": "Air Quality Alert", "desc": "Air quality is poor today. Minimize outdoor time and wear a protective mask." },
-      "mask": { "title": "Wear a mask", "desc": "Use an FFP2/N95 mask outdoors. Regular masks don't filter pollen effectively." },
-      "stayIndoor": { "title": "Stay indoors", "desc": "When symptoms are severe, stay inside. Go out in the evening when pollen counts drop." },
-      "medicine": { "title": "Consider antihistamines", "desc": "Over-the-counter antihistamines can help. Take them 30 minutes before going out." },
-      "eyeDrops": { "title": "Use eye drops", "desc": "Preservative-free artificial tears help flush pollen. Avoid rubbing your eyes." },
-      "sunglasses": { "title": "Wear sunglasses", "desc": "Sunglasses reduce direct pollen contact with your eyes." },
-      "nasalRinse": { "title": "Nasal rinse", "desc": "Rinse with saline solution to physically remove pollen. 1-2 times daily." },
-      "humidifier": { "title": "Use a humidifier", "desc": "Keep indoor humidity at 40-50% to ease congestion." },
-      "warmDrink": { "title": "Warm drinks", "desc": "Warm water or honey tea soothes throat irritation." },
-      "shower": { "title": "Shower after going out", "desc": "Shower and change clothes immediately after coming home. Pollen clings to skin and fabric." },
-      "sleep": { "title": "Get enough sleep", "desc": "Allergies disrupt sleep quality. An antihistamine before bed may help." },
-      "ventilation": { "title": "Time your ventilation", "desc": "Ventilate during evening hours. Pollen counts peak between 6-10 AM." },
-      "clothes": { "title": "Manage outdoor clothes", "desc": "Wash outdoor clothes right away or keep them by the entrance." }
+      "pollenAlert": {
+        "title": "Pollen Alert",
+        "desc": "Pollen levels are high today. Combined with your symptoms, take extra precautions."
+      },
+      "dustAlert": {
+        "title": "Air Quality Alert",
+        "desc": "Air quality is poor today. Minimize outdoor time and wear a protective mask."
+      },
+      "mask": {
+        "title": "Wear a mask",
+        "desc": "Use an FFP2/N95 mask outdoors. Regular masks don't filter pollen effectively."
+      },
+      "stayIndoor": {
+        "title": "Stay indoors",
+        "desc": "When symptoms are severe, stay inside. Go out in the evening when pollen counts drop."
+      },
+      "medicine": {
+        "title": "Consider antihistamines",
+        "desc": "Over-the-counter antihistamines can help. Take them 30 minutes before going out."
+      },
+      "eyeDrops": {
+        "title": "Use eye drops",
+        "desc": "Preservative-free artificial tears help flush pollen. Avoid rubbing your eyes."
+      },
+      "sunglasses": {
+        "title": "Wear sunglasses",
+        "desc": "Sunglasses reduce direct pollen contact with your eyes."
+      },
+      "nasalRinse": {
+        "title": "Nasal rinse",
+        "desc": "Rinse with saline solution to physically remove pollen. 1-2 times daily."
+      },
+      "humidifier": {
+        "title": "Use a humidifier",
+        "desc": "Keep indoor humidity at 40-50% to ease congestion."
+      },
+      "warmDrink": {
+        "title": "Warm drinks",
+        "desc": "Warm water or honey tea soothes throat irritation."
+      },
+      "shower": {
+        "title": "Shower after going out",
+        "desc": "Shower and change clothes immediately after coming home. Pollen clings to skin and fabric."
+      },
+      "sleep": {
+        "title": "Get enough sleep",
+        "desc": "Allergies disrupt sleep quality. An antihistamine before bed may help."
+      },
+      "ventilation": {
+        "title": "Time your ventilation",
+        "desc": "Ventilate during evening hours. Pollen counts peak between 6-10 AM."
+      },
+      "clothes": {
+        "title": "Manage outdoor clothes",
+        "desc": "Wash outdoor clothes right away or keep them by the entrance."
+      }
     }
   },
   "metadata": {

@@ -40,10 +40,19 @@
     "very-bad": "Très mauvais"
   },
   "outingGrade": {
-    "good": { "label": "Bon", "advice": "Bonne journée pour les activités en plein air 🌿" },
-    "moderate": { "label": "Modéré", "advice": "Les personnes sensibles devraient porter un masque 😷" },
+    "good": {
+      "label": "Bon",
+      "advice": "Bonne journée pour les activités en plein air 🌿"
+    },
+    "moderate": {
+      "label": "Modéré",
+      "advice": "Les personnes sensibles devraient porter un masque 😷"
+    },
     "bad": { "label": "Mauvais", "advice": "Portez un masque en sortant ⚠️" },
-    "very-bad": { "label": "Très mauvais", "advice": "Évitez de sortir si possible 🚫" }
+    "very-bad": {
+      "label": "Très mauvais",
+      "advice": "Évitez de sortir si possible 🚫"
+    }
   },
   "hero": {
     "low": "Bonne journée pour les activités en plein air 🌿",
@@ -51,10 +60,76 @@
     "high": "Portez un masque en sortant ⚠️",
     "very-high": "Évitez de sortir si possible 🚫"
   },
+  "decision": {
+    "intro": "Avant de sortir, regardez d’abord l’action la plus utile aujourd’hui à partir des pollens et de la qualité de l’air.",
+    "title": "Action la plus importante aujourd’hui",
+    "pendingTitle": "Nous allons proposer votre action du jour dès que votre position sera confirmée",
+    "pendingDesc": "Nous préparons une prévision locale pendant la détection de votre position.",
+    "trust": {
+      "confirmedLocation": "Position actuelle",
+      "fallbackLocation": "Ville par défaut",
+      "defaultCity": "Ville par défaut active",
+      "live": "Données en direct",
+      "cached": "Cache récent"
+    },
+    "tier": {
+      "act-now": "Agir maintenant",
+      "reduce-exposure": "Réduire l’exposition",
+      "okay-today": "Ça va aujourd’hui"
+    },
+    "confidence": {
+      "high": "Confiance élevée",
+      "medium": "Confiance moyenne",
+      "low": "Confiance faible"
+    },
+    "headline": {
+      "take-medicine-early": "Mieux vaut prendre votre traitement plus tôt aujourd’hui",
+      "wear-mask": "Commencez la journée avec un masque",
+      "avoid-lunch-walk": "Mieux vaut éviter la promenade du midi aujourd’hui",
+      "okay-today": "Vous pouvez probablement garder votre routine habituelle aujourd’hui"
+    },
+    "summary": {
+      "take-medicine-early": "La pression pollinique semble assez forte pour qu’il soit préférable d’anticiper avant que les symptômes montent.",
+      "wear-mask": "La qualité de l’air ou les irritants mixtes justifient une réduction précoce de l’exposition.",
+      "avoid-lunch-walk": "Réduire le temps passé dehors pourrait rendre votre après-midi nettement plus stable.",
+      "okay-today": "La journée ne semble pas particulièrement agressive. Une routine normale devrait rester acceptable si les symptômes sont légers."
+    },
+    "state": {
+      "locationPending": "Position en cours de vérification",
+      "locationDenied": "L’accès à la position a été refusé. Cette recommandation utilise une ville par défaut.",
+      "stale": "Les données en direct sont arrivées trop tard. Cette recommandation repose sur une prévision récente en cache.",
+      "pollenOnly": "Cette recommandation repose surtout sur les données polliniques.",
+      "dustOnly": "Cette recommandation repose surtout sur la qualité de l’air."
+    },
+    "actionTitle": "À faire aujourd’hui",
+    "actionList": {
+      "take-medicine-early": "Préparer le traitement avant de sortir",
+      "wear-mask": "Mettre un masque dès le trajet",
+      "avoid-lunch-walk": "Réduire ou éviter la promenade du midi",
+      "okay-today": "Garder votre routine habituelle"
+    },
+    "why": "Pourquoi cette recommandation ?",
+    "evidence": {
+      "pollen": "Pollens de {species} {level}",
+      "dust": "Qualité de l’air {level}"
+    },
+    "updatedAt": "Mis à jour {time}",
+    "detailCtaOpen": "Voir les détails",
+    "detailCtaClose": "Masquer les détails",
+    "detailHint": "Les chiffres bruts sont un contexte secondaire. La décision ci-dessus passe en premier.",
+    "feedbackTitle": "Enregistrez aussi votre état du jour",
+    "feedbackDesc": "Le moyen le plus rapide d’améliorer la recommandation de demain est de noter les symptômes d’aujourd’hui."
+  },
   "days": {
     "today": "Auj.",
     "tomorrow": "Dem.",
-    "mon": "Lun", "tue": "Mar", "wed": "Mer", "thu": "Jeu", "fri": "Ven", "sat": "Sam", "sun": "Dim"
+    "mon": "Lun",
+    "tue": "Mar",
+    "wed": "Mer",
+    "thu": "Jeu",
+    "fri": "Ven",
+    "sat": "Sam",
+    "sun": "Dim"
   },
   "nav": {
     "tips": "Conseils allergie",
@@ -111,20 +186,62 @@
     "savedToDiary": "Enregistré dans le journal",
     "reset": "Vérifier à nouveau",
     "advice": {
-      "pollenAlert": { "title": "Alerte pollens", "desc": "Les niveaux de pollens sont élevés aujourd'hui. Combinés à vos symptômes, prenez des précautions supplémentaires." },
-      "dustAlert": { "title": "Alerte qualité de l'air", "desc": "La qualité de l'air est mauvaise aujourd'hui. Limitez les sorties et portez un masque de protection." },
-      "mask": { "title": "Porter un masque FFP2", "desc": "Utilisez un masque FFP2 en extérieur. Les masques classiques ne filtrent pas efficacement les pollens." },
-      "stayIndoor": { "title": "Rester à l'intérieur", "desc": "En cas de symptômes sévères, restez à l'intérieur. Sortez le soir quand les pollens diminuent." },
-      "medicine": { "title": "Envisager un antihistaminique", "desc": "Les antihistaminiques en vente libre peuvent aider. À prendre 30 minutes avant de sortir." },
-      "eyeDrops": { "title": "Utiliser des collyres", "desc": "Les larmes artificielles sans conservateur aident à rincer les pollens. Évitez de vous frotter les yeux." },
-      "sunglasses": { "title": "Porter des lunettes de soleil", "desc": "Les lunettes de soleil réduisent le contact direct des pollens avec vos yeux." },
-      "nasalRinse": { "title": "Lavage nasal", "desc": "Rincez avec du sérum physiologique pour éliminer les pollens. 1 à 2 fois par jour." },
-      "humidifier": { "title": "Utiliser un humidificateur", "desc": "Maintenez l'humidité intérieure à 40-50% pour soulager la congestion." },
-      "warmDrink": { "title": "Boissons chaudes", "desc": "L'eau chaude ou le thé au miel apaise les irritations de la gorge." },
-      "shower": { "title": "Se doucher en rentrant", "desc": "Douchez-vous et changez de vêtements dès votre retour. Les pollens adhèrent à la peau et aux tissus." },
-      "sleep": { "title": "Dormir suffisamment", "desc": "Les allergies perturbent la qualité du sommeil. Un antihistaminique avant le coucher peut aider." },
-      "ventilation": { "title": "Aérer au bon moment", "desc": "Aérez le soir. La concentration de pollens est maximale entre 6h et 10h du matin." },
-      "clothes": { "title": "Gérer les vêtements d'extérieur", "desc": "Lavez les vêtements d'extérieur immédiatement ou laissez-les dans l'entrée." }
+      "pollenAlert": {
+        "title": "Alerte pollens",
+        "desc": "Les niveaux de pollens sont élevés aujourd'hui. Combinés à vos symptômes, prenez des précautions supplémentaires."
+      },
+      "dustAlert": {
+        "title": "Alerte qualité de l'air",
+        "desc": "La qualité de l'air est mauvaise aujourd'hui. Limitez les sorties et portez un masque de protection."
+      },
+      "mask": {
+        "title": "Porter un masque FFP2",
+        "desc": "Utilisez un masque FFP2 en extérieur. Les masques classiques ne filtrent pas efficacement les pollens."
+      },
+      "stayIndoor": {
+        "title": "Rester à l'intérieur",
+        "desc": "En cas de symptômes sévères, restez à l'intérieur. Sortez le soir quand les pollens diminuent."
+      },
+      "medicine": {
+        "title": "Envisager un antihistaminique",
+        "desc": "Les antihistaminiques en vente libre peuvent aider. À prendre 30 minutes avant de sortir."
+      },
+      "eyeDrops": {
+        "title": "Utiliser des collyres",
+        "desc": "Les larmes artificielles sans conservateur aident à rincer les pollens. Évitez de vous frotter les yeux."
+      },
+      "sunglasses": {
+        "title": "Porter des lunettes de soleil",
+        "desc": "Les lunettes de soleil réduisent le contact direct des pollens avec vos yeux."
+      },
+      "nasalRinse": {
+        "title": "Lavage nasal",
+        "desc": "Rincez avec du sérum physiologique pour éliminer les pollens. 1 à 2 fois par jour."
+      },
+      "humidifier": {
+        "title": "Utiliser un humidificateur",
+        "desc": "Maintenez l'humidité intérieure à 40-50% pour soulager la congestion."
+      },
+      "warmDrink": {
+        "title": "Boissons chaudes",
+        "desc": "L'eau chaude ou le thé au miel apaise les irritations de la gorge."
+      },
+      "shower": {
+        "title": "Se doucher en rentrant",
+        "desc": "Douchez-vous et changez de vêtements dès votre retour. Les pollens adhèrent à la peau et aux tissus."
+      },
+      "sleep": {
+        "title": "Dormir suffisamment",
+        "desc": "Les allergies perturbent la qualité du sommeil. Un antihistaminique avant le coucher peut aider."
+      },
+      "ventilation": {
+        "title": "Aérer au bon moment",
+        "desc": "Aérez le soir. La concentration de pollens est maximale entre 6h et 10h du matin."
+      },
+      "clothes": {
+        "title": "Gérer les vêtements d'extérieur",
+        "desc": "Lavez les vêtements d'extérieur immédiatement ou laissez-les dans l'entrée."
+      }
     }
   },
   "metadata": {
