@@ -133,13 +133,6 @@ export function HomeClient({ ssrPollen }: Props) {
           </div>
         </div>
 
-        {/* Geolocation denied banner */}
-        {locationDenied && (
-          <div className="px-3 py-2 rounded-xl bg-yellow-50 border border-yellow-100">
-            <p className="text-xs text-yellow-700">📍 {t("location.denied")}</p>
-          </div>
-        )}
-
         {/* SEO intro text — visible to crawlers and users */}
         <p className="text-sm text-gray-500">{t("decision.intro")}</p>
 
