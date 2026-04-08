@@ -1,51 +1,58 @@
 {
-  "title": "Pollen Allergy Prevention Guide",
-  "description": "A practical guide to preventing and managing pollen allergies. Mask selection, indoor environment tips, medications, and more.",
+  "title": "Pollen allergy prevention, from before work to after you get home",
+  "description": "A practical pollen allergy guide covering what to check before you leave, which mask to wear, how to clean up after coming home, and when medication helps most.",
   "sections": [
     {
-      "heading": "Mask Selection Guide",
+      "heading": "30-second check before you leave",
       "tips": [
-        "N95/FFP2 masks: Filter at least 94-95% of airborne particles including pollen. Best choice for high pollen days.",
-        "Surgical masks: Provide some barrier but are less effective against fine pollen. Better than nothing.",
-        "Cloth masks: Minimal pollen filtration. Not recommended for allergy protection.",
-        "Ensure a tight seal around the nose and mouth. Gaps reduce effectiveness by more than 50%."
+        "Check pollen and air quality before you head out. The decision is easier before symptoms start.",
+        "If the day looks rough, prepare your mask, tissues, eye drops, or medicine before leaving home.",
+        "If you have a lunch walk or long outdoor commute ahead, decide early whether you should reduce exposure.",
+        "People with repeat severe symptoms usually do better when they plan the day early instead of reacting late."
+      ]
+    },
+    {
+      "heading": "Masks and outdoor gear",
+      "tips": [
+        "N95 or FFP2 masks are the safest default on higher pollen days because they also help on bad air-quality days.",
+        "Surgical masks are better than nothing, but they are weaker once pollen levels climb.",
+        "Cloth masks are not a serious pollen strategy.",
+        "Fit matters. A strong filter with gaps around the nose is still a weak result."
       ]
     },
     {
       "heading": "Indoor Environment Management",
       "tips": [
-        "Ventilation: Open windows briefly in the afternoon (2-4 PM) when pollen counts are lower. Avoid morning ventilation.",
-        "Air purifier: Use a HEPA-filter model. Place it in your bedroom and run it while sleeping. Replace the filter every 6 months.",
-        "Laundry: Dry clothes indoors during pollen season. Outdoor drying collects pollen on fabric.",
-        "Bedding: Wash weekly at 60°C or higher. Consider anti-allergen mattress and pillow covers.",
-        "Humidity: Maintain 40-60%. Too dry irritates mucous membranes; too humid encourages mold growth."
+        "Ventilate later in the day when pollen is usually lower, not first thing in the morning.",
+        "A HEPA air purifier is most useful in the bedroom because sleep quality drops fast on bad allergy days.",
+        "Dry laundry indoors during pollen season. Outdoor drying turns fabric into a pollen collector.",
+        "Keep humidity around 40-60%. Dry air makes the nose and throat more reactive."
       ]
     },
     {
-      "heading": "After Coming Home Routine",
+      "heading": "The 10-minute reset after coming home",
       "tips": [
-        "Remove outerwear at the door to prevent pollen from spreading indoors.",
-        "Wash hands and face thoroughly, especially around the eyes.",
-        "Rinse nasal passages with saline solution — studies show this can reduce symptoms by up to 50%.",
-        "Shower and wash hair (hair traps the most pollen).",
-        "Launder outdoor clothes or store them separately from indoor clothing."
+        "Take off outerwear near the door so pollen does not spread through the home.",
+        "Wash your hands and face, especially around the eyes and nose.",
+        "A saline rinse helps more on heavy days than most people expect.",
+        "Showering and washing hair matter because hair holds onto pollen for hours."
       ]
     },
     {
-      "heading": "Medication Options",
+      "heading": "When medication helps most",
       "tips": [
-        "Antihistamines: Cetirizine (Zyrtec), Loratadine (Claritin), Fexofenadine (Allegra). Most effective when taken before symptoms start.",
-        "Nasal corticosteroid sprays: Fluticasone (Flonase), Mometasone (Nasonex). Most effective for congestion. Takes 2-3 days to reach full effect.",
-        "Eye drops: Olopatadine (Patanol), Ketotifen (Zaditor). Effective for itchy, red eyes.",
-        "Starting medication 2 weeks before the pollen season begins is significantly more effective than reactive use. Consult your doctor for a personalized plan."
+        "Antihistamines usually work better when taken before symptoms ramp up rather than after you are already miserable.",
+        "Nasal steroid sprays are often the strongest option for congestion, but they work on a delay rather than instantly.",
+        "Eye drops are worth treating as part of the main toolkit, not an afterthought, if eye symptoms hit you hard.",
+        "If the same season hits you every year, planning medication before the season starts is often much better than improvising mid-season."
       ]
     },
     {
-      "heading": "Immunotherapy (Long-term Treatment)",
+      "heading": "When long-term treatment is worth discussing",
       "tips": [
-        "Allergen immunotherapy gradually desensitizes your immune system over 3-5 years.",
-        "Available as subcutaneous injections (allergy shots) or sublingual tablets/drops (under the tongue).",
-        "Success rate of approximately 70-80%. It is the only treatment that addresses the root cause of allergies."
+        "If pollen season keeps wrecking work, sleep, or outdoor plans every year, long-term treatment may be worth discussing.",
+        "Immunotherapy takes time, usually years, so it is not a quick fix.",
+        "But it is one of the few options that can reduce the underlying allergic response rather than just blunt symptoms."
       ]
     }
   ]

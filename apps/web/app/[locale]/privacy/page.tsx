@@ -1,51 +1,84 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import type { Metadata } from 'next';
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import { ArticleLayout } from "../../../components/content/ArticleLayout";
+import { slugify, type SummaryItem } from "../../../lib/content";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'pages.privacy' });
+  const t = await getTranslations({ locale, namespace: "pages.privacy" });
   return {
-    title: t('title'),
-    description: t('description'),
+    title: t("title"),
+    description: t("description"),
   };
 }
 
-export default async function PrivacyPage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function PrivacyPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations('pages.privacy');
-  const tUI = await getTranslations('ui');
+  const t = await getTranslations("pages.privacy");
+  const tUI = await getTranslations("ui");
 
-  const sections = t.raw('sections') as Array<{ heading: string; content: string }>;
+  const sections = t.raw("sections") as Array<{
+    heading: string;
+    content: string;
+  }>;
+  const summaryItems: SummaryItem[] = sections
+    .slice(0, 3)
+    .map((section, index) => ({
+      label: section.heading,
+      value: section.content,
+      tone: (["blue", "green", "amber"] as const)[index] ?? "gray",
+    }));
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-2xl mx-auto px-4 py-8 space-y-8">
-
-        <div className="flex items-center gap-4">
-          <a href={`/${locale}`} className="text-gray-400 hover:text-gray-600 text-sm">&larr; {tUI('nav.home')}</a>
-          <h1 className="text-2xl font-bold text-gray-900">{t('title')}</h1>
-        </div>
-
-        <article className="space-y-6 text-gray-700 leading-relaxed text-sm">
-
-          {sections.map((s, i) => (
-            <section key={i}>
-              <h2 className="text-base font-semibold text-gray-900 mb-2">{i + 1}. {s.heading}</h2>
-              <p>{s.content}</p>
-            </section>
-          ))}
-
-        </article>
-
-        <div className="flex gap-3 pt-4">
-          <a href={`/${locale}`} className="px-4 py-2 text-sm rounded-xl bg-green-500 text-white hover:bg-green-600 transition-colors">
-            {tUI('nav.home')}
-          </a>
-        </div>
-
-        <p className="text-center text-xs text-gray-300 pb-4">{tUI('metadata.title')}</p>
-      </div>
-    </div>
+    <ArticleLayout
+      locale={locale}
+      backHref={`/${locale}`}
+      backLabel={tUI("nav.home")}
+      eyebrow={tUI("nav.privacy")}
+      title={t("title")}
+      description={t("description")}
+      summaryItems={summaryItems}
+      toc={sections.map((section) => ({
+        id: slugify(section.heading),
+        label: section.heading,
+      }))}
+      tocTitle={tUI("content.onThisPage")}
+      relatedTitle={tUI("content.related")}
+      relatedLinks={[
+        { href: "/faq", label: tUI("nav.faq") },
+        { href: "/pollen-info", label: tUI("nav.pollenInfo") },
+      ]}
+    >
+      {sections.map((section, index) => (
+        <section
+          key={section.heading}
+          id={slugify(section.heading)}
+          className="rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm"
+        >
+          <div className="grid gap-5 lg:grid-cols-[220px_minmax(0,1fr)] lg:items-start">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gray-400">
+                {tUI("content.section")} {String(index + 1).padStart(2, "0")}
+              </p>
+              <h2 className="mt-2 text-2xl font-bold tracking-tight text-gray-900">
+                {section.heading}
+              </h2>
+            </div>
+            <div className="text-sm leading-7 text-gray-700">
+              {section.content}
+            </div>
+          </div>
+        </section>
+      ))}
+    </ArticleLayout>
   );
 }

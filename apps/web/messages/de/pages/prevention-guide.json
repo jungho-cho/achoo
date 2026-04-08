@@ -1,51 +1,58 @@
 {
-  "title": "Pollenallergie-Vorbeugung",
-  "description": "Praktischer Leitfaden zur Vorbeugung und Behandlung von Pollenallergien. Maskenwahl, Raumklima, Medikamente und Immuntherapie.",
+  "title": "Pollenallergie vorbeugen, vom Morgen bis nach Feierabend",
+  "description": "Praktischer Leitfaden fuer Tage mit starkem Pollenflug: Was Sie vor dem Losgehen pruefen, welche Maske sinnvoll ist und was nach dem Heimkommen hilft.",
   "sections": [
     {
-      "heading": "Maskenwahl",
+      "heading": "30-Sekunden-Check vor dem Losgehen",
       "tips": [
-        "FFP2-Maske: Filtert mindestens 94% der Partikel einschliesslich Pollen. Beste Wahl bei hohem Pollenflug.",
-        "Medizinische Maske (OP-Maske): Bietet einen gewissen Schutz, ist aber weniger wirksam gegen feine Pollen.",
-        "Stoffmaske: Minimaler Pollenschutz. Nicht empfohlen.",
-        "Achten Sie auf dichten Sitz an Nase und Mund. Luecken reduzieren die Wirksamkeit um mehr als 50%."
+        "Pollenflug und Luftqualitaet zuerst pruefen. Spaete Reaktion ist fast immer schlechter als fruehe Vorbereitung.",
+        "An staerkeren Tagen Maske, Taschentuecher, Augentropfen oder Medikamente gleich mit einplanen.",
+        "Wer mittags spazieren geht oder lange draussen ist, sollte diese Entscheidung schon morgens treffen.",
+        "Menschen mit wiederkehrend starken Beschwerden profitieren meist mehr von Planung als von Improvisation."
+      ]
+    },
+    {
+      "heading": "Masken und Kleidung",
+      "tips": [
+        "Die FFP2-Maske ist an starken Tagen der sicherste Standard, weil sie auch bei schlechter Luftqualitaet hilft.",
+        "OP-Masken sind besser als nichts, aber auf hohen Pollentagen deutlich schwacher.",
+        "Stoffmasken sind keine ernsthafte Pollenstrategie.",
+        "Passform ist entscheidend. Ein guter Filter mit Luecken an Nase oder Wangen bleibt ein schwacher Schutz."
       ]
     },
     {
       "heading": "Raumklima-Management",
       "tips": [
-        "Lueften: In der Stadt morgens kurz lueften (Pollenkonzentration niedriger); auf dem Land abends. Am besten nach Regen.",
-        "Luftreiniger: Geraet mit HEPA-Filter verwenden. Im Schlafzimmer aufstellen und nachts laufen lassen. Filter alle 6 Monate wechseln.",
-        "Waesche: Waehrend der Pollensaison drinnen trocknen. Draussen getrocknete Waesche sammelt Pollen.",
-        "Bettwaesche: Woechentlich bei 60°C waschen. Allergiker-Encasings fuer Matratze und Kissen empfohlen.",
-        "Luftfeuchtigkeit: 40-60% halten. Zu trocken reizt die Schleimhaeute, zu feucht foerdert Schimmel."
+        "Lueften lieber spaeter am Tag oder nach Regen als direkt am fruehen Morgen.",
+        "Ein Luftreiniger mit HEPA-Filter bringt am meisten im Schlafzimmer, weil schlechter Schlaf alles verschaerft.",
+        "Waesche waehrend der Pollensaison drinnen trocknen. Draußen wird Stoff schnell zum Pollensammler.",
+        "40-60% Luftfeuchtigkeit halten. Trockene Luft macht Nase und Hals empfindlicher."
       ]
     },
     {
-      "heading": "Routine nach dem Nachhausekommen",
+      "heading": "10-Minuten-Routine nach dem Heimkommen",
       "tips": [
-        "Schuhe und Jacke im Eingangsbereich ablegen (Pollen nicht in die Wohnung tragen).",
-        "Haende und Gesicht gruendlich waschen, besonders um die Augen.",
-        "Nasendusche mit Kochsalzloesung — reduziert Symptome um bis zu 50%.",
-        "Duschen und Haare waschen (Haare fangen die meisten Pollen ein).",
-        "Outdoor-Kleidung waschen oder getrennt von Innenkleidung aufbewahren."
+        "Jacke und Schuhe gleich im Eingangsbereich lassen, damit Pollen nicht weiter in die Wohnung getragen werden.",
+        "Haende und Gesicht waschen, besonders Augen und Nase.",
+        "Eine Nasendusche hilft an starken Tagen oft mehr, als viele erwarten.",
+        "Duschen und Haare waschen lohnt sich, weil sich dort besonders viel Pollen sammelt."
       ]
     },
     {
-      "heading": "Medikamente",
+      "heading": "Wann Medikamente am meisten bringen",
       "tips": [
-        "Antihistaminika: Cetirizin, Loratadin, Fexofenadin. Am wirksamsten bei Einnahme vor Symptombeginn. Rezeptfrei in der Apotheke erhaeltlich.",
-        "Kortisonhaltige Nasensprays: Mometason (Nasonex), Fluticason. Am wirksamsten gegen Nasenverstopfung. Volle Wirkung nach 2-3 Tagen.",
-        "Augentropfen: Olopatadin, Ketotifen, Azelastin. Wirksam gegen juckende, getoetete Augen.",
-        "Tipp: Medikamente 2 Wochen vor Saisonbeginn starten ist deutlich wirksamer. Die gesetzliche Krankenversicherung uebernimmt einen Teil der Kosten bei aerztlicher Verordnung."
+        "Antihistaminika wirken oft besser, wenn sie vor dem Symptomanstieg eingeplant werden statt erst danach.",
+        "Kortisonhaltige Nasensprays helfen besonders gegen Verstopfung, aber nicht sofort. Sie brauchen etwas Vorlauf.",
+        "Augentropfen gehoeren fuer viele nicht in die Reserve, sondern in das normale Allergie-Set.",
+        "Wenn dieselbe Saison jedes Jahr schwierig ist, lohnt sich eine fruehe Planung mit Arzt oder Apotheke deutlich mehr als spontane Reaktion."
       ]
     },
     {
-      "heading": "Hyposensibilisierung (Spezifische Immuntherapie)",
+      "heading": "Wann langfristige Behandlung Sinn ergibt",
       "tips": [
-        "Die Hyposensibilisierung gewoehnt das Immunsystem ueber 3-5 Jahre schrittweise an das Allergen.",
-        "Verfuegbar als subkutane Injektionen (SCIT) oder als Sublingualtabletten/-tropfen (SLIT).",
-        "Erfolgsrate von ca. 70-80%. Die einzige ursaechliche Behandlung. Die Kosten werden von den gesetzlichen Krankenkassen uebernommen."
+        "Wenn die Pollensaison jedes Jahr Schlaf, Arbeit oder Freizeit zerlegt, ist eine langfristige Loesung ein Thema.",
+        "Die Hyposensibilisierung dauert Jahre und ist kein Schnellschuss.",
+        "Sie gehoert aber zu den wenigen Wegen, die allergische Reaktion selbst zu reduzieren statt nur Symptome zu dämpfen."
       ]
     }
   ]

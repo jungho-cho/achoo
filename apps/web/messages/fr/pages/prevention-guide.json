@@ -1,51 +1,58 @@
 {
-  "title": "Guide de prevention des allergies au pollen",
-  "description": "Guide pratique pour prevenir et gerer les allergies au pollen. Choix du masque, gestion de l'environnement interieur, medicaments et immunotherapie.",
+  "title": "Prevenir l'allergie au pollen, du matin jusqu'au retour",
+  "description": "Guide pratique pour les jours de fort pollen : quoi verifier avant de sortir, quel masque choisir et quoi faire en rentrant.",
   "sections": [
     {
-      "heading": "Choix du masque",
+      "heading": "Le check rapide avant de quitter la maison",
       "tips": [
-        "Masque FFP2 : filtre au moins 94% des particules aeriennes, y compris le pollen. Meilleur choix en cas de pic pollinique.",
-        "Masque chirurgical : offre une certaine protection mais moins efficace contre les pollens fins.",
-        "Masque en tissu : filtration minimale du pollen. Non recommande.",
-        "Assurez un ajustement serre autour du nez et de la bouche. Les fuites reduisent l'efficacite de plus de 50%."
+        "Verifier le pollen et la qualite de l'air avant de partir reste la meilleure facon d'eviter une mauvaise journee.",
+        "Les jours difficiles, preparer masque, mouchoirs, collyre ou traitement avant la sortie change tout.",
+        "Si la journee comporte de longues periodes dehors, mieux vaut le decider le matin que subir les symptomes plus tard.",
+        "Les personnes souvent tres genees gagnent plus avec une routine anticipee qu'avec une reaction de derniere minute."
+      ]
+    },
+    {
+      "heading": "Masque et equipement",
+      "tips": [
+        "Le masque FFP2 reste le meilleur reflexe les jours de fort pollen, surtout si la qualite de l'air est aussi mediocre.",
+        "Le masque chirurgical aide un peu, mais devient vite limite quand les niveaux montent.",
+        "Le masque en tissu n'est pas une vraie strategie anti-pollen.",
+        "Le bon filtre ne sert a rien si le masque fuit au niveau du nez ou des joues."
       ]
     },
     {
       "heading": "Gestion de l'environnement interieur",
       "tips": [
-        "Aeration : aerer brievement en fin d'apres-midi (16h-18h) quand les niveaux de pollen sont plus bas. Eviter d'aerer le matin.",
-        "Purificateur d'air : utiliser un modele avec filtre HEPA. Le placer dans la chambre et le faire fonctionner la nuit. Changer le filtre tous les 6 mois.",
-        "Linge : secher a l'interieur pendant la saison pollinique. Le sechage en exterieur collecte le pollen sur les tissus.",
-        "Literie : laver chaque semaine a 60°C minimum. Envisager des housses anti-allergenes pour matelas et oreillers.",
-        "Humidite : maintenir entre 40 et 60%. Trop sec irrite les muqueuses ; trop humide favorise les moisissures."
+        "Aeration plus tard dans la journee plutot qu'au petit matin, quand le pollen est souvent plus actif.",
+        "Le purificateur d'air apporte le plus dans la chambre, la ou le sommeil se degrade vite.",
+        "Le linge seche dehors devient facilement un support a pollen.",
+        "Une humidite de 40 a 60% reste le bon compromis pour ne pas irriter davantage les muqueuses."
       ]
     },
     {
-      "heading": "Routine au retour a la maison",
+      "heading": "Le reset de 10 minutes au retour",
       "tips": [
-        "Retirer les vetements d'exterieur a l'entree pour empecher le pollen de se repandre a l'interieur.",
-        "Se laver les mains et le visage soigneusement, surtout autour des yeux.",
-        "Rincer les voies nasales avec une solution saline — les etudes montrent une reduction des symptomes jusqu'a 50%.",
-        "Se doucher et se laver les cheveux (les cheveux retiennent le plus de pollen).",
-        "Laver les vetements d'exterieur ou les ranger separement des vetements d'interieur."
+        "Laisser veste et chaussures pres de l'entree evite de promener le pollen dans tout le logement.",
+        "Se laver les mains et le visage, surtout autour des yeux et du nez, fait souvent baisser l'irritation rapidement.",
+        "Le rinçage nasal aide beaucoup les jours tres charges.",
+        "La douche et le lavage des cheveux comptent vraiment, parce que les cheveux gardent le pollen longtemps."
       ]
     },
     {
-      "heading": "Medicaments",
+      "heading": "Quand les medicaments aident le plus",
       "tips": [
-        "Antihistaminiques : cetirizine (Zyrtec), loratadine (Clarityne), fexofenadine (Telfast). Plus efficaces pris avant l'apparition des symptomes. Disponibles sans ordonnance en pharmacie.",
-        "Sprays nasaux corticoides : mometasone (Nasonex), fluticasone (Avamys). Les plus efficaces contre la congestion nasale. Plein effet apres 2-3 jours.",
-        "Collyres : olopatadine (Opatanol), ketotifene. Efficaces contre les yeux qui demangent et les rougeurs.",
-        "Commencer le traitement 2 semaines avant le debut de la saison est nettement plus efficace. En France, les antihistaminiques prescrits par un medecin sont rembourses par la Securite sociale."
+        "Les antihistaminiques sont souvent plus utiles quand ils sont pris avant que la journee ne tourne mal.",
+        "Les sprays nasaux corticoides aident surtout sur la congestion, mais avec un effet plus lent.",
+        "Pour certaines personnes, les collyres devraient faire partie du kit de base et non du plan de secours.",
+        "Si la meme saison revient chaque annee, une strategie preparee a l'avance vaut mieux qu'une reaction improvisée."
       ]
     },
     {
-      "heading": "Immunotherapie (desensibilisation)",
+      "heading": "Quand penser a une solution de fond",
       "tips": [
-        "L'immunotherapie allergique desensibilise progressivement le systeme immunitaire sur 3 a 5 ans.",
-        "Disponible en injections sous-cutanees ou en comprimes/gouttes sublinguaux (sous la langue).",
-        "Taux de succes d'environ 70-80%. C'est le seul traitement qui s'attaque a la cause de l'allergie. Rembourse par l'Assurance maladie en France."
+        "Si chaque saison ruine le sommeil, le travail ou les sorties, une prise en charge de fond peut valoir la peine.",
+        "L'immunotherapie demande du temps, souvent plusieurs annees, et ne donne pas un resultat immediat.",
+        "Mais c'est l'une des rares options qui cherche a reduire la reaction allergique elle-meme."
       ]
     }
   ]

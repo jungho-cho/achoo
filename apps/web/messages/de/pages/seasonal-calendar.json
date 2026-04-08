@@ -1,18 +1,78 @@
 {
-  "title": "Monatlicher Pollenkalender",
-  "description": "Der Pollenflugkalender fuer Deutschland. Erfahren Sie Monat fuer Monat, welche Pollen fliegen und wie Sie sich schuetzen koennen.",
+  "title": "Monatlicher Pollenkalender, wann es wirklich kritisch wird",
+  "description": "Sehen Sie Monat fuer Monat, wann Baum-, Graeser- und Kraeuterpollen besonders stark sind und in welchen Wochen mehr Vorsicht sinnvoll ist.",
   "months": [
-    { "month": "Januar", "level": "Niedrig", "species": "Hasel, Erle (vereinzelt)", "tip": "An milden Wintertagen koennen Hasel und Erle bereits erste Pollen freisetzen. Auf dem Land noch selten, in Staedten durch Waermeinseln moeglich." },
-    { "month": "Februar", "level": "Mittel", "species": "Hasel, Erle", "tip": "Die Hasel- und Erlenpollensaison beginnt. An warmen Tagen bereits deutliche Belastung moeglich. Pollenflug-Vorhersage des DWD beachten." },
-    { "month": "Maerz", "level": "Hoch", "species": "Birke, Erle, Esche", "tip": "Beginn der Hauptsaison. Birke startet Ende Maerz. Erle auf dem Hoehepunkt. Esche setzt ebenfalls ein." },
-    { "month": "April", "level": "Sehr hoch", "species": "Birke, Eiche, Esche", "tip": "Birkenpollen-Hoehepunkt. Staerkster Monat fuer Fruehjahrallergiker. Pollenflug-App taeglich pruefen." },
-    { "month": "Mai", "level": "Hoch", "species": "Graeser, Eiche, Kiefer", "tip": "Baumpollen lassen nach, Graeserpollen beginnen. Uebergangsmonat mit doppelter Belastung moeglich." },
-    { "month": "Juni", "level": "Sehr hoch", "species": "Graeser, Roggen", "tip": "Hoehepunkt der Graeserpollensaison. Roggen ist besonders aggressiv. Heuschnupfen-Hochzeit." },
-    { "month": "Juli", "level": "Mittel", "species": "Graeser (abnehmend), Beifuss", "tip": "Graeserpollen lassen nach. Beifuss beginnt. Relativ ruhiger Monat zwischen den Spitzen." },
-    { "month": "August", "level": "Hoch", "species": "Beifuss, Ambrosia", "tip": "Beifuss auf dem Hoehepunkt. Ambrosia-Saison beginnt. Kraeuterpollenallergiker muessen aufpassen." },
-    { "month": "September", "level": "Mittel", "species": "Ambrosia, Brennnessel", "tip": "Ambrosia-Hoehepunkt, besonders in Suedbrandenburg und Sachsen. Kraeuterpollen nehmen ab." },
-    { "month": "Oktober", "level": "Niedrig", "species": "Kraeuterpollen (abnehmend)", "tip": "Pollensaison endet. Erster Frost beendet die Flugzeit. Zeit fuer Allergologen-Termin zur Vorbereitung auf naechstes Jahr." },
-    { "month": "November", "level": "Keine", "species": "Keine relevanten Pollen", "tip": "Pollenfreie Zeit. Heizperiode beginnt — auf Hausstaubmilben und Schimmelpilze achten." },
-    { "month": "Dezember", "level": "Keine", "species": "Keine relevanten Pollen", "tip": "Winter. Innenraumallergene beachten: Hausstaubmilben, Tierhaare, Schimmelpilze." }
+    {
+      "month": "Januar",
+      "level": "Niedrig",
+      "species": "Hasel, Erle (vereinzelt)",
+      "tip": "An milden Wintertagen koennen Hasel und Erle bereits erste Pollen freisetzen. Auf dem Land noch selten, in Staedten durch Waermeinseln moeglich."
+    },
+    {
+      "month": "Februar",
+      "level": "Mittel",
+      "species": "Hasel, Erle",
+      "tip": "Die Hasel- und Erlenpollensaison beginnt. An warmen Tagen bereits deutliche Belastung moeglich. Pollenflug-Vorhersage des DWD beachten."
+    },
+    {
+      "month": "Maerz",
+      "level": "Hoch",
+      "species": "Birke, Erle, Esche",
+      "tip": "Jetzt wird die Saison fuer viele deutlich spuerbar. Wer jedes Fruehjahr Probleme hat, sollte ab hier taeglich die Vorhersage pruefen."
+    },
+    {
+      "month": "April",
+      "level": "Sehr hoch",
+      "species": "Birke, Eiche, Esche",
+      "tip": "Fuer viele ist das der haerteste Fruehlingsmonat. Entscheidungen vor dem Weg nach draussen machen jetzt den groessten Unterschied."
+    },
+    {
+      "month": "Mai",
+      "level": "Hoch",
+      "species": "Graeser, Eiche, Kiefer",
+      "tip": "Baumpollen lassen nach, Graeserpollen beginnen. Uebergangsmonat mit doppelter Belastung moeglich."
+    },
+    {
+      "month": "Juni",
+      "level": "Sehr hoch",
+      "species": "Graeser, Roggen",
+      "tip": "Hoehepunkt der Graeserpollensaison. Roggen ist besonders aggressiv. Heuschnupfen-Hochzeit."
+    },
+    {
+      "month": "Juli",
+      "level": "Mittel",
+      "species": "Graeser (abnehmend), Beifuss",
+      "tip": "Graeserpollen lassen nach. Beifuss beginnt. Relativ ruhiger Monat zwischen den Spitzen."
+    },
+    {
+      "month": "August",
+      "level": "Hoch",
+      "species": "Beifuss, Ambrosia",
+      "tip": "Die Herbstsaison baut sich auf. Viele denken, der Fruehlingsstress sei vorbei, und werden hier noch einmal erwischt."
+    },
+    {
+      "month": "September",
+      "level": "Mittel",
+      "species": "Ambrosia, Brennnessel",
+      "tip": "Ambrosia bleibt in manchen Regionen ein echtes Problem. Spaetsommer-Beschwerden sind oft kein Zufall, sondern der zweite Peak."
+    },
+    {
+      "month": "Oktober",
+      "level": "Niedrig",
+      "species": "Kraeuterpollen (abnehmend)",
+      "tip": "Pollensaison endet. Erster Frost beendet die Flugzeit. Zeit fuer Allergologen-Termin zur Vorbereitung auf naechstes Jahr."
+    },
+    {
+      "month": "November",
+      "level": "Keine",
+      "species": "Keine relevanten Pollen",
+      "tip": "Pollenfreie Zeit. Heizperiode beginnt — auf Hausstaubmilben und Schimmelpilze achten."
+    },
+    {
+      "month": "Dezember",
+      "level": "Keine",
+      "species": "Keine relevanten Pollen",
+      "tip": "Winter. Innenraumallergene beachten: Hausstaubmilben, Tierhaare, Schimmelpilze."
+    }
   ]
 }

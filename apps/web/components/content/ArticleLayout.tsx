@@ -41,7 +41,7 @@ export function ArticleLayout({
 }: Props) {
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 py-8 space-y-8">
+      <div className="max-w-6xl mx-auto px-4 py-6 md:py-8 space-y-6 md:space-y-8">
         <div className="flex items-center gap-4">
           <a
             href={backHref}
@@ -51,18 +51,18 @@ export function ArticleLayout({
           </a>
         </div>
 
-        <section className="rounded-[2rem] border border-gray-100 bg-white p-6 md:p-8 shadow-sm">
+        <section className="rounded-[2rem] border border-gray-100 bg-white p-5 md:p-8 shadow-sm">
           {eyebrow && (
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-green-600">
               {eyebrow}
             </p>
           )}
-          <div className="mt-3 grid gap-6 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-start">
+          <div className="mt-3 grid gap-4 md:gap-6 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-start">
             <div className="space-y-3">
-              <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
+              <h1 className="text-[1.85rem] leading-tight md:text-4xl font-bold tracking-tight text-gray-900">
                 {title}
               </h1>
-              <p className="text-base md:text-lg leading-7 text-gray-600">
+              <p className="text-sm md:text-lg leading-6 md:leading-7 text-gray-600">
                 {description}
               </p>
             </div>
@@ -77,7 +77,7 @@ export function ArticleLayout({
                     <p className="text-[11px] font-semibold uppercase tracking-wide opacity-70">
                       {item.label}
                     </p>
-                    <p className="mt-1 text-sm font-medium leading-6">
+                    <p className="mt-1 text-xs md:text-sm font-medium leading-5 md:leading-6">
                       {item.value}
                     </p>
                   </div>

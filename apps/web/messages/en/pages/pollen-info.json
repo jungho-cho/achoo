@@ -1,23 +1,23 @@
 {
-  "title": "What Is Pollen Allergy?",
-  "description": "Learn about pollen allergy causes, symptoms, and prevention. Understand the differences between tree, grass, and weed pollen and seasonal precautions.",
-  "intro": "Pollen allergy (hay fever or allergic rhinitis) is a condition where pollen from trees, grasses, and weeds triggers an immune response when it contacts the mucous membranes of the nose, eyes, and airways. Worldwide, an estimated 10-30% of the population suffers from pollen allergies, with symptoms peaking during spring (tree pollen) and late summer to autumn (weed pollen).",
+  "title": "Pollen allergy symptoms, hay fever vs. cold, and what to do",
+  "description": "Learn how pollen allergy symptoms differ from a cold, when tree, grass, and weed pollen peak, and what to check before you head outside.",
+  "intro": "If sneezing, a clear runny nose, itchy eyes, or nasal congestion show up every spring or autumn, pollen allergy is more likely than a cold. The problem is not just the symptoms themselves. It is how fast they can ruin a workday once you have already gone outside. That is why pollen allergy is best managed before symptoms ramp up, not after.",
   "sections": [
     {
-      "heading": "Pollen Types and Seasons",
-      "content": "Tree pollen (oak, birch, alder, ash, pine) is most prevalent from March to May. Grass pollen (timothy, ryegrass, bermuda grass, Kentucky bluegrass) peaks from May to July. Weed pollen (ragweed, mugwort, plantain, nettle) dominates from August to October."
+      "heading": "When pollen allergy usually gets worse",
+      "content": "Tree pollen usually dominates in spring, grass pollen takes over in late spring and early summer, and weed pollen becomes the main trigger in late summer and autumn. Oak, birch, alder, ash, and pine are common tree triggers. Ragweed and mugwort are major autumn triggers. Dry, windy mornings are often the roughest part of the day because that is when pollen tends to stay active in the air."
     },
     {
-      "heading": "Common Symptoms",
-      "content": "Nose: sneezing, runny nose, nasal congestion, itchy nose. Eyes: itching, redness, tearing, swollen eyelids. Airways: coughing, shortness of breath, asthma flare-ups. Skin: hives, itching (less common but possible). General: fatigue, difficulty concentrating, sleep disturbance."
+      "heading": "How pollen allergy symptoms differ from a cold",
+      "content": "The classic signs are repeated sneezing, a clear runny nose, nasal itching, congestion, and itchy or watery eyes. A cold is more likely to bring fever, body aches, and a sore throat. Pollen allergy is more likely to show eye symptoms and to repeat at the same time every year. If symptoms get worse outdoors and ease off after rain or indoor time, pollen is usually the better explanation."
     },
     {
-      "heading": "Prevention Tips",
-      "content": "Stay indoors when pollen counts are high. Wear a well-fitted mask (N95 or FFP2) when going outside. Shower and wash your face immediately after returning home. Avoid ventilating your home during peak pollen hours (early morning, 5-10 AM). Dry laundry indoors during pollen season. Use an air purifier with a HEPA filter to reduce indoor pollen. Take antihistamines as directed by your doctor if symptoms are severe."
+      "heading": "What to check before you leave home",
+      "content": "Do not wait until symptoms start to decide what to do. Check the pollen and air quality forecast first. On stronger days, wear a well-fitted FFP2 or N95 mask, cut down outdoor time where possible, and consider taking your usual antihistamine early if that is already part of your plan with a clinician. Once you are home, face washing, a shower, and separating outdoor clothes make a bigger difference than most people expect."
     },
     {
-      "heading": "Pollen vs. Fine Dust",
-      "content": "Pollen and fine dust (particulate matter) are different. Pollen is a biological particle from plants that triggers allergic reactions, while fine dust (PM2.5/PM10) consists of chemical particles from combustion that cause respiratory disease. On days when both are elevated, limit outdoor activity and wear a mask. Achoo lets you check both pollen and air quality levels at once."
+      "heading": "Why pollen and fine dust should be checked together",
+      "content": "Pollen is a biological trigger that sets off allergy symptoms. Fine dust is a pollution problem that irritates the airways. They are different, but they stack badly. On days when both are elevated, you are more likely to feel sneezing, throat irritation, cough, and chest discomfort together. That is why a useful outdoor decision should not look at pollen alone."
     }
   ]
 }
