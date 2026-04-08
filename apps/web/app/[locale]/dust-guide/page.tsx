@@ -1,102 +1,174 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import type { Metadata } from 'next';
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import { ArticleLayout } from "../../../components/content/ArticleLayout";
+import { slugify, takeSentences, type SummaryItem } from "../../../lib/content";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+function gradeColor(grade: string) {
+  const normalized = grade.toLowerCase();
+  if (
+    normalized.includes("매우") ||
+    normalized.includes("very") ||
+    normalized.includes("sehr") ||
+    normalized.includes("tres")
+  ) {
+    return "text-red-700 bg-red-50 border-red-100";
+  }
+  if (
+    normalized.includes("나쁨") ||
+    normalized.includes("bad") ||
+    normalized.includes("schlecht") ||
+    normalized.includes("mauvais")
+  ) {
+    return "text-orange-700 bg-orange-50 border-orange-100";
+  }
+  if (
+    normalized.includes("보통") ||
+    normalized.includes("moderate") ||
+    normalized.includes("mäßig") ||
+    normalized.includes("modéré")
+  ) {
+    return "text-amber-700 bg-amber-50 border-amber-100";
+  }
+  return "text-green-700 bg-green-50 border-green-100";
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'pages.dustGuide' });
+  const t = await getTranslations({ locale, namespace: "pages.dustGuide" });
   return {
-    title: t('title'),
-    description: t('description'),
+    title: t("title"),
+    description: t("description"),
   };
 }
 
-function gradeColor(grade: string) {
-  switch (grade) {
-    case '좋음': return 'text-green-600';
-    case '보통': return 'text-yellow-600';
-    case '나쁨': return 'text-orange-600';
-    case '매우나쁨': return 'text-red-600';
-    default: return 'text-gray-600';
-  }
-}
-
-export default async function DustGuidePage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function DustGuidePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations('pages.dustGuide');
-  const tUI = await getTranslations('ui');
+  const t = await getTranslations("pages.dustGuide");
+  const tUI = await getTranslations("ui");
 
-  const sections = t.raw('sections') as Array<{ heading: string; content: string }>;
-  const grades = t.raw('grades') as Array<{ grade: string; pm25: string; pm10: string; health: string }>;
+  const sections = t.raw("sections") as Array<{
+    heading: string;
+    content: string;
+  }>;
+  const grades = t.raw("grades") as Array<{
+    grade: string;
+    pm25: string;
+    pm10: string;
+    health: string;
+  }>;
+  const toc = sections.map((section) => ({
+    id: slugify(section.heading),
+    label: section.heading,
+  }));
+  const summaryItems: SummaryItem[] = grades
+    .slice(0, 3)
+    .map((grade, index) => ({
+      label: grade.grade,
+      value: grade.health,
+      tone: (["green", "amber", "rose"] as const)[index] ?? "gray",
+    }));
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-2xl mx-auto px-4 py-8 space-y-8">
-
-        <div className="flex items-center gap-4">
-          <a href={`/${locale}`} className="text-gray-400 hover:text-gray-600 text-sm">&larr; {tUI('nav.home')}</a>
-          <h1 className="text-2xl font-bold text-gray-900">{t('title')}</h1>
+    <ArticleLayout
+      locale={locale}
+      backHref={`/${locale}`}
+      backLabel={tUI("nav.home")}
+      eyebrow={tUI("nav.dustGuide")}
+      title={t("title")}
+      description={t("description")}
+      summaryItems={summaryItems}
+      toc={toc}
+      tocTitle={tUI("content.onThisPage")}
+      relatedTitle={tUI("content.related")}
+      relatedLinks={[
+        { href: "/prevention-guide", label: tUI("nav.preventionGuide") },
+        { href: "/pollen-info", label: tUI("nav.pollenInfo") },
+        { href: "/tips", label: tUI("nav.tips") },
+      ]}
+    >
+      <section className="rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm">
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+          {tUI("content.gradeTable")}
+        </h2>
+        <div className="mt-5 overflow-x-auto">
+          <table className="w-full min-w-[520px] text-sm">
+            <thead>
+              <tr className="border-b border-gray-200 text-left text-gray-500">
+                <th className="px-3 py-3 font-medium">
+                  {tUI("content.grade")}
+                </th>
+                <th className="px-3 py-3 font-medium">PM10</th>
+                <th className="px-3 py-3 font-medium">PM2.5</th>
+                <th className="px-3 py-3 font-medium">
+                  {tUI("content.health")}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {grades.map((grade) => (
+                <tr
+                  key={grade.grade}
+                  className="border-b border-gray-100 last:border-0"
+                >
+                  <td className="px-3 py-3">
+                    <span
+                      className={`inline-flex rounded-full border px-2.5 py-1 text-xs font-semibold ${gradeColor(grade.grade)}`}
+                    >
+                      {grade.grade}
+                    </span>
+                  </td>
+                  <td className="px-3 py-3 text-gray-700">{grade.pm10}</td>
+                  <td className="px-3 py-3 text-gray-700">{grade.pm25}</td>
+                  <td className="px-3 py-3 text-gray-600">{grade.health}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
+      </section>
 
-        <article className="space-y-6 text-gray-700 leading-relaxed">
-
-          {/* First section before grades table */}
-          {sections.length > 0 && (
-            <section>
-              <h2 className="text-lg font-semibold text-gray-900 mb-2">{sections[0].heading}</h2>
-              <p>{sections[0].content}</p>
-            </section>
-          )}
-
-          {/* Grades table */}
-          <section className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-            <h2 className="text-lg font-semibold text-gray-900 mb-3">{t('title')}</h2>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-gray-200">
-                    <th className="text-left py-2 pr-4">{grades.length > 0 ? '' : ''}</th>
-                    <th className="text-left py-2 pr-4">PM10</th>
-                    <th className="text-left py-2 pr-4">PM2.5</th>
-                    <th className="text-left py-2"></th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  {grades.map((g, i) => (
-                    <tr key={i}>
-                      <td className={`py-2 pr-4 font-medium ${gradeColor(g.grade)}`}>{g.grade}</td>
-                      <td className="py-2 pr-4">{g.pm10}</td>
-                      <td className="py-2 pr-4">{g.pm25}</td>
-                      <td className="py-2">{g.health}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+      {sections.map((section, index) => (
+        <section
+          key={section.heading}
+          id={slugify(section.heading)}
+          className={`rounded-[2rem] border p-6 shadow-sm ${index === 2 ? "border-amber-100 bg-amber-50/40" : "border-gray-100 bg-white"}`}
+        >
+          <div className="grid gap-5 lg:grid-cols-[220px_minmax(0,1fr)] lg:items-start">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gray-400">
+                {tUI("content.topic")} {String(index + 1).padStart(2, "0")}
+              </p>
+              <h2 className="mt-2 text-2xl font-bold tracking-tight text-gray-900">
+                {section.heading}
+              </h2>
             </div>
-            <p className="text-xs text-gray-500 mt-2">ug/m3</p>
-          </section>
-
-          {/* Remaining sections */}
-          {sections.slice(1).map((s, i) => (
-            <section key={i}>
-              <h2 className="text-lg font-semibold text-gray-900 mb-2">{s.heading}</h2>
-              <p>{s.content}</p>
-            </section>
-          ))}
-
-        </article>
-
-        <div className="flex gap-3 pt-4">
-          <a href={`/${locale}`} className="px-4 py-2 text-sm rounded-xl bg-green-500 text-white hover:bg-green-600 transition-colors">
-            {tUI('dust.title')}
-          </a>
-          <a href={`/${locale}/prevention-guide`} className="px-4 py-2 text-sm rounded-xl bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors">
-            {tUI('nav.preventionGuide')}
-          </a>
-        </div>
-
-        <p className="text-center text-xs text-gray-300 pb-4">{tUI('metadata.title')}</p>
-      </div>
-    </div>
+            <div className="space-y-4">
+              <p className="text-sm leading-7 text-gray-700">
+                {section.content}
+              </p>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {takeSentences(section.content, 4).map((point) => (
+                  <div
+                    key={point}
+                    className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-sm leading-7 text-gray-700"
+                  >
+                    {point}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      ))}
+    </ArticleLayout>
   );
 }

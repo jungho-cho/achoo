@@ -142,6 +142,21 @@
     "faq": "FAQ",
     "privacy": "Privacy Policy"
   },
+  "content": {
+    "onThisPage": "On this page",
+    "related": "Related",
+    "section": "Section",
+    "playbook": "Playbook",
+    "topic": "Topic",
+    "grade": "Grade",
+    "health": "Health impact",
+    "gradeTable": "Grade quick table",
+    "peakMonths": "Peak months",
+    "peakSeason": "Peak season",
+    "representativePlants": "Representative plants",
+    "seasonHighlights": "Season highlights",
+    "planningRule": "Planning rule"
+  },
   "affiliate": {
     "sectionTitle": "Allergy Essentials",
     "mask": "😷 Allergy Mask",

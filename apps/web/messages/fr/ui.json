@@ -142,6 +142,21 @@
     "faq": "FAQ",
     "privacy": "Politique de confidentialité"
   },
+  "content": {
+    "onThisPage": "Sur cette page",
+    "related": "À lire aussi",
+    "section": "Section",
+    "playbook": "Guide pratique",
+    "topic": "Sujet",
+    "grade": "Niveau",
+    "health": "Impact santé",
+    "gradeTable": "Tableau des niveaux",
+    "peakMonths": "Mois les plus forts",
+    "peakSeason": "Saison de pointe",
+    "representativePlants": "Plantes représentatives",
+    "seasonHighlights": "Temps forts de la saison",
+    "planningRule": "Règle de préparation"
+  },
   "affiliate": {
     "sectionTitle": "Produits anti-allergie",
     "mask": "😷 Masque anti-allergie",

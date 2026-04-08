@@ -1,58 +1,117 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import type { Metadata } from 'next';
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import { ArticleLayout } from "../../../components/content/ArticleLayout";
+import { slugify, type SummaryItem } from "../../../lib/content";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+const ICONS = ["😷", "🏠", "🚿", "💊", "🧬"];
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'pages.preventionGuide' });
+  const t = await getTranslations({
+    locale,
+    namespace: "pages.preventionGuide",
+  });
   return {
-    title: t('title'),
-    description: t('description'),
+    title: t("title"),
+    description: t("description"),
   };
 }
 
-export default async function PreventionGuidePage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function PreventionGuidePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations('pages.preventionGuide');
-  const tUI = await getTranslations('ui');
+  const t = await getTranslations("pages.preventionGuide");
+  const tUI = await getTranslations("ui");
 
-  const sections = t.raw('sections') as Array<{ heading: string; tips: string[] }>;
+  const sections = t.raw("sections") as Array<{
+    heading: string;
+    tips: string[];
+  }>;
+  const toc = sections.map((section) => ({
+    id: slugify(section.heading),
+    label: section.heading,
+  }));
+  const summaryItems: SummaryItem[] = sections
+    .slice(0, 3)
+    .map((section, index) => ({
+      label: section.heading,
+      value: section.tips[0] ?? "",
+      tone: (["green", "blue", "amber"] as const)[index] ?? "gray",
+    }));
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-2xl mx-auto px-4 py-8 space-y-8">
+    <ArticleLayout
+      locale={locale}
+      backHref={`/${locale}`}
+      backLabel={tUI("nav.home")}
+      eyebrow={tUI("nav.preventionGuide")}
+      title={t("title")}
+      description={t("description")}
+      summaryItems={summaryItems}
+      toc={toc}
+      tocTitle={tUI("content.onThisPage")}
+      relatedTitle={tUI("content.related")}
+      relatedLinks={[
+        { href: "/tips", label: tUI("nav.tips") },
+        { href: "/seasonal-calendar", label: tUI("nav.seasonalCalendar") },
+        { href: "/dust-guide", label: tUI("nav.dustGuide") },
+      ]}
+    >
+      <section className="grid gap-4 md:grid-cols-3">
+        {summaryItems.map((item) => (
+          <div
+            key={`${item.label}-${item.value}`}
+            className="rounded-[2rem] border border-gray-100 bg-white p-5 shadow-sm"
+          >
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+              {item.label}
+            </p>
+            <p className="mt-3 text-sm leading-7 text-gray-700">{item.value}</p>
+          </div>
+        ))}
+      </section>
 
-        <div className="flex items-center gap-4">
-          <a href={`/${locale}`} className="text-gray-400 hover:text-gray-600 text-sm">&larr; {tUI('nav.home')}</a>
-          <h1 className="text-2xl font-bold text-gray-900">{t('title')}</h1>
-        </div>
+      {sections.map((section, index) => (
+        <section
+          key={section.heading}
+          id={slugify(section.heading)}
+          className="rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm"
+        >
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-green-50 text-2xl">
+              {ICONS[index] ?? "✅"}
+            </div>
+            <div className="min-w-0">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gray-400">
+                {tUI("content.playbook")} {String(index + 1).padStart(2, "0")}
+              </p>
+              <h2 className="mt-2 text-2xl font-bold tracking-tight text-gray-900">
+                {section.heading}
+              </h2>
+            </div>
+          </div>
 
-        <article className="space-y-6 text-gray-700 leading-relaxed">
-
-          {sections.map((s, i) => (
-            <section key={i} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-              <h2 className="text-lg font-semibold text-gray-900 mb-3">{s.heading}</h2>
-              <ul className="space-y-2">
-                {s.tips.map((tip, j) => (
-                  <li key={j}>{tip}</li>
-                ))}
-              </ul>
-            </section>
-          ))}
-
-        </article>
-
-        <div className="flex gap-3 pt-4">
-          <a href={`/${locale}`} className="px-4 py-2 text-sm rounded-xl bg-green-500 text-white hover:bg-green-600 transition-colors">
-            {tUI('pollen.title')}
-          </a>
-          <a href={`/${locale}/seasonal-calendar`} className="px-4 py-2 text-sm rounded-xl bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors">
-            {tUI('nav.seasonalCalendar')}
-          </a>
-        </div>
-
-        <p className="text-center text-xs text-gray-300 pb-4">{tUI('metadata.title')}</p>
-      </div>
-    </div>
+          <ul className="mt-5 grid gap-3 md:grid-cols-2">
+            {section.tips.map((tip, tipIndex) => (
+              <li
+                key={`${section.heading}-${tipIndex}`}
+                className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-sm leading-7 text-gray-700"
+              >
+                <span className="mr-2 text-green-600">•</span>
+                {tip}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </ArticleLayout>
   );
 }

@@ -136,6 +136,21 @@
     "faq": "FAQ",
     "privacy": "개인정보처리방침"
   },
+  "content": {
+    "onThisPage": "이 페이지에서",
+    "related": "함께 보기",
+    "section": "섹션",
+    "playbook": "실천 가이드",
+    "topic": "주제",
+    "grade": "등급",
+    "health": "건강 영향",
+    "gradeTable": "등급표",
+    "peakMonths": "집중 월",
+    "peakSeason": "집중 시기",
+    "representativePlants": "대표 식물",
+    "seasonHighlights": "시즌 하이라이트",
+    "planningRule": "대비 포인트"
+  },
   "affiliate": {
     "sectionTitle": "알레르기 관련 제품",
     "mask": "😷 KF94 마스크",

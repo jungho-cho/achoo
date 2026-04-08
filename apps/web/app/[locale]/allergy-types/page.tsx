@@ -1,58 +1,124 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import type { Metadata } from 'next';
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import { ArticleLayout } from "../../../components/content/ArticleLayout";
+import { slugify, takeSentences, type SummaryItem } from "../../../lib/content";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+const ICONS = ["🌳", "🌾", "🍂"];
+const TONES = [
+  "border-green-100 bg-green-50/50",
+  "border-blue-100 bg-blue-50/50",
+  "border-amber-100 bg-amber-50/50",
+];
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'pages.allergyTypes' });
+  const t = await getTranslations({ locale, namespace: "pages.allergyTypes" });
   return {
-    title: t('title'),
-    description: t('description'),
+    title: t("title"),
+    description: t("description"),
   };
 }
 
-export default async function AllergyTypesPage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function AllergyTypesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations('pages.allergyTypes');
-  const tUI = await getTranslations('ui');
+  const t = await getTranslations("pages.allergyTypes");
+  const tUI = await getTranslations("ui");
 
-  const types = t.raw('types') as Array<{ name: string; species: string; season: string; symptoms: string }>;
+  const types = t.raw("types") as Array<{
+    name: string;
+    species: string;
+    season: string;
+    symptoms: string;
+  }>;
+
+  const toc = types.map((item) => ({
+    id: slugify(item.name),
+    label: item.name,
+  }));
+  const summaryItems: SummaryItem[] = types.map((item, index) => ({
+    label: item.name,
+    value: item.season,
+    tone: (["green", "blue", "amber"] as const)[index] ?? "gray",
+  }));
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-2xl mx-auto px-4 py-8 space-y-8">
-
-        <div className="flex items-center gap-4">
-          <a href={`/${locale}`} className="text-gray-400 hover:text-gray-600 text-sm">&larr; {tUI('nav.home')}</a>
-          <h1 className="text-2xl font-bold text-gray-900">{t('title')}</h1>
-        </div>
-
-        <article className="space-y-6 text-gray-700 leading-relaxed">
-
-          {types.map((type, i) => (
-            <section key={i} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-              <h2 className="text-lg font-semibold text-gray-900 mb-3">{type.name}</h2>
-              <div className="space-y-2">
-                <p><strong>{type.season}</strong></p>
-                <p>{type.species}</p>
-                <p>{type.symptoms}</p>
+    <ArticleLayout
+      locale={locale}
+      backHref={`/${locale}`}
+      backLabel={tUI("nav.home")}
+      eyebrow={tUI("nav.allergyTypes")}
+      title={t("title")}
+      description={t("description")}
+      summaryItems={summaryItems}
+      toc={toc}
+      tocTitle={tUI("content.onThisPage")}
+      relatedTitle={tUI("content.related")}
+      relatedLinks={[
+        { href: "/pollen-info", label: tUI("nav.pollenInfo") },
+        { href: "/seasonal-calendar", label: tUI("nav.seasonalCalendar") },
+        { href: "/tips", label: tUI("nav.tips") },
+      ]}
+    >
+      {types.map((type, index) => {
+        const symptomBullets = takeSentences(type.symptoms, 4);
+        return (
+          <section
+            key={type.name}
+            id={slugify(type.name)}
+            className={`rounded-[2rem] border p-6 shadow-sm ${TONES[index] ?? "border-gray-100 bg-white"}`}
+          >
+            <div className="grid gap-5 lg:grid-cols-[220px_minmax(0,1fr)] lg:items-start">
+              <div>
+                <div className="flex items-center gap-3">
+                  <span className="text-3xl">{ICONS[index] ?? "🌿"}</span>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gray-400">
+                      {tUI("content.peakSeason")}
+                    </p>
+                    <p className="mt-1 text-sm font-medium text-gray-600">
+                      {type.season}
+                    </p>
+                  </div>
+                </div>
+                <h2 className="mt-4 text-2xl font-bold tracking-tight text-gray-900">
+                  {type.name}
+                </h2>
               </div>
-            </section>
-          ))}
 
-        </article>
+              <div className="space-y-4">
+                <div className="rounded-2xl border border-white/70 bg-white/80 px-4 py-4">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+                    {tUI("content.representativePlants")}
+                  </p>
+                  <p className="mt-2 text-sm leading-7 text-gray-700">
+                    {type.species}
+                  </p>
+                </div>
 
-        <div className="flex gap-3 pt-4">
-          <a href={`/${locale}`} className="px-4 py-2 text-sm rounded-xl bg-green-500 text-white hover:bg-green-600 transition-colors">
-            {tUI('pollen.title')}
-          </a>
-          <a href={`/${locale}/tips`} className="px-4 py-2 text-sm rounded-xl bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors">
-            {tUI('nav.tips')}
-          </a>
-        </div>
-
-        <p className="text-center text-xs text-gray-300 pb-4">{tUI('metadata.title')}</p>
-      </div>
-    </div>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {symptomBullets.map((bullet) => (
+                    <div
+                      key={bullet}
+                      className="rounded-2xl border border-white/70 bg-white/80 px-4 py-3 text-sm leading-7 text-gray-700"
+                    >
+                      {bullet}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })}
+    </ArticleLayout>
   );
 }

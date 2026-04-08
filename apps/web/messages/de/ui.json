@@ -145,6 +145,21 @@
     "faq": "FAQ",
     "privacy": "Datenschutz"
   },
+  "content": {
+    "onThisPage": "Auf dieser Seite",
+    "related": "Weiterlesen",
+    "section": "Abschnitt",
+    "playbook": "Praxisleitfaden",
+    "topic": "Thema",
+    "grade": "Stufe",
+    "health": "Gesundheit",
+    "gradeTable": "Stufentabelle",
+    "peakMonths": "Spitzenmonate",
+    "peakSeason": "Hauptsaison",
+    "representativePlants": "Typische Pflanzen",
+    "seasonHighlights": "Saison-Highlights",
+    "planningRule": "Planungsregel"
+  },
   "affiliate": {
     "sectionTitle": "Allergie-Produkte",
     "mask": "😷 Allergiemaske",
