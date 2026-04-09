@@ -5,13 +5,13 @@ import { selectHero } from '@repo/normalizer';
 import { useTranslations } from 'next-intl';
 
 const BG: Record<string, string> = {
-  low:        'from-green-400 to-green-600',
-  moderate:   'from-yellow-400 to-yellow-500',
-  high:       'from-orange-400 to-orange-600',
-  'very-high':'from-red-500 to-red-700',
-  good:       'from-green-400 to-green-600',
-  bad:        'from-orange-400 to-orange-600',
-  'very-bad': 'from-red-500 to-red-700',
+  low:        'bg-[var(--ach-data-low)]',
+  moderate:   'bg-[var(--ach-data-moderate)]',
+  high:       'bg-[var(--ach-data-high)]',
+  'very-high':'bg-[var(--ach-data-extreme)]',
+  good:       'bg-[var(--ach-data-low)]',
+  bad:        'bg-[var(--ach-data-high)]',
+  'very-bad': 'bg-[var(--ach-data-extreme)]',
 };
 
 const POLLEN_LEVELS = ['low', 'moderate', 'high', 'very-high'];
@@ -43,7 +43,7 @@ export function HeroCard({ pollen, dust }: Props) {
   const metricLabel = hero.metric === 'pollen' ? t('pollen.title').replace('오늘의 ', '') : t('dust.title');
 
   return (
-    <div className={`rounded-3xl bg-gradient-to-br ${bg} p-8 text-white shadow-lg`} role="status" aria-live="polite" aria-label={`${metricLabel}: ${hero.numericValue}, ${displayLabel}. ${advice}`}>
+    <div className={`rounded-lg ${bg} p-8 text-white shadow-lg`} role="status" aria-live="polite" aria-label={`${metricLabel}: ${hero.numericValue}, ${displayLabel}. ${advice}`}>
       <p className="text-sm font-medium opacity-80">{metricLabel} 지수</p>
       <div className="mt-1 flex items-baseline gap-3">
         <p className="text-7xl font-bold tracking-tight">{hero.numericValue}</p>
