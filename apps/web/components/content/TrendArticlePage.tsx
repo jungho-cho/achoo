@@ -73,7 +73,7 @@ export function TrendArticlePage({
         </section>
 
         <section className="trend-card trend-rise rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-green-600">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--ach-accent)]">
             {chrome.ctaEyebrow}
           </p>
           <h2 className="ach-editorial-title mt-3 text-2xl font-bold tracking-tight text-gray-900">
@@ -85,7 +85,7 @@ export function TrendArticlePage({
           <div className="mt-5 flex flex-wrap gap-3">
             <a
               href={`/${locale}${article.content.cta.primaryHref}`}
-              className="inline-flex items-center rounded-2xl bg-green-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
+              className="inline-flex items-center rounded-2xl bg-[var(--ach-accent)] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[var(--ach-accent-strong)]"
             >
               {article.content.cta.primaryLabel}
             </a>
