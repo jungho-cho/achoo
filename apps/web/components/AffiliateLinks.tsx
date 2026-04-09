@@ -60,9 +60,9 @@ export function AffiliateLinks() {
   const t = useTranslations('ui');
   const region = useUserRegion();
 
-  if (region === null) return null;
+  if (region !== 'kr') return null;
 
-  const products = region === 'kr' ? COUPANG_PRODUCTS : AMAZON_EU_PRODUCTS;
+  const products = COUPANG_PRODUCTS;
 
   return (
     <div className="ach-panel px-4 py-4">
