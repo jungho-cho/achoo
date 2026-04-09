@@ -47,12 +47,12 @@ export function SymptomDiary() {
     .sort((a, b) => b.date.localeCompare(a.date));
 
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
-      <p className="mb-1 text-sm font-semibold text-gray-800">
+    <div className="rounded-lg border border-[var(--ach-line-light)] bg-[var(--ach-surface)] p-4 shadow-sm">
+      <p className="mb-1 text-sm font-semibold text-[var(--ach-text-primary)]">
         {t("diary.title")}
       </p>
       {recent.length === 0 && (
-        <p className="mb-3 text-xs leading-6 text-gray-600">
+        <p className="mb-3 text-xs leading-6 text-[var(--ach-text-muted)]">
           {t("diary.description")}
         </p>
       )}
@@ -67,17 +67,17 @@ export function SymptomDiary() {
               onClick={() => handleSelect(opt.value)}
               aria-label={t(opt.label)}
               aria-pressed={isSelected}
-              className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-xl transition-colors ${
+              className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-lg transition-colors ${
                 isSelected
-                  ? "border-2 border-green-600 bg-green-200 text-green-950 shadow-sm"
-                  : "border-2 border-transparent bg-gray-100 text-gray-800 hover:bg-gray-50"
+                  ? "border-2 border-[var(--ach-accent)] bg-[var(--ach-accent-soft)] text-[var(--ach-text-primary)] shadow-sm"
+                  : "border-2 border-transparent bg-[var(--ach-surface-soft)] text-[var(--ach-text-primary)] hover:bg-[var(--ach-surface-strong)]"
               }`}
             >
               <span className={isSelected ? "text-xl drop-shadow-[0_1px_0_rgba(255,255,255,0.35)]" : "text-xl"}>
                 {opt.emoji}
               </span>
               <span
-                className={`text-[11px] ${isSelected ? "font-bold text-green-950" : "font-medium text-gray-700"}`}
+                className={`text-[11px] ${isSelected ? "font-bold text-[var(--ach-accent-strong)]" : "font-medium text-[var(--ach-text-secondary)]"}`}
               >
                 {t(opt.label)}
               </span>
@@ -90,7 +90,7 @@ export function SymptomDiary() {
       {todayEntry && todayEntry.severity > 0 && (
         <a
           href={`/${locale}/tips`}
-          className="mt-3 flex items-center justify-center gap-1 text-xs font-semibold text-green-700 hover:text-green-800"
+          className="mt-3 flex items-center justify-center gap-1 text-xs font-semibold text-[var(--ach-accent)] hover:text-[var(--ach-accent-strong)]"
         >
           {t("diary.expandCta")} →
         </a>
@@ -112,7 +112,7 @@ export function SymptomDiary() {
                 className="flex flex-col items-center gap-0.5"
               >
                 <span className="text-xs">{opt?.emoji}</span>
-                <span className="text-[10px] text-gray-500">{dayLabel}</span>
+                <span className="text-[10px] text-[var(--ach-text-muted)]">{dayLabel}</span>
               </div>
             );
           })}
