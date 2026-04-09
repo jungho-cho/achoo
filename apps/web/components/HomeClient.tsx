@@ -47,10 +47,10 @@ export function HomeClient({ ssrPollen }: Props) {
         aria-busy="true"
       >
         <div
-          className="w-8 h-8 rounded-full border-2 border-gray-200 border-t-green-500 animate-spin"
+          className="w-8 h-8 rounded-full border-2 border-[var(--ach-line-light)] border-t-[var(--ach-accent)] animate-spin"
           aria-hidden="true"
         />
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-[var(--ach-text-muted)]">
           {loadingPhase === "location"
             ? t("loading.location")
             : t("loading.data")}
@@ -63,9 +63,9 @@ export function HomeClient({ ssrPollen }: Props) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen gap-2 px-6 text-center">
         <p className="text-2xl">😵</p>
-        <p className="text-gray-600">{error ?? t("error.fetchFailed")}</p>
+        <p className="text-[var(--ach-text-muted)]">{error ?? t("error.fetchFailed")}</p>
         <button
-          className="mt-2 px-4 py-2 text-sm rounded-xl bg-gray-100 text-gray-600"
+          className="mt-2 px-4 py-2 text-sm rounded-lg bg-[var(--ach-surface)] text-[var(--ach-text-muted)]"
           onClick={() => window.location.reload()}
         >
           {t("error.retry")}
@@ -85,10 +85,10 @@ export function HomeClient({ ssrPollen }: Props) {
     : cityName || null;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[var(--ach-bg)]">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-gray-900 focus:rounded-lg focus:shadow-lg"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-[var(--ach-surface)] focus:text-[var(--ach-text-primary)] focus:rounded-lg focus:shadow-lg"
       >
         Skip to main content
       </a>
@@ -99,22 +99,22 @@ export function HomeClient({ ssrPollen }: Props) {
         {/* Header with location */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <h1 className="text-xl font-bold text-gray-900">🤧 Achoo</h1>
+            <h1 className="text-xl font-bold text-[var(--ach-accent)]">🤧 Achoo</h1>
             {locationLabel && (
-              <span className="text-sm text-gray-600">📍 {locationLabel}</span>
+              <span className="text-sm text-[var(--ach-text-muted)]">📍 {locationLabel}</span>
             )}
             {!locationLabel && !inKorea && (
-              <span className="text-sm text-gray-600">🌍</span>
+              <span className="text-sm text-[var(--ach-text-muted)]">🌍</span>
             )}
             <button
               onClick={refreshLocation}
               disabled={loading}
               aria-label="현재 위치 새로고침"
               title="새로고침"
-              className={`p-1 -ml-1 text-gray-400 hover:text-gray-700 hover:bg-gray-200 rounded-full transition-colors duration-300 ${loading ? "opacity-50 cursor-not-allowed" : "active:rotate-180"}`}
+              className={`p-1 -ml-1 text-[var(--ach-text-muted)] hover:text-[var(--ach-text-primary)] hover:bg-[var(--ach-surface)] rounded transition-colors duration-300 ${loading ? "opacity-50 cursor-not-allowed" : "active:rotate-180"}`}
             >
               <svg
-                className={`w-3.5 h-3.5 ${loading ? "animate-spin text-green-500" : ""}`}
+                className={`w-3.5 h-3.5 ${loading ? "animate-spin text-[var(--ach-accent)]" : ""}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -129,13 +129,13 @@ export function HomeClient({ ssrPollen }: Props) {
             </button>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-xs text-gray-500">{headerDateLabel}</span>
+            <span className="text-xs text-[var(--ach-text-muted)]">{headerDateLabel}</span>
             <LocaleSwitcher />
           </div>
         </div>
 
         {/* SEO intro text — visible to crawlers and users */}
-        <p className="text-sm text-gray-600">{t("decision.intro")}</p>
+        <p className="text-sm text-[var(--ach-text-muted)]">{t("decision.intro")}</p>
 
         {/* 2-column grid on desktop, single column on mobile */}
         <div className="md:grid md:grid-cols-2 md:gap-6 space-y-4 md:space-y-0">
@@ -151,10 +151,10 @@ export function HomeClient({ ssrPollen }: Props) {
             />
 
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--ach-text-muted)]">
                 {t("decision.feedbackTitle")}
               </p>
-              <p className="mt-1 text-sm text-gray-600">
+              <p className="mt-1 text-sm text-[var(--ach-text-muted)]">
                 {t("decision.feedbackDesc")}
               </p>
               <div className="mt-3">
@@ -165,13 +165,13 @@ export function HomeClient({ ssrPollen }: Props) {
 
           {/* Right column: species + forecast */}
           <div className="space-y-4">
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 px-4 py-1">
-              <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wide pt-3 pb-1">
+            <div className="bg-[var(--ach-surface)] rounded-lg shadow-sm border border-[var(--ach-line-light)] px-4 py-1">
+              <h2 className="text-[11px] font-semibold text-[var(--ach-text-muted)] uppercase tracking-widest pt-3 pb-1">
                 {t("pollen.title")}
               </h2>
               {pollen.offSeason && (
-                <div className="px-3 py-2 my-2 rounded-xl bg-blue-50 border border-blue-100">
-                  <p className="text-xs text-blue-700">
+                <div className="px-3 py-2 my-2 rounded-lg bg-[var(--ach-secondary-soft)] border border-[rgba(61,75,114,0.15)]">
+                  <p className="text-xs text-[var(--ach-secondary)]">
                     {t("pollen.offSeason")}
                   </p>
                 </div>
@@ -193,37 +193,37 @@ export function HomeClient({ ssrPollen }: Props) {
         >
           <a
             href={`/${locale}/tips`}
-            className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
+            className="flex items-center justify-between px-4 py-3 bg-[var(--ach-surface)] rounded-lg shadow-sm border border-[var(--ach-line-light)] hover:bg-[var(--ach-surface-strong)] transition-colors"
           >
-            <span className="text-sm font-medium text-gray-700">
+            <span className="text-sm font-medium text-[var(--ach-text-secondary)]">
               💡 {t("nav.tips")}
             </span>
-            <span className="text-gray-500 text-sm">→</span>
+            <span className="text-[var(--ach-text-muted)] text-sm">→</span>
           </a>
           <a
             href={`/${locale}/pollen-info`}
-            className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
+            className="flex items-center justify-between px-4 py-3 bg-[var(--ach-surface)] rounded-lg shadow-sm border border-[var(--ach-line-light)] hover:bg-[var(--ach-surface-strong)] transition-colors"
           >
-            <span className="text-sm font-medium text-gray-700">
+            <span className="text-sm font-medium text-[var(--ach-text-secondary)]">
               🌳 {t("nav.pollenInfo")}
             </span>
-            <span className="text-gray-500 text-sm">→</span>
+            <span className="text-[var(--ach-text-muted)] text-sm">→</span>
           </a>
           <a
             href={`/${locale}/insights`}
-            className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
+            className="flex items-center justify-between px-4 py-3 bg-[var(--ach-surface)] rounded-lg shadow-sm border border-[var(--ach-line-light)] hover:bg-[var(--ach-surface-strong)] transition-colors"
           >
-            <span className="text-sm font-medium text-gray-700">
+            <span className="text-sm font-medium text-[var(--ach-text-secondary)]">
               📰 {insightsChrome.navLabel}
             </span>
-            <span className="text-gray-500 text-sm">→</span>
+            <span className="text-[var(--ach-text-muted)] text-sm">→</span>
           </a>
           {/* 지역별 예보 링크 — 비활성화
           <a
             href={`/${locale}/regions`}
-            className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
+            className="flex items-center justify-between px-4 py-3 bg-[var(--ach-surface)] rounded-lg shadow-sm border border-[var(--ach-line-light)] hover:bg-[var(--ach-surface-strong)] transition-colors"
           >
-            <span className="text-sm font-medium text-gray-700">📍 지역별 예보</span>
+            <span className="text-sm font-medium text-[var(--ach-text-secondary)]">📍 지역별 예보</span>
             <span className="text-gray-400 text-sm">→</span>
           </a>
           */}
@@ -235,20 +235,20 @@ export function HomeClient({ ssrPollen }: Props) {
             const tmrw = forecast[0];
             if (!tmrw) return null;
             const DOT_COLOR: Record<string, string> = {
-              low: "bg-green-500",
-              moderate: "bg-yellow-400",
-              high: "bg-orange-500",
-              "very-high": "bg-red-500",
+              low: "bg-[var(--ach-data-low)]",
+              moderate: "bg-[var(--ach-data-moderate)]",
+              high: "bg-[var(--ach-data-high)]",
+              "very-high": "bg-[var(--ach-data-extreme)]",
             };
             return (
               <div className="flex items-center justify-center gap-2 py-2">
-                <span className="text-xs text-gray-500">
+                <span className="text-xs text-[var(--ach-text-muted)]">
                   {t("days.tomorrow")} 예보
                 </span>
                 <span
-                  className={`w-2 h-2 rounded-full ${DOT_COLOR[tmrw.overallLevel] ?? "bg-gray-300"}`}
+                  className={`w-2 h-2 rounded-full ${DOT_COLOR[tmrw.overallLevel] ?? "bg-[var(--ach-line)]"}`}
                 />
-                <span className="text-xs font-medium text-gray-600">
+                <span className="text-xs font-medium text-[var(--ach-text-secondary)]">
                   {t(`pollenLevel.${tmrw.overallLevel}` as "pollenLevel.low")}
                 </span>
               </div>
@@ -256,36 +256,36 @@ export function HomeClient({ ssrPollen }: Props) {
           })()}
 
         <nav
-          className="flex flex-wrap justify-center gap-x-3 gap-y-1 pt-2 text-xs text-gray-500"
+          className="flex flex-wrap justify-center gap-x-3 gap-y-1 pt-2 text-xs text-[var(--ach-text-muted)]"
           aria-label="Footer navigation"
         >
-          <a href={`/${locale}/allergy-types`} className="hover:text-gray-600">
+          <a href={`/${locale}/allergy-types`} className="hover:text-[var(--ach-text-secondary)]">
             {t("nav.allergyTypes")}
           </a>
           <span>·</span>
           <a
             href={`/${locale}/seasonal-calendar`}
-            className="hover:text-gray-600"
+            className="hover:text-[var(--ach-text-secondary)]"
           >
             {t("nav.seasonalCalendar")}
           </a>
           <span>·</span>
           <a
             href={`/${locale}/prevention-guide`}
-            className="hover:text-gray-600"
+            className="hover:text-[var(--ach-text-secondary)]"
           >
             {t("nav.preventionGuide")}
           </a>
           <span>·</span>
-          <a href={`/${locale}/dust-guide`} className="hover:text-gray-600">
+          <a href={`/${locale}/dust-guide`} className="hover:text-[var(--ach-text-secondary)]">
             {t("nav.dustGuide")}
           </a>
           <span>·</span>
-          <a href={`/${locale}/faq`} className="hover:text-gray-600">
+          <a href={`/${locale}/faq`} className="hover:text-[var(--ach-text-secondary)]">
             {t("nav.faq")}
           </a>
           <span>·</span>
-          <a href={`/${locale}/privacy`} className="hover:text-gray-600">
+          <a href={`/${locale}/privacy`} className="hover:text-[var(--ach-text-secondary)]">
             {t("nav.privacy")}
           </a>
         </nav>
