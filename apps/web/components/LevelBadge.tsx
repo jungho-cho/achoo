@@ -9,10 +9,10 @@ const CONFIG: Record<Level, { bg: string; text: string; dot: string; icon: strin
   low:        { bg: 'bg-[rgba(138,158,126,0.08)]', text: 'text-[#5C7252]',  dot: 'bg-[var(--ach-data-low)]', icon: '✓' },
   moderate:   { bg: 'bg-[rgba(212,168,71,0.08)]',  text: 'text-[#9A7B20]',  dot: 'bg-[var(--ach-data-moderate)]', icon: '▲' },
   high:       { bg: 'bg-[rgba(184,76,47,0.08)]',   text: 'text-[#9A3B1A]',  dot: 'bg-[var(--ach-data-high)]', icon: '⚠' },
-  'very-high':{ bg: 'bg-[rgba(58,37,53,0.08)]',    text: 'text-[#3A2535]',  dot: 'bg-[var(--ach-data-extreme)]', icon: '‼' },
+  'very-high':{ bg: 'bg-[rgba(192,57,43,0.08)]',    text: 'text-[#C0392B]',  dot: 'bg-[var(--ach-data-extreme)]', icon: '‼' },
   good:       { bg: 'bg-[rgba(138,158,126,0.08)]', text: 'text-[#5C7252]',  dot: 'bg-[var(--ach-data-low)]', icon: '✓' },
   bad:        { bg: 'bg-[rgba(184,76,47,0.08)]',   text: 'text-[#9A3B1A]',  dot: 'bg-[var(--ach-data-high)]', icon: '⚠' },
-  'very-bad': { bg: 'bg-[rgba(58,37,53,0.08)]',    text: 'text-[#3A2535]',  dot: 'bg-[var(--ach-data-extreme)]', icon: '‼' },
+  'very-bad': { bg: 'bg-[rgba(192,57,43,0.08)]',    text: 'text-[#C0392B]',  dot: 'bg-[var(--ach-data-extreme)]', icon: '‼' },
 };
 
 const POLLEN_LEVELS = ['low', 'moderate', 'high', 'very-high'];

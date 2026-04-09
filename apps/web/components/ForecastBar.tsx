@@ -15,7 +15,7 @@ const LEVEL_TEXT: Record<string, string> = {
   low: "text-[#5C7252]",
   moderate: "text-[#9A7B20]",
   high: "text-[#9A3B1A]",
-  "very-high": "text-[#3A2535]",
+  "very-high": "text-[#C0392B]",
 };
 
 const DAY_KEYS = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"] as const;

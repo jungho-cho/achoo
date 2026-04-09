@@ -96,7 +96,7 @@
 | Low | 낮음 | Sage Stone | `#8A9E7E` |
 | Moderate | 보통 | Amber Wheat | `#D4A847` |
 | High | 높음 | Terra Cotta | `#B84C2F` |
-| Extreme | 매우높음 | Charcoal Plum | `#3A2535` |
+| Extreme | 매우높음 | Alert Red | `#C0392B` |
 
 ### Semantic Colors
 - Success: `#6B8F5E`
