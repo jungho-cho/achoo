@@ -17,16 +17,27 @@
 - **Mood:** Quiet authority. Like something that's been observing pollen for decades. Not anxious, not clinical, not generic wellness.
 
 ## Typography
-- **Display/Hero (Latin):** Instrument Serif — free, editorial authority, warm at large sizes
-- **Body (Latin):** Satoshi — free geometric sans, clean and modern without being generic
-- **Korean:** Pretendard — maintained, loaded via CDN for `locale === 'ko'`
+
+### Korean (ko locale)
+- **Display/Hero:** Noto Serif KR — Google Fonts 무료, 한국 에디토리얼 사이트에서 가장 많이 사용되는 세리프. 권위감 있는 헤드라인.
+- **Body:** Pretendard — 한국 웹에서 가장 인기 있는 무료 산세리프. 가독성 최고.
+- **UI/Labels:** Pretendard (same as body)
+- **Data/Tables:** D2Coding — 네이버 오픈소스 고정폭 폰트, tabular-nums 지원, 한국 개발자에게 익숙
+- **Code:** D2Coding
+
+### International (en/de/fr locales)
+- **Display/Hero:** Instrument Serif — Google Fonts 무료, 에디토리얼 권위감
+- **Body:** Satoshi — Fontshare 무료, 깔끔한 지오메트릭 산세리프
 - **UI/Labels:** Satoshi (same as body)
-- **Data/Tables:** Geist Mono — supports `font-variant-numeric: tabular-nums` for pollen counts
+- **Data/Tables:** Geist Mono — tabular-nums 지원, 데이터 정렬에 최적
 - **Code:** Geist Mono
-- **Loading:**
+
+### Loading
+  - Noto Serif KR: Google Fonts (`fonts.googleapis.com`)
+  - Pretendard: jsDelivr CDN (existing, `cdn.jsdelivr.net/gh/orioncactus/pretendard`)
+  - D2Coding: GitHub CDN (`cdn.jsdelivr.net/gh/naver/d2codingfont`)
   - Instrument Serif: Google Fonts
   - Satoshi: Fontshare CDN (`api.fontshare.com`)
-  - Pretendard: jsDelivr CDN (existing)
   - Geist Mono: self-hosted or Vercel CDN
 - **Scale:**
   - Hero: `clamp(48px, 8vw, 80px)`
@@ -185,6 +196,7 @@
 | Date | Decision | Rationale |
 |------|----------|-----------|
 | 2026-04-09 | Redesign: Atmospheric Journal direction | Competitive research + Codex + Claude subagent all agreed: break from medical green. Parchment + Burnt Sienna + editorial layout differentiates from every competitor. |
-| 2026-04-09 | Instrument Serif + Satoshi fonts | Free, high-quality. Codex proposed Suisse Int'l (paid), subagent proposed Clash Display + DM Mono. This balances editorial authority with availability. |
+| 2026-04-09 | Korean: Noto Serif KR + Pretendard + D2Coding | 한국 사이트에서 가장 많이 쓰이는 무료 폰트 조합. Noto Serif KR(에디토리얼), Pretendard(본문), D2Coding(데이터). |
+| 2026-04-09 | International: Instrument Serif + Satoshi + Geist Mono | 다국어(en/de/fr)용 별도 폰트 스택. 에디토리얼 권위감 + 모던 산세리프 + 데이터 모노. |
 | 2026-04-09 | "Dried Botanical" color palette | Every competitor uses green. Warm earth tones reposition Achoo as "natural phenomenon observatory" vs "health app." |
 | 2026-04-09 | Border radius reduced to 4-12px | Previous 2rem/32px rounds were generic wellness-app. Tighter radii match the editorial/instrument aesthetic. |
