@@ -82,7 +82,7 @@ export function ArticleLayout({
                     key={`${item.label}-${item.value}`}
                     className={`rounded-[1.35rem] border px-4 py-3 ${toneClass(item.tone)}`}
                   >
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] opacity-70">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em]">
                       {item.label}
                     </p>
                     <p className="mt-2 text-xs font-medium leading-6 md:text-sm">

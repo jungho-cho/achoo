@@ -70,7 +70,7 @@ export function toneClass(tone: SummaryItem["tone"] = "gray"): string {
     case "green":
       return "border-[#d9eadf] bg-[#eef6ef] text-[#2f6f53]";
     case "amber":
-      return "border-[#ecd8ab] bg-[#fbf2de] text-[#9a6b19]";
+      return "border-[#ecd8ab] bg-[#fbf2de] text-[#8b5a12]";
     case "blue":
       return "border-[#d7e7f0] bg-[#edf5f9] text-[#41687d]";
     case "rose":
