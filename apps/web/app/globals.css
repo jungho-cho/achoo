@@ -2,46 +2,59 @@
 @import "@repo/tailwind-config";
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  --ach-text-muted: #5b6661;
-  --ach-text-subtle: #707a75;
-  --ach-line: #dde5e0;
-  --ach-accent: #2f6f53;
-  --ach-accent-strong: #24513d;
-  --ach-accent-soft: #e5f1e7;
-  --ach-surface-soft: #f6f8f6;
+  --ach-bg: #F3EEE6;
+  --ach-surface: #E6DED2;
+  --ach-surface-strong: #D8CEBF;
+  --ach-surface-soft: #EDE8DC;
+  --ach-text-primary: #1E1A14;
+  --ach-text-secondary: #3B3529;
+  --ach-text-muted: #7A6F5E;
+  --ach-text-subtle: #9A8E7C;
+  --ach-line: #C9BFA8;
+  --ach-line-light: #DDD5C6;
+  --ach-accent: #B85C38;
+  --ach-accent-strong: #8E4428;
+  --ach-accent-soft: rgba(184, 92, 56, 0.1);
+  --ach-secondary: #3D4B72;
+  --ach-secondary-soft: rgba(61, 75, 114, 0.12);
+  --ach-data-low: #8A9E7E;
+  --ach-data-moderate: #D4A847;
+  --ach-data-high: #B84C2F;
+  --ach-data-extreme: #3A2535;
+  --ach-success: #6B8F5E;
+  --ach-warning: #C9922A;
+  --ach-error: #B84C2F;
+  --ach-info: #3D4B72;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-    --ach-text-muted: #b4c0bb;
-    --ach-text-subtle: #8f9994;
-    --ach-line: rgba(255, 255, 255, 0.12);
-    --ach-accent: #8abf78;
-    --ach-accent-strong: #9dd58a;
-    --ach-accent-soft: rgba(138, 191, 120, 0.16);
-    --ach-surface-soft: rgba(255, 255, 255, 0.05);
+    --ach-bg: #1A1714;
+    --ach-surface: #252119;
+    --ach-surface-strong: #302A21;
+    --ach-surface-soft: #1F1C16;
+    --ach-text-primary: #E8E0D4;
+    --ach-text-secondary: #C4BAA8;
+    --ach-text-muted: #8A7F6E;
+    --ach-text-subtle: #6E645A;
+    --ach-line: #3D362C;
+    --ach-line-light: #2E2820;
+    --ach-accent: #D4845E;
+    --ach-accent-strong: #E89A74;
+    --ach-accent-soft: rgba(212, 132, 94, 0.12);
+    --ach-secondary: #7E90B8;
+    --ach-secondary-soft: rgba(126, 144, 184, 0.12);
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--ach-text-primary);
+  background: var(--ach-bg);
 }
 
 .ach-page {
   min-height: 100vh;
-  background: #f8faf8;
+  background: var(--ach-bg);
 }
 
 .ach-page-shell {
@@ -55,22 +68,22 @@ body {
 }
 
 .ach-panel {
-  border: 1px solid #e5e7eb;
-  border-radius: 2rem;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+  border: 1px solid var(--ach-line-light);
+  border-radius: 8px;
+  background: var(--ach-surface);
+  box-shadow: 0 4px 16px rgba(30, 26, 20, 0.04);
 }
 
 .ach-panel-strong {
-  border: 1px solid #e5e7eb;
-  border-radius: 2rem;
-  background: #fff;
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+  border: 1px solid var(--ach-line-light);
+  border-radius: 8px;
+  background: var(--ach-surface-strong);
+  box-shadow: 0 4px 16px rgba(30, 26, 20, 0.04);
 }
 
 .ach-panel-soft {
-  border: 1px solid var(--ach-line);
-  border-radius: 1.5rem;
+  border: 1px solid var(--ach-line-light);
+  border-radius: 8px;
   background: var(--ach-surface-soft);
 }
 
@@ -78,10 +91,10 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border: 1px solid var(--ach-line);
-  border-radius: 999px;
+  border: 1px solid var(--ach-line-light);
+  border-radius: 4px;
   padding: 0.5rem 0.875rem;
-  background: #fff;
+  background: var(--ach-surface);
   color: var(--ach-text-muted);
   font-size: 0.8125rem;
   font-weight: 600;
@@ -92,22 +105,22 @@ body {
 }
 
 .ach-top-link:hover {
-  color: #111827;
-  background: #f9fafb;
+  color: var(--ach-text-primary);
+  background: var(--ach-surface-strong);
 }
 
 .ach-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border: 1px solid #d7e7db;
-  border-radius: 999px;
+  border: 1px solid var(--ach-line-light);
+  border-radius: 4px;
   padding: 0.5rem 0.75rem;
-  background: #eef6ef;
+  background: var(--ach-accent-soft);
   color: var(--ach-accent);
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -141,12 +154,12 @@ body {
   background:
     radial-gradient(
       circle at top right,
-      rgba(34, 197, 94, 0.08),
+      rgba(184, 92, 56, 0.05),
       transparent 34%
     ),
     radial-gradient(
       circle at bottom left,
-      rgba(14, 165, 233, 0.07),
+      rgba(61, 75, 114, 0.04),
       transparent 28%
     );
 }
