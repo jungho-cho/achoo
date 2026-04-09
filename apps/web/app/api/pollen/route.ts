@@ -38,7 +38,7 @@ function addDisplayValues(data: PollenResponse): PollenResponse {
 
 // GET /api/pollen?lat=37.5665&lng=126.9780
 export async function GET(req: NextRequest) {
-  const { allowed, remaining, resetAt } = await checkRateLimit(getClientIp(req));
+  const { allowed, resetAt } = await checkRateLimit(getClientIp(req));
   if (!allowed) {
     return NextResponse.json(
       { error: '요청이 너무 많습니다. 잠시 후 다시 시도하세요.' },

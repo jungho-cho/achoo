@@ -65,7 +65,7 @@ export function SymptomDiary() {
             <button
               key={opt.value}
               onClick={() => handleSelect(opt.value)}
-              aria-label={t(opt.label as any)}
+              aria-label={t(opt.label)}
               aria-pressed={isSelected}
               className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-xl transition-colors ${
                 isSelected
@@ -79,7 +79,7 @@ export function SymptomDiary() {
               <span
                 className={`text-[11px] ${isSelected ? "font-bold text-green-950" : "font-medium text-gray-700"}`}
               >
-                {t(opt.label as any)}
+                {t(opt.label)}
               </span>
             </button>
           );

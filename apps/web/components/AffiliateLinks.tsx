@@ -4,11 +4,20 @@ import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { isInKorea } from '../lib/sido';
 
+type AffiliateProductKey = 'mask' | 'purifier' | 'eyeDrops' | 'antihistamine';
+
 interface AffiliateProduct {
-  key: string;
+  key: AffiliateProductKey;
   url: string;
   desc: string;
 }
+
+const AFFILIATE_LABEL_KEYS: Record<AffiliateProductKey, `affiliate.${AffiliateProductKey}`> = {
+  mask: 'affiliate.mask',
+  purifier: 'affiliate.purifier',
+  eyeDrops: 'affiliate.eyeDrops',
+  antihistamine: 'affiliate.antihistamine',
+};
 
 const COUPANG_PRODUCTS: AffiliateProduct[] = [
   { key: 'mask', desc: '꽃가루 차단율 94%', url: 'https://link.coupang.com/a/ecRkTU' },
@@ -67,10 +76,10 @@ export function AffiliateLinks() {
             href={p.url}
             target="_blank"
             rel="noopener noreferrer sponsored"
-            aria-label={`${t(`affiliate.${p.key}` as any)} - ${p.desc}`}
+            aria-label={`${t(AFFILIATE_LABEL_KEYS[p.key])} - ${p.desc}`}
             className="flex flex-col gap-1 rounded-2xl border border-gray-300 bg-gray-50 p-3 transition hover:bg-white"
           >
-            <span className="text-sm font-semibold text-gray-900">{t(`affiliate.${p.key}` as any)}</span>
+            <span className="text-sm font-semibold text-gray-900">{t(AFFILIATE_LABEL_KEYS[p.key])}</span>
             <span className="text-xs font-medium leading-5 text-gray-700">{p.desc}</span>
           </a>
         ))}

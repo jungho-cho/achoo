@@ -46,7 +46,7 @@ function jsonWithCors(data: unknown, init?: { status?: number; headers?: Record<
 
 // GET /api/dust?sido=서울  OR  /api/dust?lat=37.5&lng=127.0
 export async function GET(req: NextRequest) {
-  const { allowed, remaining, resetAt } = await checkRateLimit(getClientIp(req));
+  const { allowed, resetAt } = await checkRateLimit(getClientIp(req));
   if (!allowed) {
     return jsonWithCors(
       { error: '요청이 너무 많습니다. 잠시 후 다시 시도하세요.' },

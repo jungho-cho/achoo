@@ -11,11 +11,15 @@ const LEVEL_RANGE: Record<PollenLevel, string> = {
 };
 
 // Per-species grains/m³ thresholds
+const TREE_THRESHOLDS: [number, number, number] = [10, 50, 100];
+
 const THRESHOLDS: Record<PollenSpecies, [number, number, number]> = {
   // [moderate, high, very-high]
-  tree: [10, 50, 100],
+  tree: TREE_THRESHOLDS,
   grass: [5, 25, 50],
   weed: [5, 15, 30],
+  pine: TREE_THRESHOLDS,
+  oak: TREE_THRESHOLDS,
 };
 
 export function grainsTolevel(grainsPerM3: number, species: PollenSpecies): PollenLevel {

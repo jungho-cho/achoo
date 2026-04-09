@@ -146,12 +146,18 @@ export async function fetchPollenKma(
   const forecastDays: PollenForecastDay[] = [];
   const dayFields = ['tomorrow', 'dayaftertomorrow', 'twodaysaftertomorrow'] as const;
 
-  for (let i = 0; i < dayFields.length; i++) {
-    const field = dayFields[i];
+  const year = Number(todayDate.slice(0, 4));
+  const month = Number(todayDate.slice(5, 7));
+  const dayOfMonth = Number(todayDate.slice(8, 10));
+
+  for (const [i, field] of dayFields.entries()) {
     const readings: PollenReading[] = [];
-    const pineVal = pine?.[field] ? kmaValueToReading(pine[field], 'pine') : null;
-    const oakVal = oak?.[field] ? kmaValueToReading(oak[field], 'oak') : null;
-    const weedVal = weed?.[field] ? kmaValueToReading(weed[field], 'weed') : null;
+    const pineRisk = pine?.[field];
+    const oakRisk = oak?.[field];
+    const weedRisk = weed?.[field];
+    const pineVal = pineRisk ? kmaValueToReading(pineRisk, 'pine') : null;
+    const oakVal = oakRisk ? kmaValueToReading(oakRisk, 'oak') : null;
+    const weedVal = weedRisk ? kmaValueToReading(weedRisk, 'weed') : null;
 
     if (pineVal) readings.push(pineVal);
     if (oakVal) readings.push(oakVal);
@@ -161,8 +167,7 @@ export async function fetchPollenKma(
 
     // Compute KST date by parsing todayDate and adding days manually
     // (toISOString() would convert to UTC and shift the date)
-    const [y, m, day] = todayDate.split('-').map(Number);
-    const d = new Date(y, m - 1, day + i + 1);
+    const d = new Date(year, month - 1, dayOfMonth + i + 1);
     const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 
     forecastDays.push({

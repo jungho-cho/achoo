@@ -127,8 +127,6 @@ export function usePollenData(): UsePollenDataResult {
     setLoadingPhase('data');
     setError(null);
 
-    const korea = isInKorea(location.lat, location.lng);
-
     // Always fetch pollen (Open-Meteo is global)
     const pollenFetch = fetch(`/api/pollen?lat=${location.lat}&lng=${location.lng}`, {
       signal: controller.signal,

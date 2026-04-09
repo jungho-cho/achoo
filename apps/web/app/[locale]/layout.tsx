@@ -2,7 +2,7 @@ import Script from "next/script";
 import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
-import { routing } from "../../i18n/routing";
+import { hasLocale, routing, type AppLocale } from "../../i18n/routing";
 import { notFound } from "next/navigation";
 
 export const viewport: Viewport = {
@@ -11,7 +11,7 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const LOCALE_META: Record<string, { ogLocale: string; font?: string }> = {
+const LOCALE_META: Record<AppLocale, { ogLocale: string; font?: string }> = {
   ko: { ogLocale: 'ko_KR', font: 'Pretendard' },
   de: { ogLocale: 'de_DE' },
   en: { ogLocale: 'en_US' },
@@ -23,9 +23,10 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
+  const { locale: requestedLocale } = await params;
+  const locale = hasLocale(requestedLocale) ? requestedLocale : routing.defaultLocale;
   const t = await getTranslations({ locale, namespace: 'ui.metadata' });
-  const localeMeta = LOCALE_META[locale] ?? LOCALE_META.en!;
+  const localeMeta = LOCALE_META[locale];
 
   return {
     metadataBase: new URL('https://achoo.day'),
@@ -78,12 +79,13 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const { locale: requestedLocale } = await params;
 
-  if (!routing.locales.includes(locale as any)) {
+  if (!hasLocale(requestedLocale)) {
     notFound();
   }
 
+  const locale = requestedLocale;
   setRequestLocale(locale);
   const messages = await getMessages();
 

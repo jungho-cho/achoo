@@ -23,6 +23,22 @@ describe('grainsTolevel — tree (thresholds: 10/50/100)', () => {
   });
 });
 
+describe('grainsTolevel — pine and oak follow tree thresholds', () => {
+  it('treats pine as a tree alias', () => {
+    expect(grainsTolevel(9.9, 'pine')).toBe('low');
+    expect(grainsTolevel(10, 'pine')).toBe('moderate');
+    expect(grainsTolevel(50, 'pine')).toBe('high');
+    expect(grainsTolevel(100, 'pine')).toBe('very-high');
+  });
+
+  it('treats oak as a tree alias', () => {
+    expect(grainsTolevel(9.9, 'oak')).toBe('low');
+    expect(grainsTolevel(10, 'oak')).toBe('moderate');
+    expect(grainsTolevel(50, 'oak')).toBe('high');
+    expect(grainsTolevel(100, 'oak')).toBe('very-high');
+  });
+});
+
 describe('grainsTolevel — grass (thresholds: 5/25/50)', () => {
   it('maps correctly across all levels', () => {
     expect(grainsTolevel(0, 'grass')).toBe('low');

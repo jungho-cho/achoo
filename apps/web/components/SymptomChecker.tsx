@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import type { PollenResponse, DustResponse, PollenLevel, DustLevel } from '@repo/shared-types';
-import type { DiaryEntry, Severity, SymptomId } from '../lib/diary';
+import type { DustLevel, DustResponse, PollenLevel, PollenResponse, PollenSpecies } from '@repo/shared-types';
+import type { DiaryEntry, Severity, SeverityMessageKey, SymptomId } from '../lib/diary';
 import { SYMPTOM_IDS, SEVERITY_IDS, loadEntries, saveTodayEntry, today } from '../lib/diary';
 
 interface SymptomCheckerProps {
@@ -13,11 +13,33 @@ interface SymptomCheckerProps {
 
 interface Advice {
   emoji: string;
-  titleKey: string;
-  descKey: string;
+  titleKey: `checker.advice.${AdviceId}.title`;
+  descKey: `checker.advice.${AdviceId}.desc`;
   priority: number;
   context?: string; // dynamic context like "오늘 나무 꽃가루 높음"
 }
+
+type AdviceId =
+  | 'pollenAlert'
+  | 'dustAlert'
+  | 'mask'
+  | 'stayIndoor'
+  | 'medicine'
+  | 'eyeDrops'
+  | 'sunglasses'
+  | 'nasalRinse'
+  | 'humidifier'
+  | 'warmDrink'
+  | 'shower'
+  | 'sleep'
+  | 'ventilation'
+  | 'clothes';
+
+type DynamicUiKey =
+  | `species.${PollenSpecies}`
+  | `pollenLevel.${PollenLevel}`
+  | `dustLevel.${DustLevel}`
+  | 'dust.title';
 
 function contextTone(label: string): string {
   if (
@@ -40,7 +62,10 @@ function contextTone(label: string): string {
   return 'border-green-300 bg-green-100';
 }
 
-function getPollenContext(pollen: PollenResponse | null | undefined, t: (key: string) => string): string | null {
+function getPollenContext(
+  pollen: PollenResponse | null | undefined,
+  t: (key: DynamicUiKey) => string,
+): string | null {
   if (!pollen) return null;
   const dominated = pollen.current.readings.reduce((a, b) =>
     a.numericValue >= b.numericValue ? a : b,
@@ -51,7 +76,10 @@ function getPollenContext(pollen: PollenResponse | null | undefined, t: (key: st
   return `${species} ${level}`;
 }
 
-function getDustContext(dust: DustResponse | null | undefined, t: (key: string) => string): string | null {
+function getDustContext(
+  dust: DustResponse | null | undefined,
+  t: (key: DynamicUiKey) => string,
+): string | null {
   if (!dust) return null;
   if (dust.current.level === 'good') return null;
   const level = t(`dustLevel.${dust.current.level}`);
@@ -167,8 +195,9 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
   }, []);
 
   const advices = generateAdvice(selectedSymptoms, severity, pollen, dust);
-  const pollenContext = getPollenContext(pollen, (key: string) => t(key as any));
-  const dustContext = getDustContext(dust, (key: string) => t(key as any));
+  const translateDynamic = (key: DynamicUiKey) => t(key);
+  const pollenContext = getPollenContext(pollen, translateDynamic);
+  const dustContext = getDustContext(dust, translateDynamic);
   const contextLabel = [pollenContext, dustContext].filter(Boolean).join(' · ');
 
   if (step === 'symptoms') {
@@ -202,7 +231,7 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
                   {s.emoji}
                 </span>
                 <span className={selected ? 'font-bold text-gray-900' : 'font-semibold text-gray-900'}>
-                  {t(s.i18nKey as any)}
+                  {t(s.i18nKey)}
                 </span>
               </button>
             );
@@ -232,7 +261,7 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
           <p className="mt-1 text-sm leading-6 text-gray-800">
             {selectedSymptoms.map((id) => {
               const sym = SYMPTOM_IDS.find((s) => s.id === id);
-              return sym ? t(sym.i18nKey as any) : id;
+              return sym ? t(sym.i18nKey) : id;
             }).join(', ')}
           </p>
         </div>
@@ -250,9 +279,9 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
                     ? 'border-2 border-green-700 bg-white text-gray-900 ring-2 ring-green-100 shadow-sm'
                     : 'border-2 border-gray-300 bg-white text-gray-900 hover:bg-gray-50'
                 }`}
-              >
+                >
                 <span className="text-2xl">{opt.emoji}</span>
-                <span className={`text-[11px] ${isSelected ? 'font-bold text-gray-900' : 'font-semibold text-gray-900'}`}>{t(opt.i18nKey as any)}</span>
+                <span className={`text-[11px] ${isSelected ? 'font-bold text-gray-900' : 'font-semibold text-gray-900'}`}>{t(opt.i18nKey)}</span>
               </button>
             );
           })}
@@ -286,7 +315,7 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
             <p className="mt-1 text-xs leading-6 text-gray-600">
               {selectedSymptoms.map((id) => SYMPTOM_IDS.find((s) => s.id === id)?.emoji).join(' ')}
               {' · '}
-              {t(SEVERITY_IDS.find((o) => o.value === severity)?.i18nKey as any ?? 'severity.moderate')}
+              {t((SEVERITY_IDS.find((o) => o.value === severity)?.i18nKey ?? 'severity.moderate') as SeverityMessageKey)}
               {contextLabel && <span className="text-orange-500"> · {contextLabel}</span>}
             </p>
           </div>
@@ -306,8 +335,8 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
               <div className="flex items-start gap-2">
                 <span className="text-lg mt-0.5">{advice.emoji}</span>
                 <div>
-                  <p className="text-sm font-semibold text-gray-900">{t(advice.titleKey as any)}</p>
-                  <p className="mt-0.5 text-xs leading-relaxed text-gray-700">{t(advice.descKey as any)}</p>
+                  <p className="text-sm font-semibold text-gray-900">{t(advice.titleKey)}</p>
+                  <p className="mt-0.5 text-xs leading-relaxed text-gray-700">{t(advice.descKey)}</p>
                 </div>
               </div>
             </div>

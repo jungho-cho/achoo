@@ -25,8 +25,27 @@ export interface DiaryEntry {
   timestamp: string;
 }
 
+export type SymptomMessageKey =
+  | "symptoms.sneeze"
+  | "symptoms.runnyNose"
+  | "symptoms.stuffyNose"
+  | "symptoms.itchyEyes"
+  | "symptoms.wateryEyes"
+  | "symptoms.cough"
+  | "symptoms.itchyThroat"
+  | "symptoms.skinItch"
+  | "symptoms.fatigue"
+  | "symptoms.headache";
+
+export type SeverityMessageKey =
+  | "severity.fine"
+  | "severity.mild"
+  | "severity.moderate"
+  | "severity.severe"
+  | "severity.verySevere";
+
 // Symptom definitions — labels resolved via i18n at render time
-export const SYMPTOM_IDS: { id: SymptomId; emoji: string; i18nKey: string }[] =
+export const SYMPTOM_IDS: { id: SymptomId; emoji: string; i18nKey: SymptomMessageKey }[] =
   [
     { id: "sneeze", emoji: "🤧", i18nKey: "symptoms.sneeze" },
     { id: "runny_nose", emoji: "💧", i18nKey: "symptoms.runnyNose" },
@@ -50,7 +69,7 @@ export const SYMPTOMS = SYMPTOM_IDS.map((s) => ({
 export const SEVERITY_IDS: {
   value: Severity;
   emoji: string;
-  i18nKey: string;
+  i18nKey: SeverityMessageKey;
 }[] = [
   { value: 0, emoji: "😊", i18nKey: "severity.fine" },
   { value: 1, emoji: "🤏", i18nKey: "severity.mild" },
