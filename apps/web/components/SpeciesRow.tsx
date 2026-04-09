@@ -5,10 +5,10 @@ import { useTranslations } from 'next-intl';
 import { levelColor } from './LevelBadge';
 
 const LEVEL_TEXT: Record<string, string> = {
-  low: 'text-green-700',
-  moderate: 'text-amber-700',
-  high: 'text-orange-700',
-  'very-high': 'text-red-700',
+  low: 'text-[#5C7252]',
+  moderate: 'text-[#9A7B20]',
+  high: 'text-[#9A3B1A]',
+  'very-high': 'text-[#3A2535]',
 };
 
 export function SpeciesRow({ reading }: { reading: PollenReading }) {
@@ -18,7 +18,7 @@ export function SpeciesRow({ reading }: { reading: PollenReading }) {
     <div className="flex items-center justify-between border-b border-[var(--ach-line)] py-3 last:border-0" aria-label={`${t(`species.${reading.species}` as 'species.tree')}: ${t(`pollenLevel.${reading.level}` as 'pollenLevel.low')}`}>
       <div className="flex items-center gap-2">
         <span className={`w-2.5 h-2.5 rounded-full ${dot}`} />
-        <span className="text-sm font-medium text-gray-800">{t(`species.${reading.species}` as 'species.tree')}</span>
+        <span className="text-sm font-medium text-[var(--ach-text-primary)]">{t(`species.${reading.species}` as 'species.tree')}</span>
       </div>
       <div className="flex items-center gap-3">
         {/* 3-segment bar */}
@@ -27,16 +27,16 @@ export function SpeciesRow({ reading }: { reading: PollenReading }) {
             const levels = ['low', 'moderate', 'high', 'very-high'];
             const currentIdx = levels.indexOf(reading.level);
             const filled = i <= currentIdx;
-            const colors = ['bg-green-400', 'bg-yellow-400', 'bg-orange-400', 'bg-red-500'];
+            const colors = ['bg-[var(--ach-data-low)]', 'bg-[var(--ach-data-moderate)]', 'bg-[var(--ach-data-high)]', 'bg-[var(--ach-data-extreme)]'];
             return (
               <div
                 key={lvl}
-                className={`h-2 w-6 rounded-sm ${filled ? colors[i] : 'bg-gray-200'}`}
+                className={`h-2 w-6 rounded-sm ${filled ? colors[i] : 'bg-[var(--ach-line-light)]'}`}
               />
             );
           })}
         </div>
-        <span className={`w-14 text-right text-xs font-semibold ${LEVEL_TEXT[reading.level] ?? 'text-gray-700'}`}>
+        <span className={`w-14 text-right text-xs font-semibold ${LEVEL_TEXT[reading.level] ?? 'text-[var(--ach-text-secondary)]'}`}>
           {t(`pollenLevel.${reading.level}` as 'pollenLevel.low')}
         </span>
       </div>
