@@ -3,6 +3,7 @@
 import type { PollenResponse } from "@repo/shared-types";
 import { useTranslations, useLocale } from "next-intl";
 import { usePollenData } from "../hooks/usePollenData";
+import { getInsightsChrome } from "../lib/insights-chrome";
 import { DecisionCard } from "./DecisionCard";
 import { ForecastBar } from "./ForecastBar";
 import { SpeciesRow } from "./SpeciesRow";
@@ -18,6 +19,7 @@ type MaybeStalePollen = PollenResponse & { stale?: boolean };
 export function HomeClient({ ssrPollen }: Props) {
   const t = useTranslations("ui");
   const locale = useLocale();
+  const insightsChrome = getInsightsChrome(locale);
   const {
     pollen: clientPollen,
     dust,
@@ -186,7 +188,7 @@ export function HomeClient({ ssrPollen }: Props) {
 
         {/* Navigation links */}
         <nav
-          className="grid grid-cols-1 md:grid-cols-3 gap-2"
+          className="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-4"
           role="navigation"
           aria-label="Main navigation"
         >
@@ -205,6 +207,15 @@ export function HomeClient({ ssrPollen }: Props) {
           >
             <span className="text-sm font-medium text-gray-700">
               🌳 {t("nav.pollenInfo")}
+            </span>
+            <span className="text-gray-400 text-sm">→</span>
+          </a>
+          <a
+            href={`/${locale}/insights`}
+            className="flex items-center justify-between px-4 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
+          >
+            <span className="text-sm font-medium text-gray-700">
+              📰 {insightsChrome.navLabel}
             </span>
             <span className="text-gray-400 text-sm">→</span>
           </a>
@@ -272,6 +283,9 @@ export function HomeClient({ ssrPollen }: Props) {
           </a>
           <a href={`/${locale}/privacy`} className="hover:text-gray-600">
             {t("nav.privacy")}
+          </a>
+          <a href={`/${locale}/insights`} className="hover:text-gray-600">
+            {insightsChrome.navLabel}
           </a>
         </nav>
 

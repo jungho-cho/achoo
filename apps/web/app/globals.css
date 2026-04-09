@@ -25,6 +25,45 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+@keyframes trend-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.trend-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.trend-card::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(34, 197, 94, 0.08),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(14, 165, 233, 0.07),
+      transparent 28%
+    );
+}
+
+.trend-rise {
+  animation: trend-rise 520ms ease-out both;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
