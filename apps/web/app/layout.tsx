@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
+
 import "./globals.css";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://achoo.day"),
+};
 
 export default function RootLayout({
   children,

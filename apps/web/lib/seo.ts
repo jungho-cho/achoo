@@ -66,12 +66,21 @@ export function buildPageMetadata({
       url: `${BASE_URL}${canonicalPath}`,
       title,
       description,
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
       locale: OG_LOCALE[locale as AppLocale] ?? OG_LOCALE.en,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: ["/opengraph-image"],
     },
   };
 }
