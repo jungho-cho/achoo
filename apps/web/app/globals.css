@@ -44,6 +44,14 @@
     --ach-accent-soft: rgba(212, 132, 94, 0.12);
     --ach-secondary: #7E90B8;
     --ach-secondary-soft: rgba(126, 144, 184, 0.12);
+    --ach-data-low: #A8BF9C;
+    --ach-data-moderate: #E4C468;
+    --ach-data-high: #D4714A;
+    --ach-data-extreme: #E8C4B8;
+    --ach-success: #8AAF7E;
+    --ach-warning: #E4C468;
+    --ach-error: #D4714A;
+    --ach-info: #7E90B8;
   }
 }
 
