@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { ArticleLayout } from "../../../components/content/ArticleLayout";
 import { slugify, takeSentences, type SummaryItem } from "../../../lib/content";
+import { buildPageMetadata } from "../../../lib/seo";
 
 export async function generateMetadata({
   params,
@@ -10,10 +11,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pages.pollenInfo" });
-  return {
+  return buildPageMetadata({
+    locale,
+    pathname: "/pollen-info",
     title: t("title"),
     description: t("description"),
-  };
+  });
 }
 
 export default async function PollenInfoPage({
@@ -62,7 +65,9 @@ export default async function PollenInfoPage({
       ]}
     >
       <section className="rounded-[2rem] border border-[#d9eadf] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(238,246,239,0.78))] p-6 shadow-[var(--ach-shadow-md)]">
-        <p className="text-sm leading-8 text-[var(--ach-text-muted)]">{intro}</p>
+        <p className="text-sm leading-8 text-[var(--ach-text-muted)]">
+          {intro}
+        </p>
       </section>
 
       {sections.map((section, index) => {

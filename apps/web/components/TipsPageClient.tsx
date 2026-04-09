@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { AffiliateLinks } from './AffiliateLinks';
-import { SymptomChecker } from './SymptomChecker';
-import { usePollenData } from '../hooks/usePollenData';
+import { AffiliateLinks } from "./AffiliateLinks";
+import { SymptomChecker } from "./SymptomChecker";
+import { usePollenData } from "../hooks/usePollenData";
 
-export function TipsPageClient() {
-  const { pollen, dust } = usePollenData();
+export function TipsPageClient({ locale }: { locale: string }) {
+  const { pollen, dust } = usePollenData(locale);
 
   return (
     <div className="space-y-5">

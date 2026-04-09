@@ -1,8 +1,10 @@
+import { JsonLd } from "../JsonLd";
 import { ArticleLayout } from "./ArticleLayout";
 import { TrendArticleBlocks } from "./TrendArticleBlocks";
 import {
   getRelatedArticles,
   buildArticleToc,
+  getArticleJsonLd,
 } from "../../lib/articles";
 import { getInsightsChrome } from "../../lib/insights-chrome";
 import type { ArticleRecord } from "../../content/articles/schema";
@@ -17,9 +19,11 @@ export function TrendArticlePage({
   const chrome = getInsightsChrome(locale);
   const toc = buildArticleToc(article.content);
   const relatedLinks = getRelatedArticles(article.locale, article);
+  const articleJsonLd = getArticleJsonLd(article);
 
   return (
     <>
+      <JsonLd data={articleJsonLd} />
       <ArticleLayout
         locale={locale}
         backHref={`/${locale}/insights`}
@@ -130,7 +134,6 @@ export function TrendArticlePage({
           </ul>
         </section>
       </ArticleLayout>
-
     </>
   );
 }

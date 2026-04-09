@@ -9,7 +9,8 @@
   },
   "location": {
     "denied": "위치 권한이 없어 서울 기준으로 표시합니다",
-    "deniedShort": "위치 권한 거부됨"
+    "deniedShort": "위치 권한 거부됨",
+    "defaultCityName": "서울"
   },
   "pollen": {
     "title": "오늘의 꽃가루",
@@ -135,6 +136,15 @@
     "dustGuide": "미세먼지 가이드",
     "faq": "FAQ",
     "privacy": "개인정보처리방침"
+  },
+  "a11y": {
+    "skipToMain": "본문으로 바로가기",
+    "mainNavigation": "주요 탐색",
+    "footerNavigation": "하단 탐색"
+  },
+  "home": {
+    "refreshLocation": "현재 위치 새로고침",
+    "tomorrowForecast": "{day} 예보"
   },
   "content": {
     "onThisPage": "이 페이지에서",

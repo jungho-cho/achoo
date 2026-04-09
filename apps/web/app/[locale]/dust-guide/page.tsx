@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { ArticleLayout } from "../../../components/content/ArticleLayout";
 import { slugify, type SummaryItem } from "../../../lib/content";
+import { buildPageMetadata } from "../../../lib/seo";
 
 function gradeColor(grade: string) {
   const normalized = grade.toLowerCase();
@@ -39,10 +40,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pages.dustGuide" });
-  return {
+  return buildPageMetadata({
+    locale,
+    pathname: "/dust-guide",
     title: t("title"),
     description: t("description"),
-  };
+  });
 }
 
 export default async function DustGuidePage({
@@ -128,7 +131,9 @@ export default async function DustGuidePage({
                   </td>
                   <td className="px-3 py-3 text-gray-700">{grade.pm10}</td>
                   <td className="px-3 py-3 text-gray-700">{grade.pm25}</td>
-                  <td className="px-3 py-3 text-[var(--ach-text-muted)]">{grade.health}</td>
+                  <td className="px-3 py-3 text-[var(--ach-text-muted)]">
+                    {grade.health}
+                  </td>
                 </tr>
               ))}
             </tbody>

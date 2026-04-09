@@ -17,10 +17,62 @@ interface Props {
 
 type MaybeStalePollen = PollenResponse & { stale?: boolean };
 
+const DEFAULT_CITY_NAMES: Record<string, string> = {
+  ko: "서울",
+  de: "Berlin",
+  en: "London",
+  fr: "Paris",
+};
+
+const EN_UI_COPY = {
+  footerNavigation: "Footer navigation",
+  mainNavigation: "Main navigation",
+  refreshLocation: "Refresh location",
+  skipToMain: "Skip to main content",
+  tomorrowForecast: (day: string) => `${day} forecast`,
+};
+
+const UI_COPY: Record<
+  string,
+  {
+    footerNavigation: string;
+    mainNavigation: string;
+    refreshLocation: string;
+    skipToMain: string;
+    tomorrowForecast: (day: string) => string;
+  }
+> = {
+  ko: {
+    footerNavigation: "하단 탐색",
+    mainNavigation: "주요 탐색",
+    refreshLocation: "현재 위치 새로고침",
+    skipToMain: "본문으로 바로가기",
+    tomorrowForecast: (day) => `${day} 예보`,
+  },
+  de: {
+    footerNavigation: "Fußnavigation",
+    mainNavigation: "Hauptnavigation",
+    refreshLocation: "Standort aktualisieren",
+    skipToMain: "Zum Hauptinhalt springen",
+    tomorrowForecast: (day) => `${day}-Prognose`,
+  },
+  en: EN_UI_COPY,
+  fr: {
+    footerNavigation: "Navigation de pied de page",
+    mainNavigation: "Navigation principale",
+    refreshLocation: "Actualiser la position",
+    skipToMain: "Aller au contenu principal",
+    tomorrowForecast: (day) => `Prévisions ${day}`,
+  },
+};
+
 export function HomeClient({ ssrPollen }: Props) {
   const t = useTranslations("ui");
   const locale = useLocale();
   const insightsChrome = getInsightsChrome(locale);
+  const defaultCityName =
+    DEFAULT_CITY_NAMES[locale] ?? DEFAULT_CITY_NAMES.en ?? "London";
+  const uiCopy = UI_COPY[locale] ?? EN_UI_COPY;
   const {
     pollen: clientPollen,
     dust,
@@ -31,7 +83,7 @@ export function HomeClient({ ssrPollen }: Props) {
     inKorea,
     cityName,
     refreshLocation,
-  } = usePollenData();
+  } = usePollenData(locale);
 
   // Use client data when available, fall back to SSR data
   const pollen = (clientPollen ?? ssrPollen ?? null) as MaybeStalePollen | null;
@@ -63,7 +115,7 @@ export function HomeClient({ ssrPollen }: Props) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen gap-2 px-6 text-center">
         <p className="text-2xl">😵</p>
-        <p className="text-[var(--ach-text-muted)]">{error ?? t("error.fetchFailed")}</p>
+        <p className="text-[var(--ach-text-muted)]">{t("error.fetchFailed")}</p>
         <button
           className="mt-2 px-4 py-2 text-sm rounded-lg bg-[var(--ach-surface)] text-[var(--ach-text-muted)]"
           onClick={() => window.location.reload()}
@@ -81,8 +133,8 @@ export function HomeClient({ ssrPollen }: Props) {
     ? formatMonthDayAtUtc(current.date, locale)
     : "";
   const locationLabel = inKorea
-    ? pollen.sido || dust?.sido || "서울"
-    : cityName || null;
+    ? pollen.sido || dust?.sido || defaultCityName
+    : cityName || defaultCityName;
 
   return (
     <div className="min-h-screen bg-[var(--ach-bg)]">
@@ -90,7 +142,7 @@ export function HomeClient({ ssrPollen }: Props) {
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-[var(--ach-surface)] focus:text-[var(--ach-text-primary)] focus:rounded-lg focus:shadow-lg"
       >
-        Skip to main content
+        {uiCopy.skipToMain}
       </a>
       <main
         id="main-content"
@@ -99,9 +151,14 @@ export function HomeClient({ ssrPollen }: Props) {
         {/* Header with location */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <h1 className="text-xl font-bold text-[var(--ach-accent)]">🤧 Achoo</h1>
+            <h1 className="text-xl font-bold text-[var(--ach-accent)]">
+              <span aria-hidden="true">🤧 Achoo</span>
+              <span className="sr-only">{t("metadata.title")}</span>
+            </h1>
             {locationLabel && (
-              <span className="text-sm text-[var(--ach-text-muted)]">📍 {locationLabel}</span>
+              <span className="text-sm text-[var(--ach-text-muted)]">
+                📍 {locationLabel}
+              </span>
             )}
             {!locationLabel && !inKorea && (
               <span className="text-sm text-[var(--ach-text-muted)]">🌍</span>
@@ -109,8 +166,8 @@ export function HomeClient({ ssrPollen }: Props) {
             <button
               onClick={refreshLocation}
               disabled={loading}
-              aria-label="현재 위치 새로고침"
-              title="새로고침"
+              aria-label={uiCopy.refreshLocation}
+              title={uiCopy.refreshLocation}
               className={`p-1 -ml-1 text-[var(--ach-text-muted)] hover:text-[var(--ach-text-primary)] hover:bg-[var(--ach-surface)] rounded transition-colors duration-300 ${loading ? "opacity-50 cursor-not-allowed" : "active:rotate-180"}`}
             >
               <svg
@@ -129,13 +186,17 @@ export function HomeClient({ ssrPollen }: Props) {
             </button>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-xs text-[var(--ach-text-muted)]">{headerDateLabel}</span>
+            <span className="text-xs text-[var(--ach-text-muted)]">
+              {headerDateLabel}
+            </span>
             <LocaleSwitcher />
           </div>
         </div>
 
         {/* SEO intro text — visible to crawlers and users */}
-        <p className="text-sm text-[var(--ach-text-muted)]">{t("decision.intro")}</p>
+        <p className="text-sm text-[var(--ach-text-muted)]">
+          {t("decision.intro")}
+        </p>
 
         {/* 2-column grid on desktop, single column on mobile */}
         <div className="md:grid md:grid-cols-2 md:gap-6 space-y-4 md:space-y-0">
@@ -189,7 +250,7 @@ export function HomeClient({ ssrPollen }: Props) {
         <nav
           className="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-4"
           role="navigation"
-          aria-label="Main navigation"
+          aria-label={uiCopy.mainNavigation}
         >
           <a
             href={`/${locale}/tips`}
@@ -243,7 +304,7 @@ export function HomeClient({ ssrPollen }: Props) {
             return (
               <div className="flex items-center justify-center gap-2 py-2">
                 <span className="text-xs text-[var(--ach-text-muted)]">
-                  {t("days.tomorrow")} 예보
+                  {uiCopy.tomorrowForecast(t("days.tomorrow"))}
                 </span>
                 <span
                   className={`w-2 h-2 rounded-full ${DOT_COLOR[tmrw.overallLevel] ?? "bg-[var(--ach-line)]"}`}
@@ -257,9 +318,12 @@ export function HomeClient({ ssrPollen }: Props) {
 
         <nav
           className="flex flex-wrap justify-center gap-x-3 gap-y-1 pt-2 text-xs text-[var(--ach-text-muted)]"
-          aria-label="Footer navigation"
+          aria-label={uiCopy.footerNavigation}
         >
-          <a href={`/${locale}/allergy-types`} className="hover:text-[var(--ach-text-secondary)]">
+          <a
+            href={`/${locale}/allergy-types`}
+            className="hover:text-[var(--ach-text-secondary)]"
+          >
             {t("nav.allergyTypes")}
           </a>
           <span>·</span>
@@ -277,15 +341,24 @@ export function HomeClient({ ssrPollen }: Props) {
             {t("nav.preventionGuide")}
           </a>
           <span>·</span>
-          <a href={`/${locale}/dust-guide`} className="hover:text-[var(--ach-text-secondary)]">
+          <a
+            href={`/${locale}/dust-guide`}
+            className="hover:text-[var(--ach-text-secondary)]"
+          >
             {t("nav.dustGuide")}
           </a>
           <span>·</span>
-          <a href={`/${locale}/faq`} className="hover:text-[var(--ach-text-secondary)]">
+          <a
+            href={`/${locale}/faq`}
+            className="hover:text-[var(--ach-text-secondary)]"
+          >
             {t("nav.faq")}
           </a>
           <span>·</span>
-          <a href={`/${locale}/privacy`} className="hover:text-[var(--ach-text-secondary)]">
+          <a
+            href={`/${locale}/privacy`}
+            className="hover:text-[var(--ach-text-secondary)]"
+          >
             {t("nav.privacy")}
           </a>
         </nav>

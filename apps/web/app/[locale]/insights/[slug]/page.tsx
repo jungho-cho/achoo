@@ -5,6 +5,7 @@ import { ARTICLE_CATALOG } from "../../../../content/articles/catalog";
 import type { ArticleLocale } from "../../../../content/articles/schema";
 import { TrendArticlePage } from "../../../../components/content/TrendArticlePage";
 import { getArticleBySlug } from "../../../../lib/articles";
+import { buildPageMetadata } from "../../../../lib/seo";
 
 export function generateStaticParams() {
   return ARTICLE_CATALOG.flatMap((article) =>
@@ -27,28 +28,14 @@ export async function generateMetadata({
   }
 
   return {
-    title: article.content.seoTitle,
-    description: article.content.seoDescription,
-    alternates: {
-      canonical: `/${locale}/insights/${slug}`,
-      languages: {
-        ko: `/ko/insights/${slug}`,
-        en: `/en/insights/${slug}`,
-        de: `/de/insights/${slug}`,
-        fr: `/fr/insights/${slug}`,
-        "x-default": `/en/insights/${slug}`,
-      },
-    },
-    openGraph: {
+    ...buildPageMetadata({
+      locale,
+      pathname: `/insights/${slug}`,
+      title: article.content.seoTitle,
+      description: article.content.seoDescription,
       type: "article",
-      title: article.content.seoTitle,
-      description: article.content.seoDescription,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: article.content.seoTitle,
-      description: article.content.seoDescription,
-    },
+      keywords: article.tags,
+    }),
   };
 }
 

@@ -9,7 +9,8 @@
   },
   "location": {
     "denied": "Standortzugriff verweigert. Daten für Berlin werden angezeigt.",
-    "deniedShort": "Standort verweigert"
+    "deniedShort": "Standort verweigert",
+    "defaultCityName": "Berlin"
   },
   "pollen": {
     "title": "Pollenflug heute",
@@ -144,6 +145,15 @@
     "dustGuide": "Feinstaub-Ratgeber",
     "faq": "FAQ",
     "privacy": "Datenschutz"
+  },
+  "a11y": {
+    "skipToMain": "Zum Hauptinhalt springen",
+    "mainNavigation": "Hauptnavigation",
+    "footerNavigation": "Fußnavigation"
+  },
+  "home": {
+    "refreshLocation": "Standort aktualisieren",
+    "tomorrowForecast": "{day}-Prognose"
   },
   "content": {
     "onThisPage": "Auf dieser Seite",

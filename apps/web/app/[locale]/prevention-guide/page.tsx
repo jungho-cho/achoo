@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { ArticleLayout } from "../../../components/content/ArticleLayout";
 import { slugify, type SummaryItem } from "../../../lib/content";
+import { buildPageMetadata } from "../../../lib/seo";
 
 const ICONS = ["😷", "🏠", "🚿", "💊", "🧬"];
 
@@ -15,10 +16,12 @@ export async function generateMetadata({
     locale,
     namespace: "pages.preventionGuide",
   });
-  return {
+  return buildPageMetadata({
+    locale,
+    pathname: "/prevention-guide",
     title: t("title"),
     description: t("description"),
-  };
+  });
 }
 
 export default async function PreventionGuidePage({

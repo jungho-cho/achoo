@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { ArticleLayout } from "../../../components/content/ArticleLayout";
 import { slugify, takeSentences, type SummaryItem } from "../../../lib/content";
+import { buildPageMetadata } from "../../../lib/seo";
 
 const ICONS = ["🌳", "🌾", "🍂"];
 const TONES = [
@@ -17,10 +18,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pages.allergyTypes" });
-  return {
+  return buildPageMetadata({
+    locale,
+    pathname: "/allergy-types",
     title: t("title"),
     description: t("description"),
-  };
+  });
 }
 
 export default async function AllergyTypesPage({

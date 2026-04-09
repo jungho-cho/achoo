@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { ArticleLayout } from "../../../components/content/ArticleLayout";
 import { levelRank, type SummaryItem } from "../../../lib/content";
+import { buildPageMetadata } from "../../../lib/seo";
 
 export async function generateMetadata({
   params,
@@ -13,10 +14,12 @@ export async function generateMetadata({
     locale,
     namespace: "pages.seasonalCalendar",
   });
-  return {
+  return buildPageMetadata({
+    locale,
+    pathname: "/seasonal-calendar",
     title: t("title"),
     description: t("description"),
-  };
+  });
 }
 
 function levelTone(level: string) {

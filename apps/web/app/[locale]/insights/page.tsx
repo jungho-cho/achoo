@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getArticles } from "../../../lib/articles";
 import { getInsightsChrome } from "../../../lib/insights-chrome";
 import type { ArticleLocale } from "../../../content/articles/schema";
+import { buildPageMetadata } from "../../../lib/seo";
 
 export async function generateMetadata({
   params,
@@ -12,20 +13,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const chrome = getInsightsChrome(locale);
 
-  return {
+  return buildPageMetadata({
+    locale,
+    pathname: "/insights",
     title: chrome.hubTitle,
     description: chrome.hubDescription,
-    alternates: {
-      canonical: `/${locale}/insights`,
-      languages: {
-        ko: "/ko/insights",
-        en: "/en/insights",
-        de: "/de/insights",
-        fr: "/fr/insights",
-        "x-default": "/en/insights",
-      },
-    },
-  };
+  });
 }
 
 export default async function InsightsHubPage({
@@ -49,9 +42,7 @@ export default async function InsightsHubPage({
         </div>
 
         <section className="rounded-[2rem] border border-[var(--ach-line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,245,238,0.94))] p-6 shadow-[0_18px_42px_rgba(15,23,42,0.08)] md:p-8">
-          <p className="ach-eyebrow">
-            {chrome.hubEyebrow}
-          </p>
+          <p className="ach-eyebrow">{chrome.hubEyebrow}</p>
           <div className="mt-4 grid gap-6 md:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] md:items-start">
             <div>
               <h1 className="ach-editorial-title text-[2rem] font-bold tracking-tight text-gray-900 md:text-[3rem]">

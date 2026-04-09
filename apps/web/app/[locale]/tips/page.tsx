@@ -1,19 +1,42 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import type { Metadata } from 'next';
-import { TipsClientIsland } from '../../../components/TipsClientIsland';
-import { Link } from '../../../i18n/routing';
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import { TipsClientIsland } from "../../../components/TipsClientIsland";
+import { Link } from "../../../i18n/routing";
+import { buildPageMetadata } from "../../../lib/seo";
 
 function headingTone(heading: string): string {
-  if (heading.includes('매우높') || heading.includes('높음')) {
-    return 'border-red-300 bg-red-100';
+  const normalized = heading.toLowerCase();
+
+  if (
+    normalized.includes("매우높") ||
+    normalized.includes("높음") ||
+    normalized.includes("very high") ||
+    normalized.includes("high / very high") ||
+    normalized.includes("sehr hoch") ||
+    normalized.includes("hoher / sehr hoher") ||
+    normalized.includes("tres eleve") ||
+    normalized.includes("eleve / tres eleve")
+  ) {
+    return "border-red-300 bg-red-100";
   }
-  if (heading.includes('보통')) {
-    return 'border-amber-300 bg-amber-100';
+  if (
+    normalized.includes("보통") ||
+    normalized.includes("moderate") ||
+    normalized.includes("maessiger") ||
+    normalized.includes("mäßig") ||
+    normalized.includes("moyen")
+  ) {
+    return "border-amber-300 bg-amber-100";
   }
-  if (heading.includes('낮음')) {
-    return 'border-green-300 bg-green-100';
+  if (
+    normalized.includes("낮음") ||
+    normalized.includes("low") ||
+    normalized.includes("niedrig") ||
+    normalized.includes("faible")
+  ) {
+    return "border-green-300 bg-green-100";
   }
-  return 'border-gray-300 bg-gray-100';
+  return "border-gray-300 bg-gray-100";
 }
 
 export async function generateMetadata({
@@ -22,11 +45,13 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'pages.tips' });
-  return {
-    title: t('title'),
-    description: t('description'),
-  };
+  const t = await getTranslations({ locale, namespace: "pages.tips" });
+  return buildPageMetadata({
+    locale,
+    pathname: "/tips",
+    title: t("title"),
+    description: t("description"),
+  });
 }
 
 export default async function TipsPage({
@@ -36,9 +61,9 @@ export default async function TipsPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations('ui');
-  const pageT = await getTranslations('pages.tips');
-  const sections = pageT.raw('sections') as Array<{
+  const t = await getTranslations("ui");
+  const pageT = await getTranslations("pages.tips");
+  const sections = pageT.raw("sections") as Array<{
     heading: string;
     tips: string[];
   }>;
@@ -49,16 +74,18 @@ export default async function TipsPage({
     <div className="ach-page">
       <div className="ach-page-shell ach-page-shell--wide space-y-6">
         <div className="flex items-center gap-4">
-          <Link href="/" className="ach-top-link">← {t('nav.home')}</Link>
+          <Link href="/" className="ach-top-link">
+            ← {t("nav.home")}
+          </Link>
         </div>
 
         <section className="ach-panel px-5 py-5 md:px-6">
-          <p className="ach-eyebrow">{pageT('title')}</p>
+          <p className="ach-eyebrow">{pageT("title")}</p>
           <h1 className="mt-4 text-[1.9rem] font-bold tracking-tight text-gray-900 md:text-[2.6rem]">
-            오늘 증상에 맞춰 바로 행동을 정하는 도구
+            {pageT("heroTitle")}
           </h1>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-gray-800 md:text-[15px] md:leading-8">
-            {pageT('description')}
+            {pageT("description")}
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             {highlights.map((section) => (
@@ -74,13 +101,13 @@ export default async function TipsPage({
 
         <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_20rem]">
           <div className="space-y-5">
-            <TipsClientIsland />
+            <TipsClientIsland locale={locale} />
           </div>
 
           <aside className="space-y-5 xl:col-start-2 xl:row-start-1">
             <section className="ach-panel px-4 py-4 md:px-5">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-600">
-                빠른 행동 기준
+                {pageT("quickActionTitle")}
               </p>
               <div className="mt-3 space-y-3">
                 {highlights.map((section) => (
@@ -102,7 +129,7 @@ export default async function TipsPage({
         </div>
 
         <p className="pb-4 text-center text-xs text-gray-500">
-          {t('metadata.title')}
+          {t("metadata.title")}
         </p>
       </div>
     </div>

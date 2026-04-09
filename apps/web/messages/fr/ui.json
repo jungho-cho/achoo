@@ -9,7 +9,8 @@
   },
   "location": {
     "denied": "Accès à la position refusé. Données de Paris affichées.",
-    "deniedShort": "Position refusée"
+    "deniedShort": "Position refusée",
+    "defaultCityName": "Paris"
   },
   "pollen": {
     "title": "Pollens aujourd'hui",
@@ -141,6 +142,15 @@
     "dustGuide": "Guide qualité de l'air",
     "faq": "FAQ",
     "privacy": "Politique de confidentialité"
+  },
+  "a11y": {
+    "skipToMain": "Aller au contenu principal",
+    "mainNavigation": "Navigation principale",
+    "footerNavigation": "Navigation de pied de page"
+  },
+  "home": {
+    "refreshLocation": "Actualiser la position",
+    "tomorrowForecast": "Prévisions {day}"
   },
   "content": {
     "onThisPage": "Sur cette page",
