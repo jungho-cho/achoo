@@ -6,7 +6,7 @@ import { hasLocale, routing, type AppLocale } from "../../i18n/routing";
 import { notFound } from "next/navigation";
 
 export const viewport: Viewport = {
-  themeColor: '#22c55e',
+  themeColor: '#B85C38',
   width: 'device-width',
   initialScale: 1,
 };
@@ -97,14 +97,33 @@ export default async function LocaleLayout({
         {locale === 'ko' && (
           <meta name="naver-site-verification" content="1490fae47df158cf159608e169f7cace61cb2dcc" />
         )}
-        {usePretendard && (
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
-          />
+        {usePretendard ? (
+          <>
+            <link
+              rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+            />
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&display=swap"
+            />
+          </>
+        ) : (
+          <>
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
+            />
+            <link
+              rel="stylesheet"
+              href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap"
+            />
+          </>
         )}
       </head>
-      <body style={{ fontFamily: usePretendard ? "'Pretendard', sans-serif" : "system-ui, -apple-system, sans-serif", margin: 0 }}>
+      <body style={{ fontFamily: usePretendard ? "'Pretendard', sans-serif" : "'Satoshi', system-ui, sans-serif", margin: 0 }}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>
