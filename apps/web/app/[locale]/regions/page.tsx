@@ -103,8 +103,14 @@ export default function RegionsPage() {
 */
 
 // 지역별 예보 페이지 비활성화 — 홈으로 리다이렉트
-import { redirect } from 'next/navigation';
+// 307 사용: 나중에 페이지 재활성화 시 브라우저/CDN 캐시 문제 방지
+import { redirect } from "next/navigation";
 
-export default function RegionsPage() {
-  redirect('/');
+export default async function RegionsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  redirect(`/${locale}`);
 }
