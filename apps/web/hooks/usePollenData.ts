@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import type { DustResponse, PollenResponse } from '@repo/shared-types';
-import { useEffect, useState, useCallback, useRef } from 'react';
-import { isInKorea } from '../lib/sido';
+import type { DustResponse, PollenResponse } from "@repo/shared-types";
+import { useEffect, useState, useCallback, useRef } from "react";
+import { isInKorea } from "../lib/sido";
 
 interface Location {
   lat: number;
@@ -14,78 +14,127 @@ interface UsePollenDataResult {
   dust: DustResponse | null;
   location: Location | null;
   loading: boolean;
-  loadingPhase: 'location' | 'data' | null;
-  error: string | null;
+  loadingPhase: "location" | "data" | null;
+  error: "fetchFailed" | null;
   locationDenied: boolean;
   inKorea: boolean;
   cityName: string | null;
   refreshLocation: () => void;
 }
 
-const DEFAULT_LOCATION: Location = { lat: 37.5665, lng: 126.978 }; // 서울
+const DEFAULT_LOCATIONS: Record<
+  string,
+  { city: string; inKorea: boolean; lat: number; lng: number }
+> = {
+  ko: { city: "서울", inKorea: true, lat: 37.5665, lng: 126.978 },
+  de: { city: "Berlin", inKorea: false, lat: 52.52, lng: 13.405 },
+  en: { city: "London", inKorea: false, lat: 51.5074, lng: -0.1278 },
+  fr: { city: "Paris", inKorea: false, lat: 48.8566, lng: 2.3522 },
+};
 
-export function usePollenData(): UsePollenDataResult {
+function getDefaultLocation(locale: string) {
+  return (
+    DEFAULT_LOCATIONS[locale] ??
+    DEFAULT_LOCATIONS.en ?? {
+      city: "London",
+      inKorea: false,
+      lat: 51.5074,
+      lng: -0.1278,
+    }
+  );
+}
+
+export function usePollenData(locale: string): UsePollenDataResult {
+  const defaultLocation = getDefaultLocation(locale);
   const [location, setLocation] = useState<Location | null>(null);
   const [pollen, setPollen] = useState<PollenResponse | null>(null);
   const [dust, setDust] = useState<DustResponse | null>(null);
   const [loading, setLoading] = useState(true);
-  const [loadingPhase, setLoadingPhase] = useState<'location' | 'data' | null>('location');
-  const [error, setError] = useState<string | null>(null);
+  const [loadingPhase, setLoadingPhase] = useState<"location" | "data" | null>(
+    "location",
+  );
+  const [error, setError] = useState<"fetchFailed" | null>(null);
   const [locationDenied, setLocationDenied] = useState(false);
-  const [inKorea, setInKorea] = useState(true);
-  const [cityName, setCityName] = useState<string | null>(null);
+  const [inKorea, setInKorea] = useState(defaultLocation.inKorea);
+  const [cityName, setCityName] = useState<string | null>(
+    defaultLocation.inKorea ? null : defaultLocation.city,
+  );
 
   // Step 1: get geolocation
   const lastFetchTime = useRef<number>(0);
 
-  const fetchLocation = useCallback((forceRefresh = false) => {
-    if (forceRefresh) {
-      setLoading(true);
-      setLoadingPhase('location');
-    }
+  const fetchLocation = useCallback(
+    (forceRefresh = false) => {
+      if (forceRefresh) {
+        setLoading(true);
+        setLoadingPhase("location");
+      }
 
-    if (!navigator.geolocation) {
-      setLocation(DEFAULT_LOCATION);
-      setLocationDenied(true);
-      if (forceRefresh) setLoading(false);
-      return;
-    }
-
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const loc = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-        setLocation(loc);
-        setLocationDenied(false); // Success -> reset denied flag
-        lastFetchTime.current = Date.now();
-        const korea = isInKorea(loc.lat, loc.lng);
-        setInKorea(korea);
-        // Reverse geocode for non-Korean locations
-        if (!korea) {
-          const lang = typeof document !== 'undefined' ? document.documentElement.lang || 'en' : 'en';
-          fetch(`https://nominatim.openstreetmap.org/reverse?lat=${loc.lat}&lon=${loc.lng}&format=json&accept-language=${lang}&zoom=10`, {
-            headers: { 'User-Agent': 'Achoo/1.0 (achoo.day)' },
-          })
-            .then((r) => r.json())
-            .then((data) => {
-              const addr = data?.address;
-              const city = addr?.city || addr?.town || addr?.village || addr?.state || '';
-              setCityName(city || null);
-            })
-            .catch(() => {});
-        }
-      },
-      (err) => {
-        console.warn('Geolocation error:', err.code, err.message);
-        setLocation(DEFAULT_LOCATION);
+      if (!navigator.geolocation) {
+        setLocation({ lat: defaultLocation.lat, lng: defaultLocation.lng });
         setLocationDenied(true);
-        if (forceRefresh) {
-          setLoading(false);
-          setLoadingPhase(null);
-        }
-      },
-      { timeout: 15000, maximumAge: 300000, enableHighAccuracy: false },
-    );
-  }, []);
+        setInKorea(defaultLocation.inKorea);
+        setCityName(defaultLocation.inKorea ? null : defaultLocation.city);
+        if (forceRefresh) setLoading(false);
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const loc = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+          setLocation(loc);
+          setLocationDenied(false); // Success -> reset denied flag
+          lastFetchTime.current = Date.now();
+          const korea = isInKorea(loc.lat, loc.lng);
+          setInKorea(korea);
+          setCityName(null);
+          // Reverse geocode for non-Korean locations
+          if (!korea) {
+            const lang =
+              typeof document !== "undefined"
+                ? document.documentElement.lang || "en"
+                : "en";
+            fetch(
+              `https://nominatim.openstreetmap.org/reverse?lat=${loc.lat}&lon=${loc.lng}&format=json&accept-language=${lang}&zoom=10`,
+              {
+                headers: { "User-Agent": "Achoo/1.0 (achoo.day)" },
+              },
+            )
+              .then((r) => r.json())
+              .then((data) => {
+                const addr = data?.address;
+                const city =
+                  addr?.city ||
+                  addr?.town ||
+                  addr?.village ||
+                  addr?.state ||
+                  "";
+                setCityName(city || null);
+              })
+              .catch(() => {});
+          }
+        },
+        (err) => {
+          console.warn("Geolocation error:", err.code, err.message);
+          setLocation({ lat: defaultLocation.lat, lng: defaultLocation.lng });
+          setLocationDenied(true);
+          setInKorea(defaultLocation.inKorea);
+          setCityName(defaultLocation.inKorea ? null : defaultLocation.city);
+          if (forceRefresh) {
+            setLoading(false);
+            setLoadingPhase(null);
+          }
+        },
+        { timeout: 15000, maximumAge: 300000, enableHighAccuracy: false },
+      );
+    },
+    [
+      defaultLocation.city,
+      defaultLocation.inKorea,
+      defaultLocation.lat,
+      defaultLocation.lng,
+    ],
+  );
 
   // Step 1: initial fetch & permission observer
   useEffect(() => {
@@ -93,20 +142,23 @@ export function usePollenData(): UsePollenDataResult {
 
     // Listen for late permission grants (e.g., user takes > 15s to click 'Allow' on the popup)
     if (navigator.permissions && navigator.permissions.query) {
-      navigator.permissions.query({ name: 'geolocation' }).then((status) => {
-        status.onchange = () => {
-          if (status.state === 'granted') {
-            fetchLocation(true);
-          }
-        };
-      }).catch(() => {});
+      navigator.permissions
+        .query({ name: "geolocation" })
+        .then((status) => {
+          status.onchange = () => {
+            if (status.state === "granted") {
+              fetchLocation(true);
+            }
+          };
+        })
+        .catch(() => {});
     }
   }, [fetchLocation]);
 
   // Periodic background check when app comes to foreground
   useEffect(() => {
     const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
+      if (document.visibilityState === "visible") {
         const now = Date.now();
         // If it's been more than 5 minutes since last fetch
         if (now - lastFetchTime.current > 300000) {
@@ -114,8 +166,9 @@ export function usePollenData(): UsePollenDataResult {
         }
       }
     };
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () =>
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, [fetchLocation]);
 
   // Step 2: fetch data once location is known
@@ -124,18 +177,24 @@ export function usePollenData(): UsePollenDataResult {
 
     const controller = new AbortController();
     setLoading(true);
-    setLoadingPhase('data');
+    setLoadingPhase("data");
     setError(null);
 
     // Always fetch pollen (Open-Meteo is global)
-    const pollenFetch = fetch(`/api/pollen?lat=${location.lat}&lng=${location.lng}`, {
-      signal: controller.signal,
-    }).then((r) => (r.ok ? r.json() : null));
+    const pollenFetch = fetch(
+      `/api/pollen?lat=${location.lat}&lng=${location.lng}`,
+      {
+        signal: controller.signal,
+      },
+    ).then((r) => (r.ok ? r.json() : null));
 
     // Fetch dust globally (Korea: AirKorea, overseas: Open-Meteo)
-    const dustFetch = fetch(`/api/dust?lat=${location.lat}&lng=${location.lng}`, {
-      signal: controller.signal,
-    }).then((r) => (r.ok ? r.json() : null));
+    const dustFetch = fetch(
+      `/api/dust?lat=${location.lat}&lng=${location.lng}`,
+      {
+        signal: controller.signal,
+      },
+    ).then((r) => (r.ok ? r.json() : null));
 
     Promise.all([pollenFetch, dustFetch])
       .then(([pollenData, dustData]) => {
@@ -143,8 +202,8 @@ export function usePollenData(): UsePollenDataResult {
         setDust(dustData as DustResponse | null);
       })
       .catch((err) => {
-        if (err instanceof Error && err.name !== 'AbortError') {
-          setError('데이터를 불러올 수 없습니다.');
+        if (err instanceof Error && err.name !== "AbortError") {
+          setError("fetchFailed");
         }
       })
       .finally(() => {
@@ -155,5 +214,16 @@ export function usePollenData(): UsePollenDataResult {
     return () => controller.abort();
   }, [location]);
 
-  return { pollen, dust, location, loading, loadingPhase, error, locationDenied, inKorea, cityName, refreshLocation: () => fetchLocation(true) };
+  return {
+    pollen,
+    dust,
+    location,
+    loading,
+    loadingPhase,
+    error,
+    locationDenied,
+    inKorea,
+    cityName,
+    refreshLocation: () => fetchLocation(true),
+  };
 }
