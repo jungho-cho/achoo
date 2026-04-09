@@ -39,6 +39,14 @@
 - [ ] AdMob 연동
 - [ ] 앱스토어 / 플레이스토어 등록
 
+### 추천 엔진 후순위 (autoplan defer)
+- [ ] full 개인화 추천 엔진 (symptom feedback 축적 후)
+- [ ] 로그인/계정 기반 cross-device 피드백 동기화
+- [ ] clinician/의료용 수준의 세부 가이드
+- [ ] recommendation analytics warehouse 재설계
+- [ ] 대규모 SEO 확장용 decision-page factory
+- [ ] 개발자용 DX polish / 외부 integrator 문서화
+
 ### ~~접근성~~ ✅
 - [x] 색맹 접근성 — LevelBadge에 ✓/▲/⚠/‼ 아이콘 추가
 - [x] 키보드 네비게이션 — skip to content, aria-pressed 토글

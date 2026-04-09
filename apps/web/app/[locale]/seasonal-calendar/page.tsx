@@ -93,7 +93,7 @@ export default async function SeasonalCalendarPage({
     >
       <section
         id="peak-months"
-        className="rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm"
+        className="rounded-[2rem] border border-[var(--ach-line)] bg-[var(--ach-surface)] p-6 shadow-[var(--ach-shadow-md)]"
       >
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">
           {tUI("content.seasonHighlights")}
@@ -102,7 +102,7 @@ export default async function SeasonalCalendarPage({
           {peakMonths.slice(0, 6).map((month) => (
             <div
               key={month.month}
-              className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-4"
+              className="rounded-2xl border border-[var(--ach-line)] bg-[var(--ach-surface-soft)] px-4 py-4"
             >
               <div className="flex items-center justify-between gap-3">
                 <p className="text-base font-semibold text-gray-900">
@@ -117,7 +117,7 @@ export default async function SeasonalCalendarPage({
               <p className="mt-3 text-sm font-medium text-gray-700">
                 {month.species}
               </p>
-              <p className="mt-2 text-sm leading-7 text-gray-600">
+              <p className="mt-2 text-sm leading-7 text-[var(--ach-text-muted)]">
                 {month.tip}
               </p>
             </div>
@@ -127,7 +127,7 @@ export default async function SeasonalCalendarPage({
 
       <section
         id="full-calendar"
-        className="rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm"
+        className="rounded-[2rem] border border-[var(--ach-line)] bg-[var(--ach-surface)] p-6 shadow-[var(--ach-shadow-md)]"
       >
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">
           {t("title")}
@@ -136,7 +136,7 @@ export default async function SeasonalCalendarPage({
           {months.map((month) => (
             <div
               key={month.month}
-              className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-4"
+              className="rounded-2xl border border-[var(--ach-line)] bg-[var(--ach-surface-soft)] px-4 py-4"
             >
               <div className="flex items-center justify-between gap-3">
                 <h3 className="font-semibold text-gray-900">{month.month}</h3>
@@ -149,7 +149,7 @@ export default async function SeasonalCalendarPage({
               <p className="mt-3 text-sm font-medium text-gray-700">
                 {month.species}
               </p>
-              <p className="mt-2 text-sm leading-7 text-gray-600">
+              <p className="mt-2 text-sm leading-7 text-[var(--ach-text-muted)]">
                 {month.tip}
               </p>
             </div>

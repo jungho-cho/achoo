@@ -3,6 +3,8 @@ import type { PollenResponse } from '@repo/shared-types';
 import { setRequestLocale } from 'next-intl/server';
 import { HomeClient } from '../../components/HomeClient';
 
+export const dynamic = 'force-dynamic';
+
 const LOCALE_DEFAULTS: Record<string, { lat: number; lng: number; city: string }> = {
   ko: { lat: 37.5665, lng: 126.978, city: '서울' },
   de: { lat: 52.52, lng: 13.405, city: 'Berlin' },

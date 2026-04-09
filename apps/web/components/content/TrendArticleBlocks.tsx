@@ -22,7 +22,7 @@ function SectionBlock({ block }: { block: ArticleSectionBlock }) {
       className={`trend-card trend-rise rounded-[2rem] border p-6 shadow-sm ${toneClass(block.tone)}`}
     >
       <div className="space-y-4">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+        <h2 className="ach-editorial-title text-2xl font-bold tracking-tight text-gray-900">
           {block.heading}
         </h2>
         {block.paragraphs.map((paragraph) => (
@@ -53,7 +53,7 @@ function ChecklistBlock({ block }: { block: ArticleChecklistBlock }) {
       id={blockId(block)}
       className="trend-card trend-rise rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm"
     >
-      <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+      <h2 className="ach-editorial-title text-2xl font-bold tracking-tight text-gray-900">
         {block.heading}
       </h2>
       {block.intro && (
@@ -65,7 +65,7 @@ function ChecklistBlock({ block }: { block: ArticleChecklistBlock }) {
             key={item}
             className="rounded-2xl border border-gray-100 bg-gradient-to-br from-gray-50 to-white px-4 py-4"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gray-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gray-500">
               Step {String(index + 1).padStart(2, "0")}
             </p>
             <p className="mt-2 text-sm leading-7 text-gray-700">{item}</p>
@@ -82,14 +82,14 @@ function ComparisonBlock({ block }: { block: ArticleComparisonBlock }) {
       id={blockId(block)}
       className="trend-card trend-rise rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm"
     >
-      <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+      <h2 className="ach-editorial-title text-2xl font-bold tracking-tight text-gray-900">
         {block.heading}
       </h2>
       {block.intro && (
         <p className="mt-3 text-sm leading-7 text-gray-600">{block.intro}</p>
       )}
       <div className="mt-5 overflow-hidden rounded-3xl border border-gray-100">
-        <div className="grid grid-cols-[150px_minmax(0,1fr)_minmax(0,1fr)] bg-gray-50 text-xs font-semibold uppercase tracking-wide text-gray-500">
+        <div className="grid grid-cols-[150px_minmax(0,1fr)_minmax(0,1fr)] bg-gray-50 text-xs font-semibold uppercase tracking-wide text-gray-600">
           <div className="px-4 py-3" />
           <div className="border-l border-gray-100 px-4 py-3">
             {block.leftTitle}
@@ -116,7 +116,7 @@ function ComparisonBlock({ block }: { block: ArticleComparisonBlock }) {
         ))}
       </div>
       {block.footnote && (
-        <p className="mt-3 text-xs leading-6 text-gray-500">{block.footnote}</p>
+        <p className="mt-3 text-xs leading-6 text-gray-600">{block.footnote}</p>
       )}
     </section>
   );
@@ -128,7 +128,7 @@ function TableBlock({ block }: { block: ArticleTableBlock }) {
       id={blockId(block)}
       className="trend-card trend-rise rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm"
     >
-      <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+      <h2 className="ach-editorial-title text-2xl font-bold tracking-tight text-gray-900">
         {block.heading}
       </h2>
       {block.intro && (
@@ -141,7 +141,7 @@ function TableBlock({ block }: { block: ArticleTableBlock }) {
               {block.columns.map((column) => (
                 <th
                   key={column}
-                  className="border-b border-gray-100 px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500"
+                  className="border-b border-gray-100 px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-600"
                 >
                   {column}
                 </th>
@@ -168,7 +168,7 @@ function TableBlock({ block }: { block: ArticleTableBlock }) {
         </table>
       </div>
       {block.footnote && (
-        <p className="mt-3 text-xs leading-6 text-gray-500">{block.footnote}</p>
+        <p className="mt-3 text-xs leading-6 text-gray-600">{block.footnote}</p>
       )}
     </section>
   );
@@ -180,7 +180,7 @@ function ChartBlock({ block }: { block: ArticleChartBlock }) {
       id={blockId(block)}
       className="trend-card trend-rise rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm"
     >
-      <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+      <h2 className="ach-editorial-title text-2xl font-bold tracking-tight text-gray-900">
         {block.heading}
       </h2>
       {block.intro && (
@@ -195,7 +195,7 @@ function ChartBlock({ block }: { block: ArticleChartBlock }) {
                 <p className="text-sm font-semibold text-gray-900">
                   {bar.label}
                 </p>
-                <p className="text-xs uppercase tracking-wide text-gray-400">
+                <p className="text-xs uppercase tracking-wide text-gray-500">
                   {block.scaleLabel}
                 </p>
               </div>
@@ -211,7 +211,7 @@ function ChartBlock({ block }: { block: ArticleChartBlock }) {
         })}
       </div>
       {block.footnote && (
-        <p className="mt-4 text-xs leading-6 text-gray-500">{block.footnote}</p>
+        <p className="mt-4 text-xs leading-6 text-gray-600">{block.footnote}</p>
       )}
     </section>
   );
@@ -223,7 +223,7 @@ function TimelineBlock({ block }: { block: ArticleTimelineBlock }) {
       id={blockId(block)}
       className="trend-card trend-rise rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm"
     >
-      <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+      <h2 className="ach-editorial-title text-2xl font-bold tracking-tight text-gray-900">
         {block.heading}
       </h2>
       {block.intro && (
@@ -236,7 +236,7 @@ function TimelineBlock({ block }: { block: ArticleTimelineBlock }) {
             className="grid gap-3 rounded-2xl border border-gray-100 bg-gray-50 px-4 py-4 md:grid-cols-[96px_minmax(0,1fr)]"
           >
             <div>
-              <p className="inline-flex rounded-full border border-gray-200 bg-white px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-gray-500">
+              <p className="inline-flex rounded-full border border-gray-200 bg-white px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-gray-600">
                 {item.label}
               </p>
             </div>

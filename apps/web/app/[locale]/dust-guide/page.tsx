@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { ArticleLayout } from "../../../components/content/ArticleLayout";
-import { slugify, takeSentences, type SummaryItem } from "../../../lib/content";
+import { slugify, type SummaryItem } from "../../../lib/content";
 
 function gradeColor(grade: string) {
   const normalized = grade.toLowerCase();
@@ -95,7 +95,7 @@ export default async function DustGuidePage({
         { href: "/tips", label: tUI("nav.tips") },
       ]}
     >
-      <section className="rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm">
+      <section className="ach-panel p-6">
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">
           {tUI("content.gradeTable")}
         </h2>
@@ -128,7 +128,7 @@ export default async function DustGuidePage({
                   </td>
                   <td className="px-3 py-3 text-gray-700">{grade.pm10}</td>
                   <td className="px-3 py-3 text-gray-700">{grade.pm25}</td>
-                  <td className="px-3 py-3 text-gray-600">{grade.health}</td>
+                  <td className="px-3 py-3 text-[var(--ach-text-muted)]">{grade.health}</td>
                 </tr>
               ))}
             </tbody>
@@ -140,11 +140,11 @@ export default async function DustGuidePage({
         <section
           key={section.heading}
           id={slugify(section.heading)}
-          className={`rounded-[2rem] border p-6 shadow-sm ${index === 2 ? "border-amber-100 bg-amber-50/40" : "border-gray-100 bg-white"}`}
+          className={`rounded-[2rem] border p-6 shadow-[var(--ach-shadow-md)] ${index === 2 ? "border-[#ecd8ab] bg-[#fbf2de]" : "border-[var(--ach-line)] bg-[var(--ach-surface)]"}`}
         >
           <div className="grid gap-5 lg:grid-cols-[220px_minmax(0,1fr)] lg:items-start">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gray-400">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--ach-text-muted)]">
                 {tUI("content.topic")} {String(index + 1).padStart(2, "0")}
               </p>
               <h2 className="mt-2 text-2xl font-bold tracking-tight text-gray-900">
@@ -152,19 +152,9 @@ export default async function DustGuidePage({
               </h2>
             </div>
             <div className="space-y-4">
-              <p className="text-sm leading-7 text-gray-700">
+              <p className="text-sm leading-8 text-[var(--ach-text-muted)]">
                 {section.content}
               </p>
-              <div className="grid gap-3 sm:grid-cols-2">
-                {takeSentences(section.content, 4).map((point) => (
-                  <div
-                    key={point}
-                    className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-sm leading-7 text-gray-700"
-                  >
-                    {point}
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </section>

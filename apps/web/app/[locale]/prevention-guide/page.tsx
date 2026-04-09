@@ -65,32 +65,18 @@ export default async function PreventionGuidePage({
         { href: "/dust-guide", label: tUI("nav.dustGuide") },
       ]}
     >
-      <section className="grid gap-4 md:grid-cols-3">
-        {summaryItems.map((item) => (
-          <div
-            key={`${item.label}-${item.value}`}
-            className="rounded-[2rem] border border-gray-100 bg-white p-5 shadow-sm"
-          >
-            <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
-              {item.label}
-            </p>
-            <p className="mt-3 text-sm leading-7 text-gray-700">{item.value}</p>
-          </div>
-        ))}
-      </section>
-
       {sections.map((section, index) => (
         <section
           key={section.heading}
           id={slugify(section.heading)}
-          className="rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm"
+          className="rounded-[2rem] border border-[var(--ach-line)] bg-[var(--ach-surface)] p-6 shadow-[var(--ach-shadow-md)]"
         >
           <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-green-50 text-2xl">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--ach-accent-soft)] text-2xl">
               {ICONS[index] ?? "✅"}
             </div>
             <div className="min-w-0">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gray-400">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--ach-text-muted)]">
                 {tUI("content.playbook")} {String(index + 1).padStart(2, "0")}
               </p>
               <h2 className="mt-2 text-2xl font-bold tracking-tight text-gray-900">
@@ -103,9 +89,9 @@ export default async function PreventionGuidePage({
             {section.tips.map((tip, tipIndex) => (
               <li
                 key={`${section.heading}-${tipIndex}`}
-                className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-sm leading-7 text-gray-700"
+                className="rounded-2xl border border-[var(--ach-line)] bg-[var(--ach-surface-soft)] px-4 py-3 text-sm leading-7 text-gray-700"
               >
-                <span className="mr-2 text-green-600">•</span>
+                <span className="mr-2 text-[var(--ach-accent)]">•</span>
                 {tip}
               </li>
             ))}

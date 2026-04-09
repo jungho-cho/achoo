@@ -47,12 +47,12 @@ export function SymptomDiary() {
     .sort((a, b) => b.date.localeCompare(a.date));
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
-      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">
+    <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
+      <p className="mb-1 text-sm font-semibold text-gray-800">
         {t("diary.title")}
       </p>
       {recent.length === 0 && (
-        <p className="text-[11px] text-gray-400 mb-3">
+        <p className="mb-3 text-xs leading-6 text-gray-600">
           {t("diary.description")}
         </p>
       )}
@@ -69,12 +69,16 @@ export function SymptomDiary() {
               aria-pressed={isSelected}
               className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-xl transition-colors ${
                 isSelected
-                  ? "bg-green-50 border-2 border-green-400"
-                  : "bg-gray-50 border-2 border-transparent hover:bg-gray-100"
+                  ? "border-2 border-green-600 bg-green-200 text-green-950 shadow-sm"
+                  : "border-2 border-transparent bg-gray-100 text-gray-800 hover:bg-gray-50"
               }`}
             >
-              <span className="text-xl">{opt.emoji}</span>
-              <span className="text-[10px] text-gray-500">
+              <span className={isSelected ? "text-xl drop-shadow-[0_1px_0_rgba(255,255,255,0.35)]" : "text-xl"}>
+                {opt.emoji}
+              </span>
+              <span
+                className={`text-[11px] ${isSelected ? "font-bold text-green-950" : "font-medium text-gray-700"}`}
+              >
                 {t(opt.label as any)}
               </span>
             </button>
@@ -86,7 +90,7 @@ export function SymptomDiary() {
       {todayEntry && todayEntry.severity > 0 && (
         <a
           href={`/${locale}/tips`}
-          className="mt-3 flex items-center justify-center gap-1 text-xs text-green-600 hover:text-green-700"
+          className="mt-3 flex items-center justify-center gap-1 text-xs font-semibold text-green-700 hover:text-green-800"
         >
           {t("diary.expandCta")} →
         </a>
@@ -108,7 +112,7 @@ export function SymptomDiary() {
                 className="flex flex-col items-center gap-0.5"
               >
                 <span className="text-xs">{opt?.emoji}</span>
-                <span className="text-[9px] text-gray-300">{dayLabel}</span>
+                <span className="text-[10px] text-gray-500">{dayLabel}</span>
               </div>
             );
           })}

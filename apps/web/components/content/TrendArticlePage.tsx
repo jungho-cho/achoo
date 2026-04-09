@@ -1,7 +1,6 @@
 import { ArticleLayout } from "./ArticleLayout";
 import { TrendArticleBlocks } from "./TrendArticleBlocks";
 import {
-  getArticleJsonLd,
   getRelatedArticles,
   buildArticleToc,
 } from "../../lib/articles";
@@ -18,7 +17,6 @@ export function TrendArticlePage({
   const chrome = getInsightsChrome(locale);
   const toc = buildArticleToc(article.content);
   const relatedLinks = getRelatedArticles(article.locale, article);
-  const jsonLd = getArticleJsonLd(article);
 
   return (
     <>
@@ -29,20 +27,22 @@ export function TrendArticlePage({
         eyebrow={article.content.eyebrow}
         title={article.content.title}
         description={article.content.description}
+        titleClassName="ach-editorial-title"
         summaryItems={article.content.summaryItems}
         toc={toc}
         tocTitle={chrome.tocTitle}
         relatedLinks={relatedLinks}
         relatedTitle={chrome.relatedTitle}
+        heroVariant="editorial"
       >
         <section className="trend-card trend-rise rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm">
           <div className="flex flex-wrap items-center gap-2">
             {article.content.trendSignals.map((signal) => (
               <span
                 key={`${signal.label}-${signal.value}`}
-                className="inline-flex rounded-full border border-gray-100 bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-600"
+                className="inline-flex rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-700"
               >
-                <span className="mr-2 text-gray-400">{signal.label}</span>
+                <span className="mr-2 text-gray-500">{signal.label}</span>
                 <span className="text-gray-800">{signal.value}</span>
               </span>
             ))}
@@ -52,7 +52,7 @@ export function TrendArticlePage({
         <TrendArticleBlocks content={article.content} />
 
         <section className="trend-card trend-rise rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+          <h2 className="ach-editorial-title text-2xl font-bold tracking-tight text-gray-900">
             {chrome.faqTitle}
           </h2>
           <div className="mt-5 space-y-3">
@@ -76,7 +76,7 @@ export function TrendArticlePage({
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-green-600">
             {chrome.ctaEyebrow}
           </p>
-          <h2 className="mt-3 text-2xl font-bold tracking-tight text-gray-900">
+          <h2 className="ach-editorial-title mt-3 text-2xl font-bold tracking-tight text-gray-900">
             {article.content.cta.title}
           </h2>
           <p className="mt-3 text-sm leading-7 text-gray-700">
@@ -102,10 +102,10 @@ export function TrendArticlePage({
         </section>
 
         <section className="trend-card trend-rise rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+          <h2 className="ach-editorial-title text-2xl font-bold tracking-tight text-gray-900">
             {chrome.sourceTitle}
           </h2>
-          <p className="mt-3 text-sm leading-7 text-gray-600">
+          <p className="mt-3 text-sm leading-7 text-gray-700">
             {chrome.sourceNote}
           </p>
           <ul className="mt-5 space-y-3">
@@ -131,10 +131,6 @@ export function TrendArticlePage({
         </section>
       </ArticleLayout>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
     </>
   );
 }

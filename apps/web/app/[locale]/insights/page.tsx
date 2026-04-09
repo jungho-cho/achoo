@@ -40,27 +40,24 @@ export default async function InsightsHubPage({
   const articles = getArticles(locale as ArticleLocale);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="mx-auto max-w-6xl space-y-6 px-4 py-6 md:space-y-8 md:py-8">
+    <div className="ach-page">
+      <div className="ach-page-shell ach-page-shell--wide space-y-6 md:space-y-8">
         <div className="flex items-center gap-4">
-          <a
-            href={`/${locale}`}
-            className="text-sm text-gray-400 transition hover:text-gray-600"
-          >
+          <a href={`/${locale}`} className="ach-top-link">
             &larr; {tUI("nav.home")}
           </a>
         </div>
 
-        <section className="trend-card rounded-[2rem] border border-green-100 bg-gradient-to-br from-green-50 via-white to-white p-6 shadow-sm md:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-green-600">
+        <section className="rounded-[2rem] border border-[var(--ach-line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,245,238,0.94))] p-6 shadow-[0_18px_42px_rgba(15,23,42,0.08)] md:p-8">
+          <p className="ach-eyebrow">
             {chrome.hubEyebrow}
           </p>
-          <div className="mt-3 grid gap-6 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-start">
+          <div className="mt-4 grid gap-6 md:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] md:items-start">
             <div>
-              <h1 className="text-[1.9rem] font-bold tracking-tight text-gray-900 md:text-4xl">
+              <h1 className="ach-editorial-title text-[2rem] font-bold tracking-tight text-gray-900 md:text-[3rem]">
                 {chrome.hubTitle}
               </h1>
-              <p className="mt-3 text-sm leading-7 text-gray-700 md:text-lg">
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-gray-700 md:text-lg">
                 {chrome.hubDescription}
               </p>
             </div>
@@ -68,15 +65,15 @@ export default async function InsightsHubPage({
               {articles.slice(0, 4).map((article) => (
                 <div
                   key={article.id}
-                  className="rounded-2xl border border-white/70 bg-white/90 px-4 py-4"
+                  className="rounded-2xl border border-white/80 bg-white/92 px-4 py-4 shadow-sm"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
                     {chrome.updatedLabel}
                   </p>
                   <p className="mt-2 text-sm font-semibold leading-6 text-gray-900">
                     {article.content.title}
                   </p>
-                  <p className="mt-2 text-xs leading-6 text-gray-500">
+                  <p className="mt-2 text-xs leading-6 text-gray-600">
                     {article.updatedAt}
                   </p>
                 </div>
@@ -90,18 +87,18 @@ export default async function InsightsHubPage({
             <a
               key={article.id}
               href={`/${locale}/insights/${article.slug}`}
-              className="trend-card trend-rise block rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+              className="trend-card trend-rise block rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               style={{ animationDelay: `${index * 60}ms` }}
             >
               <div className="flex items-center justify-between gap-3">
-                <span className="inline-flex rounded-full border border-gray-100 bg-gray-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                <span className="inline-flex rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-600">
                   {article.content.eyebrow}
                 </span>
-                <span className="text-xs text-gray-400">
+                <span className="text-xs text-gray-500">
                   {chrome.updatedLabel} {article.updatedAt}
                 </span>
               </div>
-              <h2 className="mt-4 text-2xl font-bold tracking-tight text-gray-900">
+              <h2 className="ach-editorial-title mt-4 text-[1.9rem] font-bold tracking-tight text-gray-900">
                 {article.content.title}
               </h2>
               <p className="mt-3 text-sm leading-7 text-gray-700">
@@ -111,7 +108,7 @@ export default async function InsightsHubPage({
                 {article.content.trendSignals.slice(0, 2).map((signal) => (
                   <span
                     key={`${signal.label}-${signal.value}`}
-                    className="rounded-full border border-gray-100 bg-gray-50 px-3 py-1 text-xs text-gray-600"
+                    className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs text-gray-700"
                   >
                     {signal.label}: {signal.value}
                   </span>

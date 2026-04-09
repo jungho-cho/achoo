@@ -68,14 +68,14 @@ export function levelRank(level: string): number {
 export function toneClass(tone: SummaryItem["tone"] = "gray"): string {
   switch (tone) {
     case "green":
-      return "bg-green-50 text-green-700 border-green-100";
+      return "border-[#d9eadf] bg-[#eef6ef] text-[#2f6f53]";
     case "amber":
-      return "bg-amber-50 text-amber-700 border-amber-100";
+      return "border-[#ecd8ab] bg-[#fbf2de] text-[#9a6b19]";
     case "blue":
-      return "bg-blue-50 text-blue-700 border-blue-100";
+      return "border-[#d7e7f0] bg-[#edf5f9] text-[#41687d]";
     case "rose":
-      return "bg-rose-50 text-rose-700 border-rose-100";
+      return "border-[#efd4d0] bg-[#faece9] text-[#9c4c45]";
     default:
-      return "bg-gray-50 text-gray-600 border-gray-200";
+      return "border-gray-200 bg-[#f4f5f2] text-gray-600";
   }
 }

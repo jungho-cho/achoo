@@ -4,6 +4,7 @@ import type { PollenResponse } from "@repo/shared-types";
 import { useTranslations, useLocale } from "next-intl";
 import { usePollenData } from "../hooks/usePollenData";
 import { getInsightsChrome } from "../lib/insights-chrome";
+import { formatMonthDayAtUtc } from "../lib/ssr-date";
 import { DecisionCard } from "./DecisionCard";
 import { ForecastBar } from "./ForecastBar";
 import { SpeciesRow } from "./SpeciesRow";
@@ -49,7 +50,7 @@ export function HomeClient({ ssrPollen }: Props) {
           className="w-8 h-8 rounded-full border-2 border-gray-200 border-t-green-500 animate-spin"
           aria-hidden="true"
         />
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-gray-500">
           {loadingPhase === "location"
             ? t("loading.location")
             : t("loading.data")}
@@ -76,6 +77,9 @@ export function HomeClient({ ssrPollen }: Props) {
   if (!pollen) return null;
 
   const { current, forecast } = pollen;
+  const headerDateLabel = current.date
+    ? formatMonthDayAtUtc(current.date, locale)
+    : "";
   const locationLabel = inKorea
     ? pollen.sido || dust?.sido || "서울"
     : cityName || null;
@@ -97,10 +101,10 @@ export function HomeClient({ ssrPollen }: Props) {
           <div className="flex items-center gap-2">
             <h1 className="text-xl font-bold text-gray-900">🤧 Achoo</h1>
             {locationLabel && (
-              <span className="text-sm text-gray-500">📍 {locationLabel}</span>
+              <span className="text-sm text-gray-600">📍 {locationLabel}</span>
             )}
             {!locationLabel && !inKorea && (
-              <span className="text-sm text-gray-500">🌍</span>
+              <span className="text-sm text-gray-600">🌍</span>
             )}
             <button
               onClick={refreshLocation}
@@ -125,18 +129,13 @@ export function HomeClient({ ssrPollen }: Props) {
             </button>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-xs text-gray-400">
-              {new Date().toLocaleDateString(locale, {
-                month: "long",
-                day: "numeric",
-              })}
-            </span>
+            <span className="text-xs text-gray-500">{headerDateLabel}</span>
             <LocaleSwitcher />
           </div>
         </div>
 
         {/* SEO intro text — visible to crawlers and users */}
-        <p className="text-sm text-gray-500">{t("decision.intro")}</p>
+        <p className="text-sm text-gray-600">{t("decision.intro")}</p>
 
         {/* 2-column grid on desktop, single column on mobile */}
         <div className="md:grid md:grid-cols-2 md:gap-6 space-y-4 md:space-y-0">
@@ -152,10 +151,10 @@ export function HomeClient({ ssrPollen }: Props) {
             />
 
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+              <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
                 {t("decision.feedbackTitle")}
               </p>
-              <p className="mt-1 text-sm text-gray-500">
+              <p className="mt-1 text-sm text-gray-600">
                 {t("decision.feedbackDesc")}
               </p>
               <div className="mt-3">
@@ -167,12 +166,12 @@ export function HomeClient({ ssrPollen }: Props) {
           {/* Right column: species + forecast */}
           <div className="space-y-4">
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 px-4 py-1">
-              <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wide pt-3 pb-1">
+              <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wide pt-3 pb-1">
                 {t("pollen.title")}
               </h2>
               {pollen.offSeason && (
                 <div className="px-3 py-2 my-2 rounded-xl bg-blue-50 border border-blue-100">
-                  <p className="text-xs text-blue-600">
+                  <p className="text-xs text-blue-700">
                     {t("pollen.offSeason")}
                   </p>
                 </div>
@@ -199,7 +198,7 @@ export function HomeClient({ ssrPollen }: Props) {
             <span className="text-sm font-medium text-gray-700">
               💡 {t("nav.tips")}
             </span>
-            <span className="text-gray-400 text-sm">→</span>
+            <span className="text-gray-500 text-sm">→</span>
           </a>
           <a
             href={`/${locale}/pollen-info`}
@@ -208,7 +207,7 @@ export function HomeClient({ ssrPollen }: Props) {
             <span className="text-sm font-medium text-gray-700">
               🌳 {t("nav.pollenInfo")}
             </span>
-            <span className="text-gray-400 text-sm">→</span>
+            <span className="text-gray-500 text-sm">→</span>
           </a>
           <a
             href={`/${locale}/insights`}
@@ -217,7 +216,7 @@ export function HomeClient({ ssrPollen }: Props) {
             <span className="text-sm font-medium text-gray-700">
               📰 {insightsChrome.navLabel}
             </span>
-            <span className="text-gray-400 text-sm">→</span>
+            <span className="text-gray-500 text-sm">→</span>
           </a>
           {/* 지역별 예보 링크 — 비활성화
           <a
@@ -243,13 +242,13 @@ export function HomeClient({ ssrPollen }: Props) {
             };
             return (
               <div className="flex items-center justify-center gap-2 py-2">
-                <span className="text-xs text-gray-400">
+                <span className="text-xs text-gray-500">
                   {t("days.tomorrow")} 예보
                 </span>
                 <span
                   className={`w-2 h-2 rounded-full ${DOT_COLOR[tmrw.overallLevel] ?? "bg-gray-300"}`}
                 />
-                <span className="text-xs font-medium text-gray-500">
+                <span className="text-xs font-medium text-gray-600">
                   {t(`pollenLevel.${tmrw.overallLevel}` as "pollenLevel.low")}
                 </span>
               </div>
@@ -257,41 +256,39 @@ export function HomeClient({ ssrPollen }: Props) {
           })()}
 
         <nav
-          className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-xs text-gray-400 pt-2"
+          className="flex flex-wrap justify-center gap-x-3 gap-y-1 pt-2 text-xs text-gray-500"
           aria-label="Footer navigation"
         >
           <a href={`/${locale}/allergy-types`} className="hover:text-gray-600">
             {t("nav.allergyTypes")}
           </a>
+          <span>·</span>
           <a
             href={`/${locale}/seasonal-calendar`}
             className="hover:text-gray-600"
           >
             {t("nav.seasonalCalendar")}
           </a>
+          <span>·</span>
           <a
             href={`/${locale}/prevention-guide`}
             className="hover:text-gray-600"
           >
             {t("nav.preventionGuide")}
           </a>
+          <span>·</span>
           <a href={`/${locale}/dust-guide`} className="hover:text-gray-600">
             {t("nav.dustGuide")}
           </a>
+          <span>·</span>
           <a href={`/${locale}/faq`} className="hover:text-gray-600">
             {t("nav.faq")}
           </a>
+          <span>·</span>
           <a href={`/${locale}/privacy`} className="hover:text-gray-600">
             {t("nav.privacy")}
           </a>
-          <a href={`/${locale}/insights`} className="hover:text-gray-600">
-            {insightsChrome.navLabel}
-          </a>
         </nav>
-
-        <p className="text-center text-xs text-gray-300 pb-4">
-          {t("pollen.source")}
-        </p>
       </main>
     </div>
   );

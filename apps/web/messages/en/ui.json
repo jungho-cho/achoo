@@ -118,7 +118,7 @@
     "detailCtaClose": "Hide details",
     "detailHint": "Raw numbers are supporting context. The decision above should come first.",
     "feedbackTitle": "Log how you feel today",
-    "feedbackDesc": "The fastest way to improve tomorrow’s recommendation is to record today’s symptoms."
+    "feedbackDesc": "Logging today’s symptoms makes it easier to compare how tomorrow feels."
   },
   "days": {
     "today": "Today",

@@ -5,6 +5,13 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --ach-text-muted: #5b6661;
+  --ach-text-subtle: #707a75;
+  --ach-line: #dde5e0;
+  --ach-accent: #2f6f53;
+  --ach-accent-strong: #24513d;
+  --ach-accent-soft: #e5f1e7;
+  --ach-surface-soft: #f6f8f6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -12,6 +19,13 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --ach-text-muted: #b4c0bb;
+    --ach-text-subtle: #8f9994;
+    --ach-line: rgba(255, 255, 255, 0.12);
+    --ach-accent: #8abf78;
+    --ach-accent-strong: #9dd58a;
+    --ach-accent-soft: rgba(138, 191, 120, 0.16);
+    --ach-surface-soft: rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -23,6 +37,83 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.ach-page {
+  min-height: 100vh;
+  background: #f8faf8;
+}
+
+.ach-page-shell {
+  width: min(100%, 72rem);
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.ach-page-shell--wide {
+  width: min(100%, 80rem);
+}
+
+.ach-panel {
+  border: 1px solid #e5e7eb;
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+}
+
+.ach-panel-strong {
+  border: 1px solid #e5e7eb;
+  border-radius: 2rem;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+}
+
+.ach-panel-soft {
+  border: 1px solid var(--ach-line);
+  border-radius: 1.5rem;
+  background: var(--ach-surface-soft);
+}
+
+.ach-top-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--ach-line);
+  border-radius: 999px;
+  padding: 0.5rem 0.875rem;
+  background: #fff;
+  color: var(--ach-text-muted);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transition:
+    color 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.ach-top-link:hover {
+  color: #111827;
+  background: #f9fafb;
+}
+
+.ach-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #d7e7db;
+  border-radius: 999px;
+  padding: 0.5rem 0.75rem;
+  background: #eef6ef;
+  color: var(--ach-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ach-editorial-title {
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  letter-spacing: -0.04em;
 }
 
 @keyframes trend-rise {

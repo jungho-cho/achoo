@@ -61,21 +61,20 @@ export default async function PollenInfoPage({
         { href: "/seasonal-calendar", label: tUI("nav.seasonalCalendar") },
       ]}
     >
-      <section className="rounded-[2rem] border border-green-100 bg-gradient-to-br from-green-50 via-white to-white p-6 shadow-sm">
-        <p className="text-sm leading-7 text-gray-700">{intro}</p>
+      <section className="rounded-[2rem] border border-[#d9eadf] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(238,246,239,0.78))] p-6 shadow-[var(--ach-shadow-md)]">
+        <p className="text-sm leading-8 text-[var(--ach-text-muted)]">{intro}</p>
       </section>
 
       {sections.map((section, index) => {
-        const points = takeSentences(section.content, 4);
         return (
           <section
             key={section.heading}
             id={slugify(section.heading)}
-            className={`rounded-[2rem] border p-6 shadow-sm ${index % 2 === 0 ? "border-gray-100 bg-white" : "border-blue-100 bg-blue-50/40"}`}
+            className={`rounded-[2rem] border p-6 shadow-[var(--ach-shadow-md)] ${index % 2 === 0 ? "border-[var(--ach-line)] bg-[var(--ach-surface)]" : "border-[#d7e7f0] bg-[#edf5f9]"}`}
           >
             <div className="grid gap-5 lg:grid-cols-[220px_minmax(0,1fr)] lg:items-start">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gray-400">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--ach-text-muted)]">
                   {tUI("content.section")} {String(index + 1).padStart(2, "0")}
                 </p>
                 <h2 className="mt-2 text-2xl font-bold tracking-tight text-gray-900">
@@ -84,21 +83,9 @@ export default async function PollenInfoPage({
               </div>
 
               <div className="space-y-4">
-                <p className="text-sm leading-7 text-gray-700">
+                <p className="text-sm leading-8 text-[var(--ach-text-muted)]">
                   {section.content}
                 </p>
-                {points.length > 1 && (
-                  <ul className="grid gap-2 sm:grid-cols-2">
-                    {points.map((point) => (
-                      <li
-                        key={point}
-                        className="rounded-2xl border border-gray-100 bg-white/80 px-4 py-3 text-sm text-gray-600"
-                      >
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </div>
             </div>
           </section>

@@ -118,7 +118,7 @@
     "detailCtaClose": "Masquer les détails",
     "detailHint": "Les chiffres bruts sont un contexte secondaire. La décision ci-dessus passe en premier.",
     "feedbackTitle": "Enregistrez aussi votre état du jour",
-    "feedbackDesc": "Le moyen le plus rapide d’améliorer la recommandation de demain est de noter les symptômes d’aujourd’hui."
+    "feedbackDesc": "Noter les symptômes d’aujourd’hui aide surtout à comparer plus facilement votre état demain."
   },
   "days": {
     "today": "Auj.",

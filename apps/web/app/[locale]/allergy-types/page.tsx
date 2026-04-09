@@ -74,17 +74,17 @@ export default async function AllergyTypesPage({
           <section
             key={type.name}
             id={slugify(type.name)}
-            className={`rounded-[2rem] border p-6 shadow-sm ${TONES[index] ?? "border-gray-100 bg-white"}`}
+            className={`rounded-[2rem] border p-6 shadow-[var(--ach-shadow-md)] ${TONES[index] ?? "border-[var(--ach-line)] bg-[var(--ach-surface)]"}`}
           >
             <div className="grid gap-5 lg:grid-cols-[220px_minmax(0,1fr)] lg:items-start">
               <div>
                 <div className="flex items-center gap-3">
                   <span className="text-3xl">{ICONS[index] ?? "🌿"}</span>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gray-400">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--ach-text-muted)]">
                       {tUI("content.peakSeason")}
                     </p>
-                    <p className="mt-1 text-sm font-medium text-gray-600">
+                    <p className="mt-1 text-sm font-medium text-[var(--ach-text-muted)]">
                       {type.season}
                     </p>
                   </div>
@@ -96,10 +96,10 @@ export default async function AllergyTypesPage({
 
               <div className="space-y-4">
                 <div className="rounded-2xl border border-white/70 bg-white/80 px-4 py-4">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--ach-text-muted)]">
                     {tUI("content.representativePlants")}
                   </p>
-                  <p className="mt-2 text-sm leading-7 text-gray-700">
+                  <p className="mt-2 text-sm leading-7 text-[var(--ach-text-muted)]">
                     {type.species}
                   </p>
                 </div>

@@ -4,14 +4,21 @@ import type { PollenReading } from '@repo/shared-types';
 import { useTranslations } from 'next-intl';
 import { levelColor } from './LevelBadge';
 
+const LEVEL_TEXT: Record<string, string> = {
+  low: 'text-green-700',
+  moderate: 'text-amber-700',
+  high: 'text-orange-700',
+  'very-high': 'text-red-700',
+};
+
 export function SpeciesRow({ reading }: { reading: PollenReading }) {
   const t = useTranslations('ui');
   const dot = levelColor(reading.level);
   return (
-    <div className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0" aria-label={`${t(`species.${reading.species}` as 'species.tree')}: ${t(`pollenLevel.${reading.level}` as 'pollenLevel.low')}`}>
+    <div className="flex items-center justify-between border-b border-[var(--ach-line)] py-3 last:border-0" aria-label={`${t(`species.${reading.species}` as 'species.tree')}: ${t(`pollenLevel.${reading.level}` as 'pollenLevel.low')}`}>
       <div className="flex items-center gap-2">
         <span className={`w-2.5 h-2.5 rounded-full ${dot}`} />
-        <span className="text-sm text-gray-700">{t(`species.${reading.species}` as 'species.tree')}</span>
+        <span className="text-sm font-medium text-gray-800">{t(`species.${reading.species}` as 'species.tree')}</span>
       </div>
       <div className="flex items-center gap-3">
         {/* 3-segment bar */}
@@ -29,7 +36,7 @@ export function SpeciesRow({ reading }: { reading: PollenReading }) {
             );
           })}
         </div>
-        <span className="text-xs font-medium text-gray-500 w-14 text-right">
+        <span className={`w-14 text-right text-xs font-semibold ${LEVEL_TEXT[reading.level] ?? 'text-gray-700'}`}>
           {t(`pollenLevel.${reading.level}` as 'pollenLevel.low')}
         </span>
       </div>

@@ -25,7 +25,7 @@ export function LocaleSwitcher() {
     <div className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1 px-2 py-1 text-xs text-gray-500 hover:text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
+        className="flex items-center gap-1 rounded-lg px-2 py-1 text-xs text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-800"
         aria-label={`Language: ${current.label}`}
         aria-expanded={open}
       >
@@ -37,19 +37,19 @@ export function LocaleSwitcher() {
       {open && (
         <>
           <div className="fixed inset-0 z-40" onClick={() => setOpen(false)} />
-          <div className="absolute right-0 top-full mt-1 z-50 bg-white rounded-xl shadow-lg border border-gray-100 py-1 min-w-[140px]">
+          <div className="absolute right-0 top-full z-50 mt-1 min-w-[140px] rounded-xl border border-gray-200 bg-white py-1 shadow-lg">
             {LOCALES.map((l) => (
               <a
                 key={l.code}
                 href={`/${l.code}${route}`}
                 onClick={() => setOpen(false)}
-                className={`flex items-center gap-2 px-3 py-2 text-sm hover:bg-gray-50 transition-colors ${
-                  l.code === locale ? 'text-green-600 font-medium' : 'text-gray-600'
+                className={`flex items-center gap-2 px-3 py-2 text-sm transition-colors hover:bg-gray-50 ${
+                  l.code === locale ? 'font-medium text-green-700' : 'text-gray-700'
                 }`}
               >
                 <span>{l.flag}</span>
                 <span>{l.label}</span>
-                {l.code === locale && <span className="ml-auto text-green-500 text-xs">✓</span>}
+                {l.code === locale && <span className="ml-auto text-xs text-green-600">✓</span>}
               </a>
             ))}
           </div>

@@ -64,12 +64,12 @@ export default async function FAQPage({
           <details
             key={item.question}
             id={slugify(item.question)}
-            className="group rounded-[2rem] border border-gray-100 bg-white shadow-sm"
+            className="group rounded-[2rem] border border-[var(--ach-line)] bg-[var(--ach-surface)] shadow-[var(--ach-shadow-md)]"
           >
             <summary className="cursor-pointer list-none px-6 py-5">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gray-400">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--ach-text-muted)]">
                     {tUI("content.section")}{" "}
                     {String(index + 1).padStart(2, "0")}
                   </p>
@@ -77,12 +77,12 @@ export default async function FAQPage({
                     {item.question}
                   </h2>
                 </div>
-                <span className="mt-1 text-gray-300 transition-transform group-open:rotate-45">
+                <span className="mt-1 text-[var(--ach-text-muted)] opacity-60 transition-transform group-open:rotate-45">
                   +
                 </span>
               </div>
             </summary>
-            <div className="border-t border-gray-100 px-6 pb-6 pt-4 text-sm leading-7 text-gray-700">
+            <div className="border-t border-[var(--ach-line)] px-6 pb-6 pt-4 text-sm leading-8 text-[var(--ach-text-muted)]">
               {item.answer}
             </div>
           </details>

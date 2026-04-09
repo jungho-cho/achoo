@@ -19,6 +19,27 @@ interface Advice {
   context?: string; // dynamic context like "오늘 나무 꽃가루 높음"
 }
 
+function contextTone(label: string): string {
+  if (
+    label.includes('매우높') ||
+    label.includes('very-high') ||
+    label.includes('매우나쁨') ||
+    label.includes('very-bad')
+  ) {
+    return 'border-red-300 bg-red-100';
+  }
+  if (
+    label.includes('높') ||
+    label.includes('bad') ||
+    label.includes('나쁨') ||
+    label.includes('보통') ||
+    label.includes('moderate')
+  ) {
+    return 'border-amber-300 bg-amber-100';
+  }
+  return 'border-green-300 bg-green-100';
+}
+
 function getPollenContext(pollen: PollenResponse | null | undefined, t: (key: string) => string): string | null {
   if (!pollen) return null;
   const dominated = pollen.current.readings.reduce((a, b) =>
@@ -118,7 +139,6 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
     if (todayEntry && todayEntry.symptoms.length > 0) {
       setSelectedSymptoms(todayEntry.symptoms);
       setSeverity(todayEntry.severity);
-      setStep('result');
     }
   }, []);
 
@@ -153,12 +173,14 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
 
   if (step === 'symptoms') {
     return (
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-4">
+      <div className="ach-panel px-5 py-5 space-y-4">
         <div>
-          <h2 className="text-base font-semibold text-gray-900">{t('checker.symptomQuestion')}</h2>
-          <p className="text-xs text-gray-400 mt-1">{t('checker.symptomHint')}</p>
+          <h2 className="text-lg font-semibold tracking-tight text-gray-900">{t('checker.symptomQuestion')}</h2>
+          <p className="mt-1 text-sm leading-6 text-gray-800">{t('checker.symptomHint')}</p>
           {contextLabel && (
-            <p className="text-xs text-orange-500 mt-1 font-medium">{t('checker.todayCondition')}: {contextLabel}</p>
+            <p className={`mt-2 inline-flex rounded-full border px-3 py-1 text-xs font-bold text-gray-900 shadow-sm ${contextTone(contextLabel)}`}>
+              {t('checker.todayCondition')}: {contextLabel}
+            </p>
           )}
         </div>
 
@@ -172,12 +194,16 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
                 aria-pressed={selected}
                 className={`flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm transition-colors ${
                   selected
-                    ? 'bg-green-50 border-2 border-green-400 text-green-700'
-                    : 'bg-gray-50 border-2 border-transparent text-gray-600 hover:bg-gray-100'
+                    ? 'border-2 border-green-700 bg-white text-gray-900 ring-2 ring-green-100 shadow-sm'
+                    : 'border-2 border-gray-300 bg-white text-gray-900 hover:bg-gray-50'
                 }`}
               >
-                <span>{s.emoji}</span>
-                <span>{t(s.i18nKey as any)}</span>
+                <span className={selected ? 'text-base drop-shadow-[0_1px_0_rgba(255,255,255,0.45)]' : 'text-base'}>
+                  {s.emoji}
+                </span>
+                <span className={selected ? 'font-bold text-gray-900' : 'font-semibold text-gray-900'}>
+                  {t(s.i18nKey as any)}
+                </span>
               </button>
             );
           })}
@@ -189,7 +215,7 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
           className={`w-full py-3 rounded-xl text-sm font-medium transition-colors ${
             selectedSymptoms.length > 0
               ? 'bg-green-500 text-white hover:bg-green-600'
-              : 'bg-gray-100 text-gray-300 cursor-not-allowed'
+              : 'bg-black/5 text-gray-300 cursor-not-allowed'
           }`}
         >
           {t('checker.next')}
@@ -200,10 +226,10 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
 
   if (step === 'severity') {
     return (
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-4">
+      <div className="ach-panel px-5 py-5 space-y-4">
         <div>
-          <h2 className="text-base font-semibold text-gray-900">{t('checker.severityQuestion')}</h2>
-          <p className="text-xs text-gray-400 mt-1">
+          <h2 className="text-lg font-semibold tracking-tight text-gray-900">{t('checker.severityQuestion')}</h2>
+          <p className="mt-1 text-sm leading-6 text-gray-800">
             {selectedSymptoms.map((id) => {
               const sym = SYMPTOM_IDS.find((s) => s.id === id);
               return sym ? t(sym.i18nKey as any) : id;
@@ -221,12 +247,12 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
                 aria-pressed={isSelected}
                 className={`flex-1 flex flex-col items-center gap-1 py-3 rounded-xl transition-colors ${
                   isSelected
-                    ? 'bg-green-50 border-2 border-green-400'
-                    : 'bg-gray-50 border-2 border-transparent hover:bg-gray-100'
+                    ? 'border-2 border-green-700 bg-white text-gray-900 ring-2 ring-green-100 shadow-sm'
+                    : 'border-2 border-gray-300 bg-white text-gray-900 hover:bg-gray-50'
                 }`}
               >
                 <span className="text-2xl">{opt.emoji}</span>
-                <span className="text-[11px] text-gray-500">{t(opt.i18nKey as any)}</span>
+                <span className={`text-[11px] ${isSelected ? 'font-bold text-gray-900' : 'font-semibold text-gray-900'}`}>{t(opt.i18nKey as any)}</span>
               </button>
             );
           })}
@@ -235,7 +261,7 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
         <div className="flex gap-2">
           <button
             onClick={() => setStep('symptoms')}
-            className="px-4 py-3 rounded-xl text-sm text-gray-500 bg-gray-50 hover:bg-gray-100 transition-colors"
+            className="rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
           >
             {t('checker.prev')}
           </button>
@@ -252,12 +278,12 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
 
   // Result
   return (
-    <div className="space-y-4" aria-live="polite">
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+      <div className="space-y-4" aria-live="polite">
+      <div className="ach-panel px-5 py-5">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="text-base font-semibold text-gray-900">{t('checker.resultTitle')}</h2>
-            <p className="text-xs text-gray-400 mt-1">
+            <h2 className="text-lg font-semibold tracking-tight text-gray-900">{t('checker.resultTitle')}</h2>
+            <p className="mt-1 text-xs leading-6 text-gray-600">
               {selectedSymptoms.map((id) => SYMPTOM_IDS.find((s) => s.id === id)?.emoji).join(' ')}
               {' · '}
               {t(SEVERITY_IDS.find((o) => o.value === severity)?.i18nKey as any ?? 'severity.moderate')}
@@ -265,7 +291,7 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
             </p>
           </div>
           {saved && (
-            <span className="text-[10px] text-green-500 bg-green-50 px-2 py-1 rounded-full">
+            <span className="rounded-full bg-green-100 px-2 py-1 text-[10px] font-semibold text-green-800">
               {t('checker.savedToDiary')}
             </span>
           )}
@@ -275,13 +301,13 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
           {advices.map((advice, i) => (
             <div
               key={i}
-              className={`p-3 rounded-xl ${i === 0 ? 'bg-orange-50 border border-orange-100' : 'bg-gray-50'}`}
+              className={`rounded-xl p-3 ${i === 0 ? 'border border-orange-200 bg-orange-50' : 'border border-gray-200 bg-gray-50'}`}
             >
               <div className="flex items-start gap-2">
                 <span className="text-lg mt-0.5">{advice.emoji}</span>
                 <div>
-                  <p className="text-sm font-medium text-gray-800">{t(advice.titleKey as any)}</p>
-                  <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{t(advice.descKey as any)}</p>
+                  <p className="text-sm font-semibold text-gray-900">{t(advice.titleKey as any)}</p>
+                  <p className="mt-0.5 text-xs leading-relaxed text-gray-700">{t(advice.descKey as any)}</p>
                 </div>
               </div>
             </div>
@@ -291,7 +317,7 @@ export function SymptomChecker({ pollen, dust }: SymptomCheckerProps) {
 
       <button
         onClick={handleReset}
-        className="w-full py-2.5 rounded-xl text-sm text-gray-500 bg-white border border-gray-200 hover:bg-gray-50 transition-colors"
+        className="w-full rounded-xl border border-gray-200 bg-white py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
       >
         {t('checker.reset')}
       </button>

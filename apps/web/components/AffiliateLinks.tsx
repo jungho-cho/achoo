@@ -56,8 +56,8 @@ export function AffiliateLinks() {
   const products = region === 'kr' ? COUPANG_PRODUCTS : AMAZON_EU_PRODUCTS;
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
-      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
+    <div className="ach-panel px-4 py-4">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-gray-700">
         {t('affiliate.sectionTitle')}
       </p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
@@ -68,14 +68,14 @@ export function AffiliateLinks() {
             target="_blank"
             rel="noopener noreferrer sponsored"
             aria-label={`${t(`affiliate.${p.key}` as any)} - ${p.desc}`}
-            className="flex flex-col gap-1 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors"
+            className="flex flex-col gap-1 rounded-2xl border border-gray-300 bg-gray-50 p-3 transition hover:bg-white"
           >
-            <span className="text-sm font-medium text-gray-700">{t(`affiliate.${p.key}` as any)}</span>
-            <span className="text-xs text-gray-400">{p.desc}</span>
+            <span className="text-sm font-semibold text-gray-900">{t(`affiliate.${p.key}` as any)}</span>
+            <span className="text-xs font-medium leading-5 text-gray-700">{p.desc}</span>
           </a>
         ))}
       </div>
-      <p className="text-[10px] text-gray-300 mt-2 text-center">
+      <p className="mt-2 text-center text-[10px] text-gray-500">
         {t('affiliate.disclaimer')}
       </p>
     </div>

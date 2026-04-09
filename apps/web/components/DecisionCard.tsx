@@ -2,8 +2,9 @@
 
 import { buildDailyRecommendation } from "@repo/normalizer";
 import type { DustResponse, PollenResponse } from "@repo/shared-types";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
+import { formatClockAtUtc } from "../lib/ssr-date";
 import { LevelBadge } from "./LevelBadge";
 
 type MaybeStalePollen = PollenResponse & { stale?: boolean };
@@ -46,6 +47,7 @@ export function DecisionCard({
   loadingPhase,
 }: Props) {
   const t = useTranslations("ui");
+  const locale = useLocale();
   const [detailsOpen, setDetailsOpen] = useState(false);
 
   if (!pollen && !dust) {
@@ -59,22 +61,22 @@ export function DecisionCard({
         aria-live="polite"
       >
         <div className="flex items-center gap-2 mb-3">
-          <span className="inline-flex rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-[11px] font-medium text-gray-500">
+          <span className="inline-flex rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-[11px] font-medium text-gray-600">
             {t("decision.state.locationPending")}
           </span>
-          <span className="inline-flex rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-[11px] font-medium text-gray-500">
+          <span className="inline-flex rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-[11px] font-medium text-gray-600">
             {loadingPhase === "location"
               ? t("loading.location")
               : t("loading.data")}
           </span>
         </div>
-        <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+        <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
           {t("decision.title")}
         </p>
         <h2 className="mt-2 text-2xl font-bold tracking-tight text-gray-900">
           {t("decision.pendingTitle")}
         </h2>
-        <p className="mt-2 text-sm text-gray-500">
+        <p className="mt-2 text-sm text-gray-600">
           {t("decision.pendingDesc")}
         </p>
       </section>
@@ -101,12 +103,10 @@ export function DecisionCard({
   );
   const updatedAt =
     timestamps.length > 0
-      ? new Date(
-          timestamps.reduce((oldest, current) =>
-            new Date(current).getTime() < new Date(oldest).getTime()
-              ? current
-              : oldest,
-          ),
+      ? timestamps.reduce((oldest, current) =>
+          new Date(current).getTime() < new Date(oldest).getTime()
+            ? current
+            : oldest,
         )
       : null;
 
@@ -133,10 +133,10 @@ export function DecisionCard({
         >
           {t(`decision.tier.${recommendation.tier}` as "decision.tier.act-now")}
         </span>
-        <span className="inline-flex rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-[11px] font-medium text-gray-500">
+        <span className="inline-flex rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-[11px] font-medium text-gray-600">
           {locationChip}
         </span>
-        <span className="inline-flex rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-[11px] font-medium text-gray-500">
+        <span className="inline-flex rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-[11px] font-medium text-gray-600">
           {freshnessChip}
         </span>
         <span
@@ -148,7 +148,7 @@ export function DecisionCard({
         </span>
       </div>
 
-      <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+      <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
         {t("decision.title")}
       </p>
       <div className="mt-2 flex items-start gap-3">
@@ -170,7 +170,7 @@ export function DecisionCard({
       </div>
 
       <div className="mt-4">
-        <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+        <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
           {t("decision.actionTitle")}
         </p>
         <div className="mt-2 flex flex-wrap gap-2">
@@ -204,7 +204,7 @@ export function DecisionCard({
       )}
 
       <div className="mt-4">
-        <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+        <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
           {t("decision.why")}
         </p>
         <ul className="mt-2 space-y-2">
@@ -239,16 +239,13 @@ export function DecisionCard({
 
       <div className="mt-4 flex items-center justify-between gap-3 border-t border-gray-100 pt-4">
         <div className="min-w-0">
-          <p className="text-xs font-medium text-gray-500">
+          <p className="text-xs font-medium text-gray-600">
             {locationLabel || t("decision.trust.defaultCity")}
           </p>
           {updatedAt && (
-            <p className="text-[11px] text-gray-400">
+            <p className="text-[11px] text-gray-500">
               {t("decision.updatedAt", {
-                time: updatedAt.toLocaleTimeString(undefined, {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                }),
+                time: formatClockAtUtc(updatedAt, locale),
               })}
             </p>
           )}
@@ -278,7 +275,7 @@ export function DecisionCard({
               />
             )}
           </div>
-          <p className="text-xs text-gray-500">{t("decision.detailHint")}</p>
+          <p className="text-xs text-gray-600">{t("decision.detailHint")}</p>
         </div>
       )}
     </section>
