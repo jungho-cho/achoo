@@ -69,7 +69,7 @@
 - **Line:** `#C9BFA8` — borders, dividers
 - **Line Light:** `#DDD5C6` — subtle separators
 
-### CSS Variables (Light)
+### CSS Variables
 ```css
 :root {
   --bg: #F3EEE6;
@@ -88,24 +88,7 @@
 }
 ```
 
-### CSS Variables (Dark)
-```css
-[data-theme="dark"] {
-  --bg: #1A1714;
-  --surface: #252119;
-  --surface-strong: #302A21;
-  --text-primary: #E8E0D4;
-  --text-secondary: #C4BAA8;
-  --text-muted: #8A7F6E;
-  --accent: #D4845E;
-  --accent-deep: #E89A74;
-  --accent-soft: rgba(212, 132, 94, 0.12);
-  --secondary: #7E90B8;
-  --secondary-soft: rgba(126, 144, 184, 0.12);
-  --line: #3D362C;
-  --line-light: #2E2820;
-}
-```
+- **Dark mode:** 지원하지 않음 (라이트 모드 전용)
 
 ### Data Severity Scale
 | Level | Label (ko) | Color | Hex |

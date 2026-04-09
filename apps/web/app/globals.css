@@ -27,34 +27,6 @@
   --ach-info: #3D4B72;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ach-bg: #1A1714;
-    --ach-surface: #252119;
-    --ach-surface-strong: #302A21;
-    --ach-surface-soft: #1F1C16;
-    --ach-text-primary: #E8E0D4;
-    --ach-text-secondary: #C4BAA8;
-    --ach-text-muted: #8A7F6E;
-    --ach-text-subtle: #6E645A;
-    --ach-line: #3D362C;
-    --ach-line-light: #2E2820;
-    --ach-accent: #D4845E;
-    --ach-accent-strong: #E89A74;
-    --ach-accent-soft: rgba(212, 132, 94, 0.12);
-    --ach-secondary: #7E90B8;
-    --ach-secondary-soft: rgba(126, 144, 184, 0.12);
-    --ach-data-low: #A8BF9C;
-    --ach-data-moderate: #E4C468;
-    --ach-data-high: #D4714A;
-    --ach-data-extreme: #E8C4B8;
-    --ach-success: #8AAF7E;
-    --ach-warning: #E4C468;
-    --ach-error: #D4714A;
-    --ach-info: #7E90B8;
-  }
-}
-
 body {
   color: var(--ach-text-primary);
   background: var(--ach-bg);
