@@ -52,6 +52,7 @@ export function buildPageMetadata({
   const canonicalPath = buildLocalizedPath(locale, pathname);
 
   return {
+    metadataBase: new URL(BASE_URL),
     title,
     description,
     ...(keywords ? { keywords } : {}),
