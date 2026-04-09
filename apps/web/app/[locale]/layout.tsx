@@ -99,6 +99,8 @@ export default async function LocaleLayout({
         )}
         {usePretendard ? (
           <>
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
             <link
               rel="stylesheet"
               href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
@@ -112,6 +114,7 @@ export default async function LocaleLayout({
           <>
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+            <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
             <link
               rel="stylesheet"
               href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
