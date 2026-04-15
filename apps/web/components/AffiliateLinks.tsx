@@ -26,13 +26,6 @@ const COUPANG_PRODUCTS: AffiliateProduct[] = [
   { key: 'antihistamine', desc: '알레르기 증상 완화', url: 'https://link.coupang.com/a/ecRmPO' },
 ];
 
-const AMAZON_EU_PRODUCTS: AffiliateProduct[] = [
-  { key: 'mask', desc: 'FFP2 pollen filter', url: 'https://www.amazon.de/dp/B08NVDFM6R?tag=achoo-21' },
-  { key: 'purifier', desc: 'HEPA air purifier', url: 'https://www.amazon.de/dp/B07VVK39F7?tag=achoo-21' },
-  { key: 'eyeDrops', desc: 'Antihistamine eye drops', url: 'https://www.amazon.de/dp/B00BQNKAHU?tag=achoo-21' },
-  { key: 'antihistamine', desc: 'Cetirizine tablets', url: 'https://www.amazon.de/dp/B00F5K3JJ2?tag=achoo-21' },
-];
-
 type Region = 'kr' | 'eu' | null;
 
 function useUserRegion(): Region {

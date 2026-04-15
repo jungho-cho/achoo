@@ -1,58 +1,49 @@
-# Turborepo Tailwind CSS starter
+# Achoo
 
-This Turborepo starter is maintained by the Turborepo core team.
+Multilingual Next.js app for pollen and dust forecasts, built in a pnpm/Turborepo workspace.
 
-## Using this example
+## Apps
 
-Run the following command:
+- `apps/web`: production web app
+- `packages/*`: shared UI, API clients, geo helpers, and types
 
-```sh
-npx create-turbo@latest -e with-tailwind
+## Local development
+
+```bash
+pnpm install
+pnpm --filter web dev
 ```
 
-## What's inside?
+The app runs on `http://localhost:3001`.
 
-This Turborepo includes the following packages/apps:
+## Cloudflare Workers deployment
 
-### Apps and Packages
+This repo is set up to deploy `apps/web` to Cloudflare Workers using OpenNext.
 
-- `docs`: a [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/)
-- `web`: another [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/)
-- `ui`: a stub React component library with [Tailwind CSS](https://tailwindcss.com/) shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+### Required secrets
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+Set these in the Cloudflare Worker project:
 
-### Building packages/ui
+- `AIRKOREA_API_KEY`
+- `KMA_POLLEN_API_KEY`
+- `UPSTASH_REDIS_REST_URL`
+- `UPSTASH_REDIS_REST_TOKEN`
 
-This example is set up to produce compiled styles for `ui` components into the `dist` directory. The component `.tsx` files are consumed by the Next.js apps directly using `transpilePackages` in `next.config.ts`. This was chosen for several reasons:
+### Local preview in Workers runtime
 
-- Make sharing one `tailwind.config.ts` to apps and packages as easy as possible.
-- Make package compilation simple by only depending on the Next.js Compiler and `tailwindcss`.
-- Ensure Tailwind classes do not overwrite each other. The `ui` package uses a `ui-` prefix for it's classes.
-- Maintain clear package export boundaries.
-
-Another option is to consume `packages/ui` directly from source without building. If using this option, you will need to update the `tailwind.config.ts` in your apps to be aware of your package locations, so it can find all usages of the `tailwindcss` class names for CSS compilation.
-
-For example, in [tailwind.config.ts](packages/tailwind-config/tailwind.config.ts):
-
-```js
-  content: [
-    // app content
-    `src/**/*.{js,ts,jsx,tsx}`,
-    // include packages if not transpiling
-    "../../packages/ui/*.{js,ts,jsx,tsx}",
-  ],
+```bash
+pnpm --filter web preview
 ```
 
-If you choose this strategy, you can remove the `tailwindcss` and `autoprefixer` dependencies from the `ui` package.
+### Deploy from CLI
 
-### Utilities
+```bash
+pnpm --filter web deploy
+```
 
-This Turborepo has some additional tools already setup for you:
+### What you need to do in Cloudflare
 
-- [Tailwind CSS](https://tailwindcss.com/) for styles
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+1. Create a Workers project for `apps/web`.
+2. Connect the Git repo or use Wrangler login for CLI deploys.
+3. Add the four secrets listed above.
+4. After first deploy, verify the custom domain and switch DNS when ready.

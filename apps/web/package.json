@@ -7,6 +7,10 @@
     "dev": "next dev --port 3001",
     "build": "next build",
     "start": "next start",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "lint": "eslint --max-warnings 0",
     "check-types": "next typegen && tsc --noEmit"
   },
@@ -34,8 +38,10 @@
     "@types/react-dom": "^19.1.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.39.1",
+    "@opennextjs/cloudflare": "^1.8.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.5",
-    "typescript": "5.9.2"
+    "typescript": "5.9.2",
+    "wrangler": "^4.11.1"
   }
 }
