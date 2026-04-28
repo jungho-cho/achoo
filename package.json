@@ -6,7 +6,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "preview:web": "pnpm --filter web preview",
-    "deploy:web": "pnpm --filter web deploy",
+    "deploy:web": "pnpm --filter web run deploy",
     "lint": "turbo run lint",
     "check-types": "turbo run check-types",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
