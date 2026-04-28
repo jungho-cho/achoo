@@ -1,7 +1,7 @@
 # Trend Content Cluster Design
 
 Date: 2026-04-28
-Status: Approved for planning
+Status: Shipped and deployed
 Project: Achoo web
 
 ## Purpose
@@ -205,6 +205,7 @@ Every article should clearly direct users toward clinical care when symptoms sug
 - High fever or severe body aches
 - Symptoms that persist, worsen, or disrupt daily life despite reasonable avoidance routines
 - Skin symptoms that spread quickly, blister, involve swelling, or follow medication or food exposure
+- Skin symptoms after food or medication exposure with breathing trouble, throat/lip/tongue swelling, dizziness, fainting, or rapid whole-body symptoms should be framed as urgent/emergency signals, not routine skin care.
 
 ## Error Handling And Consistency Checks
 
@@ -250,3 +251,16 @@ The user approved:
 - Existing architecture and block reuse
 - Public-source and medical-safety criteria
 - No new UI or automation in this implementation
+
+## Implementation Outcome
+
+Completed on 2026-04-28.
+
+- Added four trend-focused insight articles: `cold-vs-pollen-allergy`, `pine-pollen-yellow-dust`, `itchy-eyes-pollen-conjunctivitis`, and `skin-allergy-pollen-dust`.
+- Added all four locales for each article: `ko`, `en`, `de`, and `fr`.
+- Added static article validation in `apps/web/lib/articles.ts` for duplicate ids/slugs, missing sources, missing localizations, broken related ids, and duplicate block ids.
+- Strengthened `skin-allergy-pollen-dust` medical-safety copy with ACAAI-supported urgent reaction signals after food or medication exposure.
+- Corrected eye-allergy attribution to match the configured AAAAI source.
+- Merged to `master`, pushed to `origin/master`, and deployed to Cloudflare Workers.
+- Deployment version: `ab922f49-737b-4c7c-addf-b7fa6fb9c1e6`.
+- Verified live `https://achoo.day/sitemap.xml` includes the new article URLs for all four locales.

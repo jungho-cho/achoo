@@ -2,6 +2,8 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
+**Status:** Implemented, merged to `master`, pushed to `origin/master`, and deployed on 2026-04-28.
+
 **Goal:** Add four fully localized trend-focused insight articles to Achoo while preserving the existing article architecture and catching content-data mistakes during verification.
 
 **Architecture:** Keep the static article model: catalog records define routes and ordering, source records define citations, and locale maps provide rendered article copy. Add one small content validation guard in `apps/web/lib/articles.ts` so missing locales, missing sources, duplicate slugs, and broken related links fail during type check or build instead of silently shipping.
@@ -592,3 +594,32 @@ Plan constraints:
 - No new UI, CMS, route, API, or automation task is introduced.
 - The content validation guard keeps data mistakes visible during build.
 - Article copy is constrained by exact ids, block ids, metadata, source ids, and medical-safety rules so implementation can proceed without design decisions.
+
+## Execution Result
+
+Completed on 2026-04-28.
+
+Commits:
+
+- `45e99b2 feat: add trend content insight cluster`
+- `105ed4d fix: clarify allergy content safety signals`
+- `78735ec Merge branch 'trend-content-cluster'`
+- `f865eea fix: run web deploy script explicitly`
+
+Final verification on merged `master`:
+
+- `pnpm lint --force`: passed.
+- `pnpm check-types --force`: passed.
+- `pnpm build --force`: passed, with `109/109` static pages generated.
+- `pnpm --filter @repo/normalizer test`: passed, `50` tests.
+- `pnpm --filter @repo/geo test`: passed, `11` tests.
+- `pnpm --filter @repo/outing-score test`: passed, `7` tests.
+- Live URL checks: `https://achoo.day/ko/insights/cold-vs-pollen-allergy`, `https://achoo.day/ko/insights/skin-allergy-pollen-dust`, and `https://achoo.day/sitemap.xml` returned `200`.
+- Live sitemap check: the four new article slugs are present for `ko`, `de`, `en`, and `fr`.
+
+Deployment:
+
+- Command: `pnpm run deploy:web`.
+- Cloudflare Worker URL: `https://achoo.myjung2620.workers.dev`.
+- Cloudflare Worker version: `ab922f49-737b-4c7c-addf-b7fa6fb9c1e6`.
+- The temporary implementation worktree `.worktrees/trend-content-cluster` and local branch `trend-content-cluster` were removed after merge.

@@ -38,7 +38,7 @@ pnpm --filter web preview
 ### Deploy from CLI
 
 ```bash
-pnpm --filter web deploy
+pnpm run deploy:web
 ```
 
 ### What you need to do in Cloudflare
