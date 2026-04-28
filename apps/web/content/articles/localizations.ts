@@ -664,6 +664,135 @@ const KO: Record<string, ArticleLocalization> = {
       "현재 위치 예보를 먼저 보고, 눈 자극이 강할 것 같다면 렌즈와 외출 루틴부터 조정해 두는 편이 훨씬 편합니다.",
     ),
   },
+  "itchy-eyes-pollen-conjunctivitis": {
+    articleId: "itchy-eyes-pollen-conjunctivitis",
+    locale: "ko",
+    eyebrow: "눈 가려움 · 결막염",
+    title: "눈이 가렵고 충혈될 때, 꽃가루 알레르기와 결막염을 구분하는 법",
+    description:
+      "꽃가루가 많은 날 눈이 가렵고 빨개지면 알레르기인지, 감염성 결막염인지, 건조와 화면 피로가 겹친 것인지 헷갈리기 쉽습니다. 이 글은 진단이 아니라 같은 날 확인할 신호를 정리합니다.",
+    seoTitle: "눈 가려움 꽃가루 알레르기 결막염 구분 신호",
+    seoDescription:
+      "눈 가려움, 충혈, 눈물, 눈곱, 진한 분비물, 통증, 빛 민감, 렌즈 통증을 기준으로 꽃가루 알레르기와 결막염 신호를 구분해 봅니다.",
+    listSummary:
+      "가려운 빨간 눈을 알레르기, 감염성 결막염, 건조 자극 신호로 나누어 읽고 같은 날 무엇을 조심할지 정리한 기사입니다.",
+    summaryItems: [
+      {
+        label: "핵심 구분",
+        value:
+          "가려움과 맑은 눈물은 알레르기 쪽 신호일 수 있지만, 진한 분비물이나 눈곱은 다르게 봐야 합니다.",
+        tone: "rose",
+      },
+      {
+        label: "당일 판단",
+        value: "비비지 않기, 렌즈 쉬기, 손 씻기처럼 원인과 무관하게 안전한 선택이 먼저입니다.",
+        tone: "blue",
+      },
+      {
+        label: "주의 신호",
+        value:
+          "통증, 빛 민감, 시야 변화, 심한 분비물, 렌즈 통증은 관리 루틴보다 진료 판단이 앞섭니다.",
+        tone: "amber",
+      },
+    ],
+    trendSignals: [
+      { label: "트렌드", value: "꽃가루 날 눈 충혈 원인 검색 증가", tone: "rose" },
+      { label: "영향", value: "렌즈와 화면 사용이 신호를 더 헷갈리게 함", tone: "blue" },
+      { label: "행동", value: "알레르기 루틴보다 먼저 경고 신호 확인", tone: "amber" },
+    ],
+    blocks: [
+      {
+        id: "eye-patterns",
+        type: "comparison",
+        heading: "가려운 빨간 눈을 세 가지 패턴으로 나눠 보기",
+        intro:
+          "아래 내용은 진단표가 아니라 당일 신호 정리입니다. 증상이 강하거나 낯설면 자가 판단으로 끝내지 마세요.",
+        leftTitle: "자주 보이는 신호",
+        rightTitle: "그날의 해석",
+        rows: [
+          {
+            label: "알레르기 결막염 쪽 패턴",
+            left:
+              "가려움, 충혈, 맑고 물 같은 눈물, 양쪽 눈 불편감이 꽃가루 노출 뒤 반복됩니다.",
+            right:
+              "AAAAI가 설명하는 알레르기성 눈 증상과 겹칠 수 있지만, 이것만으로 원인을 확정하지 않습니다.",
+          },
+          {
+            label: "감염성 결막염 쪽 패턴",
+            left:
+              "눈곱이나 딱지, 진하거나 색이 있는 분비물, 한쪽에서 시작하는 듯한 충혈이 눈에 띕니다.",
+            right:
+              "CDC가 안내하는 결막염 신호와 겹칠 수 있어 수건 공유와 손 접촉을 줄이고 전염 가능성을 생각합니다.",
+          },
+          {
+            label: "건조·화면 자극 쪽 패턴",
+            left:
+              "건조감, 따가움, 화면을 오래 본 뒤 심해짐, 렌즈 불편감이 중심이고 꽃가루·먼지 날에 더 거칠어집니다.",
+            right:
+              "알레르기나 감염과 겹쳐 보일 수 있으므로 통증, 빛 민감, 시야 변화가 있는지 먼저 확인합니다.",
+          },
+        ],
+        footnote:
+          "통증, 빛 민감, 시야 변화, 심한 분비물, 콘택트렌즈 통증은 단순 꽃가루 반응으로 넘기지 마세요.",
+      },
+      {
+        id: "same-day-eye-routine",
+        type: "checklist",
+        heading: "오늘 바로 정할 여섯 가지 눈 관리 선택",
+        intro:
+          "원인이 무엇인지 확실하지 않을 때도 도움이 되는 안전한 당일 선택부터 정리합니다.",
+        items: [
+          "눈을 비비지 않고, 가려움이 올라오면 손이 눈으로 가는 횟수부터 줄입니다.",
+          "콘택트렌즈는 잠시 쉬거나 착용 시간을 줄이고, 통증이 있으면 억지로 끼지 않습니다.",
+          "수건, 베개 커버, 화장품처럼 눈 주변에 닿는 물건은 깨끗하게 쓰고 공유하지 않습니다.",
+          "눈을 만지기 전후 손을 씻고, 눈곱이나 분비물을 닦은 뒤에도 다시 손을 씻습니다.",
+          "꽃가루와 먼지가 높은 시간대에는 야외 노출, 환기, 외부 운동을 줄이는 쪽으로 조정합니다.",
+          "통증, 빛 민감, 시야 변화, 심한 분비물, 렌즈 통증이 있으면 생활 루틴보다 진료 상담을 우선합니다.",
+        ],
+      },
+      {
+        id: "overlap-days",
+        type: "section",
+        heading: "꽃가루, 먼지, 화면 시간이 겹치는 날에는 신호가 흐려집니다",
+        tone: "blue",
+        paragraphs: [
+          "눈 증상은 한 가지 원인처럼 보이지만 실제 하루에는 꽃가루, 실내외 먼지, 건조한 공기, 긴 화면 시간이 함께 겹칩니다. 그래서 가려움과 충혈이 있어도 알레르기만으로 단정하기 어렵고, 건조 자극이나 감염성 결막염 신호도 같이 확인해야 합니다.",
+          "이 글의 역할은 기존 눈 알레르기 리셋 가이드와 다릅니다. 이 페이지는 먼저 신호를 분류하는 글이고, 리셋 가이드는 당일 루틴을 재정비하는 데 집중합니다.",
+          "따라서 오늘은 원인 이름을 붙이기보다 가려움, 물 같은 눈물, 눈곱, 진한 분비물, 통증, 빛 민감, 시야 변화, 렌즈 통증이 있는지를 차분히 나누어 보는 편이 더 안전합니다.",
+        ],
+      },
+      {
+        id: "vision-warning",
+        type: "quote",
+        heading: "진료 판단이 먼저인 신호",
+        quote:
+          "눈 통증, 빛에 대한 민감함, 시야 변화, 심한 분비물, 콘택트렌즈 착용 중 통증은 꽃가루 관리 팁으로 버틸 문제가 아니라 진료가 필요한 신호로 다뤄야 합니다.",
+        attribution: "Achoo 편집 메모",
+      },
+    ],
+    faq: [
+      {
+        question: "꽃가루 때문에 눈이 가려운 것도 전염되나요?",
+        answer:
+          "알레르기 자체는 전염되지 않습니다. 다만 감염성 결막염은 전염될 수 있으므로 눈곱, 진한 분비물, 주변 전파가 의심되면 손 씻기와 수건 분리를 철저히 하고 진료 판단을 고려하세요.",
+      },
+      {
+        question: "눈이 가렵고 빨간 날 콘택트렌즈를 껴도 되나요?",
+        answer:
+          "불편감이 가볍더라도 착용 시간을 줄이는 편이 안전합니다. 통증, 뚜렷한 충혈, 시야 변화, 렌즈를 낄 때 아픔이 있으면 억지로 착용하지 말고 상담을 우선하세요.",
+      },
+      {
+        question: "어떤 눈 증상은 급하게 봐야 하나요?",
+        answer:
+          "눈 통증, 빛 민감, 시야 변화, 심한 분비물, 콘택트렌즈 관련 통증은 단순 알레르기 루틴으로 넘기지 않는 편이 좋습니다. 특히 갑작스럽거나 심하면 당일 진료가 필요할 수 있습니다.",
+      },
+    ],
+    cta: createCta(
+      "ko",
+      "오늘 눈 증상을 먼저 분류해 보세요",
+      "가려움, 눈물, 눈곱, 분비물, 통증, 렌즈 불편을 나눠 보고 꽃가루와 먼지 상황까지 함께 확인하세요.",
+    ),
+  },
   "pollen-food-syndrome": {
     articleId: "pollen-food-syndrome",
     locale: "ko",
@@ -1524,6 +1653,455 @@ const KO: Record<string, ArticleLocalization> = {
       "현재 위치 기준 예보를 확인하고, 이사 후 달라진 출퇴근과 환기 습관을 함께 점검하면 원인을 훨씬 빨리 좁힐 수 있습니다.",
     ),
   },
+  "cold-vs-pollen-allergy": {
+    articleId: "cold-vs-pollen-allergy",
+    locale: "ko",
+    eyebrow: "증상 구분",
+    title: "감기 아닌데 콧물·재채기만 계속될 때, 꽃가루 알레르기인지 보는 법",
+    description:
+      "열 없는 콧물과 재채기가 반복될 때 감기인지 꽃가루 알레르기인지 헷갈릴 수 있습니다. 진단 대신 아침에 확인할 단서를 정리합니다.",
+    seoTitle: "감기와 꽃가루 알레르기 차이와 아침 증상 체크법",
+    seoDescription:
+      "감기와 꽃가루 알레르기 차이를 열, 가려움, 콧물 패턴, 지속 기간, 전염성, 주의 신호 중심으로 비교합니다.",
+    listSummary:
+      "열 없는 콧물, 재채기, 꽃가루 예보를 함께 보며 오늘 외출 계획을 조정하는 실전 체크 글입니다.",
+    summaryItems: [
+      {
+        label: "핵심 단서",
+        value:
+          "열과 몸살이 없고 눈·코 가려움이 두드러지면 감기보다 꽃가루 노출 패턴을 함께 봐야 합니다.",
+        tone: "green",
+      },
+      {
+        label: "아침 판단",
+        value:
+          "증상만 보지 말고 오늘 꽃가루 예보와 바람, 외출 시간을 같이 확인합니다.",
+        tone: "blue",
+      },
+      {
+        label: "주의 신호",
+        value:
+          "호흡 곤란, 쌕쌕거림, 심한 통증, 악화되는 증상은 예보를 보고 외출만 조정할 상황이 아니라 진료 상담이 필요한 신호입니다.",
+        tone: "rose",
+      },
+    ],
+    trendSignals: [
+      {
+        label: "트렌드",
+        value: "감기처럼 느껴지는 계절성 증상 검색 증가",
+        tone: "green",
+      },
+      {
+        label: "혼동 지점",
+        value: "콧물과 재채기만으로는 원인을 단정하기 어려움",
+        tone: "amber",
+      },
+      {
+        label: "행동",
+        value: "증상 패턴과 꽃가루 예보를 함께 확인",
+        tone: "blue",
+      },
+    ],
+    blocks: [
+      {
+        id: "symptom-pattern",
+        type: "comparison",
+        heading: "감기와 꽃가루 알레르기는 겹치지만 신호가 다릅니다",
+        intro:
+          "아래 표는 진단표가 아니라 아침 의사결정을 돕는 패턴 비교입니다.",
+        leftTitle: "감기 쪽에서 더 흔한 패턴",
+        rightTitle: "꽃가루 알레르기 쪽에서 더 흔한 패턴",
+        rows: [
+          {
+            label: "열·몸살",
+            left: "미열, 몸살, 피로감이 함께 올 수 있습니다.",
+            right:
+              "열 없는 콧물이 주로 이어지고 전신 몸살은 덜 두드러지는 편입니다.",
+          },
+          {
+            label: "가려움",
+            left: "목 따가움은 있을 수 있지만 눈·코 가려움이 핵심 신호는 아닙니다.",
+            right: "눈, 코, 입천장이 가렵고 재채기가 반복되는 패턴이 흔합니다.",
+          },
+          {
+            label: "콧물 패턴",
+            left: "초기 맑은 콧물 뒤 점도가 바뀌거나 코막힘이 강해질 수 있습니다.",
+            right:
+              "맑고 물 같은 콧물이 오래 반복되며 야외 노출 뒤 심해질 수 있습니다.",
+          },
+          {
+            label: "타이밍",
+            left: "며칠 안에 시작과 정점, 회복 흐름이 보이는 경우가 많습니다.",
+            right:
+              "꽃가루 예보가 높은 날, 바람 부는 날, 외출 뒤 반복될 수 있습니다.",
+          },
+          {
+            label: "전염성",
+            left: "바이러스 감염이라면 주변 사람에게 옮길 가능성을 고려해야 합니다.",
+            right:
+              "알레르기 반응 자체는 전염되지 않지만 노출 환경은 같이 겪을 수 있습니다.",
+          },
+          {
+            label: "주의 신호",
+            left: "열이 높거나 악화가 이어지면 감염 등 다른 원인 확인이 필요합니다.",
+            right:
+              "쌕쌕거림, 숨참, 심한 통증, 악화되는 증상은 예보를 보고 외출 계획만 조정하며 넘기지 않습니다.",
+          },
+        ],
+        footnote:
+          "증상 비교는 참고용입니다. 원인 판단이 어렵거나 증상이 심하면 의료진과 상의하세요.",
+      },
+      {
+        id: "morning-check",
+        type: "checklist",
+        heading: "외출 전 4단계 아침 체크",
+        intro:
+          "오늘 계획을 바꾸려면 증상과 예보를 같은 순서로 보는 것이 좋습니다.",
+        items: [
+          "먼저 체온과 몸살 느낌을 확인해 열이 있는지 봅니다.",
+          "눈·코·입천장 가려움과 재채기 반복이 있는지 확인합니다.",
+          "오늘 꽃가루 예보, 바람, 미세먼지 흐름을 함께 봅니다.",
+          "예보와 증상이 겹치면 야외 시간, 운동 강도, 환기 시간을 낮춥니다.",
+        ],
+      },
+      {
+        id: "why-it-feels-like-cold",
+        type: "section",
+        heading: "왜 감기처럼 느껴질까",
+        tone: "amber",
+        paragraphs: [
+          "꽃가루 알레르기 증상도 코막힘, 콧물, 재채기로 시작할 수 있어 초반에는 감기와 비슷하게 느껴집니다. 특히 잠을 설쳤거나 야외 활동이 길었던 다음 날에는 몸이 무겁게 느껴져 더 헷갈릴 수 있습니다.",
+          "다만 알레르기 쪽은 열 없는 콧물, 눈·코 가려움, 특정 날씨나 외출 뒤 반복 같은 단서가 같이 보일 때가 많습니다. 이 단서들은 스스로 진단하라는 뜻이 아니라, 오늘의 노출 계획을 더 조심스럽게 조정하라는 신호에 가깝습니다.",
+          "패턴이 반복되거나 일상에 영향을 줄 정도라면 증상 기록과 예보 기록을 함께 가져가 상담하는 편이 막연한 추측보다 낫습니다.",
+        ],
+      },
+      {
+        id: "care-signal",
+        type: "quote",
+        heading: "예보보다 진료가 먼저인 순간",
+        quote:
+          "열, 쌕쌕거림, 숨참, 심한 통증, 또는 점점 악화되는 증상이 있다면 상황은 예보를 보고 외출을 조정하는 문제가 아니라 진료가 필요한 문제로 넘어갑니다.",
+        attribution: "Achoo 안전 메모",
+      },
+    ],
+    faq: [
+      {
+        question: "열이 없으면 감기가 아니라 꽃가루 알레르기인가요?",
+        answer:
+          "열이 없다는 점은 중요한 단서지만 그것만으로 단정할 수는 없습니다. 가려움, 재채기 반복, 꽃가루 예보와의 연결, 지속 패턴을 함께 봐야 합니다.",
+      },
+      {
+        question: "며칠 이상 지속되면 알레르기 쪽을 의심해야 하나요?",
+        answer:
+          "감기는 보통 며칠 안에 흐름이 바뀌는 경우가 많지만, 꽃가루 노출이 계속되면 맑은 콧물과 재채기가 더 오래 반복될 수 있습니다. 반복 기간과 날씨 조건을 같이 기록해 보세요.",
+      },
+      {
+        question: "언제 병원이나 진료 상담을 받아야 하나요?",
+        answer:
+          "열, 쌕쌕거림, 숨참, 심한 통증, 빠르게 나빠지는 증상, 일상생활을 방해하는 반복 증상이 있으면 예보 확인보다 진료 상담이 우선입니다.",
+      },
+    ],
+    cta: createCta(
+      "ko",
+      "오늘 증상과 예보를 같이 확인하세요",
+      "열, 가려움, 재채기 패턴을 먼저 보고 현재 위치의 꽃가루 예보까지 확인하면 외출 계획을 더 현실적으로 조정할 수 있습니다.",
+    ),
+  },
+  "pine-pollen-yellow-dust": {
+    articleId: "pine-pollen-yellow-dust",
+    locale: "ko",
+    eyebrow: "송홧가루 · 노란 가루",
+    title: "송홧가루가 많이 날릴 때, 진짜 알레르기 위험은 어떻게 봐야 할까",
+    description:
+      "차와 창틀에 노란 송홧가루가 쌓이면 꽃가루 알레르기가 곧바로 심해질 것처럼 느껴집니다. 하지만 눈에 보이는 가루와 증상을 일으키는 꽃가루, 미세먼지와 황사는 서로 다른 신호입니다.",
+    seoTitle: "송홧가루 시기와 꽃가루 알레르기: 노란 가루가 보일 때 확인할 것",
+    seoDescription:
+      "송홧가루, 참나무·자작나무 등 알레르기 원인 꽃가루, 미세먼지, 황사를 구분하고 환기와 청소 루틴을 정리합니다.",
+    listSummary:
+      "노란 가루가 보이는 날, 눈에 보이는 양보다 예보와 공기질을 함께 보고 집 안 노출을 줄이는 방법을 정리했습니다.",
+    summaryItems: [
+      {
+        label: "핵심 구분",
+        value:
+          "송홧가루는 눈에 잘 보이지만, 알레르기 증상은 참나무·자작나무 같은 더 작은 꽃가루와도 연결됩니다.",
+        tone: "green",
+      },
+      {
+        label: "트렌드 신호",
+        value:
+          "2026년 공공 데이터 예시는 2010년 이후 송홧가루 비산 시기가 해마다 약 0.91일씩 빨라졌다는 흐름을 보여줍니다.",
+        tone: "amber",
+      },
+      {
+        label: "오늘 행동",
+        value:
+          "노란 가루를 단서로 삼되 꽃가루 예보, 미세먼지, 황사를 함께 확인한 뒤 환기와 세탁 시간을 조정합니다.",
+        tone: "blue",
+      },
+    ],
+    trendSignals: [
+      {
+        label: "계절 신호",
+        value: "송홧가루 비산 시기가 앞당겨지는 흐름",
+        tone: "green",
+      },
+      {
+        label: "혼동 지점",
+        value: "보이는 노란 가루와 알레르기 원인 꽃가루를 같은 것으로 보기 쉬움",
+        tone: "amber",
+      },
+      {
+        label: "행동",
+        value: "꽃가루 예보와 미세먼지·황사를 같이 확인",
+        tone: "blue",
+      },
+    ],
+    blocks: [
+      {
+        id: "visible-pollen",
+        type: "section",
+        heading: "노란 가루가 전부를 말해 주지는 않습니다",
+        tone: "amber",
+        paragraphs: [
+          "송홧가루는 입자가 비교적 크고 색이 뚜렷해 차, 난간, 창틀에 쉽게 보입니다. 그래서 많이 보이는 날을 알레르기 위험이 가장 큰 날로 느끼기 쉽습니다.",
+          "하지만 실제 증상은 눈에 잘 보이지 않는 참나무, 자작나무, 잡초류 꽃가루와도 이어질 수 있습니다. 보이는 송홧가루는 오늘 공기 중 식물 입자가 많다는 단서이지, 알레르기 위험을 완전히 측정한 값은 아닙니다.",
+          "또 미세먼지와 황사는 식물 꽃가루가 아니지만 눈과 코를 자극할 수 있습니다. 노란 가루가 보이는 날일수록 꽃가루 예보와 대기질 정보를 함께 보는 편이 더 현실적입니다.",
+        ],
+      },
+      {
+        id: "compare-pollen-dust",
+        type: "table",
+        heading: "보이는 것과 오늘 할 일을 나눠 보기",
+        intro:
+          "아래 표는 원인을 단정하기 위한 표가 아니라, 오늘 환기와 청소를 어떻게 잡을지 정리하는 기준입니다.",
+        columns: ["무엇이 보이나", "무엇을 뜻하나", "오늘 할 일"],
+        rows: [
+          {
+            cells: [
+              "노란 송홧가루가 표면에 쌓임",
+              "소나무 꽃가루가 많다는 눈에 보이는 신호입니다. 알레르기 위험 전체를 대신하지는 않습니다.",
+              "창문을 오래 열기보다 예보를 먼저 보고 짧게 환기합니다.",
+            ],
+            tone: "amber",
+          },
+          {
+            cells: [
+              "눈에 잘 보이지 않는 꽃가루",
+              "참나무, 자작나무 등 증상과 더 자주 연결되는 꽃가루가 공기 중에 있을 수 있습니다.",
+              "꽃가루 예보가 높으면 외출 후 샤워와 옷 갈아입기를 우선합니다.",
+            ],
+          },
+          {
+            cells: [
+              "집 안 먼지와 표면 가루",
+              "외부 입자와 생활 먼지가 섞여 다시 날릴 수 있습니다.",
+              "마른 털기보다 젖은 천으로 닦고 바닥은 천천히 청소합니다.",
+            ],
+          },
+          {
+            cells: [
+              "미세먼지 수치 상승",
+              "꽃가루와 다른 대기 오염 입자가 눈과 코를 자극할 수 있습니다.",
+              "꽃가루와 미세먼지 예보가 함께 높으면 환기 시간을 더 줄입니다.",
+            ],
+          },
+          {
+            cells: [
+              "황사 예보",
+              "사막 먼지가 이동한 대기 현상으로 송홧가루와 원인이 다릅니다.",
+              "창문, 빨래, 야외 운동 계획을 꽃가루 예보와 함께 조정합니다.",
+            ],
+          },
+        ],
+        footnote:
+          "증상이 심하거나 반복되면 예보만으로 판단하지 말고 의료진과 상담하세요.",
+      },
+      {
+        id: "ventilation-cleaning",
+        type: "checklist",
+        heading: "노란 가루가 보이는 날의 집 안 루틴",
+        intro:
+          "목표는 집 안으로 들어오는 입자를 줄이고, 들어온 입자가 다시 날리지 않게 하는 것입니다.",
+        items: [
+          "창문은 꽃가루와 미세먼지 예보가 낮은 시간에 짧게 열고, 바람이 강한 시간은 피합니다.",
+          "바깥에 말린 빨래와 침구는 들이기 전에 털고, 예보가 높은 날에는 실내 건조를 우선합니다.",
+          "창틀, 책상, 바닥 표면은 마른 털기보다 젖은 천으로 닦습니다.",
+          "야외 노출이 길었던 날은 귀가 후 샤워하고 머리카락과 얼굴 주변 입자를 씻어냅니다.",
+          "외출 전에는 꽃가루 예보와 미세먼지·황사 정보를 함께 확인합니다.",
+        ],
+      },
+      {
+        id: "forecast-over-visible",
+        type: "quote",
+        heading: "노란 가루는 예보를 보라는 신호입니다",
+        quote:
+          "눈에 보이는 노란 가루는 오늘 예보를 확인하라는 강한 단서일 뿐, 알레르기 위험 전체를 재는 측정값은 아닙니다.",
+        attribution: "Achoo 예보 메모",
+      },
+    ],
+    faq: [
+      {
+        question: "노란 송홧가루가 많이 보이면 알레르기 위험도 항상 높은가요?",
+        answer:
+          "항상 그렇지는 않습니다. 송홧가루는 잘 보이는 신호지만, 증상은 참나무·자작나무 같은 다른 꽃가루와도 관련될 수 있어 예보를 함께 봐야 합니다.",
+      },
+      {
+        question: "송홧가루가 보이는 날에는 환기를 하지 말아야 하나요?",
+        answer:
+          "무조건 닫아 두기보다 꽃가루, 미세먼지, 황사 예보가 낮은 시간에 짧게 환기하는 편이 현실적입니다.",
+      },
+      {
+        question: "청소나 세탁은 어떻게 하는 게 좋나요?",
+        answer:
+          "표면은 젖은 천으로 닦고, 바깥 빨래는 예보가 높은 날 피하는 편이 좋습니다. 야외 노출 뒤에는 샤워와 옷 갈아입기가 도움이 됩니다.",
+      },
+    ],
+    cta: createCta(
+      "ko",
+      "노란 가루보다 오늘 예보를 먼저 보세요",
+      "꽃가루, 미세먼지, 황사 흐름을 함께 확인하면 환기와 청소 시간을 더 안전하게 정할 수 있습니다.",
+    ),
+  },
+  "skin-allergy-pollen-dust": {
+    articleId: "skin-allergy-pollen-dust",
+    locale: "ko",
+    eyebrow: "피부 · 미세먼지",
+    title: "봄철 피부 가려움, 꽃가루와 미세먼지가 함께 있는 날 어떻게 관리할까",
+    description:
+      "봄철 피부 가려움은 꽃가루 하나만으로 설명하기보다 미세먼지, 건조한 바람, 땀, 자외선이 함께 피부 장벽을 흔드는 날의 신호로 보는 편이 안전합니다.",
+    seoTitle: "봄철 피부 알레르기 꽃가루 미세먼지 관리 루틴",
+    seoDescription:
+      "꽃가루와 미세먼지가 많은 봄날, 피부 가려움과 자극을 줄이기 위한 외출 전후 피부 장벽 루틴과 진료가 필요한 신호를 정리합니다.",
+    listSummary:
+      "꽃가루, 미세먼지, 바람, 땀, 자외선이 겹치는 날 피부 장벽을 지키는 외출 전후 루틴입니다.",
+    summaryItems: [
+      {
+        label: "핵심 관점",
+        value:
+          "봄철 피부 가려움은 꽃가루만의 문제가 아니라 여러 자극이 겹친 결과일 수 있습니다.",
+        tone: "green",
+      },
+      {
+        label: "주의 구간",
+        value:
+          "건조한 바람, 땀, 자외선, 미세먼지가 함께 있는 날은 씻기와 보습 타이밍이 더 중요합니다.",
+        tone: "amber",
+      },
+      {
+        label: "오늘 행동",
+        value:
+          "귀가 후 부드럽게 씻고, 향이 강하지 않은 보습제로 피부 장벽을 다시 정돈합니다.",
+        tone: "blue",
+      },
+    ],
+    trendSignals: [
+      {
+        label: "복합 자극",
+        value: "꽃가루와 미세먼지가 피부 표면 자극을 키울 수 있음",
+        tone: "green",
+      },
+      {
+        label: "환경 압력",
+        value: "바람, 땀, 자외선이 같은 날 겹치면 장벽 부담 증가",
+        tone: "amber",
+      },
+      {
+        label: "루틴",
+        value: "귀가 후 세정, 옷 분리, 보습을 짧게 반복",
+        tone: "blue",
+      },
+    ],
+    blocks: [
+      {
+        id: "skin-barrier-pressure",
+        type: "section",
+        heading: "피부 장벽은 한 가지 원인보다 겹친 자극에 흔들립니다",
+        tone: "amber",
+        paragraphs: [
+          "봄철 피부 가려움이 생기면 꽃가루를 먼저 떠올리기 쉽지만, 모든 발진이나 가려움이 꽃가루 하나로 생긴다고 단정할 수는 없습니다. 같은 날의 미세먼지, 건조한 바람, 땀, 자외선 노출이 함께 피부 표면을 예민하게 만들 수 있습니다.",
+          "건조한 바람은 피부 수분감을 낮추고, 땀은 오래 남으면 따가움과 마찰을 키울 수 있습니다. 여기에 꽃가루와 미세먼지가 옷, 머리카락, 베개에 묻어 실내까지 들어오면 자극이 이어지기 쉽습니다.",
+          "그래서 목표는 원인을 스스로 진단하는 것이 아니라, 외출 전에는 장벽을 보호하고 귀가 후에는 입자를 부드럽게 씻어낸 뒤 보습으로 회복 시간을 주는 것입니다.",
+        ],
+        bullets: [
+          "꽃가루와 미세먼지 예보가 함께 높은 날은 장시간 노출을 줄이기",
+          "땀을 흘린 뒤에는 문지르기보다 부드럽게 씻고 말리기",
+          "강한 자외선과 바람이 있는 날은 노출 부위를 더 세심하게 보호하기",
+          "새로 퍼지는 발진은 단순 계절 가려움으로만 넘기지 않기",
+        ],
+      },
+      {
+        id: "day-timeline",
+        type: "timeline",
+        heading: "하루를 세 구간으로 나누면 루틴이 단순해집니다",
+        intro:
+          "피부 장벽 관리는 많은 제품보다 노출 전, 노출 중, 귀가 후의 순서를 일정하게 만드는 데서 시작합니다.",
+        items: [
+          {
+            label: "외출 전",
+            title: "피부 장벽을 먼저 준비하기",
+            body:
+              "향이 강하지 않은 보습제를 얇게 바르고, 예보가 높은 날은 노출 부위를 줄이는 옷과 자외선 차단을 함께 생각합니다.",
+          },
+          {
+            label: "야외에 있는 동안",
+            title: "땀과 마찰을 오래 남기지 않기",
+            body:
+              "땀이 나면 깨끗한 천으로 가볍게 눌러 닦고, 가려운 부위는 긁기보다 손을 씻은 뒤 차갑게 진정시키는 쪽을 선택합니다.",
+          },
+          {
+            label: "귀가 후",
+            title: "입자를 씻고 보습으로 마무리하기",
+            body:
+              "얼굴과 노출 부위를 부드럽게 씻고 외출복은 생활 공간과 분리한 뒤, 피부가 마르기 전에 보습제를 바릅니다.",
+          },
+        ],
+      },
+      {
+        id: "return-home-checklist",
+        type: "checklist",
+        heading: "귀가 후 피부 장벽 루틴 다섯 가지",
+        intro:
+          "자극을 더하지 않는 방식으로 씻고, 묻어 들어온 입자가 침구와 생활 공간으로 옮겨가지 않게 합니다.",
+        items: [
+          "뜨거운 물이나 거친 스크럽 대신 미지근한 물과 순한 세정제로 얼굴, 목, 팔처럼 노출된 부위를 부드럽게 씻습니다.",
+          "피부가 완전히 마르기 전에 향이 강하지 않은 보습제를 바르고, 따가우면 새 제품을 여러 개 겹치지 않습니다.",
+          "외출복, 모자, 마스크는 침대나 소파 위에 두지 말고 세탁 바구니나 별도 공간에 분리합니다.",
+          "증상이 심한 날에는 베개 커버나 얼굴 수건을 더 자주 갈아 피부에 다시 닿는 입자를 줄입니다.",
+          "가려운 부위는 긁어서 상처를 내지 말고 손톱을 짧게 유지하며, 차갑게 누르는 방식으로 자극을 줄입니다.",
+        ],
+      },
+      {
+        id: "rash-warning",
+        type: "quote",
+        heading: "번지는 발진은 루틴만으로 판단하지 않습니다",
+        quote:
+          "발진이 퍼지거나 물집, 붓기, 열이 동반되거나 잠을 방해할 만큼 가렵다면 상담하세요. 음식이나 약 뒤 피부 증상과 호흡곤란, 목·입술·혀 부기, 어지럼·실신, 전신으로 빠르게 번지는 증상이 함께 오면 응급 신호로 보세요.",
+        attribution: "Achoo 피부 장벽 메모",
+      },
+    ],
+    faq: [
+      {
+        question: "봄철 피부 가려움과 발진은 어떻게 다르게 봐야 하나요?",
+        answer:
+          "가려움만 있을 때도 불편할 수 있지만, 붉은 부위가 번지거나 부어오르거나 물집이 생기면 단순 자극으로 단정하지 말고 진료 상담을 고려해야 합니다.",
+      },
+      {
+        question: "귀가 후 샤워나 세안은 꼭 해야 하나요?",
+        answer:
+          "야외 노출이 길었거나 꽃가루와 미세먼지 예보가 높았다면 부드러운 세정이 도움이 됩니다. 다만 뜨거운 물, 강한 스크럽, 잦은 세정은 오히려 장벽을 건조하게 만들 수 있습니다.",
+      },
+      {
+        question: "어떤 신호가 있으면 관리를 멈추고 상담해야 하나요?",
+        answer:
+          "발진이 빠르게 퍼지거나 물집, 붓기, 열, 수면을 방해하는 심한 가려움이 있으면 상담하세요. 음식이나 약 뒤 피부 증상과 호흡곤란, 목·입술·혀 부기, 어지럼·실신, 전신으로 빠르게 번지는 증상이 함께 오면 일상 피부 관리가 아니라 응급 진료 신호입니다.",
+      },
+    ],
+    cta: createCta(
+      "ko",
+      "피부 가려움이 심한 날은 예보와 루틴을 같이 보세요",
+      "꽃가루와 미세먼지 흐름을 확인하고, 외출 전 보호와 귀가 후 세정·보습 루틴을 짧게 반복하세요.",
+    ),
+  },
 };
 
 const EN: Record<string, ArticleLocalization> = {
@@ -2189,6 +2767,148 @@ const EN: Record<string, ArticleLocalization> = {
       "en",
       "Check whether today is going to be an eye-led day",
       "Look at your local forecast first. If eye symptoms are likely, adjust lenses, outdoor exposure, and your wash-off routine before the day starts.",
+    ),
+  },
+  "itchy-eyes-pollen-conjunctivitis": {
+    articleId: "itchy-eyes-pollen-conjunctivitis",
+    locale: "en",
+    eyebrow: "Itchy eyes",
+    title: "Itchy red eyes on pollen days: allergy, pink eye, or dryness?",
+    description:
+      "When pollen is high and your eyes are itchy and red, it is easy to wonder whether this is allergy, pink eye, or dryness from screens and lenses. This guide sorts signals without trying to diagnose you.",
+    seoTitle: "itchy eyes pollen allergy vs pink eye: signs to compare",
+    seoDescription:
+      "Compare itchy eyes, redness, watery discharge, crusting, colored discharge, pain, light sensitivity, and contact-lens discomfort on pollen days.",
+    listSummary:
+      "A practical signal-sorting guide for itchy red eyes on pollen days, with same-day hygiene, lens, exposure, and care-threshold decisions.",
+    summaryItems: [
+      {
+        label: "Main distinction",
+        value:
+          "Itching and watery eyes can fit allergy, while crusting or colored discharge changes the risk picture.",
+        tone: "rose",
+      },
+      {
+        label: "Same-day move",
+        value:
+          "Do not rub, pause lenses if needed, wash hands, and avoid sharing towels while you sort the pattern.",
+        tone: "blue",
+      },
+      {
+        label: "Care threshold",
+        value:
+          "Pain, light sensitivity, vision change, severe discharge, or contact-lens pain should be treated as a care issue.",
+        tone: "amber",
+      },
+    ],
+    trendSignals: [
+      {
+        label: "Trend",
+        value: "More searches compare allergy eyes with pink eye",
+        tone: "rose",
+      },
+      {
+        label: "Impact",
+        value: "Screens, dust, and lenses blur the pattern",
+        tone: "blue",
+      },
+      {
+        label: "Action",
+        value: "Check warning signs before using an allergy routine",
+        tone: "amber",
+      },
+    ],
+    blocks: [
+      {
+        id: "eye-patterns",
+        type: "comparison",
+        heading: "Three patterns behind itchy red eyes",
+        intro:
+          "This is not a diagnosis tool. It is a way to sort the day’s signals before deciding whether routine pollen care is enough.",
+        leftTitle: "Common signals",
+        rightTitle: "How to read the day",
+        rows: [
+          {
+            label: "Allergic conjunctivitis pattern",
+            left:
+              "Itching, redness, clear watery discharge, and both-eye irritation repeat after pollen exposure.",
+            right:
+              "These overlap with allergy-eye signs described by AAAAI, but the pattern alone does not prove the cause.",
+          },
+          {
+            label: "Infectious conjunctivitis pattern",
+            left:
+              "Crusting, sticky lids, colored or thicker discharge, and redness that may start in one eye stand out.",
+            right:
+              "These overlap with CDC pink-eye guidance, so hand hygiene, clean towels, and caution around spread matter.",
+          },
+          {
+            label: "Dry-eye-like irritation pattern",
+            left:
+              "Dryness, stinging, screen-heavy worsening, and contact-lens discomfort dominate, especially when pollen and dust are also high.",
+            right:
+              "This can mimic or stack with allergy and infection, so check for pain, light sensitivity, and vision change first.",
+          },
+        ],
+        footnote:
+          "Pain, light sensitivity, vision change, severe discharge, or contact-lens pain should not be treated as a simple pollen nuisance.",
+      },
+      {
+        id: "same-day-eye-routine",
+        type: "checklist",
+        heading: "Six same-day eye-care decisions",
+        intro:
+          "When the cause is unclear, start with choices that reduce irritation and reduce possible spread.",
+        items: [
+          "Do not rub your eyes; reduce how often your hands move toward your face.",
+          "Pause contact lenses or shorten wear time, especially if lenses feel painful or unusually uncomfortable.",
+          "Use clean towels and pillowcases, and do not share towels while discharge or crusting is present.",
+          "Wash hands before and after touching the eye area, and again after wiping away crusting or discharge.",
+          "Reduce outdoor exposure, window time, or outdoor exercise when pollen and dust are both elevated.",
+          "Seek care instead of relying on routine tips if pain, light sensitivity, vision change, severe discharge, or lens pain appears.",
+        ],
+      },
+      {
+        id: "overlap-days",
+        type: "section",
+        heading: "Pollen, dust, and screen-heavy days blur the signal",
+        tone: "blue",
+        paragraphs: [
+          "Eye symptoms rarely arrive in a clean laboratory setting. A high-pollen commute, dusty air, dry indoor air, contact lenses, and a long screen day can all stack together, making itchy red eyes harder to interpret.",
+          "This article is different from the eye allergy reset guide. This page sorts signals first, while that guide stays focused on the same-day reset routine.",
+          "Before you name the cause, separate itching, watery discharge, crusting, colored discharge, pain, light sensitivity, vision change, and contact-lens discomfort. That makes the next decision more grounded and less reactive.",
+        ],
+      },
+      {
+        id: "vision-warning",
+        type: "quote",
+        heading: "When eye symptoms move beyond routine care",
+        quote:
+          "Eye pain, light sensitivity, vision change, severe discharge, or pain while wearing contact lenses should be handled as a care issue, not as a pollen-management inconvenience.",
+        attribution: "Achoo editorial note",
+      },
+    ],
+    faq: [
+      {
+        question: "Are itchy pollen eyes contagious?",
+        answer:
+          "Allergy itself is not contagious. Infectious conjunctivitis can be, so crusting, colored discharge, or a clear spread pattern should trigger stricter hand hygiene, clean towels, and a lower threshold for care.",
+      },
+      {
+        question: "Can I wear contact lenses when my eyes are itchy and red?",
+        answer:
+          "Shortening wear time or taking a lens break is usually the safer decision while you sort the pattern. If lenses cause pain, vision changes, or pronounced redness, do not force them in and seek advice.",
+      },
+      {
+        question: "Which eye symptoms are urgent?",
+        answer:
+          "Eye pain, light sensitivity, vision change, severe discharge, or contact-lens pain should not be managed as ordinary allergy discomfort. Sudden or severe symptoms may need same-day medical care.",
+      },
+    ],
+    cta: createCta(
+      "en",
+      "Sort today’s eye symptoms before you choose a routine",
+      "Compare itching, tearing, crusting, discharge, pain, and lens discomfort alongside today’s pollen and dust conditions.",
     ),
   },
   "pollen-food-syndrome": {
@@ -3122,6 +3842,455 @@ const EN: Record<string, ArticleLocalization> = {
       "Check today’s local conditions and compare them with your commute, neighborhood greenery, and home routines. That is often where the answer begins.",
     ),
   },
+  "cold-vs-pollen-allergy": {
+    articleId: "cold-vs-pollen-allergy",
+    locale: "en",
+    eyebrow: "Symptom check",
+    title: "Cold or pollen allergy? How to read symptoms before you head out",
+    description:
+      "Runny nose and sneezing can look like a cold at first. This guide compares common patterns without diagnosing you, so you can decide whether today’s pollen forecast should change your plan.",
+    seoTitle: "Cold vs pollen allergy: symptom patterns to check before going out",
+    seoDescription:
+      "Compare cold vs pollen allergy signals by fever, itchiness, mucus, timing, contagiousness, and when symptoms need care.",
+    listSummary:
+      "A practical morning check for people searching whether sneezing and a runny nose are a cold or seasonal allergies.",
+    summaryItems: [
+      {
+        label: "Main clue",
+        value:
+          "Fever and body aches point differently from itchy eyes, itchy nose, and repeated sneezing.",
+        tone: "green",
+      },
+      {
+        label: "Morning move",
+        value:
+          "Match the symptom pattern with today’s pollen forecast before you set the outdoor plan.",
+        tone: "blue",
+      },
+      {
+        label: "Care signal",
+        value:
+          "Wheeze, shortness of breath, severe pain, fever, or worsening symptoms need clinical care, not just forecast planning.",
+        tone: "rose",
+      },
+    ],
+    trendSignals: [
+      {
+        label: "Search pattern",
+        value: "More people compare cold vs pollen allergy during spring peaks",
+        tone: "green",
+      },
+      {
+        label: "Confusion",
+        value: "Runny nose and sneezing overlap across causes",
+        tone: "amber",
+      },
+      {
+        label: "Action",
+        value: "Use symptoms and the local forecast together",
+        tone: "blue",
+      },
+    ],
+    blocks: [
+      {
+        id: "symptom-pattern",
+        type: "comparison",
+        heading: "Cold and pollen allergy can overlap, but the pattern differs",
+        intro:
+          "Use this as a planning aid, not a diagnosis. The goal is to decide whether your morning needs a more cautious outdoor plan.",
+        leftTitle: "More typical of a cold",
+        rightTitle: "More typical of pollen allergy",
+        rows: [
+          {
+            label: "Fever and body aches",
+            left: "Fever, chills, body aches, or a heavy sick feeling can fit an infection pattern.",
+            right:
+              "Pollen allergy is more often runny nose and irritation without fever or all-over aches.",
+          },
+          {
+            label: "Itchiness",
+            left: "A sore throat can happen, but itchy eyes and nose are not usually the main signal.",
+            right:
+              "Itchy eyes, itchy nose, itchy palate, and repeated sneezing are common clues.",
+          },
+          {
+            label: "Mucus pattern",
+            left: "Mucus may start clear, then become thicker as the cold changes.",
+            right:
+              "Clear, watery mucus can repeat for as long as exposure continues.",
+          },
+          {
+            label: "Timing",
+            left: "A cold often has a start, a rough peak, and gradual improvement over days.",
+            right:
+              "Symptoms can flare on high-pollen, windy, or outdoor-heavy days.",
+          },
+          {
+            label: "Contagiousness",
+            left: "If it is viral, you may need to think about spreading it to others.",
+            right:
+              "An allergic reaction itself is not contagious, though other people may share the same exposure.",
+          },
+          {
+            label: "Care signals",
+            left: "High fever, severe pain, or worsening illness deserves medical advice.",
+            right:
+              "Wheeze, shortness of breath, severe pain, or worsening symptoms move beyond forecast planning.",
+          },
+        ],
+        footnote:
+          "Patterns can overlap. If you are unsure, symptoms are severe, or the course is getting worse, seek medical guidance.",
+      },
+      {
+        id: "morning-check",
+        type: "checklist",
+        heading: "Four-step morning routine",
+        intro:
+          "Check the same four things before you decide how much outdoor exposure makes sense today.",
+        items: [
+          "Check whether you have a fever, chills, or body aches.",
+          "Check for itchy eyes, itchy nose, itchy palate, and repeated sneezing.",
+          "Check today’s pollen forecast, wind, and air-quality context.",
+          "Adjust the outdoor plan by shortening time outside, lowering intensity, or changing ventilation timing.",
+        ],
+      },
+      {
+        id: "why-it-feels-like-cold",
+        type: "section",
+        heading: "Why pollen symptoms can feel like a cold",
+        tone: "amber",
+        paragraphs: [
+          "Pollen symptoms can start with the same everyday problems people associate with a cold: runny nose, congestion, sneezing, and a scratchy throat. If you woke up tired or spent a lot of time outside the day before, the overlap can feel even more convincing.",
+          "The useful distinction is not self-diagnosis. It is pattern recognition. Itchiness, watery mucus, no fever, and flares that line up with high pollen days can help you decide whether today’s plan should reduce exposure.",
+          "If the pattern keeps returning, write down symptoms alongside the forecast and bring that history to a clinician. A clear timeline is more useful than trying to label the problem from one morning alone.",
+        ],
+      },
+      {
+        id: "care-signal",
+        type: "quote",
+        heading: "When planning is not enough",
+        quote:
+          "Fever, wheezing, shortness of breath, severe pain, or worsening symptoms move the situation from forecast planning to clinical care.",
+        attribution: "Achoo safety note",
+      },
+    ],
+    faq: [
+      {
+        question: "Does fever mean it is not pollen allergy?",
+        answer:
+          "Fever is not a usual pollen allergy pattern, so it deserves attention. It does not prove one cause by itself, but it should make you think beyond simple forecast planning.",
+      },
+      {
+        question: "How long do pollen allergy symptoms last compared with a cold?",
+        answer:
+          "A cold often changes over several days, while pollen symptoms can keep repeating as long as exposure continues. Track whether the timing follows high-pollen days or a normal illness arc.",
+      },
+      {
+        question: "What symptom means I should seek care?",
+        answer:
+          "Fever, wheezing, shortness of breath, severe pain, rapidly worsening symptoms, or symptoms that keep disrupting daily life are reasons to seek clinical guidance.",
+      },
+    ],
+    cta: createCta(
+      "en",
+      "Check symptoms and pollen before you leave",
+      "Compare fever, itchiness, sneezing, and today’s local pollen forecast before deciding how much outdoor time makes sense.",
+    ),
+  },
+  "pine-pollen-yellow-dust": {
+    articleId: "pine-pollen-yellow-dust",
+    locale: "en",
+    eyebrow: "Visible pollen",
+    title:
+      "Yellow pollen everywhere: what it does and does not tell you about allergy risk",
+    description:
+      "Yellow powder on cars, windowsills, and sidewalks is hard to ignore. It is a useful cue, but visible pollen is not the same as a complete allergy-risk reading.",
+    seoTitle: "Yellow pollen and allergy risk: what visible powder really means",
+    seoDescription:
+      "Learn why visible yellow pollen is only part of the allergy-risk picture, how it differs from symptom-triggering pollen and dust, and what to do at home today.",
+    listSummary:
+      "A practical guide to reading visible pollen without over-trusting it, then using the forecast to adjust ventilation, laundry, cleaning, and shower routines.",
+    summaryItems: [
+      {
+        label: "Main idea",
+        value:
+          "Visible yellow pollen is a cue to check conditions, not a full measure of symptom-triggering pollen.",
+        tone: "green",
+      },
+      {
+        label: "Common mix-up",
+        value:
+          "Pollen, household dust, fine particles, and yellow dust can all affect how the day feels, but they are not the same exposure.",
+        tone: "amber",
+      },
+      {
+        label: "Today’s move",
+        value:
+          "Use the pollen and air-quality forecast before deciding when to open windows, dry laundry, or exercise outside.",
+        tone: "blue",
+      },
+    ],
+    trendSignals: [
+      {
+        label: "Season cue",
+        value: "Visible yellow pollen makes exposure feel obvious",
+        tone: "green",
+      },
+      {
+        label: "Risk gap",
+        value: "The pollen you see is not the whole allergy forecast",
+        tone: "amber",
+      },
+      {
+        label: "Action",
+        value: "Check pollen and dust conditions together",
+        tone: "blue",
+      },
+    ],
+    blocks: [
+      {
+        id: "visible-pollen",
+        type: "section",
+        heading: "Visible pollen is only the obvious part",
+        tone: "amber",
+        paragraphs: [
+          "When yellow pollen coats a car or balcony, it feels like the allergy risk is visible too. That is partly useful: it tells you plant material is moving through the air and into the home.",
+          "The missing piece is that many symptom-triggering pollens are not as easy to see. A day can look cleaner than yesterday and still carry enough airborne pollen to bother sensitive eyes or noses.",
+          "Dust, fine particles, and regional yellow-dust events can add irritation without being the same thing as pollen. Treat visible powder as a prompt to check the forecast, not as the forecast itself.",
+        ],
+      },
+      {
+        id: "compare-pollen-dust",
+        type: "table",
+        heading: "What you see, what it means, what to do",
+        intro:
+          "Use the table to separate visible cues from the decisions that reduce exposure today.",
+        columns: ["What you see", "What it means", "What to do today"],
+        rows: [
+          {
+            cells: [
+              "Yellow powder on outdoor surfaces",
+              "A visible pollen cue, often from larger pollen grains. It does not measure total allergy risk.",
+              "Check the forecast before opening windows for long periods.",
+            ],
+            tone: "amber",
+          },
+          {
+            cells: [
+              "Little visible pollen",
+              "Symptom-triggering pollen may still be airborne even when surfaces look cleaner.",
+              "Use the pollen forecast, especially on windy or dry days.",
+            ],
+          },
+          {
+            cells: [
+              "Dust on indoor surfaces",
+              "Outdoor particles can mix with household dust and get stirred back into the room.",
+              "Wipe with a damp cloth instead of dry dusting.",
+            ],
+          },
+          {
+            cells: [
+              "High fine-particle reading",
+              "Air pollution particles are not pollen, but they can irritate eyes and airways.",
+              "Shorten ventilation when pollen and particle levels are both elevated.",
+            ],
+          },
+          {
+            cells: [
+              "Yellow-dust advisory where relevant",
+              "Transported dust is a different exposure from pollen, even when it leaves visible residue.",
+              "Plan windows, laundry, and outdoor time from pollen and dust forecasts together.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "ventilation-cleaning",
+        type: "checklist",
+        heading: "Five home routines for yellow-pollen days",
+        intro:
+          "Keep the routine practical: reduce what comes in, then remove what settles.",
+        items: [
+          "Open windows briefly when pollen and particle forecasts are lower; avoid long ventilation during windy peaks.",
+          "Bring laundry and bedding indoors on high-forecast days, or shake outdoor-dried items before they come inside.",
+          "Wipe windowsills, tables, and floors with a damp cloth or mop instead of dry dusting.",
+          "Shower and rinse hair after long outdoor exposure so particles do not move to pillows and sofas.",
+          "Check pollen, fine particles, and any dust advisory together before setting the day’s plan.",
+        ],
+      },
+      {
+        id: "forecast-over-visible",
+        type: "quote",
+        heading: "Let the forecast lead",
+        quote:
+          "Visible yellow dust is a cue to check the forecast; it is not a complete measurement of allergy risk.",
+        attribution: "Achoo forecast note",
+      },
+    ],
+    faq: [
+      {
+        question: "Does visible yellow powder mean today’s allergy risk is high?",
+        answer:
+          "Not by itself. It means visible pollen is settling, but smaller symptom-triggering pollen may rise or fall differently. Use the forecast before changing plans.",
+      },
+      {
+        question: "Should I keep windows closed whenever yellow pollen is visible?",
+        answer:
+          "Not necessarily. Short ventilation during lower pollen and particle periods is usually more useful than relying on the surface color alone.",
+      },
+      {
+        question: "What cleaning or washing step matters most?",
+        answer:
+          "Damp wiping settled powder and showering after longer outdoor exposure reduce what gets stirred up or carried to bedding and soft furniture.",
+      },
+    ],
+    cta: createCta(
+      "en",
+      "Check the forecast before reacting to yellow pollen",
+      "Compare pollen and air-quality conditions, then time windows, laundry, cleaning, and outdoor plans around the lower-risk parts of the day.",
+    ),
+  },
+  "skin-allergy-pollen-dust": {
+    articleId: "skin-allergy-pollen-dust",
+    locale: "en",
+    eyebrow: "Skin routine",
+    title: "Pollen, dust, and itchy spring skin: a practical barrier routine",
+    description:
+      "Itchy spring skin is rarely explained by pollen alone. Fine dust, dry wind, sweat, and UV exposure can stack together, so the practical goal is a calmer skin-barrier routine before and after outdoor time.",
+    seoTitle: "pollen dust itchy skin routine for spring skin barrier care",
+    seoDescription:
+      "A practical spring skin routine for days when pollen, fine dust, wind, sweat, and UV exposure may compound irritation without assuming pollen causes every rash.",
+    listSummary:
+      "A simple before-outside, while-outside, and return-home routine for itchy spring skin on pollen and dust days.",
+    summaryItems: [
+      {
+        label: "Main idea",
+        value:
+          "Pollen may be part of the picture, but fine dust, wind, sweat, and UV can compound skin irritation.",
+        tone: "green",
+      },
+      {
+        label: "Risk moment",
+        value:
+          "Dry, windy, sweaty, high-UV days call for gentler cleansing and faster moisturizing after returning home.",
+        tone: "amber",
+      },
+      {
+        label: "Today’s move",
+        value:
+          "Remove outdoor particles gently, keep outdoor clothes away from bedding, and moisturize before skin feels tight.",
+        tone: "blue",
+      },
+    ],
+    trendSignals: [
+      {
+        label: "Compound exposure",
+        value: "Pollen and fine dust can settle on skin, hair, clothes, and bedding",
+        tone: "green",
+      },
+      {
+        label: "Barrier pressure",
+        value: "Wind, sweat, and UV can make the same day feel harsher",
+        tone: "amber",
+      },
+      {
+        label: "Routine",
+        value: "Gentle cleanse, separate clothes, moisturize, and avoid scratching",
+        tone: "blue",
+      },
+    ],
+    blocks: [
+      {
+        id: "skin-barrier-pressure",
+        type: "section",
+        heading: "Spring skin irritation is often a stacked exposure problem",
+        tone: "amber",
+        paragraphs: [
+          "When skin gets itchy in spring, pollen is an obvious suspect, but it should not be treated as the cause of every rash. Fine dust, dry wind, sweat, and UV exposure can all add pressure to a skin barrier that is already feeling reactive.",
+          "Dry wind can leave skin feeling tight. Sweat can sting or increase friction when it sits on the skin. Pollen and fine particles can cling to hair, collars, masks, and pillowcases, extending the exposure after you are back indoors.",
+          "The practical response is not to diagnose the trigger at home. It is to reduce what stays on the skin, avoid extra friction, and rebuild comfort with a simple fragrance-free moisturizing step.",
+        ],
+        bullets: [
+          "Check pollen and fine-particle conditions together on windy spring days.",
+          "Treat sweat and friction as part of the irritation picture, not as an afterthought.",
+          "Protect exposed skin from dry wind and UV when outdoor time is long.",
+          "Do not assume a spreading rash is just seasonal itch.",
+        ],
+      },
+      {
+        id: "day-timeline",
+        type: "timeline",
+        heading: "Use a three-part routine instead of guessing all day",
+        intro:
+          "The routine works best when it is tied to the moment of exposure: before going out, while outside, and after returning home.",
+        items: [
+          {
+            label: "Before going out",
+            title: "Set up the barrier",
+            body:
+              "Apply a fragrance-free moisturizer, choose clothing that reduces direct exposure, and plan sun protection when UV and wind are part of the day.",
+          },
+          {
+            label: "While outside",
+            title: "Limit sweat, rubbing, and hand contact",
+            body:
+              "Blot sweat gently with a clean cloth, avoid rubbing itchy areas, and keep hands clean before touching irritated skin.",
+          },
+          {
+            label: "After returning home",
+            title: "Remove particles and reset",
+            body:
+              "Cleanse exposed skin gently, keep outdoor clothes off the bed or sofa, and moisturize before the skin dries out.",
+          },
+        ],
+      },
+      {
+        id: "return-home-checklist",
+        type: "checklist",
+        heading: "Five return-home skin-barrier steps",
+        intro:
+          "Keep the routine boring and repeatable: remove outdoor residue without stripping the skin, then reduce what transfers to bedding.",
+        items: [
+          "Use lukewarm water and a gentle cleanser on exposed areas instead of hot water or rough scrubbing.",
+          "Apply a fragrance-free moisturizer while skin is still slightly damp, and avoid stacking several new products at once.",
+          "Keep outdoor clothes, hats, and masks away from pillows, sofas, and clean towels.",
+          "Change pillowcases or face towels more often when symptoms flare, especially after windy or dusty days.",
+          "Avoid scratching; keep nails short and use cool pressure instead of digging at itchy skin.",
+        ],
+      },
+      {
+        id: "rash-warning",
+        type: "quote",
+        heading: "Know when the routine is not enough",
+        quote:
+          "Seek care for a spreading rash, blistering, swelling, fever, or severe itch that disrupts sleep. If skin symptoms after food or medication come with breathing trouble, throat, lip, or tongue swelling, dizziness, fainting, or rapid whole-body symptoms, treat it as urgent care, not routine skin care.",
+        attribution: "Achoo skin-barrier note",
+      },
+    ],
+    faq: [
+      {
+        question: "How can I tell ordinary itch from a rash that needs attention?",
+        answer:
+          "Itch can happen without a visible rash, but spreading redness, swelling, blistering, fever, or rapidly worsening skin should not be treated as a routine pollen-day problem.",
+      },
+      {
+        question: "Should I shower or cleanse after being outside?",
+        answer:
+          "After longer outdoor exposure or high pollen and dust forecasts, gentle cleansing can help remove particles. Avoid hot water, harsh scrubs, and repeated washing that leaves skin tight.",
+      },
+      {
+        question: "What is the clearest signal to seek care?",
+        answer:
+          "Seek medical guidance if the rash spreads, blisters, swells, comes with fever, or keeps you from sleeping because of itch. If skin symptoms after food or medication come with breathing trouble, throat, lip, or tongue swelling, dizziness, fainting, or rapid whole-body symptoms, treat it as urgent care, not routine skin care.",
+      },
+    ],
+    cta: createCta(
+      "en",
+      "Check pollen and dust before your skin feels overwhelmed",
+      "Use today’s forecast to plan outdoor time, then keep the return-home routine simple: cleanse gently, separate clothes, moisturize, and avoid scratching.",
+    ),
+  },
 };
 const DE: Record<string, ArticleLocalization> = {
   "longer-pollen-seasons": {
@@ -3791,6 +4960,149 @@ const DE: Record<string, ArticleLocalization> = {
       "de",
       "Prüfen Sie, ob heute eher ein Augen-Tag wird",
       "Sehen Sie zuerst in die lokale Prognose. Wenn die Augen wahrscheinlich führen, passen Sie Linsen, Außenzeit und die Reinigungsroutine schon vorher an.",
+    ),
+  },
+  "itchy-eyes-pollen-conjunctivitis": {
+    articleId: "itchy-eyes-pollen-conjunctivitis",
+    locale: "de",
+    eyebrow: "Juckende Augen",
+    title:
+      "Juckende rote Augen an Pollentagen: Allergie, Bindehautentzündung oder Trockenheit?",
+    description:
+      "Wenn an Pollentagen die Augen jucken und rot werden, ist die Einordnung nicht immer klar. Diese Seite sortiert Signale für Allergie, infektiöse Bindehautentzündung und trockene Reizung, ohne eine Diagnose zu stellen.",
+    seoTitle: "juckende Augen Pollenallergie oder Bindehautentzündung",
+    seoDescription:
+      "Juckreiz, Rötung, wässriger Ausfluss, Verklebung, farbiges Sekret, Schmerz, Lichtempfindlichkeit und Kontaktlinsenbeschwerden an Pollentagen einordnen.",
+    listSummary:
+      "Eine praktische Einordnung für juckende rote Augen an Pollentagen, inklusive Hygiene, Kontaktlinsenpause, Expositionsplanung und Warnzeichen.",
+    summaryItems: [
+      {
+        label: "Hauptunterschied",
+        value:
+          "Juckreiz und wässrige Augen können zu Allergie passen; Verklebung oder farbiges Sekret verändern die Einordnung.",
+        tone: "rose",
+      },
+      {
+        label: "Heute entscheiden",
+        value:
+          "Nicht reiben, Kontaktlinsen pausieren, Hände waschen und Handtücher sauber getrennt halten.",
+        tone: "blue",
+      },
+      {
+        label: "Warnzeichen",
+        value:
+          "Schmerz, Lichtempfindlichkeit, Sehänderung, starkes Sekret oder Linsenschmerz sind ein Versorgungsthema.",
+        tone: "amber",
+      },
+    ],
+    trendSignals: [
+      {
+        label: "Trend",
+        value: "Mehr Vergleiche zwischen Allergie-Augen und Bindehautentzündung",
+        tone: "rose",
+      },
+      {
+        label: "Auswirkung",
+        value: "Bildschirmarbeit, Staub und Linsen verwischen das Muster",
+        tone: "blue",
+      },
+      {
+        label: "Aktion",
+        value: "Warnzeichen vor der Allergieroutine prüfen",
+        tone: "amber",
+      },
+    ],
+    blocks: [
+      {
+        id: "eye-patterns",
+        type: "comparison",
+        heading: "Drei Muster hinter juckenden roten Augen",
+        intro:
+          "Das ist kein Diagnosewerkzeug, sondern eine praktische Sortierung der Signale am selben Tag.",
+        leftTitle: "Typische Signale",
+        rightTitle: "Einordnung für den Tag",
+        rows: [
+          {
+            label: "Muster allergische Bindehautentzündung",
+            left:
+              "Juckreiz, Rötung, klar-wässriger Ausfluss und beidseitige Reizung wiederholen sich nach Pollenexposition.",
+            right:
+              "Das überschneidet sich mit von AAAAI beschriebenen Allergiezeichen, beweist die Ursache aber nicht.",
+          },
+          {
+            label: "Muster infektiöse Bindehautentzündung",
+            left:
+              "Verklebung, Krusten, farbiges oder dickeres Sekret und Rötung, die eher einseitig beginnt, fallen auf.",
+            right:
+              "Das überschneidet sich mit CDC-Hinweisen zu Pink Eye; Händewaschen, saubere Handtücher und Vorsicht vor Weitergabe sind wichtig.",
+          },
+          {
+            label: "Muster trockene oder bildschirmbedingte Reizung",
+            left:
+              "Trockenheit, Brennen, Verschlechterung nach Bildschirmzeit und Kontaktlinsenbeschwerden stehen im Vordergrund.",
+            right:
+              "Das kann Allergie oder Infektion ähneln oder sich damit überlagern; Schmerz, Lichtempfindlichkeit und Sehänderung zuerst prüfen.",
+          },
+        ],
+        footnote:
+          "Schmerz, Lichtempfindlichkeit, Sehänderung, starkes Sekret oder Kontaktlinsenschmerz gehören nicht in die Kategorie einfache Pollenbelastung.",
+      },
+      {
+        id: "same-day-eye-routine",
+        type: "checklist",
+        heading: "Sechs Entscheidungen für die Augen am selben Tag",
+        intro:
+          "Wenn die Ursache unklar ist, beginnen Sie mit Schritten, die Reizung und mögliche Weitergabe reduzieren.",
+        items: [
+          "Augen nicht reiben und die Hände möglichst selten Richtung Gesicht führen.",
+          "Kontaktlinsen pausieren oder die Tragezeit verkürzen, besonders bei Schmerz oder ungewohntem Fremdkörpergefühl.",
+          "Saubere Handtücher und Kissenbezüge verwenden und Handtücher bei Sekret oder Verklebung nicht teilen.",
+          "Vor und nach Berührung der Augenpartie Hände waschen, auch nach dem Entfernen von Sekret oder Krusten.",
+          "Außenzeit, Lüften oder Sport draußen reduzieren, wenn Pollen und Staub gleichzeitig hoch sind.",
+          "Bei Schmerz, Lichtempfindlichkeit, Sehänderung, starkem Sekret oder Linsenschmerz medizinische Abklärung vor Routinetipps stellen.",
+        ],
+      },
+      {
+        id: "overlap-days",
+        type: "section",
+        heading: "Pollen, Staub und lange Bildschirmtage überlagern sich",
+        tone: "blue",
+        paragraphs: [
+          "Augenbeschwerden entstehen selten unter klar getrennten Bedingungen. Pollen auf dem Weg zur Arbeit, Staub, trockene Innenluft, Kontaktlinsen und viele Stunden am Bildschirm können am selben Tag zusammenkommen.",
+          "Dieser Artikel unterscheidet sich vom bestehenden Artikel zum Augenallergie-Reset. Diese Seite sortiert zuerst die Signale; der andere bleibt die Routine für denselben Tag.",
+          "Trennen Sie vor der Einordnung Juckreiz, wässrigen Ausfluss, Verklebung, farbiges Sekret, Schmerz, Lichtempfindlichkeit, Sehänderung und Kontaktlinsenbeschwerden. So wird die nächste Entscheidung weniger impulsiv.",
+        ],
+      },
+      {
+        id: "vision-warning",
+        type: "quote",
+        heading: "Wenn Augenbeschwerden mehr als Routinepflege brauchen",
+        quote:
+          "Augenschmerz, Lichtempfindlichkeit, Sehänderung, starkes Sekret oder Schmerzen mit Kontaktlinsen sollten als Versorgungsthema behandelt werden, nicht als kleine Unannehmlichkeit der Pollensaison.",
+        attribution: "Achoo Redaktion",
+      },
+    ],
+    faq: [
+      {
+        question: "Sind juckende Pollen-Augen ansteckend?",
+        answer:
+          "Die Allergie selbst ist nicht ansteckend. Eine infektiöse Bindehautentzündung kann es sein; bei Verklebung, farbigem Sekret oder einem klaren Weitergabe-Muster sind Handhygiene, getrennte Handtücher und medizinische Einschätzung wichtiger.",
+      },
+      {
+        question: "Kann ich Kontaktlinsen tragen, wenn die Augen jucken und rot sind?",
+        answer:
+          "Meist ist es sinnvoller, die Tragezeit zu verkürzen oder eine Pause zu machen. Bei Schmerz, Sehänderung oder deutlicher Rötung sollten Linsen nicht erzwungen werden.",
+      },
+      {
+        question: "Welche Augensymptome sind dringend?",
+        answer:
+          "Augenschmerz, Lichtempfindlichkeit, Sehänderung, starkes Sekret oder Kontaktlinsenschmerz sollten nicht wie normale Allergiebeschwerden behandelt werden. Plötzliche oder starke Symptome können am selben Tag abgeklärt werden müssen.",
+      },
+    ],
+    cta: createCta(
+      "de",
+      "Sortieren Sie die Augensymptome, bevor Sie die Routine wählen",
+      "Vergleichen Sie Juckreiz, Tränen, Verklebung, Sekret, Schmerz und Linsenbeschwerden mit der heutigen Pollen- und Staublage.",
     ),
   },
   "pollen-food-syndrome": {
@@ -4730,6 +6042,461 @@ const DE: Record<string, ArticleLocalization> = {
       "Prüfen Sie die lokale Lage und vergleichen Sie sie mit Arbeitsweg, Grünflächen und Wohngewohnheiten. Dort beginnt oft die eigentliche Erklärung.",
     ),
   },
+  "cold-vs-pollen-allergy": {
+    articleId: "cold-vs-pollen-allergy",
+    locale: "de",
+    eyebrow: "Symptome einordnen",
+    title:
+      "Erkältung oder Pollenallergie? So lesen Sie die Signale vor dem Rausgehen",
+    description:
+      "Laufende Nase und Niesen fühlen sich schnell wie eine Erkältung an. Diese Übersicht vergleicht typische Muster, ohne eine Diagnose zu ersetzen.",
+    seoTitle:
+      "Erkältung oder Pollenallergie: Symptome vor dem Rausgehen einordnen",
+    seoDescription:
+      "Erkältung oder Pollenallergie anhand von Fieber, Juckreiz, Schleim, Timing, Ansteckung und Warnsignalen einordnen.",
+    listSummary:
+      "Ein kurzer Morgencheck für alle, die bei Niesen und laufender Nase zwischen Infekt und Heuschnupfen unterscheiden möchten.",
+    summaryItems: [
+      {
+        label: "Wichtiges Signal",
+        value:
+          "Fieber und Gliederschmerzen sprechen anders als juckende Augen, juckende Nase und wiederholtes Niesen.",
+        tone: "green",
+      },
+      {
+        label: "Morgens prüfen",
+        value:
+          "Symptommuster und heutige Pollenflugvorhersage gehören zusammen, bevor der Outdoor-Plan steht.",
+        tone: "blue",
+      },
+      {
+        label: "Warnsignal",
+        value:
+          "Giemen, Atemnot, starke Schmerzen, Fieber oder Verschlechterung gehören in medizinische Abklärung.",
+        tone: "rose",
+      },
+    ],
+    trendSignals: [
+      {
+        label: "Suchtrend",
+        value: "Mehr Fragen zu Erkältung oder Pollenallergie in der Pollensaison",
+        tone: "green",
+      },
+      {
+        label: "Verwechslung",
+        value: "Schnupfen und Niesen überschneiden sich stark",
+        tone: "amber",
+      },
+      {
+        label: "Handlung",
+        value: "Symptome und lokale Pollenprognose gemeinsam lesen",
+        tone: "blue",
+      },
+    ],
+    blocks: [
+      {
+        id: "symptom-pattern",
+        type: "comparison",
+        heading:
+          "Erkältung und Pollenallergie überschneiden sich, aber das Muster hilft",
+        intro:
+          "Die Tabelle ist keine Diagnose, sondern eine Hilfe für die Planung des Tages.",
+        leftTitle: "Eher typisch für Erkältung",
+        rightTitle: "Eher typisch für Pollenallergie",
+        rows: [
+          {
+            label: "Fieber und Gliederschmerzen",
+            left: "Fieber, Frösteln, Gliederschmerzen oder Krankheitsgefühl passen eher zu einem Infekt.",
+            right:
+              "Bei Pollenallergie stehen eher Schnupfen und Reizung ohne Fieber im Vordergrund.",
+          },
+          {
+            label: "Juckreiz",
+            left: "Der Hals kann kratzen, aber juckende Augen und Nase sind meist nicht das Leitsignal.",
+            right:
+              "Juckende Augen, juckende Nase, Gaumenjucken und Niesanfälle sind häufige Hinweise.",
+          },
+          {
+            label: "Schleimmuster",
+            left: "Sekret kann erst klar sein und sich im Verlauf verändern oder zäher werden.",
+            right:
+              "Klarer, wässriger Schnupfen kann sich wiederholen, solange die Exposition anhält.",
+          },
+          {
+            label: "Timing",
+            left: "Eine Erkältung zeigt oft Beginn, Höhepunkt und langsame Besserung über Tage.",
+            right:
+              "Beschwerden können an Tagen mit starkem Pollenflug, Wind oder viel Zeit draußen aufflammen.",
+          },
+          {
+            label: "Ansteckung",
+            left: "Bei viralem Infekt sollte man an mögliche Ansteckung anderer denken.",
+            right:
+              "Die allergische Reaktion selbst ist nicht ansteckend, auch wenn andere dieselbe Belastung spüren.",
+          },
+          {
+            label: "Warnsignale",
+            left: "Hohes Fieber, starke Schmerzen oder Verschlechterung sollten ärztlich eingeordnet werden.",
+            right:
+              "Giemen, Atemnot, starke Schmerzen oder Verschlechterung gehen über Vorhersageplanung hinaus.",
+          },
+        ],
+        footnote:
+          "Muster können sich überschneiden. Bei Unsicherheit, starken Beschwerden oder Verschlechterung ist medizinischer Rat sinnvoll.",
+      },
+      {
+        id: "morning-check",
+        type: "checklist",
+        heading: "Vier Schritte am Morgen",
+        intro:
+          "Diese Reihenfolge hilft, Symptome nicht isoliert von der Tagesbelastung zu betrachten.",
+        items: [
+          "Prüfen, ob Fieber, Frösteln oder Gliederschmerzen vorhanden sind.",
+          "Auf juckende Augen, juckende Nase, Gaumenjucken und Niesanfälle achten.",
+          "Heutige Pollenflugvorhersage, Wind und Luftqualität prüfen.",
+          "Outdoor-Zeit, Sportintensität oder Lüftungszeiten entsprechend anpassen.",
+        ],
+      },
+      {
+        id: "why-it-feels-like-cold",
+        type: "section",
+        heading: "Warum es sich wie eine Erkältung anfühlen kann",
+        tone: "amber",
+        paragraphs: [
+          "Pollenbeschwerden können mit laufender Nase, verstopfter Nase, Niesen und kratzigem Hals beginnen. Das sind genau die Zeichen, die viele Menschen zuerst mit einer Erkältung verbinden.",
+          "Die Unterscheidung dient nicht der Selbstdiagnose. Sie hilft, Muster zu erkennen: Juckreiz, wässriger Schnupfen, fehlendes Fieber und Schübe an Tagen mit hohem Pollenflug können dafür sprechen, die Exposition heute vorsichtiger zu planen.",
+          "Wenn das Muster wiederkehrt oder den Alltag stört, sind Symptomnotizen zusammen mit der Pollenprognose hilfreicher als eine Einschätzung aus einem einzelnen Morgen.",
+        ],
+      },
+      {
+        id: "care-signal",
+        type: "quote",
+        heading: "Wenn Planung nicht reicht",
+        quote:
+          "Fieber, Giemen, Atemnot, starke Schmerzen oder sich verschlechternde Symptome verschieben die Situation von Vorhersageplanung zu klinischer Abklärung.",
+        attribution: "Achoo Sicherheitsnotiz",
+      },
+    ],
+    faq: [
+      {
+        question: "Spricht Fieber gegen eine Pollenallergie?",
+        answer:
+          "Fieber gehört nicht zum typischen Muster einer Pollenallergie und sollte ernst genommen werden. Es beweist allein keine Ursache, aber es spricht dafür, nicht nur nach der Pollenprognose zu planen.",
+      },
+      {
+        question:
+          "Wie lange dauern Symptome bei Pollenallergie im Vergleich zur Erkältung?",
+        answer:
+          "Eine Erkältung verändert sich oft über mehrere Tage. Pollenbeschwerden können wiederkehren, solange die Belastung anhält, besonders an Tagen mit starkem Pollenflug.",
+      },
+      {
+        question: "Bei welchem Signal sollte ich medizinischen Rat suchen?",
+        answer:
+          "Fieber, Giemen, Atemnot, starke Schmerzen, schnelle Verschlechterung oder Beschwerden, die den Alltag deutlich stören, sind Gründe für medizinische Abklärung.",
+      },
+    ],
+    cta: createCta(
+      "de",
+      "Symptome und Pollenflug vor dem Rausgehen prüfen",
+      "Vergleichen Sie Fieber, Juckreiz, Niesen und die heutige lokale Pollenlage, bevor Sie Outdoor-Zeit und Lüftung planen.",
+    ),
+  },
+  "pine-pollen-yellow-dust": {
+    articleId: "pine-pollen-yellow-dust",
+    locale: "de",
+    eyebrow: "Sichtbarer Pollen",
+    title:
+      "Gelber Pollen überall: Was er über Allergierisiko verrät und was nicht",
+    description:
+      "Gelber Belag auf Autos, Fensterbänken und Balkonen fällt sofort auf. Er ist ein nützliches Signal, aber kein vollständiges Maß für das Allergierisiko.",
+    seoTitle:
+      "Gelber Pollen und Allergierisiko: Was sichtbarer Belag wirklich bedeutet",
+    seoDescription:
+      "Warum sichtbarer gelber Pollen nur ein Teil des Allergierisikos ist, wie er sich von symptomrelevantem Pollen und Staub unterscheidet und welche Routinen heute helfen.",
+    listSummary:
+      "Ein praktischer Leitfaden, um sichtbaren Pollen nicht zu überschätzen und Lüften, Wäsche, Putzen und Duschen nach der Vorhersage zu planen.",
+    summaryItems: [
+      {
+        label: "Kernpunkt",
+        value:
+          "Sichtbarer gelber Pollen ist ein Hinweis auf Belastung, aber kein vollständiger Messwert für allergieauslösenden Pollen.",
+        tone: "green",
+      },
+      {
+        label: "Häufige Verwechslung",
+        value:
+          "Pollen, Hausstaub, Feinstaub und gelber Staub können sich ähnlich bemerkbar machen, sind aber unterschiedliche Belastungen.",
+        tone: "amber",
+      },
+      {
+        label: "Heute sinnvoll",
+        value:
+          "Pollenflug und Luftqualität prüfen, bevor Fenster, Wäsche oder Outdoor-Aktivitäten geplant werden.",
+        tone: "blue",
+      },
+    ],
+    trendSignals: [
+      {
+        label: "Saisonsignal",
+        value: "Gelber Belag macht Pollenbelastung sichtbar",
+        tone: "green",
+      },
+      {
+        label: "Lücke",
+        value: "Sichtbarer Pollen zeigt nicht das gesamte Allergierisiko",
+        tone: "amber",
+      },
+      {
+        label: "Handlung",
+        value: "Pollen- und Staubbelastung zusammen prüfen",
+        tone: "blue",
+      },
+    ],
+    blocks: [
+      {
+        id: "visible-pollen",
+        type: "section",
+        heading: "Sichtbarer Pollen ist nur der auffällige Teil",
+        tone: "amber",
+        paragraphs: [
+          "Wenn gelber Pollen Auto, Balkon oder Fensterbank bedeckt, wirkt auch das Allergierisiko sichtbar. Als Hinweis ist das nützlich: Pflanzenpartikel sind unterwegs und gelangen leichter in Innenräume.",
+          "Viele Pollen, die Beschwerden auslösen können, sieht man jedoch kaum. Ein Tag kann sauberer aussehen als der vorherige und trotzdem genug Pollen in der Luft haben, um Augen oder Nase zu reizen.",
+          "Staub, Feinstaub und regionale Gelbstaub-Ereignisse können zusätzlich reizen, ohne dass sie dasselbe sind wie Pollen. Der sichtbare Belag sollte daher zur Vorhersage führen, nicht die Vorhersage ersetzen.",
+        ],
+      },
+      {
+        id: "compare-pollen-dust",
+        type: "table",
+        heading: "Was sichtbar ist und was heute daraus folgt",
+        intro:
+          "Die Tabelle trennt sichtbare Hinweise von den Entscheidungen, die die Belastung im Alltag senken.",
+        columns: ["Was Sie sehen", "Was es bedeutet", "Was heute hilft"],
+        rows: [
+          {
+            cells: [
+              "Gelber Belag auf Außenflächen",
+              "Ein sichtbarer Pollenhinweis, oft von größeren Pollenkörnern. Er misst nicht das gesamte Allergierisiko.",
+              "Vor längerem Lüften zuerst die Vorhersage prüfen.",
+            ],
+            tone: "amber",
+          },
+          {
+            cells: [
+              "Kaum sichtbarer Pollen",
+              "Symptomrelevanter Pollen kann trotzdem in der Luft sein.",
+              "Pollenflugvorhersage besonders an trockenen oder windigen Tagen nutzen.",
+            ],
+          },
+          {
+            cells: [
+              "Staub auf Innenflächen",
+              "Außenpartikel können sich mit Hausstaub mischen und wieder aufgewirbelt werden.",
+              "Feucht wischen statt trocken abzustauben.",
+            ],
+          },
+          {
+            cells: [
+              "Erhöhte Feinstaubwerte",
+              "Feinstaub ist kein Pollen, kann Augen und Atemwege aber zusätzlich reizen.",
+              "Lüftungszeit verkürzen, wenn Pollen und Partikel gleichzeitig erhöht sind.",
+            ],
+          },
+          {
+            cells: [
+              "Gelbstaub-Hinweis, wo relevant",
+              "Transportierter Staub ist eine andere Belastung als Pollen, auch wenn sichtbarer Belag bleibt.",
+              "Fenster, Wäsche und Outdoor-Zeit anhand von Pollen- und Staubvorhersage zusammen planen.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "ventilation-cleaning",
+        type: "checklist",
+        heading: "Fünf Routinen für Tage mit gelbem Pollen",
+        intro:
+          "Die Routine soll Eintrag reduzieren und abgesetzte Partikel entfernen, bevor sie wieder aufgewirbelt werden.",
+        items: [
+          "Fenster kurz öffnen, wenn Pollen- und Partikelwerte niedriger sind; windige Spitzenzeiten meiden.",
+          "Wäsche und Bettwäsche an Tagen mit hoher Vorhersage drinnen trocknen oder draußen getrocknete Stücke vor dem Reinbringen ausschütteln.",
+          "Fensterbänke, Tische und Böden feucht wischen statt trocken zu stauben.",
+          "Nach längerer Zeit draußen duschen und Haare ausspülen, damit Partikel nicht auf Kissen und Sofa landen.",
+          "Pollenflug, Feinstaub und mögliche Staubhinweise gemeinsam prüfen, bevor der Tagesplan steht.",
+        ],
+      },
+      {
+        id: "forecast-over-visible",
+        type: "quote",
+        heading: "Die Vorhersage führt",
+        quote:
+          "Sichtbarer gelber Staub ist ein Signal, die Vorhersage zu prüfen; er ist keine vollständige Messung des Allergierisikos.",
+        attribution: "Achoo Vorhersagenotiz",
+      },
+    ],
+    faq: [
+      {
+        question: "Bedeutet sichtbarer gelber Belag automatisch hohes Allergierisiko?",
+        answer:
+          "Nein. Er zeigt, dass sichtbarer Pollen abgelagert wird. Kleinere, symptomrelevante Pollen können sich aber anders entwickeln, deshalb zählt die Vorhersage.",
+      },
+      {
+        question: "Sollte ich bei gelbem Pollen gar nicht lüften?",
+        answer:
+          "Nicht unbedingt. Kurzes Lüften in Phasen mit niedrigeren Pollen- und Partikelwerten ist sinnvoller als die Entscheidung nur am sichtbaren Belag festzumachen.",
+      },
+      {
+        question: "Was ist beim Putzen oder Waschen wichtig?",
+        answer:
+          "Feuchtes Wischen entfernt abgesetzte Partikel besser als trockenes Stauben. Nach längerer Außenexposition helfen Duschen und Kleidungswechsel, Eintrag in Bett und Polster zu verringern.",
+      },
+    ],
+    cta: createCta(
+      "de",
+      "Erst Vorhersage prüfen, dann auf gelben Pollen reagieren",
+      "Vergleichen Sie Pollenflug und Luftqualität, bevor Sie Lüften, Wäsche, Reinigung und Outdoor-Zeit für den Tag planen.",
+    ),
+  },
+  "skin-allergy-pollen-dust": {
+    articleId: "skin-allergy-pollen-dust",
+    locale: "de",
+    eyebrow: "Hautroutine",
+    title:
+      "Pollen, Staub und juckende Frühlingshaut: eine ruhige Barriere-Routine",
+    description:
+      "Juckende Frühlingshaut sollte nicht automatisch nur Pollen zugeschrieben werden. Feinstaub, trockener Wind, Schweiß und UV-Belastung können zusammen die Hautbarriere stärker reizen.",
+    seoTitle: "Pollen Staub juckende Haut und eine ruhige Barriere-Routine",
+    seoDescription:
+      "Praktische Hautroutine für Frühlingstage, an denen Pollen, Feinstaub, trockener Wind, Schweiß und UV-Belastung die Haut gemeinsam reizen können.",
+    listSummary:
+      "Eine einfache Routine vor dem Rausgehen, unterwegs und nach dem Heimkommen für juckende Haut an Pollen- und Staubtagen.",
+    summaryItems: [
+      {
+        label: "Kernidee",
+        value:
+          "Pollen können eine Rolle spielen, aber Feinstaub, Wind, Schweiß und UV-Belastung erhöhen den Druck auf die Hautbarriere.",
+        tone: "green",
+      },
+      {
+        label: "Empfindlicher Moment",
+        value:
+          "Trockene, windige, schweißtreibende Tage brauchen sanfte Reinigung und zügige Pflege nach dem Heimkommen.",
+        tone: "amber",
+      },
+      {
+        label: "Heute sinnvoll",
+        value:
+          "Partikel sanft abwaschen, Outdoor-Kleidung vom Bett fernhalten und unparfümiert eincremen.",
+        tone: "blue",
+      },
+    ],
+    trendSignals: [
+      {
+        label: "Kombinierte Belastung",
+        value: "Pollen und Feinstaub bleiben an Haut, Haaren, Kleidung und Bettwäsche haften",
+        tone: "green",
+      },
+      {
+        label: "Barriere-Druck",
+        value: "Wind, Schweiß und UV können denselben Tag spürbar rauer machen",
+        tone: "amber",
+      },
+      {
+        label: "Routine",
+        value: "Sanft reinigen, Kleidung trennen, eincremen und Kratzen vermeiden",
+        tone: "blue",
+      },
+    ],
+    blocks: [
+      {
+        id: "skin-barrier-pressure",
+        type: "section",
+        heading: "Frühlingshaut reagiert oft auf mehrere Reize gleichzeitig",
+        tone: "amber",
+        paragraphs: [
+          "Wenn die Haut im Frühling juckt, liegen Pollen als Erklärung nahe. Trotzdem sollte man nicht annehmen, dass Pollen jeden Ausschlag verursachen. Feinstaub, trockener Wind, Schweiß und UV-Belastung können die Hautbarriere gleichzeitig beanspruchen.",
+          "Trockener Wind kann die Haut spannen lassen. Schweiß kann brennen oder Reibung verstärken, wenn er länger auf der Haut bleibt. Pollen und feine Partikel haften an Haaren, Kragen, Masken und Kissenbezügen und verlängern so die Belastung nach dem Heimkommen.",
+          "Sinnvoll ist daher keine Eigendiagnose, sondern eine ruhige Routine: Reize sanft entfernen, zusätzliche Reibung vermeiden und die Haut mit unparfümierter Pflege unterstützen.",
+        ],
+        bullets: [
+          "Pollenflug und Feinstaub an trockenen, windigen Tagen zusammen prüfen.",
+          "Schweiß und Reibung als Teil der Hautreizung mitdenken.",
+          "Exponierte Haut bei langer Outdoor-Zeit vor Wind und UV schützen.",
+          "Einen sich ausbreitenden Ausschlag nicht als normale Saisonreaktion abtun.",
+        ],
+      },
+      {
+        id: "day-timeline",
+        type: "timeline",
+        heading: "Drei Zeitpunkte machen die Routine übersichtlich",
+        intro:
+          "Die Hautbarriere lässt sich leichter schützen, wenn die Schritte an die Belastung gekoppelt sind: vor dem Rausgehen, draußen und nach dem Heimkommen.",
+        items: [
+          {
+            label: "Vor dem Rausgehen",
+            title: "Die Barriere vorbereiten",
+            body:
+              "Unparfümierte Pflege dünn auftragen, direkte Exposition mit Kleidung reduzieren und bei UV sowie Wind Sonnenschutz einplanen.",
+          },
+          {
+            label: "Während Sie draußen sind",
+            title: "Schweiß, Reibung und Berühren begrenzen",
+            body:
+              "Schweiß mit einem sauberen Tuch sanft abtupfen, juckende Stellen nicht reiben und gereizte Haut nur mit sauberen Händen berühren.",
+          },
+          {
+            label: "Nach dem Heimkommen",
+            title: "Partikel entfernen und die Haut beruhigen",
+            body:
+              "Exponierte Haut sanft reinigen, Outdoor-Kleidung nicht aufs Bett oder Sofa legen und eincremen, bevor die Haut austrocknet.",
+          },
+        ],
+      },
+      {
+        id: "return-home-checklist",
+        type: "checklist",
+        heading: "Fünf Schritte nach dem Heimkommen",
+        intro:
+          "Die Routine soll Außenpartikel entfernen, ohne die Haut weiter auszutrocknen, und den Übertrag auf Textilien verringern.",
+        items: [
+          "Exponierte Stellen mit lauwarmem Wasser und mildem Reiniger säubern, statt heiß zu duschen oder grob zu schrubben.",
+          "Unparfümierte Feuchtigkeitspflege auftragen, solange die Haut leicht feucht ist, und nicht mehrere neue Produkte gleichzeitig testen.",
+          "Outdoor-Kleidung, Mützen und Masken von Kissen, Sofa und sauberen Handtüchern getrennt halten.",
+          "Bei Schüben Kissenbezüge oder Gesichtshandtücher häufiger wechseln, besonders nach windigen oder staubigen Tagen.",
+          "Kratzen vermeiden, Nägel kurz halten und juckende Stellen eher kühl drücken als aufkratzen.",
+        ],
+      },
+      {
+        id: "rash-warning",
+        type: "quote",
+        heading: "Wann die Routine nicht ausreicht",
+        quote:
+          "Medizinischen Rat suchen, wenn sich ein Ausschlag ausbreitet, Blasen, Schwellung oder Fieber auftreten oder starker Juckreiz den Schlaf stört. Wenn Hautsymptome nach Lebensmitteln oder Medikamenten mit Atemnot, Schwellung von Hals, Lippen oder Zunge, Schwindel, Ohnmacht oder raschen Ganzkörpersymptomen auftreten, ist das ein Notfallsignal, keine normale Hautpflege.",
+        attribution: "Achoo Hautbarriere-Notiz",
+      },
+    ],
+    faq: [
+      {
+        question: "Wie unterscheide ich Juckreiz von einem Ausschlag, der abgeklärt werden sollte?",
+        answer:
+          "Juckreiz kann auch ohne sichtbaren Ausschlag auftreten. Breitet sich Rötung aus, kommen Schwellung, Blasen, Fieber oder schnelle Verschlechterung dazu, sollte es nicht nur als Pollentag behandelt werden.",
+      },
+      {
+        question: "Sollte ich nach dem Draußensein duschen oder reinigen?",
+        answer:
+          "Nach längerer Außenexposition oder hoher Pollen- und Staubbelastung kann sanfte Reinigung helfen. Heißes Wasser, grobe Peelings und häufiges Waschen, das die Haut spannen lässt, sollten vermieden werden.",
+      },
+      {
+        question: "Welches Signal spricht klar für medizinischen Rat?",
+        answer:
+          "Ärztliche Abklärung ist sinnvoll, wenn sich der Ausschlag ausbreitet, Blasen oder Schwellung entstehen, Fieber dazukommt oder Juckreiz den Schlaf stört. Wenn Hautsymptome nach Lebensmitteln oder Medikamenten mit Atemnot, Schwellung von Hals, Lippen oder Zunge, Schwindel, Ohnmacht oder raschen Ganzkörpersymptomen auftreten, ist das ein Notfallsignal, keine normale Hautpflege.",
+      },
+    ],
+    cta: createCta(
+      "de",
+      "Pollen und Staub prüfen, bevor die Haut überfordert wirkt",
+      "Nutzen Sie die heutige Vorhersage für Outdoor-Zeit und halten Sie die Rückkehr-Routine einfach: sanft reinigen, Kleidung trennen, eincremen und Kratzen vermeiden.",
+    ),
+  },
 };
 const FR: Record<string, ArticleLocalization> = {
   "longer-pollen-seasons": {
@@ -5407,6 +7174,149 @@ const FR: Record<string, ArticleLocalization> = {
       "fr",
       "Vérifier si aujourd’hui risque d’être une journée dominée par les yeux",
       "Regardez d’abord la situation locale. Si les yeux risquent de prendre le dessus, adaptez lentilles, temps dehors et routine de nettoyage avant de partir.",
+    ),
+  },
+  "itchy-eyes-pollen-conjunctivitis": {
+    articleId: "itchy-eyes-pollen-conjunctivitis",
+    locale: "fr",
+    eyebrow: "Yeux qui grattent",
+    title:
+      "Yeux rouges qui grattent les jours de pollen : allergie, conjonctivite ou sécheresse ?",
+    description:
+      "Quand les yeux grattent et rougissent pendant un jour de pollen, il peut être difficile de distinguer allergie, conjonctivite infectieuse et irritation liée à la sécheresse ou aux écrans. Cette page aide à trier les signaux sans poser de diagnostic.",
+    seoTitle: "yeux qui grattent allergie pollen ou conjonctivite",
+    seoDescription:
+      "Comparer démangeaisons, rougeur, larmoiement, croûtes, sécrétions colorées, douleur, sensibilité à la lumière et gêne avec les lentilles les jours de pollen.",
+    listSummary:
+      "Un guide pratique pour lire les yeux rouges qui grattent les jours de pollen, avec gestes d’hygiène, lentilles, exposition et signaux d’alerte.",
+    summaryItems: [
+      {
+        label: "Différence clé",
+        value:
+          "Démangeaisons et larmes claires peuvent évoquer l’allergie; croûtes ou sécrétions colorées changent la lecture.",
+        tone: "rose",
+      },
+      {
+        label: "Décision du jour",
+        value:
+          "Ne pas frotter, mettre les lentilles en pause, laver les mains et garder des serviettes propres.",
+        tone: "blue",
+      },
+      {
+        label: "Signaux d’alerte",
+        value:
+          "Douleur, gêne à la lumière, changement de vision, écoulement important ou douleur avec les lentilles relèvent d’un avis médical.",
+        tone: "amber",
+      },
+    ],
+    trendSignals: [
+      {
+        label: "Tendance",
+        value: "Plus de recherches comparent allergie oculaire et conjonctivite",
+        tone: "rose",
+      },
+      {
+        label: "Impact",
+        value: "Écrans, poussière et lentilles brouillent le tableau",
+        tone: "blue",
+      },
+      {
+        label: "Action",
+        value: "Repérer les signaux d’alerte avant la routine allergie",
+        tone: "amber",
+      },
+    ],
+    blocks: [
+      {
+        id: "eye-patterns",
+        type: "comparison",
+        heading: "Trois schémas derrière des yeux rouges qui grattent",
+        intro:
+          "Ce n’est pas un outil de diagnostic. C’est une façon de trier les signaux du jour avant de choisir la suite.",
+        leftTitle: "Signaux fréquents",
+        rightTitle: "Lecture du jour",
+        rows: [
+          {
+            label: "Schéma conjonctivite allergique",
+            left:
+              "Démangeaisons, rougeur, larmes claires et gêne des deux yeux reviennent après exposition aux pollens.",
+            right:
+              "Cela recoupe des signes oculaires allergiques décrits par l’AAAAI, sans suffire à confirmer la cause.",
+          },
+          {
+            label: "Schéma conjonctivite infectieuse",
+            left:
+              "Croûtes, paupières collées, sécrétions colorées ou plus épaisses, rougeur pouvant commencer d’un côté.",
+            right:
+              "Cela recoupe les repères du CDC sur la conjonctivite infectieuse; lavage des mains, serviettes propres et prudence face à la contagion comptent.",
+          },
+          {
+            label: "Schéma irritation type sécheresse",
+            left:
+              "Sécheresse, picotements, aggravation après écran et gêne avec les lentilles dominent, surtout si pollens et poussières sont hauts.",
+            right:
+              "Cela peut imiter ou accompagner allergie et infection; douleur, gêne à la lumière et vision modifiée se vérifient d’abord.",
+          },
+        ],
+        footnote:
+          "Douleur, sensibilité à la lumière, changement de vision, écoulement important ou douleur avec les lentilles ne doivent pas être traités comme une simple gêne pollinique.",
+      },
+      {
+        id: "same-day-eye-routine",
+        type: "checklist",
+        heading: "Six décisions de soin oculaire pour aujourd’hui",
+        intro:
+          "Quand la cause n’est pas claire, commencez par les choix qui réduisent l’irritation et le risque de transmission.",
+        items: [
+          "Ne pas se frotter les yeux et limiter les gestes des mains vers le visage.",
+          "Mettre les lentilles en pause ou réduire le temps de port, surtout si elles deviennent douloureuses ou très inconfortables.",
+          "Utiliser des serviettes et taies propres, et ne pas partager les serviettes en présence de sécrétions ou de croûtes.",
+          "Se laver les mains avant et après avoir touché le contour des yeux, puis après avoir retiré croûtes ou sécrétions.",
+          "Réduire sorties, aération ou sport extérieur quand pollens et poussières sont élevés ensemble.",
+          "Demander un avis plutôt que s’appuyer sur des astuces si douleur, gêne à la lumière, changement de vision, écoulement important ou douleur avec les lentilles apparaît.",
+        ],
+      },
+      {
+        id: "overlap-days",
+        type: "section",
+        heading: "Pollens, poussières et longues journées d’écran se superposent",
+        tone: "blue",
+        paragraphs: [
+          "Les symptômes oculaires arrivent rarement dans un contexte simple. Trajet chargé en pollens, poussière, air intérieur sec, lentilles et longues heures d’écran peuvent se cumuler dans la même journée.",
+          "Cet article diffère du guide de reset des symptômes oculaires liés aux pollens. Cette page sert à trier les signaux; l’autre reste centré sur la routine du jour même.",
+          "Avant de nommer la cause, séparez démangeaisons, larmes claires, croûtes, sécrétions colorées, douleur, sensibilité à la lumière, changement de vision et gêne avec les lentilles. La décision suivante sera moins précipitée.",
+        ],
+      },
+      {
+        id: "vision-warning",
+        type: "quote",
+        heading: "Quand les yeux dépassent la routine",
+        quote:
+          "Douleur oculaire, sensibilité à la lumière, changement de vision, écoulement important ou douleur avec les lentilles doivent être traités comme un sujet de soin, pas comme une simple gêne liée aux pollens.",
+        attribution: "Note éditoriale Achoo",
+      },
+    ],
+    faq: [
+      {
+        question: "Les yeux qui grattent à cause du pollen sont-ils contagieux ?",
+        answer:
+          "L’allergie elle-même n’est pas contagieuse. Une conjonctivite infectieuse peut l’être; croûtes, sécrétions colorées ou transmission autour de vous justifient une hygiène plus stricte et un seuil plus bas pour demander avis.",
+      },
+      {
+        question: "Puis-je porter des lentilles si mes yeux grattent et sont rouges ?",
+        answer:
+          "Il est souvent plus prudent de réduire le temps de port ou de faire une pause. En cas de douleur, changement de vision ou rougeur marquée, ne forcez pas les lentilles.",
+      },
+      {
+        question: "Quels symptômes oculaires sont urgents ?",
+        answer:
+          "Douleur oculaire, sensibilité à la lumière, changement de vision, écoulement important ou douleur liée aux lentilles ne doivent pas être gérés comme une gêne allergique ordinaire. Des symptômes soudains ou forts peuvent nécessiter un avis le jour même.",
+      },
+    ],
+    cta: createCta(
+      "fr",
+      "Triez les symptômes des yeux avant de choisir la routine",
+      "Comparez démangeaisons, larmes, croûtes, sécrétions, douleur et gêne avec les lentilles aux prévisions de pollens et de poussières du jour.",
     ),
   },
   "pollen-food-syndrome": {
@@ -6350,6 +8260,459 @@ const FR: Record<string, ArticleLocalization> = {
       "fr",
       "Apprendre la nouvelle carte d’exposition de votre lieu de vie",
       "Regardez la situation locale puis comparez-la avec votre trajet, les espaces verts et vos habitudes à la maison. C’est souvent là que l’explication commence.",
+    ),
+  },
+  "cold-vs-pollen-allergy": {
+    articleId: "cold-vs-pollen-allergy",
+    locale: "fr",
+    eyebrow: "Lecture des symptômes",
+    title: "Rhume ou allergie au pollen ? Les signes à vérifier avant de sortir",
+    description:
+      "Nez qui coule et éternuements peuvent ressembler à un rhume. Ce guide compare les schémas fréquents sans poser de diagnostic.",
+    seoTitle:
+      "Rhume ou allergie au pollen : signes à vérifier avant de sortir",
+    seoDescription:
+      "Comparer rhume ou allergie au pollen selon la fièvre, les démangeaisons, le mucus, le moment, la contagion et les signaux d’alerte.",
+    listSummary:
+      "Un repère du matin pour les personnes qui hésitent entre rhume, rhinite allergique et exposition aux pollens.",
+    summaryItems: [
+      {
+        label: "Signal clé",
+        value:
+          "Fièvre et courbatures ne racontent pas la même chose que yeux qui grattent, nez qui gratte et éternuements répétés.",
+        tone: "green",
+      },
+      {
+        label: "Réflexe du matin",
+        value:
+          "Relier les symptômes aux prévisions polliniques du jour avant de fixer le programme extérieur.",
+        tone: "blue",
+      },
+      {
+        label: "Signal médical",
+        value:
+          "Sifflement, essoufflement, douleur intense, fièvre ou aggravation relèvent d’un avis médical.",
+        tone: "rose",
+      },
+    ],
+    trendSignals: [
+      {
+        label: "Recherche",
+        value: "Plus de questions sur rhume ou allergie au pollen au printemps",
+        tone: "green",
+      },
+      {
+        label: "Confusion",
+        value: "Nez qui coule et éternuements se recoupent fortement",
+        tone: "amber",
+      },
+      {
+        label: "Action",
+        value: "Lire ensemble symptômes et prévisions locales",
+        tone: "blue",
+      },
+    ],
+    blocks: [
+      {
+        id: "symptom-pattern",
+        type: "comparison",
+        heading:
+          "Rhume et allergie au pollen peuvent se ressembler, mais le schéma compte",
+        intro:
+          "Ce tableau aide à organiser la décision du matin. Il ne remplace pas un diagnostic.",
+        leftTitle: "Plutôt compatible avec un rhume",
+        rightTitle: "Plutôt compatible avec une allergie au pollen",
+        rows: [
+          {
+            label: "Fièvre et courbatures",
+            left: "Fièvre, frissons, courbatures ou sensation d’être malade évoquent davantage une infection.",
+            right:
+              "L’allergie au pollen donne plus souvent nez qui coule et irritation sans fièvre.",
+          },
+          {
+            label: "Démangeaisons",
+            left: "La gorge peut piquer, mais yeux et nez qui grattent ne sont pas toujours le signal principal.",
+            right:
+              "Yeux qui grattent, nez qui gratte, palais irrité et éternuements répétés sont des indices fréquents.",
+          },
+          {
+            label: "Aspect du mucus",
+            left: "Les sécrétions peuvent commencer claires puis devenir plus épaisses au fil des jours.",
+            right:
+              "Un écoulement clair et aqueux peut revenir tant que l’exposition continue.",
+          },
+          {
+            label: "Moment d’apparition",
+            left: "Un rhume suit souvent un début, un pic, puis une amélioration progressive.",
+            right:
+              "Les symptômes peuvent flamber les jours de fort pollen, de vent ou de longues sorties.",
+          },
+          {
+            label: "Contagion",
+            left: "Si c’est viral, il faut penser au risque de transmission aux autres.",
+            right:
+              "La réaction allergique elle-même n’est pas contagieuse, même si l’exposition est partagée.",
+          },
+          {
+            label: "Signaux d’alerte",
+            left: "Forte fièvre, douleur intense ou aggravation méritent un avis médical.",
+            right:
+              "Sifflement, essoufflement, douleur intense ou aggravation dépassent la simple planification météo.",
+          },
+        ],
+        footnote:
+          "Les schémas peuvent se croiser. En cas de doute, de symptômes forts ou d’aggravation, demandez un avis médical.",
+      },
+      {
+        id: "morning-check",
+        type: "checklist",
+        heading: "Routine du matin en quatre étapes",
+        intro:
+          "L’idée est de regarder les symptômes et l’exposition prévue dans le même mouvement.",
+        items: [
+          "Vérifier s’il y a fièvre, frissons ou courbatures.",
+          "Chercher yeux qui grattent, nez qui gratte, palais irrité et éternuements répétés.",
+          "Consulter les prévisions polliniques, le vent et le contexte de qualité de l’air du jour.",
+          "Adapter la sortie, l’intensité de l’activité ou les horaires d’aération.",
+        ],
+      },
+      {
+        id: "why-it-feels-like-cold",
+        type: "section",
+        heading: "Pourquoi cela peut ressembler à un rhume",
+        tone: "amber",
+        paragraphs: [
+          "Les symptômes liés au pollen peuvent commencer par un nez qui coule, une congestion, des éternuements et une gorge irritée. Ce sont aussi les signes que beaucoup associent spontanément à un rhume.",
+          "Le but n’est pas de se diagnostiquer soi-même. Il s’agit de repérer un schéma : démangeaisons, écoulement clair, absence de fièvre et poussées les jours de fort pollen peuvent aider à réduire l’exposition prévue.",
+          "Si le même scénario revient ou gêne le quotidien, noter les symptômes avec les prévisions polliniques donne une base plus utile pour en parler à un professionnel.",
+        ],
+      },
+      {
+        id: "care-signal",
+        type: "quote",
+        heading: "Quand la planification ne suffit plus",
+        quote:
+          "Fièvre, sifflement respiratoire, essoufflement, douleur intense ou symptômes qui s’aggravent font passer la situation de la planification selon les prévisions à une prise en charge clinique.",
+        attribution: "Note sécurité Achoo",
+      },
+    ],
+    faq: [
+      {
+        question: "La fièvre exclut-elle une allergie au pollen ?",
+        answer:
+          "La fièvre n’est pas le schéma habituel d’une allergie au pollen et doit être prise au sérieux. Elle ne prouve pas une cause à elle seule, mais elle dépasse la simple décision liée aux prévisions.",
+      },
+      {
+        question:
+          "Combien de temps durent les symptômes d’allergie par rapport à un rhume ?",
+        answer:
+          "Un rhume évolue souvent sur plusieurs jours. Les symptômes liés au pollen peuvent revenir tant que l’exposition continue, surtout lors des journées de fort pollen.",
+      },
+      {
+        question: "Quel signal doit faire demander un avis médical ?",
+        answer:
+          "Fièvre, sifflement respiratoire, essoufflement, douleur intense, aggravation rapide ou symptômes qui perturbent fortement le quotidien justifient un avis médical.",
+      },
+    ],
+    cta: createCta(
+      "fr",
+      "Vérifier les symptômes et les pollens avant de sortir",
+      "Comparez fièvre, démangeaisons, éternuements et prévisions polliniques locales avant d’ajuster sortie, sport ou aération.",
+    ),
+  },
+  "pine-pollen-yellow-dust": {
+    articleId: "pine-pollen-yellow-dust",
+    locale: "fr",
+    eyebrow: "Pollen visible",
+    title: "Poudre jaune partout : ce qu’elle dit vraiment du risque allergique",
+    description:
+      "La poudre jaune sur les voitures, les rebords de fenêtre et les balcons saute aux yeux. C’est un signal utile, mais pas une mesure complète du risque allergique.",
+    seoTitle:
+      "Pollen jaune et risque allergique : comprendre la poudre visible",
+    seoDescription:
+      "Comprendre pourquoi le pollen jaune visible n’est qu’une partie du risque allergique, comment le distinguer des pollens qui déclenchent des symptômes et de la poussière.",
+    listSummary:
+      "Un guide pratique pour utiliser la poudre jaune comme signal, puis décider aération, linge, nettoyage et douche à partir des prévisions.",
+    summaryItems: [
+      {
+        label: "Idée clé",
+        value:
+          "Le pollen jaune visible invite à consulter les prévisions, mais il ne mesure pas tout le pollen qui peut déclencher des symptômes.",
+        tone: "green",
+      },
+      {
+        label: "Confusion fréquente",
+        value:
+          "Pollen, poussière domestique, particules fines et poussière jaune peuvent se cumuler, sans représenter la même exposition.",
+        tone: "amber",
+      },
+      {
+        label: "Geste du jour",
+        value:
+          "Regarder ensemble pollens et qualité de l’air avant d’ouvrir les fenêtres, de sécher le linge ou de sortir longtemps.",
+        tone: "blue",
+      },
+    ],
+    trendSignals: [
+      {
+        label: "Signal saisonnier",
+        value: "La poudre jaune rend l’exposition très visible",
+        tone: "green",
+      },
+      {
+        label: "Limite",
+        value: "Ce qui se voit ne résume pas tout le risque allergique",
+        tone: "amber",
+      },
+      {
+        label: "Action",
+        value: "Lire ensemble prévisions de pollen et poussières",
+        tone: "blue",
+      },
+    ],
+    blocks: [
+      {
+        id: "visible-pollen",
+        type: "section",
+        heading: "Le pollen visible n’est que la partie évidente",
+        tone: "amber",
+        paragraphs: [
+          "Quand une poudre jaune couvre une voiture ou un balcon, le risque allergique semble visible lui aussi. Comme signal, c’est utile : des particules végétales circulent et peuvent entrer dans le logement.",
+          "Mais beaucoup de pollens associés aux symptômes ne se voient pas aussi facilement. Une journée peut paraître plus propre que la veille et garder assez de pollen dans l’air pour irriter les yeux ou le nez.",
+          "La poussière, les particules fines et les épisodes de poussière jaune peuvent aussi irriter sans être du pollen. La poudre visible doit donc pousser à consulter les prévisions, pas les remplacer.",
+        ],
+      },
+      {
+        id: "compare-pollen-dust",
+        type: "table",
+        heading: "Ce que l’on voit et quoi faire aujourd’hui",
+        intro:
+          "Ce tableau sépare les indices visibles des décisions utiles pour réduire l’exposition.",
+        columns: ["Ce que vous voyez", "Ce que cela signifie", "Que faire aujourd’hui"],
+        rows: [
+          {
+            cells: [
+              "Poudre jaune sur les surfaces extérieures",
+              "Un indice de pollen visible, souvent lié à des grains plus gros. Cela ne mesure pas tout le risque allergique.",
+              "Consulter les prévisions avant d’aérer longtemps.",
+            ],
+            tone: "amber",
+          },
+          {
+            cells: [
+              "Peu de pollen visible",
+              "Des pollens pouvant déclencher des symptômes peuvent rester présents dans l’air.",
+              "Utiliser les prévisions polliniques, surtout par temps sec ou venteux.",
+            ],
+          },
+          {
+            cells: [
+              "Poussière sur les surfaces intérieures",
+              "Les particules venues de dehors peuvent se mélanger à la poussière domestique et se remettre en suspension.",
+              "Essuyer avec un chiffon humide plutôt que dépoussiérer à sec.",
+            ],
+          },
+          {
+            cells: [
+              "Niveau élevé de particules fines",
+              "Ce ne sont pas des pollens, mais elles peuvent irriter les yeux et les voies respiratoires.",
+              "Réduire l’aération quand pollens et particules sont élevés ensemble.",
+            ],
+          },
+          {
+            cells: [
+              "Alerte poussière jaune lorsque c’est pertinent",
+              "La poussière transportée est une exposition différente du pollen, même si elle laisse un dépôt visible.",
+              "Planifier fenêtres, linge et sorties avec les prévisions de pollens et de poussières.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "ventilation-cleaning",
+        type: "checklist",
+        heading: "Cinq routines à la maison les jours de pollen jaune",
+        intro:
+          "La logique est simple : limiter ce qui entre, puis retirer ce qui se dépose.",
+        items: [
+          "Ouvrir les fenêtres brièvement quand les prévisions de pollen et de particules sont plus basses; éviter les pics venteux.",
+          "Sécher le linge et la literie à l’intérieur les jours de forte prévision, ou secouer ce qui a séché dehors avant de le rentrer.",
+          "Essuyer rebords de fenêtre, tables et sols avec un chiffon ou une serpillière humide.",
+          "Se doucher et rincer les cheveux après une longue exposition dehors pour ne pas transférer les particules vers l’oreiller ou le canapé.",
+          "Vérifier ensemble pollen, particules fines et éventuelle poussière jaune avant de fixer le programme du jour.",
+        ],
+      },
+      {
+        id: "forecast-over-visible",
+        type: "quote",
+        heading: "Les prévisions d’abord",
+        quote:
+          "La poussière jaune visible est un signal pour consulter les prévisions; ce n’est pas une mesure complète du risque allergique.",
+        attribution: "Note prévisions Achoo",
+      },
+    ],
+    faq: [
+      {
+        question: "La poudre jaune visible signifie-t-elle toujours un risque allergique élevé ?",
+        answer:
+          "Non. Elle montre qu’un pollen visible se dépose, mais les pollens plus petits associés aux symptômes peuvent évoluer autrement. Les prévisions restent nécessaires.",
+      },
+      {
+        question: "Faut-il garder les fenêtres fermées dès qu’il y a du pollen jaune ?",
+        answer:
+          "Pas forcément. Une aération courte pendant les périodes plus basses en pollens et particules est plus utile qu’une décision fondée seulement sur la couleur des surfaces.",
+      },
+      {
+        question: "Quel nettoyage ou lavage privilégier ?",
+        answer:
+          "Essuyer humide limite la remise en suspension. Après une longue sortie, douche, rinçage des cheveux et changement de vêtements réduisent ce qui arrive sur le lit ou les tissus.",
+      },
+    ],
+    cta: createCta(
+      "fr",
+      "Consulter les prévisions avant de réagir au pollen jaune",
+      "Comparez pollens et qualité de l’air, puis choisissez les horaires d’aération, de linge, de nettoyage et de sortie les moins exposés.",
+    ),
+  },
+  "skin-allergy-pollen-dust": {
+    articleId: "skin-allergy-pollen-dust",
+    locale: "fr",
+    eyebrow: "Routine peau",
+    title:
+      "Pollen, poussières et peau qui gratte au printemps : une routine barrière simple",
+    description:
+      "Une peau qui gratte au printemps ne s’explique pas toujours par le pollen seul. Poussières fines, vent sec, transpiration et UV peuvent se cumuler et fragiliser la barrière cutanée.",
+    seoTitle: "pollen poussière peau qui gratte et routine barrière simple",
+    seoDescription:
+      "Routine peau simple pour les journées de printemps où pollen, poussières fines, vent sec, transpiration et UV peuvent cumuler les irritations.",
+    listSummary:
+      "Une routine en trois temps pour protéger la barrière cutanée avant de sortir, dehors, puis au retour les jours de pollen et de poussières.",
+    summaryItems: [
+      {
+        label: "Idée clé",
+        value:
+          "Le pollen peut compter, mais poussières fines, vent, transpiration et UV peuvent aggraver l’irritation ensemble.",
+        tone: "green",
+      },
+      {
+        label: "Moment sensible",
+        value:
+          "Les journées sèches, venteuses, avec transpiration ou UV demandent un nettoyage doux et une hydratation rapide au retour.",
+        tone: "amber",
+      },
+      {
+        label: "Geste du jour",
+        value:
+          "Retirer les particules sans décaper, isoler les vêtements portés dehors et hydrater avec un soin sans parfum.",
+        tone: "blue",
+      },
+    ],
+    trendSignals: [
+      {
+        label: "Exposition cumulée",
+        value: "Pollen et poussières fines peuvent rester sur peau, cheveux, vêtements et linge",
+        tone: "green",
+      },
+      {
+        label: "Pression barrière",
+        value: "Vent, transpiration et UV rendent la même journée plus irritante",
+        tone: "amber",
+      },
+      {
+        label: "Routine",
+        value: "Nettoyer doucement, séparer les vêtements, hydrater et éviter de gratter",
+        tone: "blue",
+      },
+    ],
+    blocks: [
+      {
+        id: "skin-barrier-pressure",
+        type: "section",
+        heading: "Au printemps, la peau réagit souvent à plusieurs irritants",
+        tone: "amber",
+        paragraphs: [
+          "Quand la peau gratte au printemps, le pollen vient vite à l’esprit. Pourtant, il ne faut pas conclure que le pollen cause toutes les plaques ou démangeaisons. Les poussières fines, le vent sec, la transpiration et les UV peuvent peser ensemble sur la barrière cutanée.",
+          "Le vent sec peut laisser la peau tendue. La transpiration peut piquer ou augmenter les frottements si elle reste longtemps. Pollen et particules fines s’accrochent aux cheveux, cols, masques et taies d’oreiller, ce qui prolonge l’exposition à l’intérieur.",
+          "La réponse pratique n’est donc pas de poser un diagnostic soi-même, mais de limiter ce qui reste sur la peau, d’éviter les frottements inutiles et de soutenir la barrière avec une hydratation simple sans parfum.",
+        ],
+        bullets: [
+          "Lire ensemble les prévisions de pollen et de particules fines les jours secs et venteux.",
+          "Compter la transpiration et les frottements parmi les facteurs d’irritation.",
+          "Protéger les zones exposées du vent et des UV lors des longues sorties.",
+          "Ne pas considérer une éruption qui s’étend comme une simple démangeaison saisonnière.",
+        ],
+      },
+      {
+        id: "day-timeline",
+        type: "timeline",
+        heading: "Trois moments suffisent pour structurer la routine",
+        intro:
+          "La routine est plus facile à tenir quand elle suit l’exposition : avant de sortir, dehors, puis après le retour.",
+        items: [
+          {
+            label: "Avant de sortir",
+            title: "Préparer la barrière",
+            body:
+              "Appliquer un hydratant sans parfum, choisir des vêtements qui limitent l’exposition directe et prévoir une protection solaire quand UV et vent sont présents.",
+          },
+          {
+            label: "Pendant la sortie",
+            title: "Limiter transpiration, frottements et contacts",
+            body:
+              "Tamponner la transpiration avec un tissu propre, éviter de frotter les zones qui grattent et toucher la peau irritée seulement avec des mains propres.",
+          },
+          {
+            label: "Après le retour",
+            title: "Retirer les particules et réhydrater",
+            body:
+              "Nettoyer doucement les zones exposées, garder les vêtements portés dehors loin du lit ou du canapé, puis hydrater avant que la peau ne tire.",
+          },
+        ],
+      },
+      {
+        id: "return-home-checklist",
+        type: "checklist",
+        heading: "Cinq gestes barrière au retour",
+        intro:
+          "Le but est de retirer les résidus extérieurs sans décaper la peau et d’éviter leur transfert vers le linge.",
+        items: [
+          "Nettoyer les zones exposées à l’eau tiède avec un nettoyant doux, plutôt qu’avec de l’eau chaude ou un gommage agressif.",
+          "Appliquer un hydratant sans parfum quand la peau est encore légèrement humide, sans multiplier les nouveaux produits.",
+          "Garder vêtements d’extérieur, chapeaux et masques loin des oreillers, canapés et serviettes propres.",
+          "Changer plus souvent les taies d’oreiller ou serviettes de visage lors des poussées, surtout après des journées venteuses ou poussiéreuses.",
+          "Éviter de gratter, garder les ongles courts et préférer une pression fraîche sur les zones qui démangent.",
+        ],
+      },
+      {
+        id: "rash-warning",
+        type: "quote",
+        heading: "Quand la routine ne suffit pas",
+        quote:
+          "Demandez un avis médical si une éruption s’étend, s’il y a cloques, gonflement ou fièvre, ou si les démangeaisons empêchent de dormir. Si des symptômes cutanés après un aliment ou un médicament s’accompagnent de gêne respiratoire, gonflement de la gorge, des lèvres ou de la langue, vertiges, malaise ou symptômes généralisés rapides, considérez-les comme urgents, pas comme des soins de peau courants.",
+        attribution: "Note barrière cutanée Achoo",
+      },
+    ],
+    faq: [
+      {
+        question: "Comment distinguer une démangeaison d’une éruption à surveiller ?",
+        answer:
+          "Une démangeaison peut exister sans lésion visible. En revanche, rougeur qui s’étend, gonflement, cloques, fièvre ou aggravation rapide ne doivent pas être traités comme un simple jour de pollen.",
+      },
+      {
+        question: "Faut-il se doucher ou nettoyer la peau après être sorti ?",
+        answer:
+          "Après une longue exposition ou des prévisions élevées en pollen et poussières, un nettoyage doux peut aider. Évitez l’eau très chaude, les gommages forts et les lavages répétés qui laissent la peau tendue.",
+      },
+      {
+        question: "Quel signal doit faire demander un avis médical ?",
+        answer:
+          "Demandez conseil si l’éruption s’étend, forme des cloques, gonfle, s’accompagne de fièvre ou perturbe le sommeil par les démangeaisons. Si des symptômes cutanés après un aliment ou un médicament s’accompagnent de gêne respiratoire, gonflement de la gorge, des lèvres ou de la langue, vertiges, malaise ou symptômes généralisés rapides, considérez-les comme urgents, pas comme des soins de peau courants.",
+      },
+    ],
+    cta: createCta(
+      "fr",
+      "Vérifier pollens et poussières avant que la peau ne sature",
+      "Servez-vous des prévisions du jour pour organiser les sorties, puis gardez une routine de retour simple : nettoyer doucement, séparer les vêtements, hydrater et éviter de gratter.",
     ),
   },
 };

@@ -1,13 +1,82 @@
 import { ARTICLE_CATALOG } from "../content/articles/catalog";
 import { ARTICLE_LOCALIZATIONS } from "../content/articles/localizations";
 import { ARTICLE_SOURCES } from "../content/articles/sources";
-import type {
+import {
+  ARTICLE_LOCALES,
   ArticleCatalogEntry,
   ArticleLocale,
   ArticleLocalization,
   ArticleRecord,
 } from "../content/articles/schema";
 import { slugify } from "./content";
+
+function validateArticleContent() {
+  const errors: string[] = [];
+  const articleIds = new Set<string>();
+  const slugs = new Set<string>();
+
+  for (const entry of ARTICLE_CATALOG) {
+    if (articleIds.has(entry.id)) {
+      errors.push(`Duplicate article id: ${entry.id}`);
+    }
+    articleIds.add(entry.id);
+
+    if (slugs.has(entry.slug)) {
+      errors.push(`Duplicate article slug: ${entry.slug}`);
+    }
+    slugs.add(entry.slug);
+  }
+
+  for (const entry of ARTICLE_CATALOG) {
+    for (const sourceId of entry.sourceIds) {
+      if (!ARTICLE_SOURCES[sourceId]) {
+        errors.push(`Article ${entry.id} references missing source ${sourceId}`);
+      }
+    }
+
+    for (const relatedId of entry.relatedIds) {
+      if (!articleIds.has(relatedId)) {
+        errors.push(`Article ${entry.id} references missing related article ${relatedId}`);
+      }
+    }
+
+    for (const locale of ARTICLE_LOCALES) {
+      const localizationCount = ARTICLE_LOCALIZATIONS.filter(
+        (item) => item.articleId === entry.id && item.locale === locale,
+      ).length;
+
+      if (localizationCount !== 1) {
+        errors.push(
+          `Article ${entry.id} has ${localizationCount} ${locale} localizations`,
+        );
+      }
+    }
+  }
+
+  for (const localization of ARTICLE_LOCALIZATIONS) {
+    if (!articleIds.has(localization.articleId)) {
+      errors.push(
+        `Localization ${localization.locale}/${localization.articleId} references missing article`,
+      );
+    }
+
+    const blockIds = new Set<string>();
+    for (const block of localization.blocks) {
+      if (blockIds.has(block.id)) {
+        errors.push(
+          `Localization ${localization.locale}/${localization.articleId} has duplicate block id ${block.id}`,
+        );
+      }
+      blockIds.add(block.id);
+    }
+  }
+
+  if (errors.length > 0) {
+    throw new Error(`Invalid article content:\n${errors.join("\n")}`);
+  }
+}
+
+validateArticleContent();
 
 function getLocalization(articleId: string, locale: ArticleLocale) {
   return ARTICLE_LOCALIZATIONS.find(
