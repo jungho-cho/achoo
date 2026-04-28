@@ -61,6 +61,12 @@ export const ARTICLE_SOURCES: Record<string, ArticleSource> = {
     href: "https://acaai.org/allergies/allergic-conditions/seasonal-allergies/",
     publisher: "ACAAI",
   },
+  "acaai-anaphylaxis": {
+    id: "acaai-anaphylaxis",
+    title: "Anaphylaxis",
+    href: "https://acaai.org/allergies/symptoms/anaphylaxis/",
+    publisher: "ACAAI",
+  },
   "aaaai-hay-fever": {
     id: "aaaai-hay-fever",
     title: "Hay Fever and Pollen Counts",

@@ -715,7 +715,7 @@ const KO: Record<string, ArticleLocalization> = {
             left:
               "가려움, 충혈, 맑고 물 같은 눈물, 양쪽 눈 불편감이 꽃가루 노출 뒤 반복됩니다.",
             right:
-              "ACAAI가 설명하는 알레르기성 눈 증상과 겹칠 수 있지만, 이것만으로 원인을 확정하지 않습니다.",
+              "AAAAI가 설명하는 알레르기성 눈 증상과 겹칠 수 있지만, 이것만으로 원인을 확정하지 않습니다.",
           },
           {
             label: "감염성 결막염 쪽 패턴",
@@ -2075,7 +2075,7 @@ const KO: Record<string, ArticleLocalization> = {
         type: "quote",
         heading: "번지는 발진은 루틴만으로 판단하지 않습니다",
         quote:
-          "발진이 퍼지거나 물집, 붓기, 열이 동반되거나, 잠을 방해할 만큼 심하게 가렵거나, 음식이나 약을 먹은 뒤 증상이 생겼다면 의료진에게 상담하세요.",
+          "발진이 퍼지거나 물집, 붓기, 열이 동반되거나 잠을 방해할 만큼 가렵다면 상담하세요. 음식이나 약 뒤 피부 증상과 호흡곤란, 목·입술·혀 부기, 어지럼·실신, 전신으로 빠르게 번지는 증상이 함께 오면 응급 신호로 보세요.",
         attribution: "Achoo 피부 장벽 메모",
       },
     ],
@@ -2093,7 +2093,7 @@ const KO: Record<string, ArticleLocalization> = {
       {
         question: "어떤 신호가 있으면 관리를 멈추고 상담해야 하나요?",
         answer:
-          "발진이 빠르게 퍼지거나 물집, 붓기, 열, 수면을 방해하는 심한 가려움, 음식이나 약 복용 뒤 생긴 증상이 있으면 의료진과 상의하세요.",
+          "발진이 빠르게 퍼지거나 물집, 붓기, 열, 수면을 방해하는 심한 가려움이 있으면 상담하세요. 음식이나 약 뒤 피부 증상과 호흡곤란, 목·입술·혀 부기, 어지럼·실신, 전신으로 빠르게 번지는 증상이 함께 오면 일상 피부 관리가 아니라 응급 진료 신호입니다.",
       },
     ],
     cta: createCta(
@@ -2833,7 +2833,7 @@ const EN: Record<string, ArticleLocalization> = {
             left:
               "Itching, redness, clear watery discharge, and both-eye irritation repeat after pollen exposure.",
             right:
-              "These overlap with allergy-eye signs described by ACAAI, but the pattern alone does not prove the cause.",
+              "These overlap with allergy-eye signs described by AAAAI, but the pattern alone does not prove the cause.",
           },
           {
             label: "Infectious conjunctivitis pattern",
@@ -4264,7 +4264,7 @@ const EN: Record<string, ArticleLocalization> = {
         type: "quote",
         heading: "Know when the routine is not enough",
         quote:
-          "Seek care for a spreading rash, blistering, swelling, fever, severe itch that disrupts sleep, or symptoms that appear after food or medication exposure.",
+          "Seek care for a spreading rash, blistering, swelling, fever, or severe itch that disrupts sleep. If skin symptoms after food or medication come with breathing trouble, throat, lip, or tongue swelling, dizziness, fainting, or rapid whole-body symptoms, treat it as urgent care, not routine skin care.",
         attribution: "Achoo skin-barrier note",
       },
     ],
@@ -4282,7 +4282,7 @@ const EN: Record<string, ArticleLocalization> = {
       {
         question: "What is the clearest signal to seek care?",
         answer:
-          "Seek medical guidance if the rash spreads, blisters, swells, comes with fever, keeps you from sleeping because of itch, or starts after food or medication exposure.",
+          "Seek medical guidance if the rash spreads, blisters, swells, comes with fever, or keeps you from sleeping because of itch. If skin symptoms after food or medication come with breathing trouble, throat, lip, or tongue swelling, dizziness, fainting, or rapid whole-body symptoms, treat it as urgent care, not routine skin care.",
       },
     ],
     cta: createCta(
@@ -5027,7 +5027,7 @@ const DE: Record<string, ArticleLocalization> = {
             left:
               "Juckreiz, Rötung, klar-wässriger Ausfluss und beidseitige Reizung wiederholen sich nach Pollenexposition.",
             right:
-              "Das überschneidet sich mit von ACAAI beschriebenen Allergiezeichen, beweist die Ursache aber nicht.",
+              "Das überschneidet sich mit von AAAAI beschriebenen Allergiezeichen, beweist die Ursache aber nicht.",
           },
           {
             label: "Muster infektiöse Bindehautentzündung",
@@ -6470,7 +6470,7 @@ const DE: Record<string, ArticleLocalization> = {
         type: "quote",
         heading: "Wann die Routine nicht ausreicht",
         quote:
-          "Medizinischen Rat suchen, wenn sich ein Ausschlag ausbreitet, Blasen, Schwellung oder Fieber auftreten, starker Juckreiz den Schlaf stört oder Symptome nach Lebensmitteln oder Medikamenten entstehen.",
+          "Medizinischen Rat suchen, wenn sich ein Ausschlag ausbreitet, Blasen, Schwellung oder Fieber auftreten oder starker Juckreiz den Schlaf stört. Wenn Hautsymptome nach Lebensmitteln oder Medikamenten mit Atemnot, Schwellung von Hals, Lippen oder Zunge, Schwindel, Ohnmacht oder raschen Ganzkörpersymptomen auftreten, ist das ein Notfallsignal, keine normale Hautpflege.",
         attribution: "Achoo Hautbarriere-Notiz",
       },
     ],
@@ -6488,7 +6488,7 @@ const DE: Record<string, ArticleLocalization> = {
       {
         question: "Welches Signal spricht klar für medizinischen Rat?",
         answer:
-          "Ärztliche Abklärung ist sinnvoll, wenn sich der Ausschlag ausbreitet, Blasen oder Schwellung entstehen, Fieber dazukommt, Juckreiz den Schlaf stört oder Beschwerden nach Lebensmitteln oder Medikamenten auftreten.",
+          "Ärztliche Abklärung ist sinnvoll, wenn sich der Ausschlag ausbreitet, Blasen oder Schwellung entstehen, Fieber dazukommt oder Juckreiz den Schlaf stört. Wenn Hautsymptome nach Lebensmitteln oder Medikamenten mit Atemnot, Schwellung von Hals, Lippen oder Zunge, Schwindel, Ohnmacht oder raschen Ganzkörpersymptomen auftreten, ist das ein Notfallsignal, keine normale Hautpflege.",
       },
     ],
     cta: createCta(
@@ -7241,7 +7241,7 @@ const FR: Record<string, ArticleLocalization> = {
             left:
               "Démangeaisons, rougeur, larmes claires et gêne des deux yeux reviennent après exposition aux pollens.",
             right:
-              "Cela recoupe des signes oculaires allergiques décrits par l’ACAAI, sans suffire à confirmer la cause.",
+              "Cela recoupe des signes oculaires allergiques décrits par l’AAAAI, sans suffire à confirmer la cause.",
           },
           {
             label: "Schéma conjonctivite infectieuse",
@@ -8688,7 +8688,7 @@ const FR: Record<string, ArticleLocalization> = {
         type: "quote",
         heading: "Quand la routine ne suffit pas",
         quote:
-          "Demandez un avis médical si une éruption s’étend, s’il y a cloques, gonflement ou fièvre, si les démangeaisons empêchent de dormir, ou si les symptômes suivent une exposition alimentaire ou médicamenteuse.",
+          "Demandez un avis médical si une éruption s’étend, s’il y a cloques, gonflement ou fièvre, ou si les démangeaisons empêchent de dormir. Si des symptômes cutanés après un aliment ou un médicament s’accompagnent de gêne respiratoire, gonflement de la gorge, des lèvres ou de la langue, vertiges, malaise ou symptômes généralisés rapides, considérez-les comme urgents, pas comme des soins de peau courants.",
         attribution: "Note barrière cutanée Achoo",
       },
     ],
@@ -8706,7 +8706,7 @@ const FR: Record<string, ArticleLocalization> = {
       {
         question: "Quel signal doit faire demander un avis médical ?",
         answer:
-          "Demandez conseil si l’éruption s’étend, forme des cloques, gonfle, s’accompagne de fièvre, perturbe le sommeil par les démangeaisons ou apparaît après un aliment ou un médicament.",
+          "Demandez conseil si l’éruption s’étend, forme des cloques, gonfle, s’accompagne de fièvre ou perturbe le sommeil par les démangeaisons. Si des symptômes cutanés après un aliment ou un médicament s’accompagnent de gêne respiratoire, gonflement de la gorge, des lèvres ou de la langue, vertiges, malaise ou symptômes généralisés rapides, considérez-les comme urgents, pas comme des soins de peau courants.",
       },
     ],
     cta: createCta(

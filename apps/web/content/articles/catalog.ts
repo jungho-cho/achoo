@@ -231,6 +231,7 @@ export const ARTICLE_CATALOG: ArticleCatalogEntry[] = [
     sourceIds: [
       "mayo-itchy-skin",
       "mayo-contact-dermatitis",
+      "acaai-anaphylaxis",
       "pubmed-pollution-review",
       "cdc-pollen-health",
     ],
