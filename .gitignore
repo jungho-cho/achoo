@@ -42,6 +42,8 @@ dist/
 .gstack/
 .claude/
 .omx/
+.superpowers/
+.worktrees/
 
 # cloudflare / opennext
 .open-next/
